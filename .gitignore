@@ -1,0 +1,12 @@
+﻿Debug
+Release
+VisualGDB
+*.opensdf
+*.sdf
+*.suo
+*.old
+*.user
+.vs
+VisualGDBCache
+CodeDB
+out
