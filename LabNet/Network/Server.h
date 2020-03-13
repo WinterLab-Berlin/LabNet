@@ -2,7 +2,7 @@
 
 #include <boost/asio.hpp>
 #include <string>
-#include "Connection.h"
+#include <LoggingFacility.h>
 #include "ConnectionManager.h"
 
 class Server
@@ -12,7 +12,7 @@ public:
 	Server& operator=(const Server&) = delete;
 
 	/// Construct the server to listen on the specified port
-	explicit Server(ConnectionManager& connection_manager, ushort port);
+	explicit Server(Logger logger, ConnectionManager& connection_manager, ushort port);
 
 	/// Run the server's io_context loop.
 	void run();
@@ -35,4 +35,5 @@ private:
 
 	/// The connection manager which owns all live connections.
 	ConnectionManager& m_connection_manager;
+	Logger m_logger;
 };

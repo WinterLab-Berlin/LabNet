@@ -3,9 +3,12 @@
 
 cmake_minimum_required(VERSION 2.7)
 project(LabNet)
-set(LIBRARIES_FROM_REFERENCES -latomic -lpthread -lboost_system so.5.7.0)
-add_executable(LabNet LabNet.cpp Log/easylogging++.cc Log/easylogging++.h Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h)
-target_include_directories(LabNet PRIVATE ../sobjectizer/dev)
+set(LIBRARIES_FROM_REFERENCES -latomic -lpthread -lboost_system -lwiringPi so.5.7.0)
+add_executable(LabNet LabNet.cpp Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h Log/easylogging++.cc Log/easylogging++.h Network/NetworkProxyActor.h Network/NetworkProxyActor.cpp Interface/UART/SerialPort.cpp Interface/UART/SerialPort.h Log/LoggingFacility.h Log/StandardOutputLogger.h Log/EasyLogger.h Log/LoggerFactory.h Interface/UART/SerialPortMessages.h Interface/UART/SerialPortsManager.h Interface/UART/SerialPortsManager.cpp)
+target_include_directories(LabNet PRIVATE ../sobjectizer/dev ../sobjectizer/dev Log Interface/UART Log)
 set_property(TARGET LabNet PROPERTY CXX_STANDARD 17)
 target_link_libraries(LabNet "${LIBRARIES_FROM_REFERENCES}")
 add_subdirectory(../sobjectizer/dev dev)
+
+add_compile_definitions(ELPP_THREAD_SAFE)
+FILE(COPY Log/logger.conf DESTINATION "${CMAKE_BINARY_DIR}")

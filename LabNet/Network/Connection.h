@@ -4,6 +4,7 @@
 #include <memory>
 #include <boost/asio.hpp>
 #include <vector>
+#include <LoggingFacility.h>
 
 class ConnectionManager;
 
@@ -15,7 +16,7 @@ public:
 	Connection& operator=(const Connection&) = delete;
 
 	/// Construct a connection with the given socket.
-	explicit Connection(boost::asio::ip::tcp::socket socket, ConnectionManager& connection_manager);
+	explicit Connection(Logger logger, boost::asio::ip::tcp::socket socket, ConnectionManager& connection_manager);
 
 	/// Start the first asynchronous operation for the connection.
 	void start();
@@ -31,6 +32,7 @@ private:
 	void do_read();
 	void do_write(std::vector<char> buffer);
 
+	Logger m_logger;
 	boost::asio::ip::tcp::socket m_socket;
 	ConnectionManager& m_connection_manager;
 	std::array<char, 8192> m_buffer;

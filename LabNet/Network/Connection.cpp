@@ -3,11 +3,11 @@
 #include <ctime>
 #include "Connection.h"
 #include "ConnectionManager.h"
-#include "../Log/easylogging++.h"
 
-Connection::Connection(boost::asio::ip::tcp::socket socket,
+Connection::Connection(Logger logger, boost::asio::ip::tcp::socket socket,
 	ConnectionManager &connection_manager)
-	: m_socket(std::move(socket))
+	: m_logger(logger)
+	, m_socket(std::move(socket))
 	, m_connection_manager(connection_manager)
 {
 }
@@ -19,7 +19,7 @@ void Connection::start()
 
 void Connection::stop()
 {
-	LOG(INFO) << "connection stopped";
+	m_logger->writeInfoEntry("connection stopped");
 	
 	m_socket.close();
 }

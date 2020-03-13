@@ -2,10 +2,11 @@
 #include <signal.h>
 #include <memory>
 #include <utility>
-#include "../Log/easylogging++.h"
+#include <boost/lexical_cast.hpp>
 
-Server::Server(ConnectionManager& connection_manager, ushort port)
-	: m_io_context(1)
+Server::Server(Logger logger, ConnectionManager& connection_manager, ushort port)
+	: m_logger(logger)
+	, m_io_context(1)
 	, m_signals(m_io_context)
 	, m_acceptor(m_io_context)
 	, m_connection_manager(connection_manager)
@@ -26,7 +27,8 @@ Server::Server(ConnectionManager& connection_manager, ushort port)
 	m_acceptor.bind(endpoint);
 	m_acceptor.listen();
 
-	LOG(INFO) << "server is running on: " << endpoint;
+	
+	m_logger->writeInfoEntry(std::string("server is now running on: ") + boost::lexical_cast<std::string>(endpoint));
 	
 	do_accept();
 }
@@ -50,12 +52,12 @@ void Server::do_accept()
 
 		if (!ec)
 		{
-			LOG(INFO) << "new connection from " << socket.remote_endpoint().address();
+			m_logger->writeInfoEntry(std::string("new connection from ") + boost::lexical_cast<std::string>(socket.remote_endpoint()));
 			
 			socket.set_option(boost::asio::socket_base::keep_alive(true));
 			socket.set_option(boost::asio::socket_base::linger(true, 2));
 			m_connection_manager.start(std::make_shared<Connection>(
-			    std::move(socket), m_connection_manager));
+			    m_logger, std::move(socket), m_connection_manager));
 		}
 
 		do_accept();
@@ -70,6 +72,6 @@ void Server::do_await_stop()
 		m_acceptor.close();
 		m_connection_manager.stop_all();
 		
-		LOG(INFO) << "stop server";
+		m_logger->writeInfoEntry("stop server");
 	});
 }

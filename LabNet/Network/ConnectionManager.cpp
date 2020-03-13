@@ -1,24 +1,26 @@
 
 #include "ConnectionManager.h"
-#include "../Log/easylogging++.h"
 
-ConnectionManager::ConnectionManager()
+ConnectionManager::ConnectionManager(Logger logger, NetworkProxyActor& proxy)
+	: m_logger(logger)
+	, m_proxy(proxy)
 {
+	m_proxy.set_connnection_mamager(this);
 }
 
 void ConnectionManager::start(std::shared_ptr<Connection> c)
 {
 	if (m_connection == nullptr)
 	{
-		LOG(INFO) << "accept new connection";
+		m_logger->writeInfoEntry("accept new connection");
 		
 		m_connection = c;
 		c->start();
 		
-		m_connectSig();
+		m_proxy.connect_handler();
 	}
 	else {
-		LOG(INFO) << "only one connection possible";
+		m_logger->writeInfoEntry("only one connection possible");
 		
 		m_connections.insert(c);
 		c->refuse_conection("too much connections");
@@ -32,7 +34,7 @@ void ConnectionManager::stop(std::shared_ptr<Connection> c)
 		c->stop();
 		m_connection = nullptr;
 		
-		m_disconnectSig();
+		m_proxy.disconnect_handler();
 	}
 	else
 	{
@@ -51,4 +53,15 @@ void ConnectionManager::stop_all()
 	for (auto c : m_connections)
 		c->stop();
 	m_connections.clear();
+}
+
+void ConnectionManager::on_new_data(std::shared_ptr<std::vector<char>> data)
+{
+	m_proxy.data_handler(data);
+}
+	
+void ConnectionManager::send_message(std::shared_ptr<std::vector<char>> mes)
+{
+	if (m_connection)
+		m_connection->send_message(mes);
 }

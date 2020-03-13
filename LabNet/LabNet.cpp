@@ -1,132 +1,78 @@
-#include "Log/easylogging++.h"
-//#include "Network/Server.h"
+#define BOOST_BIND_NO_PLACEHOLDERS
+
+#include <LoggerFactory.h>
+#include "Network/Server.h"
 #include <so_5/all.hpp>
+#include "Interface/UART/SerialPortsManager.h"
+#include "Interface/UART/SerialPortMessages.h"
 
-INITIALIZE_EASYLOGGINGPP
-
-//void connect_handler()
-//{
-//	std::cout << "connected" << std::endl;
-//}
-//
-//void disconnect_handler()
-//{
-//	std::cout << "disconnected" << std::endl;
-//}
-//
-//void data_handler(std::shared_ptr<std::vector<char>> data)
-//{
-//	std::cout << "data: " << data->data() << std::endl;
-//}
-
-// Types of signals for the agents.
-struct msg_ping final : public so_5::signal_t {}
-;
-struct msg_pong final : public so_5::signal_t {};
-
-// Class of pinger agent.
-class a_pinger_t final : public so_5::agent_t
+class test final : public so_5::agent_t
 {
 public:
-	a_pinger_t(context_t ctx, so_5::mbox_t mbox, int pings_to_send)
-		:	so_5::agent_t{ ctx }
-	, m_mbox{ std::move(mbox) }
-	, m_pings_left{ pings_to_send }
-	{}
+	test(context_t ctx, so_5::mbox_t ser_port, Logger logger)
+		: so_5::agent_t{ ctx }
+		, m_ser_port(ser_port)
+		, m_logger(logger)
+	{
+		
+	}
 
 	void so_define_agent() override
 	{
-		so_subscribe(m_mbox).event(&a_pinger_t::evt_pong);
+		so_default_state()
+			.event(&test::init_port_error_event)
+			.event(&test::init_init_port_success_event);
 	}
 
 	void so_evt_start() override
 	{
-		send_ping();
+		so_5::send_delayed<init_port>(m_ser_port, std::chrono::microseconds(100), 1, 9600, so_direct_mbox());
 	}
-
-private:
-	const so_5::mbox_t m_mbox;
-
-	int m_pings_left;
-
-	void evt_pong(mhood_t< msg_pong >)
-	{
-		if (m_pings_left > 0)
-		{
-			
-			send_ping();
-		}
-		else
-			so_environment().stop();
-	}
-
-	void send_ping()
-	{
-		//LOG(INFO) << "ping";
-		so_5::send< msg_ping >(m_mbox);
-		--m_pings_left;
-	}
-}
-;
-
-class a_ponger_t final : public so_5::agent_t
-{
-public:
-	a_ponger_t(context_t ctx, const so_5::mbox_t & mbox)
-		: so_5::agent_t(std::move(ctx))
-	{
-		so_subscribe(mbox).event(
-			[mbox](mhood_t<msg_ping>) {
-			//LOG(INFO) << "pong";
-			so_5::send< msg_pong >(mbox);
-		});
-	}
-};
 	
+private:
+	void init_port_error_event(const init_port_error& ev)
+	{
+		m_logger->writeInfoEntry("port init error from test");
+	}
+	void init_init_port_success_event(const init_port_success& ev)
+	{
+		m_logger->writeInfoEntry("port init success from test");
+	}
+	
+	so_5::mbox_t m_ser_port;
+	Logger m_logger;
+};
+
 int main(int argc, char *argv[])
 {
-	//LOG(INFO) << "starting";
+	Logger logger = LoggerFactory::create();
+	logger->writeInfoEntry("LabNet starting");
 	
-//	ConnectionManager connection_manager;
-//	
-//	connection_manager.add_connect_handler(&connect_handler);
-//	connection_manager.add_disconnect_handler(&disconnect_handler);
-//	connection_manager.add_data_received_handler(&data_handler);
+	so_5::launch([&](so_5::environment_t & env) {
+		so_5::mbox_t m;
+		env.introduce_coop([&](so_5::coop_t & coop) {
+			auto serPort = coop.make_agent< SerialPortsManager >(logger);
+			m = serPort->so_direct_mbox();
+			
+			env.register_agent_as_coop(env.make_agent<test>(m, logger));
+		});
+	});
+
+	
+//	NetworkProxyActor proxy(logger);
+//	ConnectionManager connection_manager(logger, proxy);
 //	
 //	try
 //	{
-//		Server server(connection_manager, 8080);
+//		Server server(logger, connection_manager, 8080);
 //		server.run();
 //	} 
 //	catch (std::exception& e)
 //	{
-//		LOG(FATAL) << "server start error " << e.what();
+//		logger->writeFatalEntry(std::string("network server error ") + e.what());
 //	}
 	
-	try
-	{
-		LOG(INFO) << "start";
-		so_5::launch([](so_5::environment_t & env) {
-			env.introduce_coop([&env](so_5::coop_t & coop) {
-				// Mbox for agent's interaction.
-				auto mbox = env.create_mbox();
-
-				// Pinger.
-				coop.make_agent< a_pinger_t >(mbox, 100000);
-
-				// Ponger agent.
-				coop.make_agent< a_ponger_t >(std::cref(mbox));
-			});
-		});
-		
-		LOG(INFO) << "stop";
-
-		return 0;
-	}
-	catch(const std::exception & x)
-	{
-		std::cerr << "*** Exception caught: " << x.what() << std::endl;
-	}
+	
 	
 	return 0;
 }
