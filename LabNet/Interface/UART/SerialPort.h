@@ -9,7 +9,7 @@
 class SerialPort final
 {
 public:
-	SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const int portHandler);
+	SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const int portId, const int portHandler, const int baud);
 	~SerialPort();
 	
 	void send_data(std::shared_ptr<std::vector<char>> data);
@@ -17,11 +17,14 @@ public:
 private:
 	void data_send_thread(so_5::mchain_t ch);
 	
-	bool stopRequested();
+	bool stop_requested();
 	
 	void data_read_thread();
 	
+	
+	const int m_portId;
 	const int m_portHandler;
+	const int m_baud;
 	const so_5::mchain_t m_sendToPortBox;
 	const so_5::mbox_t m_parent;
 	std::thread m_sendWorker;

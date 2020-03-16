@@ -5,8 +5,9 @@
 #include <unistd.h>
 #include <wiringSerial.h>
 
-SerialPortsManager::SerialPortsManager(context_t ctx, Logger logger)
+SerialPortsManager::SerialPortsManager(context_t ctx, const so_5::mbox_t mbox, Logger logger)
 	: so_5::agent_t(ctx)
+	, m_parentMbox(mbox)
 	, m_logger(logger)
 {
 	get_raspi_revision();
@@ -27,52 +28,93 @@ void SerialPortsManager::so_define_agent()
 	so_subscribe_self()
 		.event(&SerialPortsManager::init_new_port_event)
 		.event(&SerialPortsManager::port_unexpected_closed_event)
-		.event(&SerialPortsManager::new_data_from_port_event);
-		
+		.event(&SerialPortsManager::new_data_from_port_event)
+		.event(&SerialPortsManager::send_data_to_port_event)
+		.event(&SerialPortsManager::try_to_reconnect_event);
 }
 
 void SerialPortsManager::init_new_port_event(const init_port& ev)
 {
-	if (ev.port > -1 && ev.port < 5)
+	if (ev.port_id > -1 && ev.port_id < 5)
 	{
-		if (m_handle_for_port[ev.port] < 0)
+		if (m_handle_for_port[ev.port_id] < 0)
 		{
-			std::string port = port_name_for_id(ev.port);
+			std::string port = port_name_for_id(ev.port_id);
 			if (port.size() == 0)
 			{
-				so_5::send <init_port_error>(ev.m_mbox, ev.port);
+				so_5::send <init_port_error>(m_parentMbox, ev.port_id);
 				return;
 			}
 			
 			int handle = serialOpen(port.c_str(), ev.baud);
 			if (handle < 0)
 			{
-				so_5::send <init_port_error>(ev.m_mbox, ev.port);
+				so_5::send <init_port_error>(m_parentMbox, ev.port_id);
 			}
 			else
 			{
 				so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 				
-				m_ports[ev.port] = std::make_unique<SerialPort>(so_direct_mbox(), sendToPortBox, handle);
-				m_handle_for_port[ev.port] = handle;
-				m_port_for_handle[handle] = ev.port;
+				m_ports[ev.port_id] = std::make_unique<SerialPort>(so_direct_mbox(), sendToPortBox, ev.port_id, handle, ev.baud);
+				m_handle_for_port[ev.port_id] = handle;
 				
-				so_5::send <init_port_success>(ev.m_mbox, ev.port);
+				so_5::send <init_port_success>(m_parentMbox, ev.port_id);
 			}
 		}
 	}
 }
 
+void SerialPortsManager::try_to_reconnect_event(const try_to_reconnect& ev)
+{
+	if (ev.port_id > -1 && ev.port_id < 5)
+	{
+		if (m_handle_for_port[ev.port_id] < 0)
+		{
+			std::string port = port_name_for_id(ev.port_id);
+			if (port.size() == 0)
+			{
+				so_5::send_delayed<try_to_reconnect>(so_direct_mbox(), std::chrono::seconds(1), ev.port_id, ev.baud);	
+				return;
+			}
+			
+			int handle = serialOpen(port.c_str(), ev.baud);
+			if (handle < 0)
+			{
+				so_5::send_delayed<try_to_reconnect>(so_direct_mbox(), std::chrono::seconds(1), ev.port_id, ev.baud);
+			}
+			else
+			{
+				so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
+				
+				m_ports[ev.port_id] = std::make_unique<SerialPort>(so_direct_mbox(), sendToPortBox, ev.port_id, handle, ev.baud);
+				m_handle_for_port[ev.port_id] = handle;
+				
+				// reconnected
+				so_5::send <port_reconnected>(m_parentMbox, ev.port_id);
+			}
+		}
+	}
+}
+
+void SerialPortsManager::send_data_to_port_event(const send_data_to_port& data)
+{
+	auto it = m_ports.find(data.port_id);
+	if (it != m_ports.end())
+	{
+		m_ports[data.port_id]->send_data(data.data);
+	}
+}
+
 void SerialPortsManager::port_unexpected_closed_event(const port_unexpected_closed& ev)
 {
-	int port = m_port_for_handle[ev.handle];
-	m_port_for_handle.erase(ev.handle);
-	
 	std::string mes("port unexpected closed serial port ");
-	mes += (port + '0');
+	mes += (ev.port_id + '0');
 	m_logger->writeInfoEntry(mes);
 	
-	m_ports.erase(port);
+	m_ports.erase(ev.port_id);
+	m_handle_for_port[ev.port_id] = -1;
+	
+	so_5::send_delayed<try_to_reconnect>(so_direct_mbox(), std::chrono::seconds(1), ev.port_id, ev.baud);
 }
 
 void SerialPortsManager::new_data_from_port_event(const new_data_from_port& data)

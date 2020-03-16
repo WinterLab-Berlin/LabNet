@@ -3,8 +3,10 @@
 #include <chrono>
 #include <SerialPortMessages.h>
 
-SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const int portHandler)
+SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const int portId, const int portHandler, const int baud)
 	: m_parent(parent)
+	, m_portId(portId)
+	, m_baud(baud)
 	, m_sendToPortBox(sendToPortBox)
 	, m_portHandler(portHandler)
 	, m_futureObj(m_exitSignal.get_future())
@@ -38,10 +40,12 @@ void SerialPort::data_send_thread(so_5::mchain_t ch)
 			{
 				serialPutchar(m_portHandler, data->at(i));
 			}
+			
+			so_5::send<send_data_complete>(m_parent, m_portId);
 		});
 }
 	
-bool SerialPort::stopRequested()
+bool SerialPort::stop_requested()
 {
 	// checks if value in future object is available
 	if(m_futureObj.wait_for(std::chrono::milliseconds(0)) == std::future_status::timeout)
@@ -51,7 +55,7 @@ bool SerialPort::stopRequested()
 	
 void SerialPort::data_read_thread()
 {
-	while (stopRequested() == false)
+	while (stop_requested() == false)
 	{
 		int c = serialDataAvail(m_portHandler);
 		
@@ -66,16 +70,16 @@ void SerialPort::data_read_thread()
 			
 			if (c < 0)
 			{
-				so_5::send<port_unexpected_closed>(m_parent, m_portHandler);
+				so_5::send<port_unexpected_closed>(m_parent, m_portId);
 			
 				break;
 			}
 			
-			so_5::send<new_data_from_port>(m_parent, m_portHandler, data);
+			so_5::send<new_data_from_port>(m_parent, m_portId, data);
 		}
 		else if (c < 0)
 		{
-			so_5::send<port_unexpected_closed>(m_parent, m_portHandler);
+			so_5::send<port_unexpected_closed>(m_parent, m_portId, m_baud);
 			
 			break;
 		}

@@ -6,12 +6,19 @@
 #include "Interface/UART/SerialPortsManager.h"
 #include "Interface/UART/SerialPortMessages.h"
 
+struct move_to_first
+{
+};
+
+struct move_to_second
+{
+};
+
 class test final : public so_5::agent_t
 {
 public:
-	test(context_t ctx, so_5::mbox_t ser_port, Logger logger)
+	test(context_t ctx, Logger logger)
 		: so_5::agent_t{ ctx }
-		, m_ser_port(ser_port)
 		, m_logger(logger)
 	{
 		
@@ -21,12 +28,20 @@ public:
 	{
 		so_default_state()
 			.event(&test::init_port_error_event)
-			.event(&test::init_init_port_success_event);
+			.event(&test::init_init_port_success_event)
+			.event(&test::move_motor_to_first)
+			.event(&test::move_motor_to_second);
 	}
 
 	void so_evt_start() override
 	{
-		so_5::send_delayed<init_port>(m_ser_port, std::chrono::microseconds(100), 1, 9600, so_direct_mbox());
+		so_5::introduce_child_coop( *this,
+			[&](so_5::coop_t & coop) {
+				auto serPort = coop.make_agent< SerialPortsManager >(so_direct_mbox(), m_logger);
+				m_ser_port = serPort->so_direct_mbox();
+			});
+		
+		so_5::send<init_port>(m_ser_port, 1, 57600);
 	}
 	
 private:
@@ -37,6 +52,45 @@ private:
 	void init_init_port_success_event(const init_port_success& ev)
 	{
 		m_logger->writeInfoEntry("port init success from test");
+		
+		so_5::send_delayed<move_to_first>(so_direct_mbox(), std::chrono::seconds(1));
+	}
+	void move_motor_to_first(const move_to_first& m)
+	{
+		m_logger->writeInfoEntry("move to first");
+		
+		std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
+		data->push_back(0xFF);
+		data->push_back(0xFF);
+		data->push_back(0x02);
+		data->push_back(0x05);
+		data->push_back(0x03);
+		data->push_back(0x1E);
+		data->push_back(0x99);
+		data->push_back(0x02);
+		data->push_back(0x3C);
+		
+		so_5::send<send_data_to_port>(m_ser_port, 1, data);
+		so_5::send_delayed<move_to_second>(so_direct_mbox(), std::chrono::seconds(3));
+	}
+	void move_motor_to_second(const move_to_second& m)
+	{
+		m_logger->writeInfoEntry("move to second");
+		
+		std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
+		data->push_back(0xFF);
+		data->push_back(0xFF);
+		data->push_back(0x02);
+		data->push_back(0x05);
+		data->push_back(0x03);
+		data->push_back(0x1E);
+		data->push_back(0x33);
+		data->push_back(0x01);
+		data->push_back(0xA3);
+		
+		so_5::send<send_data_to_port>(m_ser_port, 1, data);
+		
+		so_5::send_delayed<move_to_first>(so_direct_mbox(), std::chrono::seconds(3));
 	}
 	
 	so_5::mbox_t m_ser_port;
@@ -51,10 +105,7 @@ int main(int argc, char *argv[])
 	so_5::launch([&](so_5::environment_t & env) {
 		so_5::mbox_t m;
 		env.introduce_coop([&](so_5::coop_t & coop) {
-			auto serPort = coop.make_agent< SerialPortsManager >(logger);
-			m = serPort->so_direct_mbox();
-			
-			env.register_agent_as_coop(env.make_agent<test>(m, logger));
+			env.register_agent_as_coop(env.make_agent<test>(logger));
 		});
 	});
 
