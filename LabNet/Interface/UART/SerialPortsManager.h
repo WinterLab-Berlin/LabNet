@@ -18,11 +18,11 @@ public:
 private:
 	std::string port_name_for_id(int id);
 	void get_raspi_revision();
-	void init_new_port_event(const init_port& ev);
-	void try_to_reconnect_event(const try_to_reconnect& ev);
-	void port_unexpected_closed_event(const port_unexpected_closed& ev);
-	void new_data_from_port_event(const new_data_from_port& data);
-	void send_data_to_port_event(const send_data_to_port& data);
+	void init_new_port_event(const uart::messages::init_port& ev);
+	void try_to_reconnect_event(const uart::messages::try_to_reconnect& ev);
+	void port_unexpected_closed_event(const uart::messages::port_unexpected_closed& ev);
+	void new_data_from_port_event(const uart::messages::new_data_from_port& data);
+	void send_data_to_port_event(const uart::messages::send_data_to_port& data);
 	
 	const so_5::mbox_t m_parentMbox;
 	Logger m_logger;

@@ -41,7 +41,7 @@ void SerialPort::data_send_thread(so_5::mchain_t ch)
 				serialPutchar(m_portHandler, data->at(i));
 			}
 			
-			so_5::send<send_data_complete>(m_parent, m_portId);
+			so_5::send<uart::messages::send_data_complete>(m_parent, m_portId);
 		});
 }
 	
@@ -70,16 +70,16 @@ void SerialPort::data_read_thread()
 			
 			if (c < 0)
 			{
-				so_5::send<port_unexpected_closed>(m_parent, m_portId);
+				so_5::send<uart::messages::port_unexpected_closed>(m_parent, m_portId);
 			
 				break;
 			}
 			
-			so_5::send<new_data_from_port>(m_parent, m_portId, data);
+			so_5::send<uart::messages::new_data_from_port>(m_parent, m_portId, data);
 		}
 		else if (c < 0)
 		{
-			so_5::send<port_unexpected_closed>(m_parent, m_portId, m_baud);
+			so_5::send<uart::messages::port_unexpected_closed>(m_parent, m_portId, m_baud);
 			
 			break;
 		}
