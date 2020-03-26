@@ -3,15 +3,23 @@
 #include <wiringPiSPI.h>
 #include "MAX14830.h"
 #include "spi.h"
+#include <cstring>
 
 #define MAXRESET 16 // pin
 
-MAX14830::MAXDevice::MAXDevice(Logger logger)
+MAX14830::MAXDevice::MAXDevice(Logger logger, so_5::mbox_t mbox)
 	: _logger(logger)
+	, _parentMbox(mbox)
+	
 {
+	using namespace std::chrono;
+	typedef time_point<steady_clock, milliseconds> timePoint;
+	_switch_time = time_point_cast<timePoint::duration>(steady_clock::time_point(steady_clock::now()));
 }
+
 MAX14830::MAXDevice::~MAXDevice()
 {
+	
 }
 
 void MAX14830::MAXDevice::reset_buffers()
@@ -79,10 +87,10 @@ void MAX14830::MAXDevice::init_uart()
 			//printf("Baud rate: %u\n", baud);
 
 			uint8_t lsr = max14830_getLineStatus(cnt1, cnt2);
-			if (lsr != 0)
-				printf("LSR: 0x%02x UART: %u\n", lsr, cnt2);
+//			if (lsr != 0)
+//				printf("LSR: 0x%02x UART: %u\n", lsr, cnt2);
 		}
-		printf("%s", "\n");
+		//printf("%s", "\n");
 	}
 
 	// reset FIFO; timing with delay? FK
@@ -147,6 +155,9 @@ void MAX14830::MAXDevice::stop()
 
 		max14830_disable(cnt1);
 	}
+	
+	_set_matrix = true;
+	_matrix_phase = 1;
 }
 
 void MAX14830::MAXDevice::invert(bool inverted)
@@ -197,8 +208,6 @@ void MAX14830::MAXDevice::readRXFifo(uint8_t cspin, uint8_t uart)
 		uint8_t lsr = max14830_getLineStatus(cspin, uart);
 		if (lsr != 0)
 		{
-			//syslog(LOG_INFO, "LSR: %02x UART: %u\n", lsr, uart);
-			//printf("LSR: 0x%02x UART: %u\n", lsr, uart);
 			//max14830_notify(cspin, uart, lsr);
 		}
 
@@ -226,27 +235,83 @@ void MAX14830::MAXDevice::readRXFifo(uint8_t cspin, uint8_t uart)
 			{
 				max_uart_RFIDCounter[cspin][uart] = 0;
 
-				_logger->writeInfoEntry(string_format("reader: %d rfid: %s", (4 * cspin + uart + 1), max_uart_RFIDBuffer[cspin][uart][0]));
-				//memcpy(&(max_uart_RFIDBuffer[cspin][uart][0]), &(max_uart_RFIDFifo[cspin][uart][0]), 14 * sizeof(uint8_t));
+				std::memcpy(&(max_uart_RFIDBuffer[cspin][uart][0]), &(max_uart_RFIDFifo[cspin][uart][0]), 14 * sizeof(uint8_t));
+				max_uart_RFIDBuffer[cspin][uart][11] = '\0';
 				
-				
-
-//				OutputFrame.LEN = 16;     // FCT+ADR+CMD+DATA0...DATA10+CRC+END
-//				OutputFrame.FCT = 0x0a;
-//				OutputFrame.ADR = 107;    // should be IOFct[i].pin? FK
-//				OutputFrame.CMD = 0x03;   // (uint8_t)fct_INPUT;
-//				OutputFrame.Data[0] = (uint8_t)(4 * cspin + uart + 1);   // UART numbering starts with 1
-//				memcpy(&(OutputFrame.Data[1]), &(max_uart_RFIDBuffer[cspin][uart][1]), 10 * sizeof(uint8_t));
-//				//for (cnt = 1; cnt < 11; cnt++)
-//				//	OutputFrame.Data[cnt] = max_uart_RFIDBuffer[cspin][uart][cnt];
-//
-//				ReturnDataTCP();   //(void*)new_sock);
+				//_logger->writeInfoEntry(string_format("reader: %d rfid: %s", (4 * cspin + uart + 1), &(max_uart_RFIDBuffer[cspin][uart][1])));
 			}
 			else
 			{
-				//fprintf(stderr, "Start or stop byte missing. Reader: %u\n", (uint8_t)(4 * cspin + uart + 1));
+				
 			}
 		}
 		counter--;
 	}
+}
+
+void MAX14830::MAXDevice::set_phase_matrix(uint32_t antenna_phase1, uint32_t antenna_phase2, uint32_t phase_duration)
+{
+	_antenna_phase1 = antenna_phase1;
+	_antenna_phase2 = antenna_phase2;
+	_phase_duration = phase_duration;
+	_set_matrix = true;
+	_matrix_phase = 1;
+	
+	using namespace std::chrono;
+	typedef time_point<steady_clock, milliseconds> timePoint;
+	_switch_time = time_point_cast<timePoint::duration>(steady_clock::time_point(steady_clock::now()));
+}
+
+void MAX14830::MAXDevice::switch_phase_matrix()
+{
+	using namespace std::chrono;
+	
+	if (_set_matrix)
+	{
+		time_point<std::chrono::steady_clock> now  = steady_clock::now();
+		
+		if (now >= _switch_time)
+		{
+			_switch_time += milliseconds(_phase_duration);
+			
+			if (_antenna_phase1 == _antenna_phase2)
+				_set_matrix = false;
+		
+			uint32_t matrix = 0;
+			uint8_t cnt1, cnt2, cnt;
+			if (_matrix_phase == 1)
+			{
+				matrix = _antenna_phase1;
+				_matrix_phase = 2;
+			}
+			else
+			{
+				matrix = _antenna_phase2;
+				_matrix_phase = 1;
+			}
+
+			_logger->writeInfoEntry(string_format("switch matrix %u", matrix));
+			for (cnt1 = 0; cnt1 < 8; cnt1++)
+			{
+				for (cnt2 = 0; cnt2 < 4; cnt2++)
+				{
+					cnt = (uint8_t)(4 * cnt1 + cnt2);
+					if ((matrix >> cnt) & 1)
+						max14830_setAntenna(cnt1, cnt2, true);
+					else
+						max14830_setAntenna(cnt1, cnt2, false);
+				}
+			}
+		}
+	}
+}
+
+void MAX14830::MAXDevice::read_all_and_set_antenna()
+{
+	uint8_t cnt1, cnt2;
+	for (cnt1 = 0; cnt1 < 8; cnt1++)
+		for (cnt2 = 0; cnt2 < 4; cnt2++)
+			readRXFifo(cnt1, cnt2);
+	
+	switch_phase_matrix();
 }

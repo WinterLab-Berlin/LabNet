@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LoggerFactory.h"
+#include "LoggingFacility.h"
 #include "StandardOutputLogger.h"
 #include "EasyLogger.h"
 
