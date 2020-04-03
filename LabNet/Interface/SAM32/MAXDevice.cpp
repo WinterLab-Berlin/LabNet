@@ -290,7 +290,7 @@ void MAX14830::MAXDevice::switch_phase_matrix()
 				_matrix_phase = 1;
 			}
 
-			_logger->writeInfoEntry(string_format("switch matrix %u", matrix));
+			//_logger->writeInfoEntry(string_format("switch matrix %u", matrix));
 			for (cnt1 = 0; cnt1 < 8; cnt1++)
 			{
 				for (cnt2 = 0; cnt2 < 4; cnt2++)

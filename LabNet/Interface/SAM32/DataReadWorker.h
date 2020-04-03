@@ -11,11 +11,11 @@ namespace MAX14830
 	class DataReadWorker
 	{
 	public:
-		DataReadWorker(MAXDevice& dev);
+		DataReadWorker(std::shared_ptr<MAX14830::MAXDevice> dev);
 		~DataReadWorker();
 		
 	private:
-		MAXDevice& _device;
+		std::shared_ptr<MAX14830::MAXDevice> _device;
 		std::thread _readWorker;
 		std::promise<void> _exitSignal;
 		std::future<void> _futureObj;

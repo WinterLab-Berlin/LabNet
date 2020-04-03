@@ -1,15 +1,13 @@
 #pragma once
 
 #include <so_5/all.hpp>
+#include "DigitalInput.h"
 
 namespace GPIO
 {
-	enum resistor
-	{
-		off,
-		pull_down,
-		pull_up
-	};
+	struct init_interface final : public so_5::signal_t {};
+	struct init_failed final : public so_5::signal_t {};
+	struct init_succeed final : public so_5::signal_t {};
 	
 	struct init_digital_in
 	{
@@ -18,18 +16,28 @@ namespace GPIO
 		const bool is_inverted = false;
 	};
 	
+	struct digital_in_init_success
+	{
+		const char pin;
+	};
+	
+	struct digital_in_init_failed
+	{
+		const char pin;
+	};
+	
 	struct init_digital_out
 	{
 		const char pin;
 		const bool is_inverted = false;
 	};
 	
-	struct pin_init_success
+	struct digital_out_init_success
 	{
 		const char pin;
 	};
 	
-	struct pin_init_failed
+	struct digital_out_init_failed
 	{
 		const char pin;
 	};

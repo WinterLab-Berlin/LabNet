@@ -2,20 +2,25 @@
 
 namespace GPIO
 {
-	class DigitalInput
+	enum resistor
 	{
-	public:
-		DigitalInput(const char h, const char l, bool inverted)
-			: pin_h(h)
-			, pin_l(l)
-			, is_inverted(inverted)
-			, state(false)
-		{
-		}
-		
-		const char pin_h;
-		const char pin_l;
-		const bool is_inverted;
-		bool state;
+		off,
+		pull_down,
+		pull_up
+	};
+	
+	struct DigitalInput
+	{
+		/// hardware pin number (wiringPi notation)
+		char pin_h;
+		/// logic pin number
+		char pin_l;
+		/// has the pin value to be inverted
+		bool is_inverted {false};
+		/// 
+		bool available {false};
+		/// current pin state
+		char state {2};
+		resistor resistor_state {resistor::off};
 	};
 }

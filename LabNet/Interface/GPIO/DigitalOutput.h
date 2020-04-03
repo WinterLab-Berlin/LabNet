@@ -2,18 +2,11 @@
 
 namespace GPIO
 {
-	class DigitalOutput
+	struct DigitalOutput
 	{
-	public:
-		DigitalOutput(const char h, const char l, bool inverted)
-			: pin_h(h)
-			, pin_l(l)
-			, is_inverted(inverted)
-		{
-		}
-		
-		const char pin_h;
-		const char pin_l;
-		const bool is_inverted;
+		char pin_h;
+		char pin_l;
+		bool is_inverted {false};
+		bool available {false};
 	};
 }
