@@ -1,0 +1,77 @@
+syntax = "proto3";
+package LabNet.Messages.Client;
+
+
+// GPIO top plane messages
+message GpioInit {
+}
+
+message GpioInitDigitalIn {
+	uint32 pin = 1;
+	enum Resistor {
+		OFF = 0;
+		PULL_DOWN = 1;
+		PULL_UP = 2;
+	}
+	Resistor resistor_state = 2;
+	bool is_inverted = 3;
+}
+
+message GpioInitDigitalOut {
+	uint32 pin = 1;
+	bool is_inverted = 2;
+}
+
+message GpioSetDigitalOut {
+	uint32 pin = 1;
+	bool state = 2;
+}
+// GPIO top plane messages
+
+
+// SAM32 top plane messages
+message Sam32Init {
+	uint32 antenna_phase1 = 1;
+	uint32 antenna_phase2 = 2;
+	uint32 phase_duration = 3;
+	bool inverted = 4;
+}
+
+message Sam32SetPhaseMatrix {
+	uint32 antenna_phase1 = 1;
+	uint32 antenna_phase2 = 2;
+	uint32 phase_duration = 3;
+}
+	
+message Sam32SetSignalInversion {
+	bool inverted = 1;
+}
+// SAM32 top plane messages
+
+
+// UART messages
+message UartInit {
+	uint32 port_id = 1;
+	uint32 baud = 2;
+}
+
+message UartWriteData {
+	uint32 portId = 1;
+	bytes data = 2;
+}
+// UART messages
+
+
+message ClientWrappedMessage {
+	oneof client_message {
+		GpioInit gpio_init = 1;
+		GpioInitDigitalIn gpio_init_digital_in = 2;
+		GpioInitDigitalOut gpio_init_digital_out = 3;
+		GpioSetDigitalOut gpio_set_digital_out = 4;
+		Sam32Init sam32_init = 5;
+		Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
+		Sam32SetSignalInversion sam32_set_signal_inversion = 7;
+		UartInit uart_init = 8;
+		UartWriteData uart_write_data = 9;
+	}
+}

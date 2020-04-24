@@ -2,17 +2,19 @@
 #include "Connection.h"
 #include "ConnectionManager.h"
 
-Connection::Connection(Logger logger, boost::asio::ip::tcp::socket socket,
+Connection::Connection(Logger logger,
+	boost::asio::ip::tcp::socket socket,
 	ConnectionManager &connection_manager)
 	: m_logger(logger)
 	, m_socket(std::move(socket))
 	, m_connection_manager(connection_manager)
 {
+	m_globBufferEmpty = true;
 }
 
 void Connection::start()
 {
-	do_read();
+	start_read_header();
 }
 
 void Connection::stop()
@@ -22,41 +24,150 @@ void Connection::stop()
 	m_socket.close();
 }
 
-void Connection::do_read()
+void Connection::start_read_header()
 {
 	auto self(shared_from_this());
 	
-	m_socket.async_read_some(boost::asio::buffer(m_buffer),
-		[this, self](boost::system::error_code ec,
-			std::size_t bytes_transferred)
+	m_readBuffer.resize(HEADER_SIZE);
+	boost::asio::async_read(
+		m_socket,
+		boost::asio::buffer(m_readBuffer),
+		[this, self](boost::system::error_code ec, std::size_t bytes_transferred)
 		{
 			if (!ec)
 			{
-				//std::cout << "bytes: " << bytes_transferred << " data: " << m_buffer.data() << std::endl;
-
-				std::shared_ptr<std::vector<char>> newData = std::make_shared<std::vector<char>>(bytes_transferred);
-				for (std::size_t i = 0; i < bytes_transferred; i++)
+				unsigned msg_len = decode_header();
+				if (msg_len > 0)
 				{
-					newData->at(i) = m_buffer[i];
+					start_read_body(msg_len);
 				}
+				else
+				{
+					start_read_header();
+				}
+			}
+			else if (ec != boost::asio::error::operation_aborted)
+			{
+				m_connection_manager.stop(shared_from_this());
+			}
+		});
+}
+
+void Connection::start_read_body(unsigned msg_len)
+{
+	auto self(shared_from_this());
+	
+	m_readBuffer.resize(HEADER_SIZE + msg_len);
+	boost::asio::mutable_buffers_1 buf = boost::asio::buffer(&m_readBuffer[HEADER_SIZE], msg_len);
+	
+	boost::asio::async_read(
+		m_socket,
+		buf,
+		[this, self](boost::system::error_code ec, std::size_t bytes_transferred)
+		{
+			if (!ec)
+			{
+				handle_request();
 				
-				m_connection_manager.on_new_data(newData);
+				start_read_header();
+			}
+			else if (ec != boost::asio::error::operation_aborted)
+			{
+				m_connection_manager.stop(shared_from_this());
+			}
+		});
+}
+
+void Connection::handle_request()
+{
+	using namespace LabNet::Messages::Client;
+	
+	ClientWrappedMessage cwm;
+	if (cwm.ParseFromArray(&m_readBuffer[HEADER_SIZE], m_readBuffer.size() - HEADER_SIZE))
+	{
+		switch (cwm.client_message_case())
+		{
+		case ClientWrappedMessage::kGpioInit:
+			{
+				m_logger->writeInfoEntry("gpio init");
 				
-				do_read();
+				break;
 			}
-			else if (ec != boost::asio::error::operation_aborted)
+		case ClientWrappedMessage::kGpioInitDigitalIn:
 			{
-				m_connection_manager.stop(shared_from_this());
+				m_logger->writeInfoEntry("gpio init digital in");
+				
+				break;
 			}
-		});
+		case ClientWrappedMessage::kGpioInitDigitalOut:
+			{
+				m_logger->writeInfoEntry("gpio init digital out");
+				
+				break;
+			}
+		case ClientWrappedMessage::kGpioSetDigitalOut:
+			{
+				m_logger->writeInfoEntry("gpio set digital out");
+				
+				break;
+			}
+		case ClientWrappedMessage::kSam32Init:
+			{
+				m_logger->writeInfoEntry("sam32 init");
+				
+				break;
+			}
+		case ClientWrappedMessage::kSam32SetPhaseMatrix:
+			{
+				m_logger->writeInfoEntry("sam32 set phase matrix");
+				
+				break;
+			}
+		case ClientWrappedMessage::kSam32SetSignalInversion:
+			{
+				m_logger->writeInfoEntry("sam32 set signal inversion");
+				
+				break;
+			}
+		case ClientWrappedMessage::kUartInit:
+			{
+				m_logger->writeInfoEntry("uart init");
+				
+				break;
+			}
+		case ClientWrappedMessage::kUartWriteData:
+			{
+				m_logger->writeInfoEntry("uart write data");
+				
+				break;
+			}
+		case ClientWrappedMessage::CLIENT_MESSAGE_NOT_SET:
+			{
+				m_logger->writeInfoEntry("client message not set");
+				
+				break;
+			}
+		}
+	}
+	else
+	{
+		m_logger->writeInfoEntry("invalid message");
+	}
 }
 
-void Connection::refuse_conection(std::string message)
+void Connection::refuse_conection()
 {
 	auto self(shared_from_this());
 	
+	std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+	LabNet::Messages::Server::OnlyOneConnectionAllowed *onlyOne = new LabNet::Messages::Server::OnlyOneConnectionAllowed();
+	swm->set_allocated_only_one_connection(onlyOne);
+	
+	std::vector<char> msgBuffer;
+	pack_msg(swm, msgBuffer);
+	
 	boost::asio::async_write(m_socket,
-		boost::asio::buffer(message),
+		boost::asio::buffer(msgBuffer),
 		[this, self](boost::system::error_code ec, std::size_t)
 		{
 			if (!ec)
@@ -70,40 +181,57 @@ void Connection::refuse_conection(std::string message)
 		});
 }
 
-void Connection::send_message(std::shared_ptr<std::vector<char>> mes)
+void Connection::send_message(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> mes)
 {
 	auto self(shared_from_this());
 	
-	boost::asio::async_write(m_socket,
-		boost::asio::buffer(*mes),
-		[this, self](boost::system::error_code ec, std::size_t)
-		{
-			if (!ec)
+	std::vector<char> msgBuffer;
+	if (pack_msg(mes, msgBuffer))
+	{
+		boost::asio::async_write(m_socket,
+			boost::asio::buffer(msgBuffer),
+			[this, self](boost::system::error_code ec, std::size_t)
 			{
+				if (!ec)
+				{
 
-			}
-			else if (ec != boost::asio::error::operation_aborted)
-			{
-				m_connection_manager.stop(shared_from_this());
-			}
-		});
+				}
+				else if (ec != boost::asio::error::operation_aborted)
+				{
+					m_connection_manager.stop(shared_from_this());
+				}
+			});	
+	}
 }
 
-void Connection::do_write(std::vector<char> buffer)
+bool Connection::pack_msg(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer)
 {
-	auto self(shared_from_this());
+	int size = msg->ByteSize();
+	data_buffer.resize(HEADER_SIZE + size);
+	if (size <= MAX_MSG_SIZE)
+	{
+		encode_header(size, data_buffer);
+		msg->SerializeToArray(&data_buffer[HEADER_SIZE], size);
+		
+		return true;
+	}
 	
-	boost::asio::async_write(m_socket,
-		boost::asio::buffer(buffer),
-		[this, self](boost::system::error_code ec, std::size_t)
-		{
-			if (!ec)
-			{
+	return false;
+}
 
-			}
-			else if (ec != boost::asio::error::operation_aborted)
-			{
-				m_connection_manager.stop(shared_from_this());
-			}
-		});
+void Connection::encode_header(unsigned size, std::vector<char> &data_buffer)
+{
+	data_buffer[0] = static_cast<char>((size >> 8) & 0xFF);
+	data_buffer[1] = static_cast<char>(size & 0xFF);
+}
+
+unsigned Connection::decode_header()
+{
+	if (m_readBuffer.size() < HEADER_SIZE)
+		return 0;
+	
+	unsigned msg_size = 0;
+	for (unsigned i = 0; i < HEADER_SIZE; ++i)
+		msg_size = msg_size * 256 + (static_cast<unsigned>(m_readBuffer[i]) & 0xFF);
+	return msg_size;
 }

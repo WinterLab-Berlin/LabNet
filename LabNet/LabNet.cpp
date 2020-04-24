@@ -4,7 +4,8 @@
 #include <wiringPi.h>
 #include <so_5/all.hpp>
 #include "Interface/SAM32/SamMainActor.h"
-
+#include "Network/NetworkProxyActor.h"
+#include "Network/Server.h"
 
 
 int main(int argc, char *argv[])
@@ -32,20 +33,18 @@ int main(int argc, char *argv[])
 
 	
 	
-	//	NetworkProxyActor proxy(logger);
-	//	ConnectionManager connection_manager(logger, proxy);
-	//	
-	//	try
-	//	{
-	//		Server server(logger, connection_manager, 8080);
-	//		server.run();
-	//	} 
-	//	catch (std::exception& e)
-	//	{
-	//		logger->writeFatalEntry(std::string("network server error ") + e.what());
-	//	}
+	NetworkProxyActor proxy(logger);
+	ConnectionManager connection_manager(logger, proxy);
+		
+	try
+	{
+		Server server(logger, connection_manager, 8080);
+		server.run();
+	} 
+	catch (std::exception& e)
+	{
+		logger->writeFatalEntry(std::string("network server error ") + e.what());
+	}
 	
-	
-	
-		return 0;
+	return 0;
 }

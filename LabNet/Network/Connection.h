@@ -5,6 +5,8 @@
 #include <boost/asio.hpp>
 #include <vector>
 #include <LoggingFacility.h>
+#include "LabNetServerMessages.pb.h"
+#include "LabNetClientMessages.pb.h"
 
 class ConnectionManager;
 
@@ -24,17 +26,26 @@ public:
 	/// Stop all asynchronous operations associated with the connection.
 	void stop();
 	
-	void refuse_conection(std::string message);
+	void refuse_conection();
 	
-	void send_message(std::shared_ptr<std::vector<char>> mes);
+	void send_message(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> mes);
 
 private:
-	void do_read();
-	void do_write(std::vector<char> buffer);
+	void start_read_header();
+	void start_read_body(unsigned msg_len);
+	bool pack_msg(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
+	void encode_header(unsigned size, std::vector<char> &data_buffer);
+	unsigned decode_header();
+	void handle_request();
 
+	// header size for packed messages
+	const unsigned HEADER_SIZE = 2;
+	// max size of packed messages
+	const unsigned MAX_MSG_SIZE = 0xFFFF;
+	
 	Logger m_logger;
 	boost::asio::ip::tcp::socket m_socket;
 	ConnectionManager& m_connection_manager;
-	std::array<char, 8192> m_buffer;
-
+	std::vector<char> m_readBuffer;
+	bool m_globBufferEmpty;
 };

@@ -23,7 +23,7 @@ void ConnectionManager::start(std::shared_ptr<Connection> c)
 		m_logger->writeInfoEntry("only one connection possible");
 		
 		m_connections.insert(c);
-		c->refuse_conection("too much connections");
+		c->refuse_conection();
 	}
 }
 
@@ -62,6 +62,6 @@ void ConnectionManager::on_new_data(std::shared_ptr<std::vector<char>> data)
 	
 void ConnectionManager::send_message(std::shared_ptr<std::vector<char>> mes)
 {
-	if (m_connection)
-		m_connection->send_message(mes);
+//	if (m_connection)
+//		m_connection->send_message(mes);
 }

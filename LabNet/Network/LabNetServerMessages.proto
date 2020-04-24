@@ -1,0 +1,74 @@
+syntax = "proto3";
+package LabNet.Messages.Server;
+
+
+// GPIO top plane messages
+message GpioInitResult {
+	bool is_succeed = 1;
+}
+
+message GpioDigitalInInitResult {
+	uint32 pin = 1;
+	bool is_succeed = 2;
+}
+	
+message GpioDigitalOutInitResult {
+	uint32 pin = 1;
+	bool is_succeed = 2;
+}
+	
+message GpioDigitalOutState {
+	uint32 pin = 1;
+	bool state = 2;
+}
+	
+message GpioDigitalInState {
+	uint32 pin = 1;
+	bool state = 2;
+}
+// GPIO top plane messages
+
+
+// SAM32 top plane messages
+message Sam32InitResult {
+	bool is_succeed = 1;
+}
+// SAM32 top plane messages
+
+
+// UART messages
+message UartInitResult {
+	uint32 port_id = 1;
+	bool is_succeed = 2;
+}
+
+message UartNewData {
+	uint32 port_id = 1;
+	bytes data = 2;
+}
+
+message UartWriteDataComplete {
+	uint32 portId = 1;
+}
+// UART messages
+
+
+// general
+message OnlyOneConnectionAllowed {
+}
+//
+
+message ServerWrappedMessage {
+	oneof server_message {
+		GpioInitResult gpio_init_result = 1;
+		GpioDigitalInInitResult gpio_digital_in_init_result = 2;
+		GpioDigitalOutInitResult gpio_digital_out_init_result = 3;
+		GpioDigitalOutState gpio_digital_out_state = 4;
+		GpioDigitalInState gpio_digital_in_state = 5;
+		Sam32InitResult sam32_init_result = 6;
+		UartInitResult uart_init_result = 7;
+		UartNewData uart_new_data = 8;
+		UartWriteDataComplete uart_write_data_complete = 9;
+		OnlyOneConnectionAllowed only_one_connection = 10;
+	}
+}
