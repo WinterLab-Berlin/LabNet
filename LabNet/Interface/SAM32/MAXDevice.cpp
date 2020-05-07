@@ -4,6 +4,8 @@
 #include "MAX14830.h"
 #include "spi.h"
 #include <cstring>
+#include "SamMessages.h"
+#include <so_5/send_functions.hpp>
 
 #define MAXRESET 16 // pin
 
@@ -31,7 +33,6 @@ void MAX14830::MAXDevice::reset_buffers()
 			max_uart_RFIDCounter[i][j] = 0;
 			for (int k = 0; k < 14; k++)
 			{
-				max_uart_RFIDBuffer[i][j][k] = 0xff;
 				max_uart_RFIDFifo[i][j][k] = 0;
 			}
 		}
@@ -235,10 +236,15 @@ void MAX14830::MAXDevice::readRXFifo(uint8_t cspin, uint8_t uart)
 			{
 				max_uart_RFIDCounter[cspin][uart] = 0;
 
-				std::memcpy(&(max_uart_RFIDBuffer[cspin][uart][0]), &(max_uart_RFIDFifo[cspin][uart][0]), 14 * sizeof(uint8_t));
-				max_uart_RFIDBuffer[cspin][uart][11] = '\0';
+				std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
+				for (int l = 1; l < 11; l++)
+				{
+					data->push_back(max_uart_RFIDFifo[cspin][uart][l]);
+				}
+				data->push_back('\r');
+				data->push_back('\n');
 				
-				//_logger->writeInfoEntry(string_format("reader: %d rfid: %s", (4 * cspin + uart + 1), &(max_uart_RFIDBuffer[cspin][uart][1])));
+				so_5::send<SAM::new_data>(_parentMbox, 4 * cspin + uart + 1, data);
 			}
 			else
 			{

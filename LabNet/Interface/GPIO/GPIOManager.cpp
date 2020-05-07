@@ -4,9 +4,10 @@
 #include "../InterfaceMessages.h"
 #include "Messages.h"
 
-GPIO::GPIOManager::GPIOManager(context_t ctx, const so_5::mbox_t mbox, Logger logger)
+GPIO::GPIOManager::GPIOManager(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
 	: so_5::agent_t(ctx)
-	, _parentMbox(mbox)
+	, _selfBox(selfBox)
+	, _parentMbox(parentBox)
 	, _logger(logger)
 	, _interfaces(ctx.env().create_mbox("ManageInterfaces"))
 {
@@ -31,12 +32,12 @@ GPIO::GPIOManager::GPIOManager(context_t ctx, const so_5::mbox_t mbox, Logger lo
 	
 	for (auto& out : _outPins)
 	{
-		_outputs[out.first] = DigitalOutput{ out.first, out.second };
+		_outputs[out.first] = DigitalOutput{ out.second, out.first };
 	}
 	
 	for (auto& inp : _inPins)
 	{
-		_inputs[inp.first] = DigitalInput{ inp.first, inp.second };
+		_inputs[inp.first] = DigitalInput{ inp.second, inp.first };
 	}
 }
 
@@ -50,11 +51,11 @@ void GPIO::GPIOManager::so_define_agent()
 	this >>= wait_for_init;
 	
 	wait_for_init
-		.event(so_direct_mbox(),
-			[this](mhood_t<init_interface> msg) {
-				so_5::send<Interface::InitMessages::init_gpio_request>(_interfaces, so_direct_mbox());
+		.event(_selfBox,
+		[this](mhood_t<init_interface> msg) {
+				so_5::send<Interface::InitMessages::init_gpio_request>(_interfaces, _selfBox);
 			})
-		.event(so_direct_mbox(),
+		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_no> msg) {
 				for (auto& out : _outputs)
 					out.second.available = false;
@@ -62,20 +63,24 @@ void GPIO::GPIOManager::so_define_agent()
 				for (auto& in : _inputs)
 					in.second.available = false;
 				
-				so_5::send <init_failed>(_parentMbox);
+				so_5::send <interface_init_result>(_parentMbox, false);
 			})
-		.event(so_direct_mbox(),
+		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_yes> msg) {
-				so_5::send <init_succeed>(_parentMbox);
+				so_5::send <interface_init_result>(_parentMbox, true);
 				
-				_inputStateReader = std::make_unique<DigitalInputStateReader>(_parentMbox, _inputs);
+				_inputStateReader = std::make_unique<DigitalInputStateReader>(_parentMbox, &_inputs, _logger);
 				
 				this >>= running;
 			});
 	
 	running
-		.event(so_direct_mbox(),
-			[this](mhood_t<init_digital_in> msg) {
+		.event(_selfBox,
+		[this](mhood_t<init_interface> msg) {
+				so_5::send <interface_init_result>(_parentMbox, true);
+		})
+		.event(_selfBox,
+		[this](mhood_t<init_digital_in> msg) {
 				if (msg->pin > 0 && msg->pin < 7)
 				{
 					_inputs[msg->pin].resistor_state = msg->resistor_state;
@@ -96,16 +101,17 @@ void GPIO::GPIOManager::so_define_agent()
 					}
 					
 					_inputs[msg->pin].available = true;
+					_inputs[msg->pin].state = 2;
 					
-					so_5::send <digital_in_init_success>(_parentMbox, msg->pin);
+					so_5::send <digital_in_init_result>(_parentMbox, msg->pin, true);
 				}
 				else
 				{
-					so_5::send <digital_in_init_failed>(_parentMbox, msg->pin);
+					so_5::send <digital_in_init_result>(_parentMbox, msg->pin, false);
 				}
 			})
-		.event(so_direct_mbox(),
-			[this](mhood_t<init_digital_out> msg) {
+		.event(_selfBox,
+		[this](mhood_t<init_digital_out> msg) {
 				if (msg->pin > 0 && msg->pin < 11)
 				{
 					_outputs[msg->pin].is_inverted = msg->is_inverted;
@@ -113,14 +119,14 @@ void GPIO::GPIOManager::so_define_agent()
 					
 					pinMode(_outputs[msg->pin].pin_h, OUTPUT);
 					
-					so_5::send <digital_out_init_success>(_parentMbox, msg->pin);
+					so_5::send <digital_out_init_result>(_parentMbox, msg->pin, true);
 				}
 				else
 				{
-					so_5::send <digital_out_init_failed>(_parentMbox, msg->pin);
+					so_5::send <digital_out_init_result>(_parentMbox, msg->pin, false);
 				}
 			})
-		.event(so_direct_mbox(),
+		.event(_selfBox,
 			[this](mhood_t<set_digital_out> msg) {
 				if (msg->pin > 0 && msg->pin < 11)
 				{
@@ -133,17 +139,18 @@ void GPIO::GPIOManager::so_define_agent()
 						digitalWrite(_outputs[msg->pin].pin_h, msg->state);
 					}
 		
+					_logger->writeInfoEntry("gpio set");
 					so_5::send <return_digital_out_state>(msg->mbox, msg->pin, msg->state);
 				}
 			})
-		.event(so_direct_mbox(),
-			[this](mhood_t<Interface::pause_all_interface> msg) {
+		.event(_selfBox,
+			[this](mhood_t<Interface::pause_interface> msg) {
 				_inputStateReader.reset();
 				
 				this >>= paused;
 			})
-		.event(so_direct_mbox(),
-			[this](mhood_t<Interface::reset_all_interface> msg) {
+		.event(_selfBox,
+			[this](mhood_t<Interface::reset_interface> msg) {
 				this >>= wait_for_init;
 				
 				for(auto in : _inputs)
@@ -158,8 +165,8 @@ void GPIO::GPIOManager::so_define_agent()
 			});
 	
 	paused
-		.event(so_direct_mbox(),
-			[this](mhood_t<Interface::reset_all_interface> msg) {
+		.event(_selfBox,
+			[this](mhood_t<Interface::reset_interface> msg) {
 				this >>= wait_for_init;
 				
 				for (auto in : _inputs)
@@ -172,9 +179,9 @@ void GPIO::GPIOManager::so_define_agent()
 					out.second.available = false;
 				}
 		})
-		.event(so_direct_mbox(),
-			[this](mhood_t<Interface::continue_all_interface>) {
-				_inputStateReader = std::make_unique<DigitalInputStateReader>(_parentMbox, _inputs);
+		.event(_selfBox,
+			[this](mhood_t<Interface::continue_interface>) {
+				_inputStateReader = std::make_unique<DigitalInputStateReader>(_parentMbox, &_inputs, _logger);
 				
 				this >>= running;
 			});

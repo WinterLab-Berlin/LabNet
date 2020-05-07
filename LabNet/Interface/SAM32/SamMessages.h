@@ -4,15 +4,18 @@
 
 namespace SAM
 {
-	struct init_interface final : public so_5::signal_t
+	struct init_interface
 	{
 		uint32_t antenna_phase1 = 0xFFFFFFFF;
-		uint32_t antenna_phase2 = 250;
-		uint32_t phase_duration;
-		bool inverted;
+		uint32_t antenna_phase2 = 0xFFFFFFFF;
+		uint32_t phase_duration = 250;
+		bool inverted = false;
 	};
-	struct init_succeed final : public so_5::signal_t {};
-	struct init_failed final : public so_5::signal_t {};
+	
+	struct interface_init_result
+	{
+		bool is_succeed;
+	};
 	
 	struct set_phase_matrix
 	{
@@ -24,5 +27,11 @@ namespace SAM
 	struct set_signal_inversion
 	{
 		bool inverted;
+	};
+	
+	struct new_data
+	{
+		const int port_id;
+		std::shared_ptr<std::vector<char>> data;
 	};
 }

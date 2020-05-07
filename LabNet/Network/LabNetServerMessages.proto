@@ -1,74 +1,84 @@
 syntax = "proto3";
 package LabNet.Messages.Server;
 
-
-// GPIO top plane messages
-message GpioInitResult {
-	bool is_succeed = 1;
+enum Interfaces {
+	NONE = 0;
+	GPIO_TOP_PLANE = 1;
+	SAM32 = 2;
+	UART1 = 100;
+	UART2 = 101;
+	UART3 = 102;
+	UART4 = 103;
 }
 
-message GpioDigitalInInitResult {
-	uint32 pin = 1;
-	bool is_succeed = 2;
+// general messages
+message PinId {
+	Interfaces interface = 1;
+	uint32 pin = 2;
 }
-	
-message GpioDigitalOutInitResult {
-	uint32 pin = 1;
-	bool is_succeed = 2;
-}
-	
-message GpioDigitalOutState {
-	uint32 pin = 1;
+
+message DigitalOutState {
+	PinId pin = 1;
 	bool state = 2;
 }
-	
-message GpioDigitalInState {
-	uint32 pin = 1;
+
+message DigitalInState {
+	PinId pin = 1;
 	bool state = 2;
 }
-// GPIO top plane messages
 
-
-// SAM32 top plane messages
-message Sam32InitResult {
-	bool is_succeed = 1;
-}
-// SAM32 top plane messages
-
-
-// UART messages
-message UartInitResult {
-	uint32 port_id = 1;
-	bool is_succeed = 2;
-}
-
-message UartNewData {
-	uint32 port_id = 1;
+message NewByteData {
+	PinId pin = 1;
 	bytes data = 2;
 }
 
-message UartWriteDataComplete {
-	uint32 portId = 1;
+message WriteByteDataComplete {
+	Interfaces interface = 1;
+	uint32 portId = 2;
 }
-// UART messages
 
+message InterfaceInitResult {
+	Interfaces interface = 1;
+	bool is_succeed = 2;
+}
 
-// general
+message DigitalInInitResult {
+	Interfaces interface = 1;
+	uint32 pin = 2;
+	bool is_succeed = 3;
+}
+	
+message DigitalOutInitResult {
+	Interfaces interface = 1;
+	uint32 pin = 2;
+	bool is_succeed = 3;
+}
+
 message OnlyOneConnectionAllowed {
 }
-//
+
+message LabNetResetReply {
+	bool is_reset = 1;
+}
+
+message LabNetIdReply {
+	string id = 1;
+	uint32 major_version = 2;
+	uint32 minor_version = 3;
+}
+// general messages
 
 message ServerWrappedMessage {
 	oneof server_message {
-		GpioInitResult gpio_init_result = 1;
-		GpioDigitalInInitResult gpio_digital_in_init_result = 2;
-		GpioDigitalOutInitResult gpio_digital_out_init_result = 3;
-		GpioDigitalOutState gpio_digital_out_state = 4;
-		GpioDigitalInState gpio_digital_in_state = 5;
-		Sam32InitResult sam32_init_result = 6;
-		UartInitResult uart_init_result = 7;
-		UartNewData uart_new_data = 8;
-		UartWriteDataComplete uart_write_data_complete = 9;
-		OnlyOneConnectionAllowed only_one_connection = 10;
+		DigitalOutState digital_out_state = 1;
+		DigitalInState digital_in_state = 2;
+		NewByteData new_byte_data = 3;
+		WriteByteDataComplete write_byte_data_complete = 4;
+		InterfaceInitResult interface_init_result = 5;
+		DigitalInInitResult digital_in_init_result = 6;
+		DigitalOutInitResult digital_out_init_result = 7;
+		OnlyOneConnectionAllowed only_one_connection = 8;
+		LabNetResetReply reset = 9;
+		LabNetIdReply id = 10;
 	}
 }

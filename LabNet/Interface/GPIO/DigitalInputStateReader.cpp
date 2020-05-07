@@ -2,10 +2,11 @@
 #include "Messages.h"
 #include <wiringPi.h>
 
-GPIO::DigitalInputStateReader::DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput>& inputs)
+GPIO::DigitalInputStateReader::DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput> *inputs, Logger logger)
 	: _parent(parent)
 	, _inputs(inputs)
 	, _futureObj(_exitSignal.get_future())
+	, _logger(logger)
 {
 	std::thread readWorker{&GPIO::DigitalInputStateReader::data_read_thread, this};
 	_readWorker = std::move(readWorker);
@@ -30,13 +31,14 @@ void GPIO::DigitalInputStateReader::data_read_thread()
 	int res = 0;
 	while (stop_requested() == false)
 	{
-		for (auto& inp : _inputs)
+		for (auto& inp : *_inputs)
 		{
 			if (inp.second.available)
 			{
 				res = digitalRead(inp.second.pin_h);
 				if (res != inp.second.state)
 				{
+					_logger->writeInfoEntry("new state");
 					inp.second.state = res;
 					if (inp.second.is_inverted)
 						so_5::send<return_digital_in_state>(_parent, inp.second.pin_l, !res);

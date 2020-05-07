@@ -32,7 +32,6 @@ namespace MAX14830
 		Logger _logger;
 		so_5::mbox_t _parentMbox;
 		
-		uint8_t max_uart_RFIDBuffer[8][4][14];
 		uint8_t max_uart_RFIDFifo[8][4][14];  // actual readout from UART FIFO
 		uint8_t max_uart_RFIDCounter[8][4];   // ring buffer
 		

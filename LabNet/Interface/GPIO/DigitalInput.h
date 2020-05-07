@@ -4,9 +4,9 @@ namespace GPIO
 {
 	enum resistor
 	{
-		off,
-		pull_down,
-		pull_up
+		off = 0,
+		pull_down = 1,
+		pull_up = 2
 	};
 	
 	struct DigitalInput

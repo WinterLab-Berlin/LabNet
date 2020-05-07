@@ -1,11 +1,11 @@
 
 #include "ConnectionManager.h"
+#include "../LabNetMainActorMessages.h"
 
-ConnectionManager::ConnectionManager(Logger logger, NetworkProxyActor& proxy)
+ConnectionManager::ConnectionManager(Logger logger, so_5::mbox_t labNetBox)
 	: m_logger(logger)
-	, m_proxy(proxy)
+	, _labNetBox(labNetBox)
 {
-	m_proxy.set_connnection_mamager(this);
 }
 
 void ConnectionManager::start(std::shared_ptr<Connection> c)
@@ -17,7 +17,7 @@ void ConnectionManager::start(std::shared_ptr<Connection> c)
 		m_connection = c;
 		c->start();
 		
-		m_proxy.connect_handler();
+		so_5::send<LabNet::Connected>(_labNetBox, c);
 	}
 	else {
 		m_logger->writeInfoEntry("only one connection possible");
@@ -34,7 +34,7 @@ void ConnectionManager::stop(std::shared_ptr<Connection> c)
 		c->stop();
 		m_connection = nullptr;
 		
-		m_proxy.disconnect_handler();
+		so_5::send<LabNet::Disconnected>(_labNetBox);
 	}
 	else
 	{
@@ -55,13 +55,7 @@ void ConnectionManager::stop_all()
 	m_connections.clear();
 }
 
-void ConnectionManager::on_new_data(std::shared_ptr<std::vector<char>> data)
+void ConnectionManager::on_new_data(std::shared_ptr<LabNet::Messages::Client::ClientWrappedMessage> mes)
 {
-	m_proxy.data_handler(data);
-}
-	
-void ConnectionManager::send_message(std::shared_ptr<std::vector<char>> mes)
-{
-//	if (m_connection)
-//		m_connection->send_message(mes);
+	so_5::send<std::shared_ptr<LabNet::Messages::Client::ClientWrappedMessage>>(_labNetBox, mes);
 }

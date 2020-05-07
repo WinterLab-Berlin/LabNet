@@ -1,7 +1,6 @@
 syntax = "proto3";
 package LabNet.Messages.Client;
 
-
 // GPIO top plane messages
 message GpioInit {
 }
@@ -20,11 +19,6 @@ message GpioInitDigitalIn {
 message GpioInitDigitalOut {
 	uint32 pin = 1;
 	bool is_inverted = 2;
-}
-
-message GpioSetDigitalOut {
-	uint32 pin = 1;
-	bool state = 2;
 }
 // GPIO top plane messages
 
@@ -51,7 +45,14 @@ message Sam32SetSignalInversion {
 
 // UART messages
 message UartInit {
-	uint32 port_id = 1;
+	enum Port {
+		NONE = 0;
+		UART1 = 101;
+		UART2 = 102;
+		UART3 = 103;
+		UART4 = 104;
+	}
+	Port port = 1;
 	uint32 baud = 2;
 }
 
@@ -62,16 +63,66 @@ message UartWriteData {
 // UART messages
 
 
+// digital out messages
+message PinId {
+	enum Interfaces {
+		NONE = 0;
+		GPIO_TOP_PLANE = 1;
+		UART1 = 101;
+		UART2 = 102;
+		UART3 = 103;
+		UART4 = 104;
+	}
+	Interfaces interface = 1;
+	uint32 pin = 2;
+}
+
+message DigitalOutSet {
+	PinId id = 1;
+	bool state = 2;
+}
+
+message DigitalOutPulse {
+	PinId id = 1;
+	uint32 high_duration = 2;
+	uint32 low_duration = 3;
+	uint32 pulses = 4;
+}
+
+message DigitalOutSetInLoop {
+	message DigitalOutputParameter {
+		PinId id = 1;
+		uint32 offset = 2;
+		uint32 duration = 3;
+	}
+	uint32 loop_pause = 1;
+	repeated DigitalOutputParameter digital_outputs = 2;
+}
+// digital out messages
+
+
+// general messages
+message LabNetResetRequest {
+}
+
+message LabNetIdRequest {
+}
+// general messages
+
 message ClientWrappedMessage {
 	oneof client_message {
 		GpioInit gpio_init = 1;
 		GpioInitDigitalIn gpio_init_digital_in = 2;
 		GpioInitDigitalOut gpio_init_digital_out = 3;
-		GpioSetDigitalOut gpio_set_digital_out = 4;
-		Sam32Init sam32_init = 5;
-		Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
-		Sam32SetSignalInversion sam32_set_signal_inversion = 7;
-		UartInit uart_init = 8;
-		UartWriteData uart_write_data = 9;
+		Sam32Init sam32_init = 4;
+		Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
+		Sam32SetSignalInversion sam32_set_signal_inversion = 6;
+		UartInit uart_init = 7;
+		UartWriteData uart_write_data = 8;
+		DigitalOutSet digital_out_set = 9;
+		DigitalOutPulse digital_out_pulse = 10;
+		DigitalOutSetInLoop digital_out_loop = 11;
+		LabNetResetRequest reset = 12;
+		LabNetIdRequest id = 13;
 	}
 }

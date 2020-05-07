@@ -6,8 +6,10 @@
 namespace GPIO
 {
 	struct init_interface final : public so_5::signal_t {};
-	struct init_failed final : public so_5::signal_t {};
-	struct init_succeed final : public so_5::signal_t {};
+	struct interface_init_result
+	{
+		bool is_succeed;
+	};
 	
 	struct init_digital_in
 	{
@@ -16,14 +18,16 @@ namespace GPIO
 		const bool is_inverted = false;
 	};
 	
-	struct digital_in_init_success
+	struct digital_in_init_result
 	{
 		const char pin;
+		bool is_succeed;
 	};
 	
-	struct digital_in_init_failed
+	struct return_digital_in_state
 	{
 		const char pin;
+		const bool state;
 	};
 	
 	struct init_digital_out
@@ -32,14 +36,10 @@ namespace GPIO
 		const bool is_inverted = false;
 	};
 	
-	struct digital_out_init_success
+	struct digital_out_init_result
 	{
 		const char pin;
-	};
-	
-	struct digital_out_init_failed
-	{
-		const char pin;
+		bool is_succeed;
 	};
 	
 	struct set_digital_out
@@ -50,12 +50,6 @@ namespace GPIO
 	};
 	
 	struct return_digital_out_state
-	{
-		const char pin;
-		const bool state;
-	};
-	
-	struct return_digital_in_state
 	{
 		const char pin;
 		const bool state;

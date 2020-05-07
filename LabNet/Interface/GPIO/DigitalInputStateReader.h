@@ -4,6 +4,7 @@
 #include <thread>
 #include <future>
 #include <map>
+#include <LoggingFacility.h>
 #include "DigitalInput.h"
 
 namespace GPIO
@@ -12,7 +13,7 @@ namespace GPIO
 	{
 		
 	public:
-		DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput>& inputs);
+		DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput>* inputs, Logger logger);
 		~DigitalInputStateReader();
 		
 	private:
@@ -22,9 +23,10 @@ namespace GPIO
 	
 		void data_read_thread();
 	
-		std::map<int, DigitalInput> _inputs;
+		std::map<int, DigitalInput>* _inputs;
 		const so_5::mbox_t _parent;
 		
+		Logger _logger;
 		std::thread _readWorker;
 		std::promise<void> _exitSignal;
 		std::future<void> _futureObj;

@@ -9,7 +9,6 @@ Connection::Connection(Logger logger,
 	, m_socket(std::move(socket))
 	, m_connection_manager(connection_manager)
 {
-	m_globBufferEmpty = true;
 }
 
 void Connection::start()
@@ -82,72 +81,10 @@ void Connection::handle_request()
 {
 	using namespace LabNet::Messages::Client;
 	
-	ClientWrappedMessage cwm;
-	if (cwm.ParseFromArray(&m_readBuffer[HEADER_SIZE], m_readBuffer.size() - HEADER_SIZE))
+	std::shared_ptr<ClientWrappedMessage> cwm = std::make_shared<ClientWrappedMessage>();
+	if (cwm->ParseFromArray(&m_readBuffer[HEADER_SIZE], m_readBuffer.size() - HEADER_SIZE))
 	{
-		switch (cwm.client_message_case())
-		{
-		case ClientWrappedMessage::kGpioInit:
-			{
-				m_logger->writeInfoEntry("gpio init");
-				
-				break;
-			}
-		case ClientWrappedMessage::kGpioInitDigitalIn:
-			{
-				m_logger->writeInfoEntry("gpio init digital in");
-				
-				break;
-			}
-		case ClientWrappedMessage::kGpioInitDigitalOut:
-			{
-				m_logger->writeInfoEntry("gpio init digital out");
-				
-				break;
-			}
-		case ClientWrappedMessage::kGpioSetDigitalOut:
-			{
-				m_logger->writeInfoEntry("gpio set digital out");
-				
-				break;
-			}
-		case ClientWrappedMessage::kSam32Init:
-			{
-				m_logger->writeInfoEntry("sam32 init");
-				
-				break;
-			}
-		case ClientWrappedMessage::kSam32SetPhaseMatrix:
-			{
-				m_logger->writeInfoEntry("sam32 set phase matrix");
-				
-				break;
-			}
-		case ClientWrappedMessage::kSam32SetSignalInversion:
-			{
-				m_logger->writeInfoEntry("sam32 set signal inversion");
-				
-				break;
-			}
-		case ClientWrappedMessage::kUartInit:
-			{
-				m_logger->writeInfoEntry("uart init");
-				
-				break;
-			}
-		case ClientWrappedMessage::kUartWriteData:
-			{
-				m_logger->writeInfoEntry("uart write data");
-				
-				break;
-			}
-		case ClientWrappedMessage::CLIENT_MESSAGE_NOT_SET:
-			{
-				m_logger->writeInfoEntry("client message not set");
-				
-				break;
-			}
-		}
+		m_connection_manager.on_new_data(cwm);
 	}
 	else
 	{
@@ -192,6 +129,7 @@ void Connection::send_message(std::shared_ptr<LabNet::Messages::Server::ServerWr
 			boost::asio::buffer(msgBuffer),
 			[this, self](boost::system::error_code ec, std::size_t)
 			{
+				m_logger->writeInfoEntry("sended");
 				if (!ec)
 				{
 

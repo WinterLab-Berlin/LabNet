@@ -56,6 +56,10 @@ void Server::do_accept()
 			
 			socket.set_option(boost::asio::socket_base::keep_alive(true));
 			socket.set_option(boost::asio::socket_base::linger(true, 2));
+			
+			boost::asio::ip::tcp::no_delay option(true);
+			socket.set_option(option);
+			
 			m_connection_manager.start(std::make_shared<Connection>(
 			    m_logger, std::move(socket), m_connection_manager));
 		}

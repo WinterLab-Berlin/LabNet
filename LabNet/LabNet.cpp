@@ -4,8 +4,10 @@
 #include <wiringPi.h>
 #include <so_5/all.hpp>
 #include "Interface/SAM32/SamMainActor.h"
-#include "Network/NetworkProxyActor.h"
 #include "Network/Server.h"
+#include "LabNetMainActor.h"
+#include "Interface/ManageInterfaces.h"
+#include "Interface/GPIO/GPIOManager.h"
 
 
 int main(int argc, char *argv[])
@@ -24,17 +26,25 @@ int main(int argc, char *argv[])
 		logger->writeInfoEntry("GPIO init success");
 	}
 	
-	//	so_5::launch([&](so_5::environment_t & env) {
-	//		so_5::mbox_t m;
-	//		env.introduce_coop([&](so_5::coop_t & coop) {
-	//			env.register_agent_as_coop(env.make_agent<test>(logger));
-	//		});
-	//	});
-
+	// SO Environment in a special wrapper object.
+	// Environment will be started automatically.
+	so_5::wrapped_env_t sobj;
+	so_5::mbox_t labNetBox;
 	
+	// Start SO-part of the app.
+	sobj.environment().introduce_coop([&](so_5::coop_t & coop) {
+		so_5::mbox_t gpioBox = coop.environment().create_mbox("gpio");
+		so_5::mbox_t sam32Box = coop.environment().create_mbox("sam32");
+		
+		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box);
+		labNetBox = act->so_direct_mbox();
+		
+		coop.make_agent<Interface::ManageInterfaces>();
+		coop.make_agent<GPIO::GPIOManager>(gpioBox, labNetBox, logger);
+		coop.make_agent<SAM::SamMainActor>(sam32Box, labNetBox, logger);
+	});
 	
-	NetworkProxyActor proxy(logger);
-	ConnectionManager connection_manager(logger, proxy);
+	ConnectionManager connection_manager(logger, labNetBox);
 		
 	try
 	{

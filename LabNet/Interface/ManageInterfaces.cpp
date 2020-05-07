@@ -37,7 +37,7 @@ void Interface::ManageInterfaces::so_define_agent()
 				so_5::send <can_init_yes>(msg->mbox);
 			}
 		})
-		.event([this](mhood_t<reset_all_interface> msg) {
+		.event([this](mhood_t<reset_interface> msg) {
 			_sam32_init = false;
 			_gpio_init = false;
 		}

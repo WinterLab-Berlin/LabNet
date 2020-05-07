@@ -10,7 +10,7 @@ namespace SAM
 	class SamMainActor final : public so_5::agent_t
 	{
 	public:
-		SamMainActor(context_t ctx, const so_5::mbox_t mbox, Logger logger);
+		SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBbox, Logger logger);
 		~SamMainActor();
 		
 	private:
@@ -23,6 +23,7 @@ namespace SAM
 		std::shared_ptr<MAX14830::MAXDevice> _device;
 		std::unique_ptr<MAX14830::DataReadWorker> _worker;
 		Logger _logger;
+		const so_5::mbox_t _selfBox;
 		const so_5::mbox_t _parentMbox;
 		const so_5::mbox_t _interfaces;
 	};

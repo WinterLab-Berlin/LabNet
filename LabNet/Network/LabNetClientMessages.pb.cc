@@ -23,12 +23,18 @@ namespace protobuf_LabNetClientMessages_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInit;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalIn;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalOut;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioSetDigitalOut;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetIdRequest;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetResetRequest;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PinId;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Sam32Init;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Sam32SetPhaseMatrix;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Sam32SetSignalInversion;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UartInit;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UartWriteData;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutPulse;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSet;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSetInLoop;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClientMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSetInLoop_DigitalOutputParameter;
 }  // namespace protobuf_LabNetClientMessages_2eproto
 namespace LabNet {
 namespace Messages {
@@ -48,11 +54,6 @@ class GpioInitDigitalOutDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<GpioInitDigitalOut>
       _instance;
 } _GpioInitDigitalOut_default_instance_;
-class GpioSetDigitalOutDefaultTypeInternal {
- public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GpioSetDigitalOut>
-      _instance;
-} _GpioSetDigitalOut_default_instance_;
 class Sam32InitDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Sam32Init>
@@ -78,6 +79,41 @@ class UartWriteDataDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<UartWriteData>
       _instance;
 } _UartWriteData_default_instance_;
+class PinIdDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<PinId>
+      _instance;
+} _PinId_default_instance_;
+class DigitalOutSetDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutSet>
+      _instance;
+} _DigitalOutSet_default_instance_;
+class DigitalOutPulseDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutPulse>
+      _instance;
+} _DigitalOutPulse_default_instance_;
+class DigitalOutSetInLoop_DigitalOutputParameterDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutSetInLoop_DigitalOutputParameter>
+      _instance;
+} _DigitalOutSetInLoop_DigitalOutputParameter_default_instance_;
+class DigitalOutSetInLoopDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutSetInLoop>
+      _instance;
+} _DigitalOutSetInLoop_default_instance_;
+class LabNetResetRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<LabNetResetRequest>
+      _instance;
+} _LabNetResetRequest_default_instance_;
+class LabNetIdRequestDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<LabNetIdRequest>
+      _instance;
+} _LabNetIdRequest_default_instance_;
 class ClientWrappedMessageDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ClientWrappedMessage>
@@ -85,12 +121,16 @@ class ClientWrappedMessageDefaultTypeInternal {
   const ::LabNet::Messages::Client::GpioInit* gpio_init_;
   const ::LabNet::Messages::Client::GpioInitDigitalIn* gpio_init_digital_in_;
   const ::LabNet::Messages::Client::GpioInitDigitalOut* gpio_init_digital_out_;
-  const ::LabNet::Messages::Client::GpioSetDigitalOut* gpio_set_digital_out_;
   const ::LabNet::Messages::Client::Sam32Init* sam32_init_;
   const ::LabNet::Messages::Client::Sam32SetPhaseMatrix* sam32_set_phase_matrix_;
   const ::LabNet::Messages::Client::Sam32SetSignalInversion* sam32_set_signal_inversion_;
   const ::LabNet::Messages::Client::UartInit* uart_init_;
   const ::LabNet::Messages::Client::UartWriteData* uart_write_data_;
+  const ::LabNet::Messages::Client::DigitalOutSet* digital_out_set_;
+  const ::LabNet::Messages::Client::DigitalOutPulse* digital_out_pulse_;
+  const ::LabNet::Messages::Client::DigitalOutSetInLoop* digital_out_loop_;
+  const ::LabNet::Messages::Client::LabNetResetRequest* reset_;
+  const ::LabNet::Messages::Client::LabNetIdRequest* id_;
 } _ClientWrappedMessage_default_instance_;
 }  // namespace Client
 }  // namespace Messages
@@ -137,20 +177,6 @@ static void InitDefaultsGpioInitDigitalOut() {
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalOut =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioInitDigitalOut}, {}};
-
-static void InitDefaultsGpioSetDigitalOut() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNet::Messages::Client::_GpioSetDigitalOut_default_instance_;
-    new (ptr) ::LabNet::Messages::Client::GpioSetDigitalOut();
-    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::LabNet::Messages::Client::GpioSetDigitalOut::InitAsDefaultInstance();
-}
-
-::google::protobuf::internal::SCCInfo<0> scc_info_GpioSetDigitalOut =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioSetDigitalOut}, {}};
 
 static void InitDefaultsSam32Init() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -222,6 +248,108 @@ static void InitDefaultsUartWriteData() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_UartWriteData =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUartWriteData}, {}};
 
+static void InitDefaultsPinId() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_PinId_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::PinId();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::PinId::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_PinId =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsPinId}, {}};
+
+static void InitDefaultsDigitalOutSet() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_DigitalOutSet_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::DigitalOutSet();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::DigitalOutSet::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSet =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalOutSet}, {
+      &protobuf_LabNetClientMessages_2eproto::scc_info_PinId.base,}};
+
+static void InitDefaultsDigitalOutPulse() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_DigitalOutPulse_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::DigitalOutPulse();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::DigitalOutPulse::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutPulse =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalOutPulse}, {
+      &protobuf_LabNetClientMessages_2eproto::scc_info_PinId.base,}};
+
+static void InitDefaultsDigitalOutSetInLoop_DigitalOutputParameter() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_DigitalOutSetInLoop_DigitalOutputParameter_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSetInLoop_DigitalOutputParameter =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalOutSetInLoop_DigitalOutputParameter}, {
+      &protobuf_LabNetClientMessages_2eproto::scc_info_PinId.base,}};
+
+static void InitDefaultsDigitalOutSetInLoop() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_DigitalOutSetInLoop_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::DigitalOutSetInLoop();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::DigitalOutSetInLoop::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutSetInLoop =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalOutSetInLoop}, {
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop_DigitalOutputParameter.base,}};
+
+static void InitDefaultsLabNetResetRequest() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_LabNetResetRequest_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::LabNetResetRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::LabNetResetRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_LabNetResetRequest =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLabNetResetRequest}, {}};
+
+static void InitDefaultsLabNetIdRequest() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Client::_LabNetIdRequest_default_instance_;
+    new (ptr) ::LabNet::Messages::Client::LabNetIdRequest();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Client::LabNetIdRequest::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_LabNetIdRequest =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsLabNetIdRequest}, {}};
+
 static void InitDefaultsClientWrappedMessage() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -233,33 +361,43 @@ static void InitDefaultsClientWrappedMessage() {
   ::LabNet::Messages::Client::ClientWrappedMessage::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<9> scc_info_ClientWrappedMessage =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 9, InitDefaultsClientWrappedMessage}, {
+::google::protobuf::internal::SCCInfo<13> scc_info_ClientWrappedMessage =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 13, InitDefaultsClientWrappedMessage}, {
       &protobuf_LabNetClientMessages_2eproto::scc_info_GpioInit.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_GpioInitDigitalIn.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_GpioInitDigitalOut.base,
-      &protobuf_LabNetClientMessages_2eproto::scc_info_GpioSetDigitalOut.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_Sam32Init.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_Sam32SetPhaseMatrix.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_Sam32SetSignalInversion.base,
       &protobuf_LabNetClientMessages_2eproto::scc_info_UartInit.base,
-      &protobuf_LabNetClientMessages_2eproto::scc_info_UartWriteData.base,}};
+      &protobuf_LabNetClientMessages_2eproto::scc_info_UartWriteData.base,
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSet.base,
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutPulse.base,
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop.base,
+      &protobuf_LabNetClientMessages_2eproto::scc_info_LabNetResetRequest.base,
+      &protobuf_LabNetClientMessages_2eproto::scc_info_LabNetIdRequest.base,}};
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_GpioInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GpioInitDigitalIn.base);
   ::google::protobuf::internal::InitSCC(&scc_info_GpioInitDigitalOut.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GpioSetDigitalOut.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Sam32Init.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Sam32SetPhaseMatrix.base);
   ::google::protobuf::internal::InitSCC(&scc_info_Sam32SetSignalInversion.base);
   ::google::protobuf::internal::InitSCC(&scc_info_UartInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_UartWriteData.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_PinId.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutSet.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutPulse.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutSetInLoop_DigitalOutputParameter.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutSetInLoop.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_LabNetResetRequest.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_LabNetIdRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ClientWrappedMessage.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[10];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+::google::protobuf::Metadata file_level_metadata[16];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -282,13 +420,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::GpioInitDigitalOut, pin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::GpioInitDigitalOut, is_inverted_),
-  ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::GpioSetDigitalOut, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::GpioSetDigitalOut, pin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::GpioSetDigitalOut, state_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::Sam32Init, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -317,7 +448,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartInit, port_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartInit, port_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartInit, baud_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, _internal_metadata_),
@@ -327,6 +458,54 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, portid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, data_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::PinId, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::PinId, interface_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::PinId, pin_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSet, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSet, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSet, state_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutPulse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutPulse, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutPulse, high_duration_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutPulse, low_duration_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutPulse, pulses_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter, offset_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter, duration_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop, loop_pause_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::DigitalOutSetInLoop, digital_outputs_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::LabNetResetRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::LabNetIdRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::ClientWrappedMessage, _internal_metadata_),
   ~0u,  // no _extensions_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::ClientWrappedMessage, _oneof_case_[0]),
@@ -334,37 +513,53 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_digital_in_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_digital_out_),
-  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, gpio_set_digital_out_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, sam32_init_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, sam32_set_phase_matrix_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, sam32_set_signal_inversion_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, uart_init_),
   offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, uart_write_data_),
+  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, digital_out_set_),
+  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, digital_out_pulse_),
+  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, digital_out_loop_),
+  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, reset_),
+  offsetof(::LabNet::Messages::Client::ClientWrappedMessageDefaultTypeInternal, id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::ClientWrappedMessage, client_message_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::LabNet::Messages::Client::GpioInit)},
   { 5, -1, sizeof(::LabNet::Messages::Client::GpioInitDigitalIn)},
   { 13, -1, sizeof(::LabNet::Messages::Client::GpioInitDigitalOut)},
-  { 20, -1, sizeof(::LabNet::Messages::Client::GpioSetDigitalOut)},
-  { 27, -1, sizeof(::LabNet::Messages::Client::Sam32Init)},
-  { 36, -1, sizeof(::LabNet::Messages::Client::Sam32SetPhaseMatrix)},
-  { 44, -1, sizeof(::LabNet::Messages::Client::Sam32SetSignalInversion)},
-  { 50, -1, sizeof(::LabNet::Messages::Client::UartInit)},
-  { 57, -1, sizeof(::LabNet::Messages::Client::UartWriteData)},
-  { 64, -1, sizeof(::LabNet::Messages::Client::ClientWrappedMessage)},
+  { 20, -1, sizeof(::LabNet::Messages::Client::Sam32Init)},
+  { 29, -1, sizeof(::LabNet::Messages::Client::Sam32SetPhaseMatrix)},
+  { 37, -1, sizeof(::LabNet::Messages::Client::Sam32SetSignalInversion)},
+  { 43, -1, sizeof(::LabNet::Messages::Client::UartInit)},
+  { 50, -1, sizeof(::LabNet::Messages::Client::UartWriteData)},
+  { 57, -1, sizeof(::LabNet::Messages::Client::PinId)},
+  { 64, -1, sizeof(::LabNet::Messages::Client::DigitalOutSet)},
+  { 71, -1, sizeof(::LabNet::Messages::Client::DigitalOutPulse)},
+  { 80, -1, sizeof(::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter)},
+  { 88, -1, sizeof(::LabNet::Messages::Client::DigitalOutSetInLoop)},
+  { 95, -1, sizeof(::LabNet::Messages::Client::LabNetResetRequest)},
+  { 100, -1, sizeof(::LabNet::Messages::Client::LabNetIdRequest)},
+  { 105, -1, sizeof(::LabNet::Messages::Client::ClientWrappedMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_GpioInit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_GpioInitDigitalIn_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_GpioInitDigitalOut_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_GpioSetDigitalOut_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_Sam32Init_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_Sam32SetPhaseMatrix_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_Sam32SetSignalInversion_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_UartInit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_UartWriteData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_PinId_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_DigitalOutSet_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_DigitalOutPulse_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_DigitalOutSetInLoop_DigitalOutputParameter_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_DigitalOutSetInLoop_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_LabNetResetRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_LabNetIdRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_),
 };
 
@@ -383,7 +578,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 16);
 }
 
 void AddDescriptorsImpl() {
@@ -396,36 +591,60 @@ void AddDescriptorsImpl() {
       "italIn.Resistor\022\023\n\013is_inverted\030\003 \001(\010\"/\n\010"
       "Resistor\022\007\n\003OFF\020\000\022\r\n\tPULL_DOWN\020\001\022\013\n\007PULL"
       "_UP\020\002\"6\n\022GpioInitDigitalOut\022\013\n\003pin\030\001 \001(\r"
-      "\022\023\n\013is_inverted\030\002 \001(\010\"/\n\021GpioSetDigitalO"
-      "ut\022\013\n\003pin\030\001 \001(\r\022\r\n\005state\030\002 \001(\010\"e\n\tSam32I"
-      "nit\022\026\n\016antenna_phase1\030\001 \001(\r\022\026\n\016antenna_p"
-      "hase2\030\002 \001(\r\022\026\n\016phase_duration\030\003 \001(\r\022\020\n\010i"
-      "nverted\030\004 \001(\010\"]\n\023Sam32SetPhaseMatrix\022\026\n\016"
-      "antenna_phase1\030\001 \001(\r\022\026\n\016antenna_phase2\030\002"
-      " \001(\r\022\026\n\016phase_duration\030\003 \001(\r\"+\n\027Sam32Set"
-      "SignalInversion\022\020\n\010inverted\030\001 \001(\010\")\n\010Uar"
-      "tInit\022\017\n\007port_id\030\001 \001(\r\022\014\n\004baud\030\002 \001(\r\"-\n\r"
-      "UartWriteData\022\016\n\006portId\030\001 \001(\r\022\014\n\004data\030\002 "
-      "\001(\014\"\232\005\n\024ClientWrappedMessage\0225\n\tgpio_ini"
-      "t\030\001 \001(\0132 .LabNet.Messages.Client.GpioIni"
-      "tH\000\022I\n\024gpio_init_digital_in\030\002 \001(\0132).LabN"
-      "et.Messages.Client.GpioInitDigitalInH\000\022K"
-      "\n\025gpio_init_digital_out\030\003 \001(\0132*.LabNet.M"
-      "essages.Client.GpioInitDigitalOutH\000\022I\n\024g"
-      "pio_set_digital_out\030\004 \001(\0132).LabNet.Messa"
-      "ges.Client.GpioSetDigitalOutH\000\0227\n\nsam32_"
-      "init\030\005 \001(\0132!.LabNet.Messages.Client.Sam3"
-      "2InitH\000\022M\n\026sam32_set_phase_matrix\030\006 \001(\0132"
-      "+.LabNet.Messages.Client.Sam32SetPhaseMa"
-      "trixH\000\022U\n\032sam32_set_signal_inversion\030\007 \001"
-      "(\0132/.LabNet.Messages.Client.Sam32SetSign"
-      "alInversionH\000\0225\n\tuart_init\030\010 \001(\0132 .LabNe"
-      "t.Messages.Client.UartInitH\000\022@\n\017uart_wri"
-      "te_data\030\t \001(\0132%.LabNet.Messages.Client.U"
-      "artWriteDataH\000B\020\n\016client_messageb\006proto3"
+      "\022\023\n\013is_inverted\030\002 \001(\010\"e\n\tSam32Init\022\026\n\016an"
+      "tenna_phase1\030\001 \001(\r\022\026\n\016antenna_phase2\030\002 \001"
+      "(\r\022\026\n\016phase_duration\030\003 \001(\r\022\020\n\010inverted\030\004"
+      " \001(\010\"]\n\023Sam32SetPhaseMatrix\022\026\n\016antenna_p"
+      "hase1\030\001 \001(\r\022\026\n\016antenna_phase2\030\002 \001(\r\022\026\n\016p"
+      "hase_duration\030\003 \001(\r\"+\n\027Sam32SetSignalInv"
+      "ersion\022\020\n\010inverted\030\001 \001(\010\"\213\001\n\010UartInit\0223\n"
+      "\004port\030\001 \001(\0162%.LabNet.Messages.Client.Uar"
+      "tInit.Port\022\014\n\004baud\030\002 \001(\r\"<\n\004Port\022\010\n\004NONE"
+      "\020\000\022\t\n\005UART1\020e\022\t\n\005UART2\020f\022\t\n\005UART3\020g\022\t\n\005U"
+      "ART4\020h\"-\n\rUartWriteData\022\016\n\006portId\030\001 \001(\r\022"
+      "\014\n\004data\030\002 \001(\014\"\251\001\n\005PinId\022;\n\tinterface\030\001 \001"
+      "(\0162(.LabNet.Messages.Client.PinId.Interf"
+      "aces\022\013\n\003pin\030\002 \001(\r\"V\n\nInterfaces\022\010\n\004NONE\020"
+      "\000\022\022\n\016GPIO_TOP_PLANE\020\001\022\t\n\005UART1\020e\022\t\n\005UART"
+      "2\020f\022\t\n\005UART3\020g\022\t\n\005UART4\020h\"I\n\rDigitalOutS"
+      "et\022)\n\002id\030\001 \001(\0132\035.LabNet.Messages.Client."
+      "PinId\022\r\n\005state\030\002 \001(\010\"y\n\017DigitalOutPulse\022"
+      ")\n\002id\030\001 \001(\0132\035.LabNet.Messages.Client.Pin"
+      "Id\022\025\n\rhigh_duration\030\002 \001(\r\022\024\n\014low_duratio"
+      "n\030\003 \001(\r\022\016\n\006pulses\030\004 \001(\r\"\355\001\n\023DigitalOutSe"
+      "tInLoop\022\022\n\nloop_pause\030\001 \001(\r\022[\n\017digital_o"
+      "utputs\030\002 \003(\0132B.LabNet.Messages.Client.Di"
+      "gitalOutSetInLoop.DigitalOutputParameter"
+      "\032e\n\026DigitalOutputParameter\022)\n\002id\030\001 \001(\0132\035"
+      ".LabNet.Messages.Client.PinId\022\016\n\006offset\030"
+      "\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\024\n\022LabNetResetRe"
+      "quest\"\021\n\017LabNetIdRequest\"\224\007\n\024ClientWrapp"
+      "edMessage\0225\n\tgpio_init\030\001 \001(\0132 .LabNet.Me"
+      "ssages.Client.GpioInitH\000\022I\n\024gpio_init_di"
+      "gital_in\030\002 \001(\0132).LabNet.Messages.Client."
+      "GpioInitDigitalInH\000\022K\n\025gpio_init_digital"
+      "_out\030\003 \001(\0132*.LabNet.Messages.Client.Gpio"
+      "InitDigitalOutH\000\0227\n\nsam32_init\030\004 \001(\0132!.L"
+      "abNet.Messages.Client.Sam32InitH\000\022M\n\026sam"
+      "32_set_phase_matrix\030\005 \001(\0132+.LabNet.Messa"
+      "ges.Client.Sam32SetPhaseMatrixH\000\022U\n\032sam3"
+      "2_set_signal_inversion\030\006 \001(\0132/.LabNet.Me"
+      "ssages.Client.Sam32SetSignalInversionH\000\022"
+      "5\n\tuart_init\030\007 \001(\0132 .LabNet.Messages.Cli"
+      "ent.UartInitH\000\022@\n\017uart_write_data\030\010 \001(\0132"
+      "%.LabNet.Messages.Client.UartWriteDataH\000"
+      "\022@\n\017digital_out_set\030\t \001(\0132%.LabNet.Messa"
+      "ges.Client.DigitalOutSetH\000\022D\n\021digital_ou"
+      "t_pulse\030\n \001(\0132\'.LabNet.Messages.Client.D"
+      "igitalOutPulseH\000\022G\n\020digital_out_loop\030\013 \001"
+      "(\0132+.LabNet.Messages.Client.DigitalOutSe"
+      "tInLoopH\000\022;\n\005reset\030\014 \001(\0132*.LabNet.Messag"
+      "es.Client.LabNetResetRequestH\000\0225\n\002id\030\r \001"
+      "(\0132\'.LabNet.Messages.Client.LabNetIdRequ"
+      "estH\000B\020\n\016client_messageb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1360);
+      descriptor, 2311);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClientMessages.proto", &protobuf_RegisterTypes);
 }
@@ -466,6 +685,62 @@ const GpioInitDigitalIn_Resistor GpioInitDigitalIn::PULL_UP;
 const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MIN;
 const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MAX;
 const int GpioInitDigitalIn::Resistor_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* UartInit_Port_descriptor() {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[1];
+}
+bool UartInit_Port_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const UartInit_Port UartInit::NONE;
+const UartInit_Port UartInit::UART1;
+const UartInit_Port UartInit::UART2;
+const UartInit_Port UartInit::UART3;
+const UartInit_Port UartInit::UART4;
+const UartInit_Port UartInit::Port_MIN;
+const UartInit_Port UartInit::Port_MAX;
+const int UartInit::Port_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* PinId_Interfaces_descriptor() {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[2];
+}
+bool PinId_Interfaces_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const PinId_Interfaces PinId::NONE;
+const PinId_Interfaces PinId::GPIO_TOP_PLANE;
+const PinId_Interfaces PinId::UART1;
+const PinId_Interfaces PinId::UART2;
+const PinId_Interfaces PinId::UART3;
+const PinId_Interfaces PinId::UART4;
+const PinId_Interfaces PinId::Interfaces_MIN;
+const PinId_Interfaces PinId::Interfaces_MAX;
+const int PinId::Interfaces_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -1206,269 +1481,6 @@ void GpioInitDigitalOut::InternalSwap(GpioInitDigitalOut* other) {
 }
 
 ::google::protobuf::Metadata GpioInitDigitalOut::GetMetadata() const {
-  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
-}
-
-
-// ===================================================================
-
-void GpioSetDigitalOut::InitAsDefaultInstance() {
-}
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GpioSetDigitalOut::kPinFieldNumber;
-const int GpioSetDigitalOut::kStateFieldNumber;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-
-GpioSetDigitalOut::GpioSetDigitalOut()
-  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
-  ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClientMessages_2eproto::scc_info_GpioSetDigitalOut.base);
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.GpioSetDigitalOut)
-}
-GpioSetDigitalOut::GpioSetDigitalOut(const GpioSetDigitalOut& from)
-  : ::google::protobuf::Message(),
-      _internal_metadata_(NULL) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&pin_, &from.pin_,
-    static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-    reinterpret_cast<char*>(&pin_)) + sizeof(state_));
-  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.GpioSetDigitalOut)
-}
-
-void GpioSetDigitalOut::SharedCtor() {
-  ::memset(&pin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(state_));
-}
-
-GpioSetDigitalOut::~GpioSetDigitalOut() {
-  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.GpioSetDigitalOut)
-  SharedDtor();
-}
-
-void GpioSetDigitalOut::SharedDtor() {
-}
-
-void GpioSetDigitalOut::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ::google::protobuf::Descriptor* GpioSetDigitalOut::descriptor() {
-  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
-}
-
-const GpioSetDigitalOut& GpioSetDigitalOut::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_GpioSetDigitalOut.base);
-  return *internal_default_instance();
-}
-
-
-void GpioSetDigitalOut::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&pin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(state_));
-  _internal_metadata_.Clear();
-}
-
-bool GpioSetDigitalOut::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
-  ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
-    tag = p.first;
-    if (!p.second) goto handle_unusual;
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 pin = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &pin_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // bool state = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &state_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      default: {
-      handle_unusual:
-        if (tag == 0) {
-          goto success;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, _internal_metadata_.mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-success:
-  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.GpioSetDigitalOut)
-  return true;
-failure:
-  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.GpioSetDigitalOut)
-  return false;
-#undef DO_
-}
-
-void GpioSetDigitalOut::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 pin = 1;
-  if (this->pin() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pin(), output);
-  }
-
-  // bool state = 2;
-  if (this->state() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->state(), output);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
-  }
-  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.GpioSetDigitalOut)
-}
-
-::google::protobuf::uint8* GpioSetDigitalOut::InternalSerializeWithCachedSizesToArray(
-    bool deterministic, ::google::protobuf::uint8* target) const {
-  (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 pin = 1;
-  if (this->pin() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pin(), target);
-  }
-
-  // bool state = 2;
-  if (this->state() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->state(), target);
-  }
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.GpioSetDigitalOut)
-  return target;
-}
-
-size_t GpioSetDigitalOut::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  size_t total_size = 0;
-
-  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
-  }
-  // uint32 pin = 1;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->pin());
-  }
-
-  // bool state = 2;
-  if (this->state() != 0) {
-    total_size += 1 + 1;
-  }
-
-  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void GpioSetDigitalOut::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GpioSetDigitalOut* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const GpioSetDigitalOut>(
-          &from);
-  if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.GpioSetDigitalOut)
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.GpioSetDigitalOut)
-    MergeFrom(*source);
-  }
-}
-
-void GpioSetDigitalOut::MergeFrom(const GpioSetDigitalOut& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::google::protobuf::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.pin() != 0) {
-    set_pin(from.pin());
-  }
-  if (from.state() != 0) {
-    set_state(from.state());
-  }
-}
-
-void GpioSetDigitalOut::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GpioSetDigitalOut::CopyFrom(const GpioSetDigitalOut& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.GpioSetDigitalOut)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GpioSetDigitalOut::IsInitialized() const {
-  return true;
-}
-
-void GpioSetDigitalOut::Swap(GpioSetDigitalOut* other) {
-  if (other == this) return;
-  InternalSwap(other);
-}
-void GpioSetDigitalOut::InternalSwap(GpioSetDigitalOut* other) {
-  using std::swap;
-  swap(pin_, other->pin_);
-  swap(state_, other->state_);
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-}
-
-::google::protobuf::Metadata GpioSetDigitalOut::GetMetadata() const {
   protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2336,7 +2348,7 @@ void Sam32SetSignalInversion::InternalSwap(Sam32SetSignalInversion* other) {
 void UartInit::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UartInit::kPortIdFieldNumber;
+const int UartInit::kPortFieldNumber;
 const int UartInit::kBaudFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2351,16 +2363,16 @@ UartInit::UartInit(const UartInit& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&port_id_, &from.port_id_,
+  ::memcpy(&port_, &from.port_,
     static_cast<size_t>(reinterpret_cast<char*>(&baud_) -
-    reinterpret_cast<char*>(&port_id_)) + sizeof(baud_));
+    reinterpret_cast<char*>(&port_)) + sizeof(baud_));
   // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.UartInit)
 }
 
 void UartInit::SharedCtor() {
-  ::memset(&port_id_, 0, static_cast<size_t>(
+  ::memset(&port_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&baud_) -
-      reinterpret_cast<char*>(&port_id_)) + sizeof(baud_));
+      reinterpret_cast<char*>(&port_)) + sizeof(baud_));
 }
 
 UartInit::~UartInit() {
@@ -2391,9 +2403,9 @@ void UartInit::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&port_id_, 0, static_cast<size_t>(
+  ::memset(&port_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&baud_) -
-      reinterpret_cast<char*>(&port_id_)) + sizeof(baud_));
+      reinterpret_cast<char*>(&port_)) + sizeof(baud_));
   _internal_metadata_.Clear();
 }
 
@@ -2407,14 +2419,15 @@ bool UartInit::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 port_id = 1;
+      // .LabNet.Messages.Client.UartInit.Port port = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &port_id_)));
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_port(static_cast< ::LabNet::Messages::Client::UartInit_Port >(value));
         } else {
           goto handle_unusual;
         }
@@ -2461,9 +2474,10 @@ void UartInit::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 port_id = 1;
-  if (this->port_id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->port_id(), output);
+  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->port(), output);
   }
 
   // uint32 baud = 2;
@@ -2485,9 +2499,10 @@ void UartInit::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 port_id = 1;
-  if (this->port_id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->port_id(), target);
+  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->port(), target);
   }
 
   // uint32 baud = 2;
@@ -2512,11 +2527,10 @@ size_t UartInit::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint32 port_id = 1;
-  if (this->port_id() != 0) {
+  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  if (this->port() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->port_id());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->port());
   }
 
   // uint32 baud = 2;
@@ -2553,8 +2567,8 @@ void UartInit::MergeFrom(const UartInit& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.port_id() != 0) {
-    set_port_id(from.port_id());
+  if (from.port() != 0) {
+    set_port(from.port());
   }
   if (from.baud() != 0) {
     set_baud(from.baud());
@@ -2585,7 +2599,7 @@ void UartInit::Swap(UartInit* other) {
 }
 void UartInit::InternalSwap(UartInit* other) {
   using std::swap;
-  swap(port_id_, other->port_id_);
+  swap(port_, other->port_);
   swap(baud_, other->baud_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
@@ -2867,6 +2881,1835 @@ void UartWriteData::InternalSwap(UartWriteData* other) {
 
 // ===================================================================
 
+void PinId::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PinId::kInterfaceFieldNumber;
+const int PinId::kPinFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+PinId::PinId()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_PinId.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.PinId)
+}
+PinId::PinId(const PinId& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&interface_, &from.interface_,
+    static_cast<size_t>(reinterpret_cast<char*>(&pin_) -
+    reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.PinId)
+}
+
+void PinId::SharedCtor() {
+  ::memset(&interface_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pin_) -
+      reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
+}
+
+PinId::~PinId() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.PinId)
+  SharedDtor();
+}
+
+void PinId::SharedDtor() {
+}
+
+void PinId::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* PinId::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const PinId& PinId::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_PinId.base);
+  return *internal_default_instance();
+}
+
+
+void PinId::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.PinId)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&interface_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pin_) -
+      reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
+  _internal_metadata_.Clear();
+}
+
+bool PinId::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.PinId)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Client.PinId.Interfaces interface = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_interface(static_cast< ::LabNet::Messages::Client::PinId_Interfaces >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 pin = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pin_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.PinId)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.PinId)
+  return false;
+#undef DO_
+}
+
+void PinId::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.PinId)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->interface(), output);
+  }
+
+  // uint32 pin = 2;
+  if (this->pin() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->pin(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.PinId)
+}
+
+::google::protobuf::uint8* PinId::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.PinId)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->interface(), target);
+  }
+
+  // uint32 pin = 2;
+  if (this->pin() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->pin(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.PinId)
+  return target;
+}
+
+size_t PinId::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.PinId)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Client.PinId.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->interface());
+  }
+
+  // uint32 pin = 2;
+  if (this->pin() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->pin());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void PinId::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.PinId)
+  GOOGLE_DCHECK_NE(&from, this);
+  const PinId* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const PinId>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.PinId)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.PinId)
+    MergeFrom(*source);
+  }
+}
+
+void PinId::MergeFrom(const PinId& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.PinId)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.interface() != 0) {
+    set_interface(from.interface());
+  }
+  if (from.pin() != 0) {
+    set_pin(from.pin());
+  }
+}
+
+void PinId::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.PinId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PinId::CopyFrom(const PinId& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.PinId)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PinId::IsInitialized() const {
+  return true;
+}
+
+void PinId::Swap(PinId* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void PinId::InternalSwap(PinId* other) {
+  using std::swap;
+  swap(interface_, other->interface_);
+  swap(pin_, other->pin_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata PinId::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void DigitalOutSet::InitAsDefaultInstance() {
+  ::LabNet::Messages::Client::_DigitalOutSet_default_instance_._instance.get_mutable()->id_ = const_cast< ::LabNet::Messages::Client::PinId*>(
+      ::LabNet::Messages::Client::PinId::internal_default_instance());
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DigitalOutSet::kIdFieldNumber;
+const int DigitalOutSet::kStateFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DigitalOutSet::DigitalOutSet()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSet.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.DigitalOutSet)
+}
+DigitalOutSet::DigitalOutSet(const DigitalOutSet& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_id()) {
+    id_ = new ::LabNet::Messages::Client::PinId(*from.id_);
+  } else {
+    id_ = NULL;
+  }
+  state_ = from.state_;
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.DigitalOutSet)
+}
+
+void DigitalOutSet::SharedCtor() {
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(state_));
+}
+
+DigitalOutSet::~DigitalOutSet() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.DigitalOutSet)
+  SharedDtor();
+}
+
+void DigitalOutSet::SharedDtor() {
+  if (this != internal_default_instance()) delete id_;
+}
+
+void DigitalOutSet::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* DigitalOutSet::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const DigitalOutSet& DigitalOutSet::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSet.base);
+  return *internal_default_instance();
+}
+
+
+void DigitalOutSet::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.DigitalOutSet)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) {
+    delete id_;
+  }
+  id_ = NULL;
+  state_ = false;
+  _internal_metadata_.Clear();
+}
+
+bool DigitalOutSet::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.DigitalOutSet)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Client.PinId id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool state = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &state_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.DigitalOutSet)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.DigitalOutSet)
+  return false;
+#undef DO_
+}
+
+void DigitalOutSet::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.DigitalOutSet)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_id(), output);
+  }
+
+  // bool state = 2;
+  if (this->state() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->state(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.DigitalOutSet)
+}
+
+::google::protobuf::uint8* DigitalOutSet::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.DigitalOutSet)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_id(), deterministic, target);
+  }
+
+  // bool state = 2;
+  if (this->state() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->state(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.DigitalOutSet)
+  return target;
+}
+
+size_t DigitalOutSet::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.DigitalOutSet)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *id_);
+  }
+
+  // bool state = 2;
+  if (this->state() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DigitalOutSet::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.DigitalOutSet)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DigitalOutSet* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DigitalOutSet>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.DigitalOutSet)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.DigitalOutSet)
+    MergeFrom(*source);
+  }
+}
+
+void DigitalOutSet::MergeFrom(const DigitalOutSet& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.DigitalOutSet)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    mutable_id()->::LabNet::Messages::Client::PinId::MergeFrom(from.id());
+  }
+  if (from.state() != 0) {
+    set_state(from.state());
+  }
+}
+
+void DigitalOutSet::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.DigitalOutSet)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DigitalOutSet::CopyFrom(const DigitalOutSet& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.DigitalOutSet)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DigitalOutSet::IsInitialized() const {
+  return true;
+}
+
+void DigitalOutSet::Swap(DigitalOutSet* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DigitalOutSet::InternalSwap(DigitalOutSet* other) {
+  using std::swap;
+  swap(id_, other->id_);
+  swap(state_, other->state_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata DigitalOutSet::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void DigitalOutPulse::InitAsDefaultInstance() {
+  ::LabNet::Messages::Client::_DigitalOutPulse_default_instance_._instance.get_mutable()->id_ = const_cast< ::LabNet::Messages::Client::PinId*>(
+      ::LabNet::Messages::Client::PinId::internal_default_instance());
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DigitalOutPulse::kIdFieldNumber;
+const int DigitalOutPulse::kHighDurationFieldNumber;
+const int DigitalOutPulse::kLowDurationFieldNumber;
+const int DigitalOutPulse::kPulsesFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DigitalOutPulse::DigitalOutPulse()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutPulse.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.DigitalOutPulse)
+}
+DigitalOutPulse::DigitalOutPulse(const DigitalOutPulse& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_id()) {
+    id_ = new ::LabNet::Messages::Client::PinId(*from.id_);
+  } else {
+    id_ = NULL;
+  }
+  ::memcpy(&high_duration_, &from.high_duration_,
+    static_cast<size_t>(reinterpret_cast<char*>(&pulses_) -
+    reinterpret_cast<char*>(&high_duration_)) + sizeof(pulses_));
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.DigitalOutPulse)
+}
+
+void DigitalOutPulse::SharedCtor() {
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pulses_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(pulses_));
+}
+
+DigitalOutPulse::~DigitalOutPulse() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.DigitalOutPulse)
+  SharedDtor();
+}
+
+void DigitalOutPulse::SharedDtor() {
+  if (this != internal_default_instance()) delete id_;
+}
+
+void DigitalOutPulse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* DigitalOutPulse::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const DigitalOutPulse& DigitalOutPulse::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutPulse.base);
+  return *internal_default_instance();
+}
+
+
+void DigitalOutPulse::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.DigitalOutPulse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) {
+    delete id_;
+  }
+  id_ = NULL;
+  ::memset(&high_duration_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pulses_) -
+      reinterpret_cast<char*>(&high_duration_)) + sizeof(pulses_));
+  _internal_metadata_.Clear();
+}
+
+bool DigitalOutPulse::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.DigitalOutPulse)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Client.PinId id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 high_duration = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &high_duration_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 low_duration = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &low_duration_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 pulses = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pulses_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.DigitalOutPulse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.DigitalOutPulse)
+  return false;
+#undef DO_
+}
+
+void DigitalOutPulse::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.DigitalOutPulse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_id(), output);
+  }
+
+  // uint32 high_duration = 2;
+  if (this->high_duration() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->high_duration(), output);
+  }
+
+  // uint32 low_duration = 3;
+  if (this->low_duration() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->low_duration(), output);
+  }
+
+  // uint32 pulses = 4;
+  if (this->pulses() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->pulses(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.DigitalOutPulse)
+}
+
+::google::protobuf::uint8* DigitalOutPulse::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.DigitalOutPulse)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_id(), deterministic, target);
+  }
+
+  // uint32 high_duration = 2;
+  if (this->high_duration() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->high_duration(), target);
+  }
+
+  // uint32 low_duration = 3;
+  if (this->low_duration() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->low_duration(), target);
+  }
+
+  // uint32 pulses = 4;
+  if (this->pulses() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->pulses(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.DigitalOutPulse)
+  return target;
+}
+
+size_t DigitalOutPulse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.DigitalOutPulse)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *id_);
+  }
+
+  // uint32 high_duration = 2;
+  if (this->high_duration() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->high_duration());
+  }
+
+  // uint32 low_duration = 3;
+  if (this->low_duration() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->low_duration());
+  }
+
+  // uint32 pulses = 4;
+  if (this->pulses() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->pulses());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DigitalOutPulse::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.DigitalOutPulse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DigitalOutPulse* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DigitalOutPulse>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.DigitalOutPulse)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.DigitalOutPulse)
+    MergeFrom(*source);
+  }
+}
+
+void DigitalOutPulse::MergeFrom(const DigitalOutPulse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.DigitalOutPulse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    mutable_id()->::LabNet::Messages::Client::PinId::MergeFrom(from.id());
+  }
+  if (from.high_duration() != 0) {
+    set_high_duration(from.high_duration());
+  }
+  if (from.low_duration() != 0) {
+    set_low_duration(from.low_duration());
+  }
+  if (from.pulses() != 0) {
+    set_pulses(from.pulses());
+  }
+}
+
+void DigitalOutPulse::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.DigitalOutPulse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DigitalOutPulse::CopyFrom(const DigitalOutPulse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.DigitalOutPulse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DigitalOutPulse::IsInitialized() const {
+  return true;
+}
+
+void DigitalOutPulse::Swap(DigitalOutPulse* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DigitalOutPulse::InternalSwap(DigitalOutPulse* other) {
+  using std::swap;
+  swap(id_, other->id_);
+  swap(high_duration_, other->high_duration_);
+  swap(low_duration_, other->low_duration_);
+  swap(pulses_, other->pulses_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata DigitalOutPulse::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void DigitalOutSetInLoop_DigitalOutputParameter::InitAsDefaultInstance() {
+  ::LabNet::Messages::Client::_DigitalOutSetInLoop_DigitalOutputParameter_default_instance_._instance.get_mutable()->id_ = const_cast< ::LabNet::Messages::Client::PinId*>(
+      ::LabNet::Messages::Client::PinId::internal_default_instance());
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DigitalOutSetInLoop_DigitalOutputParameter::kIdFieldNumber;
+const int DigitalOutSetInLoop_DigitalOutputParameter::kOffsetFieldNumber;
+const int DigitalOutSetInLoop_DigitalOutputParameter::kDurationFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DigitalOutSetInLoop_DigitalOutputParameter::DigitalOutSetInLoop_DigitalOutputParameter()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop_DigitalOutputParameter.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+}
+DigitalOutSetInLoop_DigitalOutputParameter::DigitalOutSetInLoop_DigitalOutputParameter(const DigitalOutSetInLoop_DigitalOutputParameter& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  if (from.has_id()) {
+    id_ = new ::LabNet::Messages::Client::PinId(*from.id_);
+  } else {
+    id_ = NULL;
+  }
+  ::memcpy(&offset_, &from.offset_,
+    static_cast<size_t>(reinterpret_cast<char*>(&duration_) -
+    reinterpret_cast<char*>(&offset_)) + sizeof(duration_));
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::SharedCtor() {
+  ::memset(&id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&duration_) -
+      reinterpret_cast<char*>(&id_)) + sizeof(duration_));
+}
+
+DigitalOutSetInLoop_DigitalOutputParameter::~DigitalOutSetInLoop_DigitalOutputParameter() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  SharedDtor();
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::SharedDtor() {
+  if (this != internal_default_instance()) delete id_;
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* DigitalOutSetInLoop_DigitalOutputParameter::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const DigitalOutSetInLoop_DigitalOutputParameter& DigitalOutSetInLoop_DigitalOutputParameter::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop_DigitalOutputParameter.base);
+  return *internal_default_instance();
+}
+
+
+void DigitalOutSetInLoop_DigitalOutputParameter::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaNoVirtual() == NULL && id_ != NULL) {
+    delete id_;
+  }
+  id_ = NULL;
+  ::memset(&offset_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&duration_) -
+      reinterpret_cast<char*>(&offset_)) + sizeof(duration_));
+  _internal_metadata_.Clear();
+}
+
+bool DigitalOutSetInLoop_DigitalOutputParameter::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Client.PinId id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_id()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 offset = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &offset_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 duration = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &duration_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  return false;
+#undef DO_
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_id(), output);
+  }
+
+  // uint32 offset = 2;
+  if (this->offset() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->offset(), output);
+  }
+
+  // uint32 duration = 3;
+  if (this->duration() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->duration(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+}
+
+::google::protobuf::uint8* DigitalOutSetInLoop_DigitalOutputParameter::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_id(), deterministic, target);
+  }
+
+  // uint32 offset = 2;
+  if (this->offset() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->offset(), target);
+  }
+
+  // uint32 duration = 3;
+  if (this->duration() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->duration(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  return target;
+}
+
+size_t DigitalOutSetInLoop_DigitalOutputParameter::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Client.PinId id = 1;
+  if (this->has_id()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *id_);
+  }
+
+  // uint32 offset = 2;
+  if (this->offset() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->offset());
+  }
+
+  // uint32 duration = 3;
+  if (this->duration() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->duration());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DigitalOutSetInLoop_DigitalOutputParameter* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DigitalOutSetInLoop_DigitalOutputParameter>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+    MergeFrom(*source);
+  }
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::MergeFrom(const DigitalOutSetInLoop_DigitalOutputParameter& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_id()) {
+    mutable_id()->::LabNet::Messages::Client::PinId::MergeFrom(from.id());
+  }
+  if (from.offset() != 0) {
+    set_offset(from.offset());
+  }
+  if (from.duration() != 0) {
+    set_duration(from.duration());
+  }
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::CopyFrom(const DigitalOutSetInLoop_DigitalOutputParameter& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DigitalOutSetInLoop_DigitalOutputParameter::IsInitialized() const {
+  return true;
+}
+
+void DigitalOutSetInLoop_DigitalOutputParameter::Swap(DigitalOutSetInLoop_DigitalOutputParameter* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DigitalOutSetInLoop_DigitalOutputParameter::InternalSwap(DigitalOutSetInLoop_DigitalOutputParameter* other) {
+  using std::swap;
+  swap(id_, other->id_);
+  swap(offset_, other->offset_);
+  swap(duration_, other->duration_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata DigitalOutSetInLoop_DigitalOutputParameter::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void DigitalOutSetInLoop::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int DigitalOutSetInLoop::kLoopPauseFieldNumber;
+const int DigitalOutSetInLoop::kDigitalOutputsFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+DigitalOutSetInLoop::DigitalOutSetInLoop()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.DigitalOutSetInLoop)
+}
+DigitalOutSetInLoop::DigitalOutSetInLoop(const DigitalOutSetInLoop& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      digital_outputs_(from.digital_outputs_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  loop_pause_ = from.loop_pause_;
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.DigitalOutSetInLoop)
+}
+
+void DigitalOutSetInLoop::SharedCtor() {
+  loop_pause_ = 0u;
+}
+
+DigitalOutSetInLoop::~DigitalOutSetInLoop() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.DigitalOutSetInLoop)
+  SharedDtor();
+}
+
+void DigitalOutSetInLoop::SharedDtor() {
+}
+
+void DigitalOutSetInLoop::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* DigitalOutSetInLoop::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const DigitalOutSetInLoop& DigitalOutSetInLoop::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_DigitalOutSetInLoop.base);
+  return *internal_default_instance();
+}
+
+
+void DigitalOutSetInLoop::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  digital_outputs_.Clear();
+  loop_pause_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool DigitalOutSetInLoop::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 loop_pause = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &loop_pause_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter digital_outputs = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+                input, add_digital_outputs()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.DigitalOutSetInLoop)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.DigitalOutSetInLoop)
+  return false;
+#undef DO_
+}
+
+void DigitalOutSetInLoop::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 loop_pause = 1;
+  if (this->loop_pause() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->loop_pause(), output);
+  }
+
+  // repeated .LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter digital_outputs = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->digital_outputs_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2,
+      this->digital_outputs(static_cast<int>(i)),
+      output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.DigitalOutSetInLoop)
+}
+
+::google::protobuf::uint8* DigitalOutSetInLoop::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 loop_pause = 1;
+  if (this->loop_pause() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->loop_pause(), target);
+  }
+
+  // repeated .LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter digital_outputs = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->digital_outputs_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->digital_outputs(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.DigitalOutSetInLoop)
+  return target;
+}
+
+size_t DigitalOutSetInLoop::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .LabNet.Messages.Client.DigitalOutSetInLoop.DigitalOutputParameter digital_outputs = 2;
+  {
+    unsigned int count = static_cast<unsigned int>(this->digital_outputs_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->digital_outputs(static_cast<int>(i)));
+    }
+  }
+
+  // uint32 loop_pause = 1;
+  if (this->loop_pause() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->loop_pause());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void DigitalOutSetInLoop::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  GOOGLE_DCHECK_NE(&from, this);
+  const DigitalOutSetInLoop* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DigitalOutSetInLoop>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.DigitalOutSetInLoop)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.DigitalOutSetInLoop)
+    MergeFrom(*source);
+  }
+}
+
+void DigitalOutSetInLoop::MergeFrom(const DigitalOutSetInLoop& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  digital_outputs_.MergeFrom(from.digital_outputs_);
+  if (from.loop_pause() != 0) {
+    set_loop_pause(from.loop_pause());
+  }
+}
+
+void DigitalOutSetInLoop::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DigitalOutSetInLoop::CopyFrom(const DigitalOutSetInLoop& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.DigitalOutSetInLoop)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DigitalOutSetInLoop::IsInitialized() const {
+  return true;
+}
+
+void DigitalOutSetInLoop::Swap(DigitalOutSetInLoop* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void DigitalOutSetInLoop::InternalSwap(DigitalOutSetInLoop* other) {
+  using std::swap;
+  CastToBase(&digital_outputs_)->InternalSwap(CastToBase(&other->digital_outputs_));
+  swap(loop_pause_, other->loop_pause_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata DigitalOutSetInLoop::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void LabNetResetRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LabNetResetRequest::LabNetResetRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_LabNetResetRequest.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.LabNetResetRequest)
+}
+LabNetResetRequest::LabNetResetRequest(const LabNetResetRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.LabNetResetRequest)
+}
+
+void LabNetResetRequest::SharedCtor() {
+}
+
+LabNetResetRequest::~LabNetResetRequest() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.LabNetResetRequest)
+  SharedDtor();
+}
+
+void LabNetResetRequest::SharedDtor() {
+}
+
+void LabNetResetRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* LabNetResetRequest::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LabNetResetRequest& LabNetResetRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_LabNetResetRequest.base);
+  return *internal_default_instance();
+}
+
+
+void LabNetResetRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.LabNetResetRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool LabNetResetRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.LabNetResetRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.LabNetResetRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.LabNetResetRequest)
+  return false;
+#undef DO_
+}
+
+void LabNetResetRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.LabNetResetRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.LabNetResetRequest)
+}
+
+::google::protobuf::uint8* LabNetResetRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.LabNetResetRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.LabNetResetRequest)
+  return target;
+}
+
+size_t LabNetResetRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.LabNetResetRequest)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LabNetResetRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.LabNetResetRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LabNetResetRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LabNetResetRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.LabNetResetRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.LabNetResetRequest)
+    MergeFrom(*source);
+  }
+}
+
+void LabNetResetRequest::MergeFrom(const LabNetResetRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.LabNetResetRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void LabNetResetRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.LabNetResetRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LabNetResetRequest::CopyFrom(const LabNetResetRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.LabNetResetRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LabNetResetRequest::IsInitialized() const {
+  return true;
+}
+
+void LabNetResetRequest::Swap(LabNetResetRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LabNetResetRequest::InternalSwap(LabNetResetRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata LabNetResetRequest::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void LabNetIdRequest::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+LabNetIdRequest::LabNetIdRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClientMessages_2eproto::scc_info_LabNetIdRequest.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Client.LabNetIdRequest)
+}
+LabNetIdRequest::LabNetIdRequest(const LabNetIdRequest& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.LabNetIdRequest)
+}
+
+void LabNetIdRequest::SharedCtor() {
+}
+
+LabNetIdRequest::~LabNetIdRequest() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Client.LabNetIdRequest)
+  SharedDtor();
+}
+
+void LabNetIdRequest::SharedDtor() {
+}
+
+void LabNetIdRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* LabNetIdRequest::descriptor() {
+  ::protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const LabNetIdRequest& LabNetIdRequest::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClientMessages_2eproto::scc_info_LabNetIdRequest.base);
+  return *internal_default_instance();
+}
+
+
+void LabNetIdRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Client.LabNetIdRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool LabNetIdRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Client.LabNetIdRequest)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Client.LabNetIdRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Client.LabNetIdRequest)
+  return false;
+#undef DO_
+}
+
+void LabNetIdRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Client.LabNetIdRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Client.LabNetIdRequest)
+}
+
+::google::protobuf::uint8* LabNetIdRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Client.LabNetIdRequest)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Client.LabNetIdRequest)
+  return target;
+}
+
+size_t LabNetIdRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Client.LabNetIdRequest)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void LabNetIdRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Client.LabNetIdRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const LabNetIdRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const LabNetIdRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Client.LabNetIdRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Client.LabNetIdRequest)
+    MergeFrom(*source);
+  }
+}
+
+void LabNetIdRequest::MergeFrom(const LabNetIdRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Client.LabNetIdRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void LabNetIdRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Client.LabNetIdRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LabNetIdRequest::CopyFrom(const LabNetIdRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Client.LabNetIdRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LabNetIdRequest::IsInitialized() const {
+  return true;
+}
+
+void LabNetIdRequest::Swap(LabNetIdRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void LabNetIdRequest::InternalSwap(LabNetIdRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata LabNetIdRequest::GetMetadata() const {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClientMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void ClientWrappedMessage::InitAsDefaultInstance() {
   ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.gpio_init_ = const_cast< ::LabNet::Messages::Client::GpioInit*>(
       ::LabNet::Messages::Client::GpioInit::internal_default_instance());
@@ -2874,8 +4717,6 @@ void ClientWrappedMessage::InitAsDefaultInstance() {
       ::LabNet::Messages::Client::GpioInitDigitalIn::internal_default_instance());
   ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.gpio_init_digital_out_ = const_cast< ::LabNet::Messages::Client::GpioInitDigitalOut*>(
       ::LabNet::Messages::Client::GpioInitDigitalOut::internal_default_instance());
-  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.gpio_set_digital_out_ = const_cast< ::LabNet::Messages::Client::GpioSetDigitalOut*>(
-      ::LabNet::Messages::Client::GpioSetDigitalOut::internal_default_instance());
   ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.sam32_init_ = const_cast< ::LabNet::Messages::Client::Sam32Init*>(
       ::LabNet::Messages::Client::Sam32Init::internal_default_instance());
   ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.sam32_set_phase_matrix_ = const_cast< ::LabNet::Messages::Client::Sam32SetPhaseMatrix*>(
@@ -2886,6 +4727,16 @@ void ClientWrappedMessage::InitAsDefaultInstance() {
       ::LabNet::Messages::Client::UartInit::internal_default_instance());
   ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.uart_write_data_ = const_cast< ::LabNet::Messages::Client::UartWriteData*>(
       ::LabNet::Messages::Client::UartWriteData::internal_default_instance());
+  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.digital_out_set_ = const_cast< ::LabNet::Messages::Client::DigitalOutSet*>(
+      ::LabNet::Messages::Client::DigitalOutSet::internal_default_instance());
+  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.digital_out_pulse_ = const_cast< ::LabNet::Messages::Client::DigitalOutPulse*>(
+      ::LabNet::Messages::Client::DigitalOutPulse::internal_default_instance());
+  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.digital_out_loop_ = const_cast< ::LabNet::Messages::Client::DigitalOutSetInLoop*>(
+      ::LabNet::Messages::Client::DigitalOutSetInLoop::internal_default_instance());
+  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.reset_ = const_cast< ::LabNet::Messages::Client::LabNetResetRequest*>(
+      ::LabNet::Messages::Client::LabNetResetRequest::internal_default_instance());
+  ::LabNet::Messages::Client::_ClientWrappedMessage_default_instance_.id_ = const_cast< ::LabNet::Messages::Client::LabNetIdRequest*>(
+      ::LabNet::Messages::Client::LabNetIdRequest::internal_default_instance());
 }
 void ClientWrappedMessage::set_allocated_gpio_init(::LabNet::Messages::Client::GpioInit* gpio_init) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
@@ -2928,20 +4779,6 @@ void ClientWrappedMessage::set_allocated_gpio_init_digital_out(::LabNet::Message
     client_message_.gpio_init_digital_out_ = gpio_init_digital_out;
   }
   // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.gpio_init_digital_out)
-}
-void ClientWrappedMessage::set_allocated_gpio_set_digital_out(::LabNet::Messages::Client::GpioSetDigitalOut* gpio_set_digital_out) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  clear_client_message();
-  if (gpio_set_digital_out) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      gpio_set_digital_out = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, gpio_set_digital_out, submessage_arena);
-    }
-    set_has_gpio_set_digital_out();
-    client_message_.gpio_set_digital_out_ = gpio_set_digital_out;
-  }
-  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.gpio_set_digital_out)
 }
 void ClientWrappedMessage::set_allocated_sam32_init(::LabNet::Messages::Client::Sam32Init* sam32_init) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
@@ -3013,16 +4850,90 @@ void ClientWrappedMessage::set_allocated_uart_write_data(::LabNet::Messages::Cli
   }
   // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.uart_write_data)
 }
+void ClientWrappedMessage::set_allocated_digital_out_set(::LabNet::Messages::Client::DigitalOutSet* digital_out_set) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (digital_out_set) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      digital_out_set = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, digital_out_set, submessage_arena);
+    }
+    set_has_digital_out_set();
+    client_message_.digital_out_set_ = digital_out_set;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.digital_out_set)
+}
+void ClientWrappedMessage::set_allocated_digital_out_pulse(::LabNet::Messages::Client::DigitalOutPulse* digital_out_pulse) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (digital_out_pulse) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      digital_out_pulse = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, digital_out_pulse, submessage_arena);
+    }
+    set_has_digital_out_pulse();
+    client_message_.digital_out_pulse_ = digital_out_pulse;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.digital_out_pulse)
+}
+void ClientWrappedMessage::set_allocated_digital_out_loop(::LabNet::Messages::Client::DigitalOutSetInLoop* digital_out_loop) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (digital_out_loop) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      digital_out_loop = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, digital_out_loop, submessage_arena);
+    }
+    set_has_digital_out_loop();
+    client_message_.digital_out_loop_ = digital_out_loop;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.digital_out_loop)
+}
+void ClientWrappedMessage::set_allocated_reset(::LabNet::Messages::Client::LabNetResetRequest* reset) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (reset) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      reset = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, reset, submessage_arena);
+    }
+    set_has_reset();
+    client_message_.reset_ = reset;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.reset)
+}
+void ClientWrappedMessage::set_allocated_id(::LabNet::Messages::Client::LabNetIdRequest* id) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (id) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      id = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, id, submessage_arena);
+    }
+    set_has_id();
+    client_message_.id_ = id;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Client.ClientWrappedMessage.id)
+}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ClientWrappedMessage::kGpioInitFieldNumber;
 const int ClientWrappedMessage::kGpioInitDigitalInFieldNumber;
 const int ClientWrappedMessage::kGpioInitDigitalOutFieldNumber;
-const int ClientWrappedMessage::kGpioSetDigitalOutFieldNumber;
 const int ClientWrappedMessage::kSam32InitFieldNumber;
 const int ClientWrappedMessage::kSam32SetPhaseMatrixFieldNumber;
 const int ClientWrappedMessage::kSam32SetSignalInversionFieldNumber;
 const int ClientWrappedMessage::kUartInitFieldNumber;
 const int ClientWrappedMessage::kUartWriteDataFieldNumber;
+const int ClientWrappedMessage::kDigitalOutSetFieldNumber;
+const int ClientWrappedMessage::kDigitalOutPulseFieldNumber;
+const int ClientWrappedMessage::kDigitalOutLoopFieldNumber;
+const int ClientWrappedMessage::kResetFieldNumber;
+const int ClientWrappedMessage::kIdFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ClientWrappedMessage::ClientWrappedMessage()
@@ -3050,10 +4961,6 @@ ClientWrappedMessage::ClientWrappedMessage(const ClientWrappedMessage& from)
       mutable_gpio_init_digital_out()->::LabNet::Messages::Client::GpioInitDigitalOut::MergeFrom(from.gpio_init_digital_out());
       break;
     }
-    case kGpioSetDigitalOut: {
-      mutable_gpio_set_digital_out()->::LabNet::Messages::Client::GpioSetDigitalOut::MergeFrom(from.gpio_set_digital_out());
-      break;
-    }
     case kSam32Init: {
       mutable_sam32_init()->::LabNet::Messages::Client::Sam32Init::MergeFrom(from.sam32_init());
       break;
@@ -3072,6 +4979,26 @@ ClientWrappedMessage::ClientWrappedMessage(const ClientWrappedMessage& from)
     }
     case kUartWriteData: {
       mutable_uart_write_data()->::LabNet::Messages::Client::UartWriteData::MergeFrom(from.uart_write_data());
+      break;
+    }
+    case kDigitalOutSet: {
+      mutable_digital_out_set()->::LabNet::Messages::Client::DigitalOutSet::MergeFrom(from.digital_out_set());
+      break;
+    }
+    case kDigitalOutPulse: {
+      mutable_digital_out_pulse()->::LabNet::Messages::Client::DigitalOutPulse::MergeFrom(from.digital_out_pulse());
+      break;
+    }
+    case kDigitalOutLoop: {
+      mutable_digital_out_loop()->::LabNet::Messages::Client::DigitalOutSetInLoop::MergeFrom(from.digital_out_loop());
+      break;
+    }
+    case kReset: {
+      mutable_reset()->::LabNet::Messages::Client::LabNetResetRequest::MergeFrom(from.reset());
+      break;
+    }
+    case kId: {
+      mutable_id()->::LabNet::Messages::Client::LabNetIdRequest::MergeFrom(from.id());
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -3125,10 +5052,6 @@ void ClientWrappedMessage::clear_client_message() {
       delete client_message_.gpio_init_digital_out_;
       break;
     }
-    case kGpioSetDigitalOut: {
-      delete client_message_.gpio_set_digital_out_;
-      break;
-    }
     case kSam32Init: {
       delete client_message_.sam32_init_;
       break;
@@ -3147,6 +5070,26 @@ void ClientWrappedMessage::clear_client_message() {
     }
     case kUartWriteData: {
       delete client_message_.uart_write_data_;
+      break;
+    }
+    case kDigitalOutSet: {
+      delete client_message_.digital_out_set_;
+      break;
+    }
+    case kDigitalOutPulse: {
+      delete client_message_.digital_out_pulse_;
+      break;
+    }
+    case kDigitalOutLoop: {
+      delete client_message_.digital_out_loop_;
+      break;
+    }
+    case kReset: {
+      delete client_message_.reset_;
+      break;
+    }
+    case kId: {
+      delete client_message_.id_;
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -3213,22 +5156,10 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Client.GpioSetDigitalOut gpio_set_digital_out = 4;
+      // .LabNet.Messages.Client.Sam32Init sam32_init = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gpio_set_digital_out()));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .LabNet.Messages.Client.Sam32Init sam32_init = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_sam32_init()));
         } else {
@@ -3237,10 +5168,10 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
-      case 6: {
+      // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_sam32_set_phase_matrix()));
         } else {
@@ -3249,10 +5180,10 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 7;
-      case 7: {
+      // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_sam32_set_signal_inversion()));
         } else {
@@ -3261,10 +5192,10 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Client.UartInit uart_init = 8;
-      case 8: {
+      // .LabNet.Messages.Client.UartInit uart_init = 7;
+      case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_uart_init()));
         } else {
@@ -3273,12 +5204,72 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Client.UartWriteData uart_write_data = 9;
+      // .LabNet.Messages.Client.UartWriteData uart_write_data = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_uart_write_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Client.DigitalOutSet digital_out_set = 9;
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_uart_write_data()));
+               input, mutable_digital_out_set()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Client.DigitalOutPulse digital_out_pulse = 10;
+      case 10: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_digital_out_pulse()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Client.DigitalOutSetInLoop digital_out_loop = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(90u /* 90 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_digital_out_loop()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Client.LabNetResetRequest reset = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u /* 98 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_reset()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Client.LabNetIdRequest id = 13;
+      case 13: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(106u /* 106 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_id()));
         } else {
           goto handle_unusual;
         }
@@ -3329,40 +5320,64 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
       3, this->_internal_gpio_init_digital_out(), output);
   }
 
-  // .LabNet.Messages.Client.GpioSetDigitalOut gpio_set_digital_out = 4;
-  if (has_gpio_set_digital_out()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_gpio_set_digital_out(), output);
-  }
-
-  // .LabNet.Messages.Client.Sam32Init sam32_init = 5;
+  // .LabNet.Messages.Client.Sam32Init sam32_init = 4;
   if (has_sam32_init()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->_internal_sam32_init(), output);
+      4, this->_internal_sam32_init(), output);
   }
 
-  // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
+  // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
   if (has_sam32_set_phase_matrix()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->_internal_sam32_set_phase_matrix(), output);
+      5, this->_internal_sam32_set_phase_matrix(), output);
   }
 
-  // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 7;
+  // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 6;
   if (has_sam32_set_signal_inversion()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->_internal_sam32_set_signal_inversion(), output);
+      6, this->_internal_sam32_set_signal_inversion(), output);
   }
 
-  // .LabNet.Messages.Client.UartInit uart_init = 8;
+  // .LabNet.Messages.Client.UartInit uart_init = 7;
   if (has_uart_init()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->_internal_uart_init(), output);
+      7, this->_internal_uart_init(), output);
   }
 
-  // .LabNet.Messages.Client.UartWriteData uart_write_data = 9;
+  // .LabNet.Messages.Client.UartWriteData uart_write_data = 8;
   if (has_uart_write_data()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->_internal_uart_write_data(), output);
+      8, this->_internal_uart_write_data(), output);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutSet digital_out_set = 9;
+  if (has_digital_out_set()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->_internal_digital_out_set(), output);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutPulse digital_out_pulse = 10;
+  if (has_digital_out_pulse()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, this->_internal_digital_out_pulse(), output);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutSetInLoop digital_out_loop = 11;
+  if (has_digital_out_loop()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, this->_internal_digital_out_loop(), output);
+  }
+
+  // .LabNet.Messages.Client.LabNetResetRequest reset = 12;
+  if (has_reset()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, this->_internal_reset(), output);
+  }
+
+  // .LabNet.Messages.Client.LabNetIdRequest id = 13;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      13, this->_internal_id(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -3400,46 +5415,74 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
         3, this->_internal_gpio_init_digital_out(), deterministic, target);
   }
 
-  // .LabNet.Messages.Client.GpioSetDigitalOut gpio_set_digital_out = 4;
-  if (has_gpio_set_digital_out()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageToArray(
-        4, this->_internal_gpio_set_digital_out(), deterministic, target);
-  }
-
-  // .LabNet.Messages.Client.Sam32Init sam32_init = 5;
+  // .LabNet.Messages.Client.Sam32Init sam32_init = 4;
   if (has_sam32_init()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, this->_internal_sam32_init(), deterministic, target);
+        4, this->_internal_sam32_init(), deterministic, target);
   }
 
-  // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
+  // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
   if (has_sam32_set_phase_matrix()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, this->_internal_sam32_set_phase_matrix(), deterministic, target);
+        5, this->_internal_sam32_set_phase_matrix(), deterministic, target);
   }
 
-  // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 7;
+  // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 6;
   if (has_sam32_set_signal_inversion()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        7, this->_internal_sam32_set_signal_inversion(), deterministic, target);
+        6, this->_internal_sam32_set_signal_inversion(), deterministic, target);
   }
 
-  // .LabNet.Messages.Client.UartInit uart_init = 8;
+  // .LabNet.Messages.Client.UartInit uart_init = 7;
   if (has_uart_init()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        8, this->_internal_uart_init(), deterministic, target);
+        7, this->_internal_uart_init(), deterministic, target);
   }
 
-  // .LabNet.Messages.Client.UartWriteData uart_write_data = 9;
+  // .LabNet.Messages.Client.UartWriteData uart_write_data = 8;
   if (has_uart_write_data()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        9, this->_internal_uart_write_data(), deterministic, target);
+        8, this->_internal_uart_write_data(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutSet digital_out_set = 9;
+  if (has_digital_out_set()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        9, this->_internal_digital_out_set(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutPulse digital_out_pulse = 10;
+  if (has_digital_out_pulse()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, this->_internal_digital_out_pulse(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Client.DigitalOutSetInLoop digital_out_loop = 11;
+  if (has_digital_out_loop()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        11, this->_internal_digital_out_loop(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Client.LabNetResetRequest reset = 12;
+  if (has_reset()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        12, this->_internal_reset(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Client.LabNetIdRequest id = 13;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        13, this->_internal_id(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -3481,46 +5524,74 @@ size_t ClientWrappedMessage::ByteSizeLong() const {
           *client_message_.gpio_init_digital_out_);
       break;
     }
-    // .LabNet.Messages.Client.GpioSetDigitalOut gpio_set_digital_out = 4;
-    case kGpioSetDigitalOut: {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.gpio_set_digital_out_);
-      break;
-    }
-    // .LabNet.Messages.Client.Sam32Init sam32_init = 5;
+    // .LabNet.Messages.Client.Sam32Init sam32_init = 4;
     case kSam32Init: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *client_message_.sam32_init_);
       break;
     }
-    // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 6;
+    // .LabNet.Messages.Client.Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
     case kSam32SetPhaseMatrix: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *client_message_.sam32_set_phase_matrix_);
       break;
     }
-    // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 7;
+    // .LabNet.Messages.Client.Sam32SetSignalInversion sam32_set_signal_inversion = 6;
     case kSam32SetSignalInversion: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *client_message_.sam32_set_signal_inversion_);
       break;
     }
-    // .LabNet.Messages.Client.UartInit uart_init = 8;
+    // .LabNet.Messages.Client.UartInit uart_init = 7;
     case kUartInit: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *client_message_.uart_init_);
       break;
     }
-    // .LabNet.Messages.Client.UartWriteData uart_write_data = 9;
+    // .LabNet.Messages.Client.UartWriteData uart_write_data = 8;
     case kUartWriteData: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *client_message_.uart_write_data_);
+      break;
+    }
+    // .LabNet.Messages.Client.DigitalOutSet digital_out_set = 9;
+    case kDigitalOutSet: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.digital_out_set_);
+      break;
+    }
+    // .LabNet.Messages.Client.DigitalOutPulse digital_out_pulse = 10;
+    case kDigitalOutPulse: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.digital_out_pulse_);
+      break;
+    }
+    // .LabNet.Messages.Client.DigitalOutSetInLoop digital_out_loop = 11;
+    case kDigitalOutLoop: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.digital_out_loop_);
+      break;
+    }
+    // .LabNet.Messages.Client.LabNetResetRequest reset = 12;
+    case kReset: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.reset_);
+      break;
+    }
+    // .LabNet.Messages.Client.LabNetIdRequest id = 13;
+    case kId: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.id_);
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -3567,10 +5638,6 @@ void ClientWrappedMessage::MergeFrom(const ClientWrappedMessage& from) {
       mutable_gpio_init_digital_out()->::LabNet::Messages::Client::GpioInitDigitalOut::MergeFrom(from.gpio_init_digital_out());
       break;
     }
-    case kGpioSetDigitalOut: {
-      mutable_gpio_set_digital_out()->::LabNet::Messages::Client::GpioSetDigitalOut::MergeFrom(from.gpio_set_digital_out());
-      break;
-    }
     case kSam32Init: {
       mutable_sam32_init()->::LabNet::Messages::Client::Sam32Init::MergeFrom(from.sam32_init());
       break;
@@ -3589,6 +5656,26 @@ void ClientWrappedMessage::MergeFrom(const ClientWrappedMessage& from) {
     }
     case kUartWriteData: {
       mutable_uart_write_data()->::LabNet::Messages::Client::UartWriteData::MergeFrom(from.uart_write_data());
+      break;
+    }
+    case kDigitalOutSet: {
+      mutable_digital_out_set()->::LabNet::Messages::Client::DigitalOutSet::MergeFrom(from.digital_out_set());
+      break;
+    }
+    case kDigitalOutPulse: {
+      mutable_digital_out_pulse()->::LabNet::Messages::Client::DigitalOutPulse::MergeFrom(from.digital_out_pulse());
+      break;
+    }
+    case kDigitalOutLoop: {
+      mutable_digital_out_loop()->::LabNet::Messages::Client::DigitalOutSetInLoop::MergeFrom(from.digital_out_loop());
+      break;
+    }
+    case kReset: {
+      mutable_reset()->::LabNet::Messages::Client::LabNetResetRequest::MergeFrom(from.reset());
+      break;
+    }
+    case kId: {
+      mutable_id()->::LabNet::Messages::Client::LabNetIdRequest::MergeFrom(from.id());
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -3647,9 +5734,6 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::GpioIn
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::GpioInitDigitalOut* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::GpioInitDigitalOut >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Client::GpioInitDigitalOut >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::GpioSetDigitalOut* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::GpioSetDigitalOut >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNet::Messages::Client::GpioSetDigitalOut >(arena);
-}
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::Sam32Init* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::Sam32Init >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Client::Sam32Init >(arena);
 }
@@ -3664,6 +5748,27 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::UartIn
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::UartWriteData* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::UartWriteData >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Client::UartWriteData >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::PinId* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::PinId >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::PinId >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::DigitalOutSet* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::DigitalOutSet >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::DigitalOutSet >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::DigitalOutPulse* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::DigitalOutPulse >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::DigitalOutPulse >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::DigitalOutSetInLoop_DigitalOutputParameter >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::DigitalOutSetInLoop* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::DigitalOutSetInLoop >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::DigitalOutSetInLoop >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::LabNetResetRequest* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::LabNetResetRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::LabNetResetRequest >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::LabNetIdRequest* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::LabNetIdRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Client::LabNetIdRequest >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Client::ClientWrappedMessage* Arena::CreateMaybeMessage< ::LabNet::Messages::Client::ClientWrappedMessage >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Client::ClientWrappedMessage >(arena);

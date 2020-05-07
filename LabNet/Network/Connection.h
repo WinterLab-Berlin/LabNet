@@ -29,8 +29,7 @@ public:
 	void refuse_conection();
 	
 	void send_message(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> mes);
-
-private:
+	
 	void start_read_header();
 	void start_read_body(unsigned msg_len);
 	bool pack_msg(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
@@ -47,5 +46,4 @@ private:
 	boost::asio::ip::tcp::socket m_socket;
 	ConnectionManager& m_connection_manager;
 	std::vector<char> m_readBuffer;
-	bool m_globBufferEmpty;
 };

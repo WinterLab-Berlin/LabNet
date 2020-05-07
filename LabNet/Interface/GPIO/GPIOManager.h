@@ -12,7 +12,7 @@ namespace GPIO
 	class GPIOManager final : public so_5::agent_t
 	{
 	public:
-		GPIOManager(context_t ctx, const so_5::mbox_t mbox, Logger logger);
+		GPIOManager(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger);
 		~GPIOManager();
 		
 	private:
@@ -31,5 +31,6 @@ namespace GPIO
 		Logger _logger;
 		const so_5::mbox_t _parentMbox;
 		const so_5::mbox_t _interfaces;
+		const so_5::mbox_t _selfBox;
 	};
 }
