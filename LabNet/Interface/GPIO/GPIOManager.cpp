@@ -153,12 +153,12 @@ void GPIO::GPIOManager::so_define_agent()
 			[this](mhood_t<Interface::reset_interface> msg) {
 				this >>= wait_for_init;
 				
-				for(auto in : _inputs)
+				for(auto& in : _inputs)
 				{
 					in.second.available = false;
 				}
 				
-				for (auto out : _outputs)
+				for (auto& out : _outputs)
 				{
 					out.second.available = false;
 				}
@@ -169,12 +169,12 @@ void GPIO::GPIOManager::so_define_agent()
 			[this](mhood_t<Interface::reset_interface> msg) {
 				this >>= wait_for_init;
 				
-				for (auto in : _inputs)
+				for (auto& in : _inputs)
 				{
 					in.second.available = false;
 				}
 				
-				for (auto out : _outputs)
+				for (auto& out : _outputs)
 				{
 					out.second.available = false;
 				}

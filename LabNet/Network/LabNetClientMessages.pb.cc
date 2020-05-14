@@ -455,7 +455,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, portid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, port_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::UartWriteData, data_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Client::PinId, _internal_metadata_),
@@ -597,54 +597,55 @@ void AddDescriptorsImpl() {
       " \001(\010\"]\n\023Sam32SetPhaseMatrix\022\026\n\016antenna_p"
       "hase1\030\001 \001(\r\022\026\n\016antenna_phase2\030\002 \001(\r\022\026\n\016p"
       "hase_duration\030\003 \001(\r\"+\n\027Sam32SetSignalInv"
-      "ersion\022\020\n\010inverted\030\001 \001(\010\"\213\001\n\010UartInit\0223\n"
-      "\004port\030\001 \001(\0162%.LabNet.Messages.Client.Uar"
-      "tInit.Port\022\014\n\004baud\030\002 \001(\r\"<\n\004Port\022\010\n\004NONE"
-      "\020\000\022\t\n\005UART1\020e\022\t\n\005UART2\020f\022\t\n\005UART3\020g\022\t\n\005U"
-      "ART4\020h\"-\n\rUartWriteData\022\016\n\006portId\030\001 \001(\r\022"
-      "\014\n\004data\030\002 \001(\014\"\251\001\n\005PinId\022;\n\tinterface\030\001 \001"
-      "(\0162(.LabNet.Messages.Client.PinId.Interf"
-      "aces\022\013\n\003pin\030\002 \001(\r\"V\n\nInterfaces\022\010\n\004NONE\020"
-      "\000\022\022\n\016GPIO_TOP_PLANE\020\001\022\t\n\005UART1\020e\022\t\n\005UART"
-      "2\020f\022\t\n\005UART3\020g\022\t\n\005UART4\020h\"I\n\rDigitalOutS"
-      "et\022)\n\002id\030\001 \001(\0132\035.LabNet.Messages.Client."
-      "PinId\022\r\n\005state\030\002 \001(\010\"y\n\017DigitalOutPulse\022"
-      ")\n\002id\030\001 \001(\0132\035.LabNet.Messages.Client.Pin"
-      "Id\022\025\n\rhigh_duration\030\002 \001(\r\022\024\n\014low_duratio"
-      "n\030\003 \001(\r\022\016\n\006pulses\030\004 \001(\r\"\355\001\n\023DigitalOutSe"
-      "tInLoop\022\022\n\nloop_pause\030\001 \001(\r\022[\n\017digital_o"
-      "utputs\030\002 \003(\0132B.LabNet.Messages.Client.Di"
-      "gitalOutSetInLoop.DigitalOutputParameter"
-      "\032e\n\026DigitalOutputParameter\022)\n\002id\030\001 \001(\0132\035"
-      ".LabNet.Messages.Client.PinId\022\016\n\006offset\030"
-      "\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\024\n\022LabNetResetRe"
-      "quest\"\021\n\017LabNetIdRequest\"\224\007\n\024ClientWrapp"
-      "edMessage\0225\n\tgpio_init\030\001 \001(\0132 .LabNet.Me"
-      "ssages.Client.GpioInitH\000\022I\n\024gpio_init_di"
-      "gital_in\030\002 \001(\0132).LabNet.Messages.Client."
-      "GpioInitDigitalInH\000\022K\n\025gpio_init_digital"
-      "_out\030\003 \001(\0132*.LabNet.Messages.Client.Gpio"
-      "InitDigitalOutH\000\0227\n\nsam32_init\030\004 \001(\0132!.L"
-      "abNet.Messages.Client.Sam32InitH\000\022M\n\026sam"
-      "32_set_phase_matrix\030\005 \001(\0132+.LabNet.Messa"
-      "ges.Client.Sam32SetPhaseMatrixH\000\022U\n\032sam3"
-      "2_set_signal_inversion\030\006 \001(\0132/.LabNet.Me"
-      "ssages.Client.Sam32SetSignalInversionH\000\022"
-      "5\n\tuart_init\030\007 \001(\0132 .LabNet.Messages.Cli"
-      "ent.UartInitH\000\022@\n\017uart_write_data\030\010 \001(\0132"
-      "%.LabNet.Messages.Client.UartWriteDataH\000"
-      "\022@\n\017digital_out_set\030\t \001(\0132%.LabNet.Messa"
-      "ges.Client.DigitalOutSetH\000\022D\n\021digital_ou"
-      "t_pulse\030\n \001(\0132\'.LabNet.Messages.Client.D"
-      "igitalOutPulseH\000\022G\n\020digital_out_loop\030\013 \001"
-      "(\0132+.LabNet.Messages.Client.DigitalOutSe"
-      "tInLoopH\000\022;\n\005reset\030\014 \001(\0132*.LabNet.Messag"
-      "es.Client.LabNetResetRequestH\000\0225\n\002id\030\r \001"
-      "(\0132\'.LabNet.Messages.Client.LabNetIdRequ"
-      "estH\000B\020\n\016client_messageb\006proto3"
+      "ersion\022\020\n\010inverted\030\001 \001(\010\"H\n\010UartInit\022.\n\004"
+      "port\030\001 \001(\0162 .LabNet.Messages.Client.Uart"
+      "Port\022\014\n\004baud\030\002 \001(\r\"M\n\rUartWriteData\022.\n\004p"
+      "ort\030\001 \001(\0162 .LabNet.Messages.Client.UartP"
+      "ort\022\014\n\004data\030\002 \001(\014\"\251\001\n\005PinId\022;\n\tinterface"
+      "\030\001 \001(\0162(.LabNet.Messages.Client.PinId.In"
+      "terfaces\022\013\n\003pin\030\002 \001(\r\"V\n\nInterfaces\022\010\n\004N"
+      "ONE\020\000\022\022\n\016GPIO_TOP_PLANE\020\001\022\t\n\005UART1\020e\022\t\n\005"
+      "UART2\020f\022\t\n\005UART3\020g\022\t\n\005UART4\020h\"I\n\rDigital"
+      "OutSet\022)\n\002id\030\001 \001(\0132\035.LabNet.Messages.Cli"
+      "ent.PinId\022\r\n\005state\030\002 \001(\010\"y\n\017DigitalOutPu"
+      "lse\022)\n\002id\030\001 \001(\0132\035.LabNet.Messages.Client"
+      ".PinId\022\025\n\rhigh_duration\030\002 \001(\r\022\024\n\014low_dur"
+      "ation\030\003 \001(\r\022\016\n\006pulses\030\004 \001(\r\"\355\001\n\023DigitalO"
+      "utSetInLoop\022\022\n\nloop_pause\030\001 \001(\r\022[\n\017digit"
+      "al_outputs\030\002 \003(\0132B.LabNet.Messages.Clien"
+      "t.DigitalOutSetInLoop.DigitalOutputParam"
+      "eter\032e\n\026DigitalOutputParameter\022)\n\002id\030\001 \001"
+      "(\0132\035.LabNet.Messages.Client.PinId\022\016\n\006off"
+      "set\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\024\n\022LabNetRes"
+      "etRequest\"\021\n\017LabNetIdRequest\"\224\007\n\024ClientW"
+      "rappedMessage\0225\n\tgpio_init\030\001 \001(\0132 .LabNe"
+      "t.Messages.Client.GpioInitH\000\022I\n\024gpio_ini"
+      "t_digital_in\030\002 \001(\0132).LabNet.Messages.Cli"
+      "ent.GpioInitDigitalInH\000\022K\n\025gpio_init_dig"
+      "ital_out\030\003 \001(\0132*.LabNet.Messages.Client."
+      "GpioInitDigitalOutH\000\0227\n\nsam32_init\030\004 \001(\013"
+      "2!.LabNet.Messages.Client.Sam32InitH\000\022M\n"
+      "\026sam32_set_phase_matrix\030\005 \001(\0132+.LabNet.M"
+      "essages.Client.Sam32SetPhaseMatrixH\000\022U\n\032"
+      "sam32_set_signal_inversion\030\006 \001(\0132/.LabNe"
+      "t.Messages.Client.Sam32SetSignalInversio"
+      "nH\000\0225\n\tuart_init\030\007 \001(\0132 .LabNet.Messages"
+      ".Client.UartInitH\000\022@\n\017uart_write_data\030\010 "
+      "\001(\0132%.LabNet.Messages.Client.UartWriteDa"
+      "taH\000\022@\n\017digital_out_set\030\t \001(\0132%.LabNet.M"
+      "essages.Client.DigitalOutSetH\000\022D\n\021digita"
+      "l_out_pulse\030\n \001(\0132\'.LabNet.Messages.Clie"
+      "nt.DigitalOutPulseH\000\022G\n\020digital_out_loop"
+      "\030\013 \001(\0132+.LabNet.Messages.Client.DigitalO"
+      "utSetInLoopH\000\022;\n\005reset\030\014 \001(\0132*.LabNet.Me"
+      "ssages.Client.LabNetResetRequestH\000\0225\n\002id"
+      "\030\r \001(\0132\'.LabNet.Messages.Client.LabNetId"
+      "RequestH\000B\020\n\016client_message*@\n\010UartPort\022"
+      "\010\n\004NONE\020\000\022\t\n\005UART1\020e\022\t\n\005UART2\020f\022\t\n\005UART3"
+      "\020g\022\t\n\005UART4\020hb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2311);
+      descriptor, 2341);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClientMessages.proto", &protobuf_RegisterTypes);
 }
@@ -686,36 +687,9 @@ const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MIN;
 const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MAX;
 const int GpioInitDigitalIn::Resistor_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* UartInit_Port_descriptor() {
-  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[1];
-}
-bool UartInit_Port_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 101:
-    case 102:
-    case 103:
-    case 104:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1900
-const UartInit_Port UartInit::NONE;
-const UartInit_Port UartInit::UART1;
-const UartInit_Port UartInit::UART2;
-const UartInit_Port UartInit::UART3;
-const UartInit_Port UartInit::UART4;
-const UartInit_Port UartInit::Port_MIN;
-const UartInit_Port UartInit::Port_MAX;
-const int UartInit::Port_ARRAYSIZE;
-#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* PinId_Interfaces_descriptor() {
   protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[2];
+  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[1];
 }
 bool PinId_Interfaces_IsValid(int value) {
   switch (value) {
@@ -742,6 +716,23 @@ const PinId_Interfaces PinId::Interfaces_MIN;
 const PinId_Interfaces PinId::Interfaces_MAX;
 const int PinId::Interfaces_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* UartPort_descriptor() {
+  protobuf_LabNetClientMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetClientMessages_2eproto::file_level_enum_descriptors[2];
+}
+bool UartPort_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -2419,7 +2410,7 @@ bool UartInit::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .LabNet.Messages.Client.UartInit.Port port = 1;
+      // .LabNet.Messages.Client.UartPort port = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -2427,7 +2418,7 @@ bool UartInit::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_port(static_cast< ::LabNet::Messages::Client::UartInit_Port >(value));
+          set_port(static_cast< ::LabNet::Messages::Client::UartPort >(value));
         } else {
           goto handle_unusual;
         }
@@ -2474,7 +2465,7 @@ void UartInit::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  // .LabNet.Messages.Client.UartPort port = 1;
   if (this->port() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->port(), output);
@@ -2499,7 +2490,7 @@ void UartInit::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  // .LabNet.Messages.Client.UartPort port = 1;
   if (this->port() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->port(), target);
@@ -2527,7 +2518,7 @@ size_t UartInit::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  // .LabNet.Messages.Client.UartPort port = 1;
   if (this->port() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->port());
@@ -2615,7 +2606,7 @@ void UartInit::InternalSwap(UartInit* other) {
 void UartWriteData::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int UartWriteData::kPortIdFieldNumber;
+const int UartWriteData::kPortFieldNumber;
 const int UartWriteData::kDataFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2634,13 +2625,13 @@ UartWriteData::UartWriteData(const UartWriteData& from)
   if (from.data().size() > 0) {
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
-  portid_ = from.portid_;
+  port_ = from.port_;
   // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Client.UartWriteData)
 }
 
 void UartWriteData::SharedCtor() {
   data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  portid_ = 0u;
+  port_ = 0;
 }
 
 UartWriteData::~UartWriteData() {
@@ -2673,7 +2664,7 @@ void UartWriteData::Clear() {
   (void) cached_has_bits;
 
   data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  portid_ = 0u;
+  port_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -2687,14 +2678,15 @@ bool UartWriteData::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 portId = 1;
+      // .LabNet.Messages.Client.UartPort port = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
+          int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &portid_)));
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_port(static_cast< ::LabNet::Messages::Client::UartPort >(value));
         } else {
           goto handle_unusual;
         }
@@ -2739,9 +2731,10 @@ void UartWriteData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 portId = 1;
-  if (this->portid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->portid(), output);
+  // .LabNet.Messages.Client.UartPort port = 1;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->port(), output);
   }
 
   // bytes data = 2;
@@ -2764,9 +2757,10 @@ void UartWriteData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 portId = 1;
-  if (this->portid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->portid(), target);
+  // .LabNet.Messages.Client.UartPort port = 1;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->port(), target);
   }
 
   // bytes data = 2;
@@ -2800,11 +2794,10 @@ size_t UartWriteData::ByteSizeLong() const {
         this->data());
   }
 
-  // uint32 portId = 1;
-  if (this->portid() != 0) {
+  // .LabNet.Messages.Client.UartPort port = 1;
+  if (this->port() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->portid());
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->port());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2838,8 +2831,8 @@ void UartWriteData::MergeFrom(const UartWriteData& from) {
 
     data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
   }
-  if (from.portid() != 0) {
-    set_portid(from.portid());
+  if (from.port() != 0) {
+    set_port(from.port());
   }
 }
 
@@ -2869,7 +2862,7 @@ void UartWriteData::InternalSwap(UartWriteData* other) {
   using std::swap;
   data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
-  swap(portid_, other->portid_);
+  swap(port_, other->port_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 

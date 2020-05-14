@@ -8,6 +8,7 @@
 #include "LabNetMainActor.h"
 #include "Interface/ManageInterfaces.h"
 #include "Interface/GPIO/GPIOManager.h"
+#include "Interface/UART/SerialPortsManager.h"
 
 
 int main(int argc, char *argv[])
@@ -35,13 +36,15 @@ int main(int argc, char *argv[])
 	sobj.environment().introduce_coop([&](so_5::coop_t & coop) {
 		so_5::mbox_t gpioBox = coop.environment().create_mbox("gpio");
 		so_5::mbox_t sam32Box = coop.environment().create_mbox("sam32");
+		so_5::mbox_t uartBox = coop.environment().create_mbox("uart");
 		
-		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box);
+		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box, uartBox);
 		labNetBox = act->so_direct_mbox();
 		
 		coop.make_agent<Interface::ManageInterfaces>();
 		coop.make_agent<GPIO::GPIOManager>(gpioBox, labNetBox, logger);
 		coop.make_agent<SAM::SamMainActor>(sam32Box, labNetBox, logger);
+		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
 	});
 	
 	ConnectionManager connection_manager(logger, labNetBox);

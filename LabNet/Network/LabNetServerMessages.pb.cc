@@ -23,11 +23,13 @@ namespace protobuf_LabNetServerMessages_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_DigitalInInitResult;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_DigitalOutInitResult;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceInitResult;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceLost;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceReconnected;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetIdReply;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetResetReply;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_OnlyOneConnectionAllowed;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PinId;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_WriteByteDataComplete;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DataWriteComplete;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalInState;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutState;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServerMessages_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_NewByteData;
@@ -55,16 +57,26 @@ class NewByteDataDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<NewByteData>
       _instance;
 } _NewByteData_default_instance_;
-class WriteByteDataCompleteDefaultTypeInternal {
+class DataWriteCompleteDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<WriteByteDataComplete>
+  ::google::protobuf::internal::ExplicitlyConstructed<DataWriteComplete>
       _instance;
-} _WriteByteDataComplete_default_instance_;
+} _DataWriteComplete_default_instance_;
 class InterfaceInitResultDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<InterfaceInitResult>
       _instance;
 } _InterfaceInitResult_default_instance_;
+class InterfaceLostDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<InterfaceLost>
+      _instance;
+} _InterfaceLost_default_instance_;
+class InterfaceReconnectedDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<InterfaceReconnected>
+      _instance;
+} _InterfaceReconnected_default_instance_;
 class DigitalInInitResultDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DigitalInInitResult>
@@ -97,13 +109,15 @@ class ServerWrappedMessageDefaultTypeInternal {
   const ::LabNet::Messages::Server::DigitalOutState* digital_out_state_;
   const ::LabNet::Messages::Server::DigitalInState* digital_in_state_;
   const ::LabNet::Messages::Server::NewByteData* new_byte_data_;
-  const ::LabNet::Messages::Server::WriteByteDataComplete* write_byte_data_complete_;
+  const ::LabNet::Messages::Server::DataWriteComplete* data_write_complete_;
   const ::LabNet::Messages::Server::InterfaceInitResult* interface_init_result_;
   const ::LabNet::Messages::Server::DigitalInInitResult* digital_in_init_result_;
   const ::LabNet::Messages::Server::DigitalOutInitResult* digital_out_init_result_;
   const ::LabNet::Messages::Server::OnlyOneConnectionAllowed* only_one_connection_;
   const ::LabNet::Messages::Server::LabNetResetReply* reset_;
   const ::LabNet::Messages::Server::LabNetIdReply* id_;
+  const ::LabNet::Messages::Server::InterfaceLost* interface_lost_;
+  const ::LabNet::Messages::Server::InterfaceReconnected* interface_reconnected_;
 } _ServerWrappedMessage_default_instance_;
 }  // namespace Server
 }  // namespace Messages
@@ -168,19 +182,20 @@ static void InitDefaultsNewByteData() {
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsNewByteData}, {
       &protobuf_LabNetServerMessages_2eproto::scc_info_PinId.base,}};
 
-static void InitDefaultsWriteByteDataComplete() {
+static void InitDefaultsDataWriteComplete() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNet::Messages::Server::_WriteByteDataComplete_default_instance_;
-    new (ptr) ::LabNet::Messages::Server::WriteByteDataComplete();
+    void* ptr = &::LabNet::Messages::Server::_DataWriteComplete_default_instance_;
+    new (ptr) ::LabNet::Messages::Server::DataWriteComplete();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNet::Messages::Server::WriteByteDataComplete::InitAsDefaultInstance();
+  ::LabNet::Messages::Server::DataWriteComplete::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_WriteByteDataComplete =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsWriteByteDataComplete}, {}};
+::google::protobuf::internal::SCCInfo<1> scc_info_DataWriteComplete =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDataWriteComplete}, {
+      &protobuf_LabNetServerMessages_2eproto::scc_info_PinId.base,}};
 
 static void InitDefaultsInterfaceInitResult() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -195,6 +210,34 @@ static void InitDefaultsInterfaceInitResult() {
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceInitResult =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInterfaceInitResult}, {}};
+
+static void InitDefaultsInterfaceLost() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Server::_InterfaceLost_default_instance_;
+    new (ptr) ::LabNet::Messages::Server::InterfaceLost();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Server::InterfaceLost::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceLost =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInterfaceLost}, {}};
+
+static void InitDefaultsInterfaceReconnected() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNet::Messages::Server::_InterfaceReconnected_default_instance_;
+    new (ptr) ::LabNet::Messages::Server::InterfaceReconnected();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNet::Messages::Server::InterfaceReconnected::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_InterfaceReconnected =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInterfaceReconnected}, {}};
 
 static void InitDefaultsDigitalInInitResult() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -277,26 +320,30 @@ static void InitDefaultsServerWrappedMessage() {
   ::LabNet::Messages::Server::ServerWrappedMessage::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<10> scc_info_ServerWrappedMessage =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 10, InitDefaultsServerWrappedMessage}, {
+::google::protobuf::internal::SCCInfo<12> scc_info_ServerWrappedMessage =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 12, InitDefaultsServerWrappedMessage}, {
       &protobuf_LabNetServerMessages_2eproto::scc_info_DigitalOutState.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_DigitalInState.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_NewByteData.base,
-      &protobuf_LabNetServerMessages_2eproto::scc_info_WriteByteDataComplete.base,
+      &protobuf_LabNetServerMessages_2eproto::scc_info_DataWriteComplete.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceInitResult.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_DigitalInInitResult.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_DigitalOutInitResult.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_OnlyOneConnectionAllowed.base,
       &protobuf_LabNetServerMessages_2eproto::scc_info_LabNetResetReply.base,
-      &protobuf_LabNetServerMessages_2eproto::scc_info_LabNetIdReply.base,}};
+      &protobuf_LabNetServerMessages_2eproto::scc_info_LabNetIdReply.base,
+      &protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceLost.base,
+      &protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceReconnected.base,}};
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_PinId.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutState.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalInState.base);
   ::google::protobuf::internal::InitSCC(&scc_info_NewByteData.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_WriteByteDataComplete.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_DataWriteComplete.base);
   ::google::protobuf::internal::InitSCC(&scc_info_InterfaceInitResult.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_InterfaceLost.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_InterfaceReconnected.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalInInitResult.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutInitResult.base);
   ::google::protobuf::internal::InitSCC(&scc_info_OnlyOneConnectionAllowed.base);
@@ -305,7 +352,7 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ServerWrappedMessage.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[12];
+::google::protobuf::Metadata file_level_metadata[14];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -338,12 +385,11 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::NewByteData, pin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::NewByteData, data_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::WriteByteDataComplete, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::DataWriteComplete, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::WriteByteDataComplete, interface_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::WriteByteDataComplete, portid_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::DataWriteComplete, pin_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceInitResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -351,6 +397,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceInitResult, interface_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceInitResult, is_succeed_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceLost, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceLost, interface_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceReconnected, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::InterfaceReconnected, interface_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::DigitalInInitResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -394,13 +452,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, digital_out_state_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, digital_in_state_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, new_byte_data_),
-  offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, write_byte_data_complete_),
+  offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, data_write_complete_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, interface_init_result_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, digital_in_init_result_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, digital_out_init_result_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, only_one_connection_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, reset_),
   offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, id_),
+  offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, interface_lost_),
+  offsetof(::LabNet::Messages::Server::ServerWrappedMessageDefaultTypeInternal, interface_reconnected_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::Messages::Server::ServerWrappedMessage, server_message_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -408,14 +468,16 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 7, -1, sizeof(::LabNet::Messages::Server::DigitalOutState)},
   { 14, -1, sizeof(::LabNet::Messages::Server::DigitalInState)},
   { 21, -1, sizeof(::LabNet::Messages::Server::NewByteData)},
-  { 28, -1, sizeof(::LabNet::Messages::Server::WriteByteDataComplete)},
-  { 35, -1, sizeof(::LabNet::Messages::Server::InterfaceInitResult)},
-  { 42, -1, sizeof(::LabNet::Messages::Server::DigitalInInitResult)},
-  { 50, -1, sizeof(::LabNet::Messages::Server::DigitalOutInitResult)},
-  { 58, -1, sizeof(::LabNet::Messages::Server::OnlyOneConnectionAllowed)},
-  { 63, -1, sizeof(::LabNet::Messages::Server::LabNetResetReply)},
-  { 69, -1, sizeof(::LabNet::Messages::Server::LabNetIdReply)},
-  { 77, -1, sizeof(::LabNet::Messages::Server::ServerWrappedMessage)},
+  { 28, -1, sizeof(::LabNet::Messages::Server::DataWriteComplete)},
+  { 34, -1, sizeof(::LabNet::Messages::Server::InterfaceInitResult)},
+  { 41, -1, sizeof(::LabNet::Messages::Server::InterfaceLost)},
+  { 47, -1, sizeof(::LabNet::Messages::Server::InterfaceReconnected)},
+  { 53, -1, sizeof(::LabNet::Messages::Server::DigitalInInitResult)},
+  { 61, -1, sizeof(::LabNet::Messages::Server::DigitalOutInitResult)},
+  { 69, -1, sizeof(::LabNet::Messages::Server::OnlyOneConnectionAllowed)},
+  { 74, -1, sizeof(::LabNet::Messages::Server::LabNetResetReply)},
+  { 80, -1, sizeof(::LabNet::Messages::Server::LabNetIdReply)},
+  { 88, -1, sizeof(::LabNet::Messages::Server::ServerWrappedMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -423,8 +485,10 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_DigitalOutState_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_DigitalInState_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_NewByteData_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_WriteByteDataComplete_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_DataWriteComplete_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_InterfaceInitResult_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_InterfaceLost_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_InterfaceReconnected_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_DigitalInInitResult_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_DigitalOutInitResult_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::Messages::Server::_OnlyOneConnectionAllowed_default_instance_),
@@ -448,7 +512,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 12);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 14);
 }
 
 void AddDescriptorsImpl() {
@@ -462,12 +526,15 @@ void AddDescriptorsImpl() {
       "e\030\002 \001(\010\"K\n\016DigitalInState\022*\n\003pin\030\001 \001(\0132\035"
       ".LabNet.Messages.Server.PinId\022\r\n\005state\030\002"
       " \001(\010\"G\n\013NewByteData\022*\n\003pin\030\001 \001(\0132\035.LabNe"
-      "t.Messages.Server.PinId\022\014\n\004data\030\002 \001(\014\"^\n"
-      "\025WriteByteDataComplete\0225\n\tinterface\030\001 \001("
-      "\0162\".LabNet.Messages.Server.Interfaces\022\016\n"
-      "\006portId\030\002 \001(\r\"`\n\023InterfaceInitResult\0225\n\t"
-      "interface\030\001 \001(\0162\".LabNet.Messages.Server"
-      ".Interfaces\022\022\n\nis_succeed\030\002 \001(\010\"m\n\023Digit"
+      "t.Messages.Server.PinId\022\014\n\004data\030\002 \001(\014\"\?\n"
+      "\021DataWriteComplete\022*\n\003pin\030\001 \001(\0132\035.LabNet"
+      ".Messages.Server.PinId\"`\n\023InterfaceInitR"
+      "esult\0225\n\tinterface\030\001 \001(\0162\".LabNet.Messag"
+      "es.Server.Interfaces\022\022\n\nis_succeed\030\002 \001(\010"
+      "\"F\n\rInterfaceLost\0225\n\tinterface\030\001 \001(\0162\".L"
+      "abNet.Messages.Server.Interfaces\"M\n\024Inte"
+      "rfaceReconnected\0225\n\tinterface\030\001 \001(\0162\".La"
+      "bNet.Messages.Server.Interfaces\"m\n\023Digit"
       "alInInitResult\0225\n\tinterface\030\001 \001(\0162\".LabN"
       "et.Messages.Server.Interfaces\022\013\n\003pin\030\002 \001"
       "(\r\022\022\n\nis_succeed\030\003 \001(\010\"n\n\024DigitalOutInit"
@@ -476,32 +543,36 @@ void AddDescriptorsImpl() {
       "_succeed\030\003 \001(\010\"\032\n\030OnlyOneConnectionAllow"
       "ed\"$\n\020LabNetResetReply\022\020\n\010is_reset\030\001 \001(\010"
       "\"I\n\rLabNetIdReply\022\n\n\002id\030\001 \001(\t\022\025\n\rmajor_v"
-      "ersion\030\002 \001(\r\022\025\n\rminor_version\030\003 \001(\r\"\362\005\n\024"
+      "ersion\030\002 \001(\r\022\025\n\rminor_version\030\003 \001(\r\"\371\006\n\024"
       "ServerWrappedMessage\022D\n\021digital_out_stat"
       "e\030\001 \001(\0132\'.LabNet.Messages.Server.Digital"
       "OutStateH\000\022B\n\020digital_in_state\030\002 \001(\0132&.L"
       "abNet.Messages.Server.DigitalInStateH\000\022<"
       "\n\rnew_byte_data\030\003 \001(\0132#.LabNet.Messages."
-      "Server.NewByteDataH\000\022Q\n\030write_byte_data_"
-      "complete\030\004 \001(\0132-.LabNet.Messages.Server."
-      "WriteByteDataCompleteH\000\022L\n\025interface_ini"
-      "t_result\030\005 \001(\0132+.LabNet.Messages.Server."
-      "InterfaceInitResultH\000\022M\n\026digital_in_init"
-      "_result\030\006 \001(\0132+.LabNet.Messages.Server.D"
-      "igitalInInitResultH\000\022O\n\027digital_out_init"
-      "_result\030\007 \001(\0132,.LabNet.Messages.Server.D"
-      "igitalOutInitResultH\000\022O\n\023only_one_connec"
-      "tion\030\010 \001(\01320.LabNet.Messages.Server.Only"
-      "OneConnectionAllowedH\000\0229\n\005reset\030\t \001(\0132(."
-      "LabNet.Messages.Server.LabNetResetReplyH"
-      "\000\0223\n\002id\030\n \001(\0132%.LabNet.Messages.Server.L"
-      "abNetIdReplyH\000B\020\n\016server_message*a\n\nInte"
-      "rfaces\022\010\n\004NONE\020\000\022\022\n\016GPIO_TOP_PLANE\020\001\022\t\n\005"
-      "SAM32\020\002\022\t\n\005UART1\020d\022\t\n\005UART2\020e\022\t\n\005UART3\020f"
-      "\022\t\n\005UART4\020gb\006proto3"
+      "Server.NewByteDataH\000\022H\n\023data_write_compl"
+      "ete\030\004 \001(\0132).LabNet.Messages.Server.DataW"
+      "riteCompleteH\000\022L\n\025interface_init_result\030"
+      "\005 \001(\0132+.LabNet.Messages.Server.Interface"
+      "InitResultH\000\022M\n\026digital_in_init_result\030\006"
+      " \001(\0132+.LabNet.Messages.Server.DigitalInI"
+      "nitResultH\000\022O\n\027digital_out_init_result\030\007"
+      " \001(\0132,.LabNet.Messages.Server.DigitalOut"
+      "InitResultH\000\022O\n\023only_one_connection\030\010 \001("
+      "\01320.LabNet.Messages.Server.OnlyOneConnec"
+      "tionAllowedH\000\0229\n\005reset\030\t \001(\0132(.LabNet.Me"
+      "ssages.Server.LabNetResetReplyH\000\0223\n\002id\030\n"
+      " \001(\0132%.LabNet.Messages.Server.LabNetIdRe"
+      "plyH\000\022\?\n\016interface_lost\030\013 \001(\0132%.LabNet.M"
+      "essages.Server.InterfaceLostH\000\022M\n\025interf"
+      "ace_reconnected\030\014 \001(\0132,.LabNet.Messages."
+      "Server.InterfaceReconnectedH\000B\020\n\016server_"
+      "message*l\n\nInterfaces\022\010\n\004NONE\020\000\022\022\n\016GPIO_"
+      "TOP_PLANE\020\001\022\t\n\005SAM32\020\002\022\t\n\005UART0\020d\022\t\n\005UAR"
+      "T1\020e\022\t\n\005UART2\020f\022\t\n\005UART3\020g\022\t\n\005UART4\020hb\006p"
+      "roto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1779);
+      descriptor, 2045);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetServerMessages.proto", &protobuf_RegisterTypes);
 }
@@ -533,6 +604,7 @@ bool Interfaces_IsValid(int value) {
     case 101:
     case 102:
     case 103:
+    case 104:
       return true;
     default:
       return false;
@@ -1633,103 +1705,89 @@ void NewByteData::InternalSwap(NewByteData* other) {
 
 // ===================================================================
 
-void WriteByteDataComplete::InitAsDefaultInstance() {
+void DataWriteComplete::InitAsDefaultInstance() {
+  ::LabNet::Messages::Server::_DataWriteComplete_default_instance_._instance.get_mutable()->pin_ = const_cast< ::LabNet::Messages::Server::PinId*>(
+      ::LabNet::Messages::Server::PinId::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int WriteByteDataComplete::kInterfaceFieldNumber;
-const int WriteByteDataComplete::kPortIdFieldNumber;
+const int DataWriteComplete::kPinFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-WriteByteDataComplete::WriteByteDataComplete()
+DataWriteComplete::DataWriteComplete()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetServerMessages_2eproto::scc_info_WriteByteDataComplete.base);
+      &protobuf_LabNetServerMessages_2eproto::scc_info_DataWriteComplete.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Server.DataWriteComplete)
 }
-WriteByteDataComplete::WriteByteDataComplete(const WriteByteDataComplete& from)
+DataWriteComplete::DataWriteComplete(const DataWriteComplete& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&interface_, &from.interface_,
-    static_cast<size_t>(reinterpret_cast<char*>(&portid_) -
-    reinterpret_cast<char*>(&interface_)) + sizeof(portid_));
-  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Server.WriteByteDataComplete)
+  if (from.has_pin()) {
+    pin_ = new ::LabNet::Messages::Server::PinId(*from.pin_);
+  } else {
+    pin_ = NULL;
+  }
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Server.DataWriteComplete)
 }
 
-void WriteByteDataComplete::SharedCtor() {
-  ::memset(&interface_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&portid_) -
-      reinterpret_cast<char*>(&interface_)) + sizeof(portid_));
+void DataWriteComplete::SharedCtor() {
+  pin_ = NULL;
 }
 
-WriteByteDataComplete::~WriteByteDataComplete() {
-  // @@protoc_insertion_point(destructor:LabNet.Messages.Server.WriteByteDataComplete)
+DataWriteComplete::~DataWriteComplete() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Server.DataWriteComplete)
   SharedDtor();
 }
 
-void WriteByteDataComplete::SharedDtor() {
+void DataWriteComplete::SharedDtor() {
+  if (this != internal_default_instance()) delete pin_;
 }
 
-void WriteByteDataComplete::SetCachedSize(int size) const {
+void DataWriteComplete::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* WriteByteDataComplete::descriptor() {
+const ::google::protobuf::Descriptor* DataWriteComplete::descriptor() {
   ::protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const WriteByteDataComplete& WriteByteDataComplete::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetServerMessages_2eproto::scc_info_WriteByteDataComplete.base);
+const DataWriteComplete& DataWriteComplete::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetServerMessages_2eproto::scc_info_DataWriteComplete.base);
   return *internal_default_instance();
 }
 
 
-void WriteByteDataComplete::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Server.WriteByteDataComplete)
+void DataWriteComplete::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Server.DataWriteComplete)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&interface_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&portid_) -
-      reinterpret_cast<char*>(&interface_)) + sizeof(portid_));
+  if (GetArenaNoVirtual() == NULL && pin_ != NULL) {
+    delete pin_;
+  }
+  pin_ = NULL;
   _internal_metadata_.Clear();
 }
 
-bool WriteByteDataComplete::MergePartialFromCodedStream(
+bool DataWriteComplete::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Server.DataWriteComplete)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .LabNet.Messages.Server.Interfaces interface = 1;
+      // .LabNet.Messages.Server.PinId pin = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          set_interface(static_cast< ::LabNet::Messages::Server::Interfaces >(value));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // uint32 portId = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &portid_)));
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_pin()));
         } else {
           goto handle_unusual;
         }
@@ -1748,66 +1806,57 @@ bool WriteByteDataComplete::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Server.DataWriteComplete)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Server.DataWriteComplete)
   return false;
 #undef DO_
 }
 
-void WriteByteDataComplete::SerializeWithCachedSizes(
+void DataWriteComplete::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Server.DataWriteComplete)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Messages.Server.Interfaces interface = 1;
-  if (this->interface() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->interface(), output);
-  }
-
-  // uint32 portId = 2;
-  if (this->portid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->portid(), output);
+  // .LabNet.Messages.Server.PinId pin = 1;
+  if (this->has_pin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->_internal_pin(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Server.DataWriteComplete)
 }
 
-::google::protobuf::uint8* WriteByteDataComplete::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* DataWriteComplete::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Server.DataWriteComplete)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Messages.Server.Interfaces interface = 1;
-  if (this->interface() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->interface(), target);
-  }
-
-  // uint32 portId = 2;
-  if (this->portid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->portid(), target);
+  // .LabNet.Messages.Server.PinId pin = 1;
+  if (this->has_pin()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, this->_internal_pin(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Server.DataWriteComplete)
   return target;
 }
 
-size_t WriteByteDataComplete::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Server.WriteByteDataComplete)
+size_t DataWriteComplete::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Server.DataWriteComplete)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1815,17 +1864,11 @@ size_t WriteByteDataComplete::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .LabNet.Messages.Server.Interfaces interface = 1;
-  if (this->interface() != 0) {
+  // .LabNet.Messages.Server.PinId pin = 1;
+  if (this->has_pin()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::EnumSize(this->interface());
-  }
-
-  // uint32 portId = 2;
-  if (this->portid() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->portid());
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *pin_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1833,66 +1876,62 @@ size_t WriteByteDataComplete::ByteSizeLong() const {
   return total_size;
 }
 
-void WriteByteDataComplete::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Server.WriteByteDataComplete)
+void DataWriteComplete::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Server.DataWriteComplete)
   GOOGLE_DCHECK_NE(&from, this);
-  const WriteByteDataComplete* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const WriteByteDataComplete>(
+  const DataWriteComplete* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const DataWriteComplete>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Server.DataWriteComplete)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Server.WriteByteDataComplete)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Server.DataWriteComplete)
     MergeFrom(*source);
   }
 }
 
-void WriteByteDataComplete::MergeFrom(const WriteByteDataComplete& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Server.WriteByteDataComplete)
+void DataWriteComplete::MergeFrom(const DataWriteComplete& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Server.DataWriteComplete)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.interface() != 0) {
-    set_interface(from.interface());
-  }
-  if (from.portid() != 0) {
-    set_portid(from.portid());
+  if (from.has_pin()) {
+    mutable_pin()->::LabNet::Messages::Server::PinId::MergeFrom(from.pin());
   }
 }
 
-void WriteByteDataComplete::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Server.WriteByteDataComplete)
+void DataWriteComplete::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Server.DataWriteComplete)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void WriteByteDataComplete::CopyFrom(const WriteByteDataComplete& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Server.WriteByteDataComplete)
+void DataWriteComplete::CopyFrom(const DataWriteComplete& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Server.DataWriteComplete)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool WriteByteDataComplete::IsInitialized() const {
+bool DataWriteComplete::IsInitialized() const {
   return true;
 }
 
-void WriteByteDataComplete::Swap(WriteByteDataComplete* other) {
+void DataWriteComplete::Swap(DataWriteComplete* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void WriteByteDataComplete::InternalSwap(WriteByteDataComplete* other) {
+void DataWriteComplete::InternalSwap(DataWriteComplete* other) {
   using std::swap;
-  swap(interface_, other->interface_);
-  swap(portid_, other->portid_);
+  swap(pin_, other->pin_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata WriteByteDataComplete::GetMetadata() const {
+::google::protobuf::Metadata DataWriteComplete::GetMetadata() const {
   protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2158,6 +2197,456 @@ void InterfaceInitResult::InternalSwap(InterfaceInitResult* other) {
 }
 
 ::google::protobuf::Metadata InterfaceInitResult::GetMetadata() const {
+  protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void InterfaceLost::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int InterfaceLost::kInterfaceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+InterfaceLost::InterfaceLost()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceLost.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Server.InterfaceLost)
+}
+InterfaceLost::InterfaceLost(const InterfaceLost& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  interface_ = from.interface_;
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Server.InterfaceLost)
+}
+
+void InterfaceLost::SharedCtor() {
+  interface_ = 0;
+}
+
+InterfaceLost::~InterfaceLost() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Server.InterfaceLost)
+  SharedDtor();
+}
+
+void InterfaceLost::SharedDtor() {
+}
+
+void InterfaceLost::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* InterfaceLost::descriptor() {
+  ::protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const InterfaceLost& InterfaceLost::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceLost.base);
+  return *internal_default_instance();
+}
+
+
+void InterfaceLost::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Server.InterfaceLost)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  interface_ = 0;
+  _internal_metadata_.Clear();
+}
+
+bool InterfaceLost::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Server.InterfaceLost)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Server.Interfaces interface = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_interface(static_cast< ::LabNet::Messages::Server::Interfaces >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Server.InterfaceLost)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Server.InterfaceLost)
+  return false;
+#undef DO_
+}
+
+void InterfaceLost::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Server.InterfaceLost)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->interface(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Server.InterfaceLost)
+}
+
+::google::protobuf::uint8* InterfaceLost::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Server.InterfaceLost)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->interface(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Server.InterfaceLost)
+  return target;
+}
+
+size_t InterfaceLost::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Server.InterfaceLost)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->interface());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void InterfaceLost::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Server.InterfaceLost)
+  GOOGLE_DCHECK_NE(&from, this);
+  const InterfaceLost* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const InterfaceLost>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Server.InterfaceLost)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Server.InterfaceLost)
+    MergeFrom(*source);
+  }
+}
+
+void InterfaceLost::MergeFrom(const InterfaceLost& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Server.InterfaceLost)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.interface() != 0) {
+    set_interface(from.interface());
+  }
+}
+
+void InterfaceLost::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Server.InterfaceLost)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void InterfaceLost::CopyFrom(const InterfaceLost& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Server.InterfaceLost)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool InterfaceLost::IsInitialized() const {
+  return true;
+}
+
+void InterfaceLost::Swap(InterfaceLost* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void InterfaceLost::InternalSwap(InterfaceLost* other) {
+  using std::swap;
+  swap(interface_, other->interface_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata InterfaceLost::GetMetadata() const {
+  protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void InterfaceReconnected::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int InterfaceReconnected::kInterfaceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+InterfaceReconnected::InterfaceReconnected()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceReconnected.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNet.Messages.Server.InterfaceReconnected)
+}
+InterfaceReconnected::InterfaceReconnected(const InterfaceReconnected& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  interface_ = from.interface_;
+  // @@protoc_insertion_point(copy_constructor:LabNet.Messages.Server.InterfaceReconnected)
+}
+
+void InterfaceReconnected::SharedCtor() {
+  interface_ = 0;
+}
+
+InterfaceReconnected::~InterfaceReconnected() {
+  // @@protoc_insertion_point(destructor:LabNet.Messages.Server.InterfaceReconnected)
+  SharedDtor();
+}
+
+void InterfaceReconnected::SharedDtor() {
+}
+
+void InterfaceReconnected::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* InterfaceReconnected::descriptor() {
+  ::protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const InterfaceReconnected& InterfaceReconnected::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetServerMessages_2eproto::scc_info_InterfaceReconnected.base);
+  return *internal_default_instance();
+}
+
+
+void InterfaceReconnected::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNet.Messages.Server.InterfaceReconnected)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  interface_ = 0;
+  _internal_metadata_.Clear();
+}
+
+bool InterfaceReconnected::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNet.Messages.Server.InterfaceReconnected)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .LabNet.Messages.Server.Interfaces interface = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_interface(static_cast< ::LabNet::Messages::Server::Interfaces >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNet.Messages.Server.InterfaceReconnected)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNet.Messages.Server.InterfaceReconnected)
+  return false;
+#undef DO_
+}
+
+void InterfaceReconnected::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNet.Messages.Server.InterfaceReconnected)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->interface(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNet.Messages.Server.InterfaceReconnected)
+}
+
+::google::protobuf::uint8* InterfaceReconnected::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNet.Messages.Server.InterfaceReconnected)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->interface(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNet.Messages.Server.InterfaceReconnected)
+  return target;
+}
+
+size_t InterfaceReconnected::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNet.Messages.Server.InterfaceReconnected)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // .LabNet.Messages.Server.Interfaces interface = 1;
+  if (this->interface() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->interface());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void InterfaceReconnected::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNet.Messages.Server.InterfaceReconnected)
+  GOOGLE_DCHECK_NE(&from, this);
+  const InterfaceReconnected* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const InterfaceReconnected>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.Messages.Server.InterfaceReconnected)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.Messages.Server.InterfaceReconnected)
+    MergeFrom(*source);
+  }
+}
+
+void InterfaceReconnected::MergeFrom(const InterfaceReconnected& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.Messages.Server.InterfaceReconnected)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.interface() != 0) {
+    set_interface(from.interface());
+  }
+}
+
+void InterfaceReconnected::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNet.Messages.Server.InterfaceReconnected)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void InterfaceReconnected::CopyFrom(const InterfaceReconnected& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.Messages.Server.InterfaceReconnected)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool InterfaceReconnected::IsInitialized() const {
+  return true;
+}
+
+void InterfaceReconnected::Swap(InterfaceReconnected* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void InterfaceReconnected::InternalSwap(InterfaceReconnected* other) {
+  using std::swap;
+  swap(interface_, other->interface_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata InterfaceReconnected::GetMetadata() const {
   protobuf_LabNetServerMessages_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetServerMessages_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -3497,8 +3986,8 @@ void ServerWrappedMessage::InitAsDefaultInstance() {
       ::LabNet::Messages::Server::DigitalInState::internal_default_instance());
   ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.new_byte_data_ = const_cast< ::LabNet::Messages::Server::NewByteData*>(
       ::LabNet::Messages::Server::NewByteData::internal_default_instance());
-  ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.write_byte_data_complete_ = const_cast< ::LabNet::Messages::Server::WriteByteDataComplete*>(
-      ::LabNet::Messages::Server::WriteByteDataComplete::internal_default_instance());
+  ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.data_write_complete_ = const_cast< ::LabNet::Messages::Server::DataWriteComplete*>(
+      ::LabNet::Messages::Server::DataWriteComplete::internal_default_instance());
   ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.interface_init_result_ = const_cast< ::LabNet::Messages::Server::InterfaceInitResult*>(
       ::LabNet::Messages::Server::InterfaceInitResult::internal_default_instance());
   ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.digital_in_init_result_ = const_cast< ::LabNet::Messages::Server::DigitalInInitResult*>(
@@ -3511,6 +4000,10 @@ void ServerWrappedMessage::InitAsDefaultInstance() {
       ::LabNet::Messages::Server::LabNetResetReply::internal_default_instance());
   ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.id_ = const_cast< ::LabNet::Messages::Server::LabNetIdReply*>(
       ::LabNet::Messages::Server::LabNetIdReply::internal_default_instance());
+  ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.interface_lost_ = const_cast< ::LabNet::Messages::Server::InterfaceLost*>(
+      ::LabNet::Messages::Server::InterfaceLost::internal_default_instance());
+  ::LabNet::Messages::Server::_ServerWrappedMessage_default_instance_.interface_reconnected_ = const_cast< ::LabNet::Messages::Server::InterfaceReconnected*>(
+      ::LabNet::Messages::Server::InterfaceReconnected::internal_default_instance());
 }
 void ServerWrappedMessage::set_allocated_digital_out_state(::LabNet::Messages::Server::DigitalOutState* digital_out_state) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
@@ -3554,19 +4047,19 @@ void ServerWrappedMessage::set_allocated_new_byte_data(::LabNet::Messages::Serve
   }
   // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.new_byte_data)
 }
-void ServerWrappedMessage::set_allocated_write_byte_data_complete(::LabNet::Messages::Server::WriteByteDataComplete* write_byte_data_complete) {
+void ServerWrappedMessage::set_allocated_data_write_complete(::LabNet::Messages::Server::DataWriteComplete* data_write_complete) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_server_message();
-  if (write_byte_data_complete) {
+  if (data_write_complete) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      write_byte_data_complete = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, write_byte_data_complete, submessage_arena);
+      data_write_complete = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, data_write_complete, submessage_arena);
     }
-    set_has_write_byte_data_complete();
-    server_message_.write_byte_data_complete_ = write_byte_data_complete;
+    set_has_data_write_complete();
+    server_message_.data_write_complete_ = data_write_complete;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.write_byte_data_complete)
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.data_write_complete)
 }
 void ServerWrappedMessage::set_allocated_interface_init_result(::LabNet::Messages::Server::InterfaceInitResult* interface_init_result) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
@@ -3652,17 +4145,47 @@ void ServerWrappedMessage::set_allocated_id(::LabNet::Messages::Server::LabNetId
   }
   // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.id)
 }
+void ServerWrappedMessage::set_allocated_interface_lost(::LabNet::Messages::Server::InterfaceLost* interface_lost) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_server_message();
+  if (interface_lost) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      interface_lost = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, interface_lost, submessage_arena);
+    }
+    set_has_interface_lost();
+    server_message_.interface_lost_ = interface_lost;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.interface_lost)
+}
+void ServerWrappedMessage::set_allocated_interface_reconnected(::LabNet::Messages::Server::InterfaceReconnected* interface_reconnected) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_server_message();
+  if (interface_reconnected) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      interface_reconnected = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, interface_reconnected, submessage_arena);
+    }
+    set_has_interface_reconnected();
+    server_message_.interface_reconnected_ = interface_reconnected;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Messages.Server.ServerWrappedMessage.interface_reconnected)
+}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ServerWrappedMessage::kDigitalOutStateFieldNumber;
 const int ServerWrappedMessage::kDigitalInStateFieldNumber;
 const int ServerWrappedMessage::kNewByteDataFieldNumber;
-const int ServerWrappedMessage::kWriteByteDataCompleteFieldNumber;
+const int ServerWrappedMessage::kDataWriteCompleteFieldNumber;
 const int ServerWrappedMessage::kInterfaceInitResultFieldNumber;
 const int ServerWrappedMessage::kDigitalInInitResultFieldNumber;
 const int ServerWrappedMessage::kDigitalOutInitResultFieldNumber;
 const int ServerWrappedMessage::kOnlyOneConnectionFieldNumber;
 const int ServerWrappedMessage::kResetFieldNumber;
 const int ServerWrappedMessage::kIdFieldNumber;
+const int ServerWrappedMessage::kInterfaceLostFieldNumber;
+const int ServerWrappedMessage::kInterfaceReconnectedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ServerWrappedMessage::ServerWrappedMessage()
@@ -3690,8 +4213,8 @@ ServerWrappedMessage::ServerWrappedMessage(const ServerWrappedMessage& from)
       mutable_new_byte_data()->::LabNet::Messages::Server::NewByteData::MergeFrom(from.new_byte_data());
       break;
     }
-    case kWriteByteDataComplete: {
-      mutable_write_byte_data_complete()->::LabNet::Messages::Server::WriteByteDataComplete::MergeFrom(from.write_byte_data_complete());
+    case kDataWriteComplete: {
+      mutable_data_write_complete()->::LabNet::Messages::Server::DataWriteComplete::MergeFrom(from.data_write_complete());
       break;
     }
     case kInterfaceInitResult: {
@@ -3716,6 +4239,14 @@ ServerWrappedMessage::ServerWrappedMessage(const ServerWrappedMessage& from)
     }
     case kId: {
       mutable_id()->::LabNet::Messages::Server::LabNetIdReply::MergeFrom(from.id());
+      break;
+    }
+    case kInterfaceLost: {
+      mutable_interface_lost()->::LabNet::Messages::Server::InterfaceLost::MergeFrom(from.interface_lost());
+      break;
+    }
+    case kInterfaceReconnected: {
+      mutable_interface_reconnected()->::LabNet::Messages::Server::InterfaceReconnected::MergeFrom(from.interface_reconnected());
       break;
     }
     case SERVER_MESSAGE_NOT_SET: {
@@ -3769,8 +4300,8 @@ void ServerWrappedMessage::clear_server_message() {
       delete server_message_.new_byte_data_;
       break;
     }
-    case kWriteByteDataComplete: {
-      delete server_message_.write_byte_data_complete_;
+    case kDataWriteComplete: {
+      delete server_message_.data_write_complete_;
       break;
     }
     case kInterfaceInitResult: {
@@ -3795,6 +4326,14 @@ void ServerWrappedMessage::clear_server_message() {
     }
     case kId: {
       delete server_message_.id_;
+      break;
+    }
+    case kInterfaceLost: {
+      delete server_message_.interface_lost_;
+      break;
+    }
+    case kInterfaceReconnected: {
+      delete server_message_.interface_reconnected_;
       break;
     }
     case SERVER_MESSAGE_NOT_SET: {
@@ -3861,12 +4400,12 @@ bool ServerWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNet.Messages.Server.WriteByteDataComplete write_byte_data_complete = 4;
+      // .LabNet.Messages.Server.DataWriteComplete data_write_complete = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_write_byte_data_complete()));
+               input, mutable_data_write_complete()));
         } else {
           goto handle_unusual;
         }
@@ -3945,6 +4484,30 @@ bool ServerWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
+      // .LabNet.Messages.Server.InterfaceLost interface_lost = 11;
+      case 11: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(90u /* 90 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_interface_lost()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNet.Messages.Server.InterfaceReconnected interface_reconnected = 12;
+      case 12: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(98u /* 98 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_interface_reconnected()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -3989,10 +4552,10 @@ void ServerWrappedMessage::SerializeWithCachedSizes(
       3, this->_internal_new_byte_data(), output);
   }
 
-  // .LabNet.Messages.Server.WriteByteDataComplete write_byte_data_complete = 4;
-  if (has_write_byte_data_complete()) {
+  // .LabNet.Messages.Server.DataWriteComplete data_write_complete = 4;
+  if (has_data_write_complete()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_write_byte_data_complete(), output);
+      4, this->_internal_data_write_complete(), output);
   }
 
   // .LabNet.Messages.Server.InterfaceInitResult interface_init_result = 5;
@@ -4031,6 +4594,18 @@ void ServerWrappedMessage::SerializeWithCachedSizes(
       10, this->_internal_id(), output);
   }
 
+  // .LabNet.Messages.Server.InterfaceLost interface_lost = 11;
+  if (has_interface_lost()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, this->_internal_interface_lost(), output);
+  }
+
+  // .LabNet.Messages.Server.InterfaceReconnected interface_reconnected = 12;
+  if (has_interface_reconnected()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      12, this->_internal_interface_reconnected(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -4066,11 +4641,11 @@ void ServerWrappedMessage::SerializeWithCachedSizes(
         3, this->_internal_new_byte_data(), deterministic, target);
   }
 
-  // .LabNet.Messages.Server.WriteByteDataComplete write_byte_data_complete = 4;
-  if (has_write_byte_data_complete()) {
+  // .LabNet.Messages.Server.DataWriteComplete data_write_complete = 4;
+  if (has_data_write_complete()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->_internal_write_byte_data_complete(), deterministic, target);
+        4, this->_internal_data_write_complete(), deterministic, target);
   }
 
   // .LabNet.Messages.Server.InterfaceInitResult interface_init_result = 5;
@@ -4115,6 +4690,20 @@ void ServerWrappedMessage::SerializeWithCachedSizes(
         10, this->_internal_id(), deterministic, target);
   }
 
+  // .LabNet.Messages.Server.InterfaceLost interface_lost = 11;
+  if (has_interface_lost()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        11, this->_internal_interface_lost(), deterministic, target);
+  }
+
+  // .LabNet.Messages.Server.InterfaceReconnected interface_reconnected = 12;
+  if (has_interface_reconnected()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        12, this->_internal_interface_reconnected(), deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -4154,11 +4743,11 @@ size_t ServerWrappedMessage::ByteSizeLong() const {
           *server_message_.new_byte_data_);
       break;
     }
-    // .LabNet.Messages.Server.WriteByteDataComplete write_byte_data_complete = 4;
-    case kWriteByteDataComplete: {
+    // .LabNet.Messages.Server.DataWriteComplete data_write_complete = 4;
+    case kDataWriteComplete: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *server_message_.write_byte_data_complete_);
+          *server_message_.data_write_complete_);
       break;
     }
     // .LabNet.Messages.Server.InterfaceInitResult interface_init_result = 5;
@@ -4201,6 +4790,20 @@ size_t ServerWrappedMessage::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *server_message_.id_);
+      break;
+    }
+    // .LabNet.Messages.Server.InterfaceLost interface_lost = 11;
+    case kInterfaceLost: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *server_message_.interface_lost_);
+      break;
+    }
+    // .LabNet.Messages.Server.InterfaceReconnected interface_reconnected = 12;
+    case kInterfaceReconnected: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *server_message_.interface_reconnected_);
       break;
     }
     case SERVER_MESSAGE_NOT_SET: {
@@ -4247,8 +4850,8 @@ void ServerWrappedMessage::MergeFrom(const ServerWrappedMessage& from) {
       mutable_new_byte_data()->::LabNet::Messages::Server::NewByteData::MergeFrom(from.new_byte_data());
       break;
     }
-    case kWriteByteDataComplete: {
-      mutable_write_byte_data_complete()->::LabNet::Messages::Server::WriteByteDataComplete::MergeFrom(from.write_byte_data_complete());
+    case kDataWriteComplete: {
+      mutable_data_write_complete()->::LabNet::Messages::Server::DataWriteComplete::MergeFrom(from.data_write_complete());
       break;
     }
     case kInterfaceInitResult: {
@@ -4273,6 +4876,14 @@ void ServerWrappedMessage::MergeFrom(const ServerWrappedMessage& from) {
     }
     case kId: {
       mutable_id()->::LabNet::Messages::Server::LabNetIdReply::MergeFrom(from.id());
+      break;
+    }
+    case kInterfaceLost: {
+      mutable_interface_lost()->::LabNet::Messages::Server::InterfaceLost::MergeFrom(from.interface_lost());
+      break;
+    }
+    case kInterfaceReconnected: {
+      mutable_interface_reconnected()->::LabNet::Messages::Server::InterfaceReconnected::MergeFrom(from.interface_reconnected());
       break;
     }
     case SERVER_MESSAGE_NOT_SET: {
@@ -4334,11 +4945,17 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::Digita
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::NewByteData* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::NewByteData >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Server::NewByteData >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::WriteByteDataComplete* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::WriteByteDataComplete >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNet::Messages::Server::WriteByteDataComplete >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::DataWriteComplete* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::DataWriteComplete >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Server::DataWriteComplete >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::InterfaceInitResult* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::InterfaceInitResult >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Server::InterfaceInitResult >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::InterfaceLost* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::InterfaceLost >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Server::InterfaceLost >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::InterfaceReconnected* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::InterfaceReconnected >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNet::Messages::Server::InterfaceReconnected >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::Messages::Server::DigitalInInitResult* Arena::CreateMaybeMessage< ::LabNet::Messages::Server::DigitalInInitResult >(Arena* arena) {
   return Arena::CreateInternal< ::LabNet::Messages::Server::DigitalInInitResult >(arena);

@@ -13,6 +13,9 @@ public:
 	~SerialPort();
 	
 	void send_data(std::shared_ptr<std::vector<char>> data);
+	void activate_send_receive() { _isActive = true; };
+	void deactivate_send_receive() { _isActive = false; };
+	
 	
 private:
 	void data_send_thread(so_5::mchain_t ch);
@@ -22,13 +25,14 @@ private:
 	void data_read_thread();
 	
 	
-	const int m_portId;
-	const int m_portHandler;
-	const int m_baud;
-	const so_5::mchain_t m_sendToPortBox;
-	const so_5::mbox_t m_parent;
-	std::thread m_sendWorker;
-	std::thread m_readWorker;
-	std::promise<void> m_exitSignal;
-	std::future<void> m_futureObj;
+	const int _portId;
+	const int _portHandler;
+	const int _baud;
+	const so_5::mchain_t _sendToPortBox;
+	const so_5::mbox_t _parent;
+	bool _isActive;
+	std::thread _sendWorker;
+	std::thread _readWorker;
+	std::promise<void> _exitSignal;
+	std::future<void> _futureObj;
 };

@@ -129,7 +129,7 @@ void Connection::send_message(std::shared_ptr<LabNet::Messages::Server::ServerWr
 			boost::asio::buffer(msgBuffer),
 			[this, self](boost::system::error_code ec, std::size_t)
 			{
-				m_logger->writeInfoEntry("sended");
+				//m_logger->writeInfoEntry("sended");
 				if (!ec)
 				{
 

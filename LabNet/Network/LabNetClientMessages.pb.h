@@ -146,30 +146,6 @@ inline bool GpioInitDigitalIn_Resistor_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<GpioInitDigitalIn_Resistor>(
     GpioInitDigitalIn_Resistor_descriptor(), name, value);
 }
-enum UartInit_Port {
-  UartInit_Port_NONE = 0,
-  UartInit_Port_UART1 = 101,
-  UartInit_Port_UART2 = 102,
-  UartInit_Port_UART3 = 103,
-  UartInit_Port_UART4 = 104,
-  UartInit_Port_UartInit_Port_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  UartInit_Port_UartInit_Port_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool UartInit_Port_IsValid(int value);
-const UartInit_Port UartInit_Port_Port_MIN = UartInit_Port_NONE;
-const UartInit_Port UartInit_Port_Port_MAX = UartInit_Port_UART4;
-const int UartInit_Port_Port_ARRAYSIZE = UartInit_Port_Port_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* UartInit_Port_descriptor();
-inline const ::std::string& UartInit_Port_Name(UartInit_Port value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    UartInit_Port_descriptor(), value);
-}
-inline bool UartInit_Port_Parse(
-    const ::std::string& name, UartInit_Port* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<UartInit_Port>(
-    UartInit_Port_descriptor(), name, value);
-}
 enum PinId_Interfaces {
   PinId_Interfaces_NONE = 0,
   PinId_Interfaces_GPIO_TOP_PLANE = 1,
@@ -194,6 +170,30 @@ inline bool PinId_Interfaces_Parse(
     const ::std::string& name, PinId_Interfaces* value) {
   return ::google::protobuf::internal::ParseNamedEnum<PinId_Interfaces>(
     PinId_Interfaces_descriptor(), name, value);
+}
+enum UartPort {
+  NONE = 0,
+  UART1 = 101,
+  UART2 = 102,
+  UART3 = 103,
+  UART4 = 104,
+  UartPort_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  UartPort_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool UartPort_IsValid(int value);
+const UartPort UartPort_MIN = NONE;
+const UartPort UartPort_MAX = UART4;
+const int UartPort_ARRAYSIZE = UartPort_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* UartPort_descriptor();
+inline const ::std::string& UartPort_Name(UartPort value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    UartPort_descriptor(), value);
+}
+inline bool UartPort_Parse(
+    const ::std::string& name, UartPort* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<UartPort>(
+    UartPort_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -977,45 +977,13 @@ class UartInit : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // nested types ----------------------------------------------------
 
-  typedef UartInit_Port Port;
-  static const Port NONE =
-    UartInit_Port_NONE;
-  static const Port UART1 =
-    UartInit_Port_UART1;
-  static const Port UART2 =
-    UartInit_Port_UART2;
-  static const Port UART3 =
-    UartInit_Port_UART3;
-  static const Port UART4 =
-    UartInit_Port_UART4;
-  static inline bool Port_IsValid(int value) {
-    return UartInit_Port_IsValid(value);
-  }
-  static const Port Port_MIN =
-    UartInit_Port_Port_MIN;
-  static const Port Port_MAX =
-    UartInit_Port_Port_MAX;
-  static const int Port_ARRAYSIZE =
-    UartInit_Port_Port_ARRAYSIZE;
-  static inline const ::google::protobuf::EnumDescriptor*
-  Port_descriptor() {
-    return UartInit_Port_descriptor();
-  }
-  static inline const ::std::string& Port_Name(Port value) {
-    return UartInit_Port_Name(value);
-  }
-  static inline bool Port_Parse(const ::std::string& name,
-      Port* value) {
-    return UartInit_Port_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
-  // .LabNet.Messages.Client.UartInit.Port port = 1;
+  // .LabNet.Messages.Client.UartPort port = 1;
   void clear_port();
   static const int kPortFieldNumber = 1;
-  ::LabNet::Messages::Client::UartInit_Port port() const;
-  void set_port(::LabNet::Messages::Client::UartInit_Port value);
+  ::LabNet::Messages::Client::UartPort port() const;
+  void set_port(::LabNet::Messages::Client::UartPort value);
 
   // uint32 baud = 2;
   void clear_baud();
@@ -1135,18 +1103,18 @@ class UartWriteData : public ::google::protobuf::Message /* @@protoc_insertion_p
   ::std::string* release_data();
   void set_allocated_data(::std::string* data);
 
-  // uint32 portId = 1;
-  void clear_portid();
-  static const int kPortIdFieldNumber = 1;
-  ::google::protobuf::uint32 portid() const;
-  void set_portid(::google::protobuf::uint32 value);
+  // .LabNet.Messages.Client.UartPort port = 1;
+  void clear_port();
+  static const int kPortFieldNumber = 1;
+  ::LabNet::Messages::Client::UartPort port() const;
+  void set_port(::LabNet::Messages::Client::UartPort value);
 
   // @@protoc_insertion_point(class_scope:LabNet.Messages.Client.UartWriteData)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr data_;
-  ::google::protobuf::uint32 portid_;
+  int port_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClientMessages_2eproto::TableStruct;
 };
@@ -2495,15 +2463,15 @@ inline void Sam32SetSignalInversion::set_inverted(bool value) {
 
 // UartInit
 
-// .LabNet.Messages.Client.UartInit.Port port = 1;
+// .LabNet.Messages.Client.UartPort port = 1;
 inline void UartInit::clear_port() {
   port_ = 0;
 }
-inline ::LabNet::Messages::Client::UartInit_Port UartInit::port() const {
+inline ::LabNet::Messages::Client::UartPort UartInit::port() const {
   // @@protoc_insertion_point(field_get:LabNet.Messages.Client.UartInit.port)
-  return static_cast< ::LabNet::Messages::Client::UartInit_Port >(port_);
+  return static_cast< ::LabNet::Messages::Client::UartPort >(port_);
 }
-inline void UartInit::set_port(::LabNet::Messages::Client::UartInit_Port value) {
+inline void UartInit::set_port(::LabNet::Messages::Client::UartPort value) {
   
   port_ = value;
   // @@protoc_insertion_point(field_set:LabNet.Messages.Client.UartInit.port)
@@ -2527,18 +2495,18 @@ inline void UartInit::set_baud(::google::protobuf::uint32 value) {
 
 // UartWriteData
 
-// uint32 portId = 1;
-inline void UartWriteData::clear_portid() {
-  portid_ = 0u;
+// .LabNet.Messages.Client.UartPort port = 1;
+inline void UartWriteData::clear_port() {
+  port_ = 0;
 }
-inline ::google::protobuf::uint32 UartWriteData::portid() const {
-  // @@protoc_insertion_point(field_get:LabNet.Messages.Client.UartWriteData.portId)
-  return portid_;
+inline ::LabNet::Messages::Client::UartPort UartWriteData::port() const {
+  // @@protoc_insertion_point(field_get:LabNet.Messages.Client.UartWriteData.port)
+  return static_cast< ::LabNet::Messages::Client::UartPort >(port_);
 }
-inline void UartWriteData::set_portid(::google::protobuf::uint32 value) {
+inline void UartWriteData::set_port(::LabNet::Messages::Client::UartPort value) {
   
-  portid_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.Messages.Client.UartWriteData.portId)
+  port_ = value;
+  // @@protoc_insertion_point(field_set:LabNet.Messages.Client.UartWriteData.port)
 }
 
 // bytes data = 2;
@@ -3573,15 +3541,15 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Messages::Client::GpioInitDigitalIn_Resistor>() {
   return ::LabNet::Messages::Client::GpioInitDigitalIn_Resistor_descriptor();
 }
-template <> struct is_proto_enum< ::LabNet::Messages::Client::UartInit_Port> : ::std::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Messages::Client::UartInit_Port>() {
-  return ::LabNet::Messages::Client::UartInit_Port_descriptor();
-}
 template <> struct is_proto_enum< ::LabNet::Messages::Client::PinId_Interfaces> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Messages::Client::PinId_Interfaces>() {
   return ::LabNet::Messages::Client::PinId_Interfaces_descriptor();
+}
+template <> struct is_proto_enum< ::LabNet::Messages::Client::UartPort> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Messages::Client::UartPort>() {
+  return ::LabNet::Messages::Client::UartPort_descriptor();
 }
 
 }  // namespace protobuf

@@ -44,20 +44,21 @@ message Sam32SetSignalInversion {
 
 
 // UART messages
+enum UartPort {
+	NONE = 0;
+	UART1 = 101;
+	UART2 = 102;
+	UART3 = 103;
+	UART4 = 104;
+}
+
 message UartInit {
-	enum Port {
-		NONE = 0;
-		UART1 = 101;
-		UART2 = 102;
-		UART3 = 103;
-		UART4 = 104;
-	}
-	Port port = 1;
+	UartPort port = 1;
 	uint32 baud = 2;
 }
 
 message UartWriteData {
-	uint32 portId = 1;
+	UartPort port = 1;
 	bytes data = 2;
 }
 // UART messages

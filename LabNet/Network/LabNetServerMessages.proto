@@ -5,10 +5,11 @@ enum Interfaces {
 	NONE = 0;
 	GPIO_TOP_PLANE = 1;
 	SAM32 = 2;
-	UART1 = 100;
-	UART2 = 101;
-	UART3 = 102;
-	UART4 = 103;
+	UART0 = 100;
+	UART1 = 101;
+	UART2 = 102;
+	UART3 = 103;
+	UART4 = 104;
 }
 
 // general messages
@@ -32,14 +33,21 @@ message NewByteData {
 	bytes data = 2;
 }
 
-message WriteByteDataComplete {
-	Interfaces interface = 1;
-	uint32 portId = 2;
+message DataWriteComplete {
+	PinId pin = 1;
 }
 
 message InterfaceInitResult {
 	Interfaces interface = 1;
 	bool is_succeed = 2;
+}
+
+message InterfaceLost {
+	Interfaces interface = 1;
+}
+
+message InterfaceReconnected {
+	Interfaces interface = 1;
 }
 
 message DigitalInInitResult {
@@ -73,12 +81,14 @@ message ServerWrappedMessage {
 		DigitalOutState digital_out_state = 1;
 		DigitalInState digital_in_state = 2;
 		NewByteData new_byte_data = 3;
-		WriteByteDataComplete write_byte_data_complete = 4;
+		DataWriteComplete data_write_complete = 4;
 		InterfaceInitResult interface_init_result = 5;
 		DigitalInInitResult digital_in_init_result = 6;
 		DigitalOutInitResult digital_out_init_result = 7;
 		OnlyOneConnectionAllowed only_one_connection = 8;
 		LabNetResetReply reset = 9;
 		LabNetIdReply id = 10;
+		InterfaceLost interface_lost = 11;
+		InterfaceReconnected interface_reconnected = 12;
 	}
 }

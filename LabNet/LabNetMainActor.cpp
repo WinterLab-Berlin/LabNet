@@ -4,14 +4,16 @@
 #include "Interface/GPIO/Messages.h"
 #include "Interface/InterfaceMessages.h"
 #include "Interface/SAM32/SamMessages.h"
+#include "Interface/UART/SerialPortMessages.h"
 
 using namespace LabNet;
 
-LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box)
+LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox)
 	: so_5::agent_t(ctx)
 	, _logger(logger)
 	, _gpioBox(gpioBox)
 	, _sam32Box(sam32Box)
+	, _uartBox(uartBox)
 	, _interfaceManager(ctx.env().create_mbox("ManageInterfaces"))
 {
 }
@@ -31,6 +33,7 @@ void LabNetMainActor::so_define_agent()
 			
 			so_5::send<Interface::continue_interface>(_gpioBox);
 			so_5::send<Interface::continue_interface>(_sam32Box);
+			so_5::send<Interface::continue_interface>(_uartBox);
 			
 			this >>= connected;
 		});
@@ -41,6 +44,7 @@ void LabNetMainActor::so_define_agent()
 			
 		so_5::send<Interface::pause_interface>(_gpioBox);
 		so_5::send<Interface::pause_interface>(_sam32Box);
+		so_5::send<Interface::pause_interface>(_uartBox);
 			
 		this >>= wait_for_connection;
 	})
@@ -84,10 +88,21 @@ void LabNetMainActor::so_define_agent()
 			}
 			break;
 		case LabNet::Messages::Client::ClientWrappedMessage::kUartInit:
-			_logger->writeInfoEntry("uart init mes");
+			{
+				auto& uart_init = mes->uart_init();
+				so_5::send<uart::messages::init_port>(_uartBox, uart_init.port() - 100, uart_init.baud());
+			}
 			break;
 		case LabNet::Messages::Client::ClientWrappedMessage::kUartWriteData:
-			_logger->writeInfoEntry("uart write data mes");
+			{
+				auto& uart_write = mes->uart_write_data();
+				std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
+				data->resize(uart_write.data().size());
+				for (int l = 0; l < uart_write.data().size(); l++)
+					data->push_back(uart_write.data()[l]);
+					
+				so_5::send<uart::messages::send_data_to_port>(_uartBox, uart_write.port() - 100, data);
+			}
 			break;
 		case LabNet::Messages::Client::ClientWrappedMessage::kDigitalOutSet:
 			{
@@ -217,6 +232,116 @@ void LabNetMainActor::so_define_agent()
 		data->set_data(mes->data->data(), mes->data->size());
 		
 		swm->set_allocated_new_byte_data(data);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<uart::messages::init_port_result> mes)
+	{
+		std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+		LabNet::Messages::Server::InterfaceInitResult* init = new LabNet::Messages::Server::InterfaceInitResult();
+		if (mes->port_id == 0)
+			init->set_interface(LabNet::Messages::Server::Interfaces::UART0);
+		else if (mes->port_id == 1)
+			init->set_interface(LabNet::Messages::Server::Interfaces::UART1);
+		else if (mes->port_id == 2)
+			init->set_interface(LabNet::Messages::Server::Interfaces::UART2);
+		else if (mes->port_id == 3)
+			init->set_interface(LabNet::Messages::Server::Interfaces::UART3);
+		else if (mes->port_id == 4)
+			init->set_interface(LabNet::Messages::Server::Interfaces::UART4);
+		else
+			init->set_interface(LabNet::Messages::Server::Interfaces::NONE);
+		init->set_is_succeed(mes->is_succeed);
+		swm->set_allocated_interface_init_result(init);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<uart::messages::port_unexpected_closed> mes)
+	{
+		std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+		LabNet::Messages::Server::InterfaceLost* lost = new LabNet::Messages::Server::InterfaceLost();
+		if (mes->port_id == 0)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART0);
+		else if (mes->port_id == 1)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART1);
+		else if (mes->port_id == 2)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART2);
+		else if (mes->port_id == 3)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART3);
+		else if (mes->port_id == 4)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART4);
+		else
+			lost->set_interface(LabNet::Messages::Server::Interfaces::NONE);
+		
+		swm->set_allocated_interface_lost(lost);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<uart::messages::port_reconnected> mes)
+	{
+		std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+		LabNet::Messages::Server::InterfaceReconnected* lost = new LabNet::Messages::Server::InterfaceReconnected();
+		if (mes->port_id == 0)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART0);
+		else if (mes->port_id == 1)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART1);
+		else if (mes->port_id == 2)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART2);
+		else if (mes->port_id == 3)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART3);
+		else if (mes->port_id == 4)
+			lost->set_interface(LabNet::Messages::Server::Interfaces::UART4);
+		else
+			lost->set_interface(LabNet::Messages::Server::Interfaces::NONE);
+		
+		swm->set_allocated_interface_reconnected(lost);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<uart::messages::new_data_from_port> mes)
+	{
+		std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+		LabNet::Messages::Server::NewByteData* data = new LabNet::Messages::Server::NewByteData();
+		
+		data->set_data(mes->data->data(), mes->data->size());
+		
+		LabNet::Messages::Server::PinId *id = new LabNet::Messages::Server::PinId();
+		id->set_pin(0);
+		if (mes->port_id == 0)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART0);
+		else if (mes->port_id == 1)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART1);
+		else if (mes->port_id == 2)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART2);
+		else if (mes->port_id == 3)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART3);
+		else if (mes->port_id == 4)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART4);
+		else
+			id->set_interface(LabNet::Messages::Server::Interfaces::NONE);
+		data->set_allocated_pin(id);
+		
+		swm->set_allocated_new_byte_data(data);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<uart::messages::send_data_complete> mes)
+	{
+		std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
+		LabNet::Messages::Server::DataWriteComplete* write = new LabNet::Messages::Server::DataWriteComplete();
+		
+		LabNet::Messages::Server::PinId *id = new LabNet::Messages::Server::PinId();
+		id->set_pin(0);
+		if (mes->port_id == 0)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART0);
+		else if (mes->port_id == 1)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART1);
+		else if (mes->port_id == 2)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART2);
+		else if (mes->port_id == 3)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART3);
+		else if (mes->port_id == 4)
+			id->set_interface(LabNet::Messages::Server::Interfaces::UART4);
+		else
+			id->set_interface(LabNet::Messages::Server::Interfaces::NONE);
+		write->set_allocated_pin(id);
+		
+		swm->set_allocated_data_write_complete(write);
 		_connection->send_message(swm);
 	})
 	;

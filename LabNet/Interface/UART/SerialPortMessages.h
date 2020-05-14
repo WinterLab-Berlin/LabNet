@@ -12,22 +12,12 @@ namespace uart::messages
 		const int baud;
 	};
 
-	struct try_to_reconnect
+	struct init_port_result
 	{
 		const int port_id;
-		const int baud;
+		bool is_succeed;
 	};
-
-	struct init_port_error
-	{
-		const int port_id;
-	};
-
-	struct init_port_success
-	{
-		const int port_id;
-	};
-
+	
 	struct port_unexpected_closed
 	{
 		const int port_id;
