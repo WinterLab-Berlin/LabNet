@@ -9,7 +9,7 @@ namespace LabNet
 	class LabNetMainActor final : public so_5::agent_t
 	{
 	public:
-		LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox);
+		LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox, so_5::mbox_t digOutBox);
 		~LabNetMainActor();
 
 	private:
@@ -23,6 +23,7 @@ namespace LabNet
 		const so_5::mbox_t _gpioBox;
 		const so_5::mbox_t _sam32Box;
 		const so_5::mbox_t _uartBox;
+		const so_5::mbox_t _digOutBox;
 		const so_5::mbox_t _interfaceManager;
 	};
 }

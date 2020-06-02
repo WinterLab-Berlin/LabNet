@@ -118,6 +118,14 @@ void GPIO::GPIOManager::so_define_agent()
 					_outputs[msg->pin].available = true;
 					
 					pinMode(_outputs[msg->pin].pin_h, OUTPUT);
+					if (_outputs[msg->pin].is_inverted)
+					{
+						digitalWrite(_outputs[msg->pin].pin_h, 1);
+					}
+					else
+					{
+						digitalWrite(_outputs[msg->pin].pin_h, 0);
+					}
 					
 					so_5::send <digital_out_init_result>(_parentMbox, msg->pin, true);
 				}
@@ -139,8 +147,12 @@ void GPIO::GPIOManager::so_define_agent()
 						digitalWrite(_outputs[msg->pin].pin_h, msg->state);
 					}
 		
-					_logger->writeInfoEntry("gpio set");
+					_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
 					so_5::send <return_digital_out_state>(msg->mbox, msg->pin, msg->state);
+				}
+				else
+				{
+					so_5::send <invalid_digital_out_pin>(msg->mbox, msg->pin);
 				}
 			})
 		.event(_selfBox,

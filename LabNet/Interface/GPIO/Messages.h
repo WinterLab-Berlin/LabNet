@@ -54,4 +54,9 @@ namespace GPIO
 		const char pin;
 		const bool state;
 	};
+	
+	struct invalid_digital_out_pin
+	{
+		const char pin;
+	};
 }

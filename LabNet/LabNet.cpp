@@ -9,7 +9,7 @@
 #include "Interface/ManageInterfaces.h"
 #include "Interface/GPIO/GPIOManager.h"
 #include "Interface/UART/SerialPortsManager.h"
-
+#include "DigitalOut/DigitalOutHelper.h"
 
 int main(int argc, char *argv[])
 {
@@ -37,14 +37,16 @@ int main(int argc, char *argv[])
 		so_5::mbox_t gpioBox = coop.environment().create_mbox("gpio");
 		so_5::mbox_t sam32Box = coop.environment().create_mbox("sam32");
 		so_5::mbox_t uartBox = coop.environment().create_mbox("uart");
+		so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
 		
-		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box, uartBox);
+		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box, uartBox, digOutBox);
 		labNetBox = act->so_direct_mbox();
 		
 		coop.make_agent<Interface::ManageInterfaces>();
 		coop.make_agent<GPIO::GPIOManager>(gpioBox, labNetBox, logger);
 		coop.make_agent<SAM::SamMainActor>(sam32Box, labNetBox, logger);
 		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
+		coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
 	});
 	
 	ConnectionManager connection_manager(logger, labNetBox);

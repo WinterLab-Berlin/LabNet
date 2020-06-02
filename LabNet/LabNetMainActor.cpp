@@ -8,12 +8,13 @@
 
 using namespace LabNet;
 
-LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox)
+LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox, so_5::mbox_t digOutBox)
 	: so_5::agent_t(ctx)
 	, _logger(logger)
 	, _gpioBox(gpioBox)
 	, _sam32Box(sam32Box)
 	, _uartBox(uartBox)
+	, _digOutBox(digOutBox)
 	, _interfaceManager(ctx.env().create_mbox("ManageInterfaces"))
 {
 }
@@ -34,6 +35,7 @@ void LabNetMainActor::so_define_agent()
 			so_5::send<Interface::continue_interface>(_gpioBox);
 			so_5::send<Interface::continue_interface>(_sam32Box);
 			so_5::send<Interface::continue_interface>(_uartBox);
+			so_5::send<Interface::continue_interface>(_digOutBox);
 			
 			this >>= connected;
 		});
@@ -45,6 +47,7 @@ void LabNetMainActor::so_define_agent()
 		so_5::send<Interface::pause_interface>(_gpioBox);
 		so_5::send<Interface::pause_interface>(_sam32Box);
 		so_5::send<Interface::pause_interface>(_uartBox);
+		so_5::send<Interface::pause_interface>(_digOutBox);
 			
 		this >>= wait_for_connection;
 	})
@@ -107,21 +110,33 @@ void LabNetMainActor::so_define_agent()
 		case LabNet::Messages::Client::ClientWrappedMessage::kDigitalOutSet:
 			{
 				auto set = mes->digital_out_set();
-				if (set.state())
-				{
-					_logger->writeInfoEntry("digital out on set mes");
-				}
-				else
-					_logger->writeInfoEntry("digital out off set mes");
 				
-				so_5::send<GPIO::set_digital_out>(_gpioBox, set.id().pin(), set.state(), so_direct_mbox());
+				so_5::send<LabNet::Messages::Client::DigitalOutSet>(_digOutBox, set);
 			}
 			break;
 		case LabNet::Messages::Client::ClientWrappedMessage::kDigitalOutPulse:
-			_logger->writeInfoEntry("digital out pulse mes");
+			{
+				_logger->writeInfoEntry("digital out pulse mes");
+				
+				auto setPulse = mes->digital_out_pulse();
+				so_5::send<LabNet::Messages::Client::DigitalOutPulse>(_digOutBox, setPulse);
+			}
 			break;
-		case LabNet::Messages::Client::ClientWrappedMessage::kDigitalOutLoop:
-			_logger->writeInfoEntry("digital out loop mes");
+		case LabNet::Messages::Client::ClientWrappedMessage::kStartDigitalOutLoop:
+			{
+				_logger->writeInfoEntry("start digital out loop mes");
+				auto setLoop = mes->start_digital_out_loop();
+				
+				so_5::send<LabNet::Messages::Client::StartDigitalOutLoop>(_digOutBox, setLoop);
+			}
+			break;
+		case LabNet::Messages::Client::ClientWrappedMessage::kStopDigitalOutLoop:
+			{
+				_logger->writeInfoEntry("stop digital out loop mes");
+				auto stopLoop = mes->stop_digital_out_loop();
+				
+				so_5::send<LabNet::Messages::Client::StopDigitalOutLoop>(_digOutBox, stopLoop);
+			}
 			break;
 		case LabNet::Messages::Client::ClientWrappedMessage::kReset:
 			{

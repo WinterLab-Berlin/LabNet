@@ -89,17 +89,25 @@ message DigitalOutPulse {
 	uint32 low_duration = 3;
 	uint32 pulses = 4;
 }
+// digital out messages
 
-message DigitalOutSetInLoop {
+
+// digital out loop
+message StartDigitalOutLoop {
 	message DigitalOutputParameter {
 		PinId id = 1;
 		uint32 offset = 2;
 		uint32 duration = 3;
 	}
-	uint32 loop_pause = 1;
-	repeated DigitalOutputParameter digital_outputs = 2;
+	string loop_name = 1;
+	uint32 loop_pause = 2;
+	repeated DigitalOutputParameter digital_outputs = 3;
 }
-// digital out messages
+
+message StopDigitalOutLoop {
+	string loop_name = 1;
+}
+// digital out loop
 
 
 // general messages
@@ -112,18 +120,19 @@ message LabNetIdRequest {
 
 message ClientWrappedMessage {
 	oneof client_message {
-		GpioInit gpio_init = 1;
-		GpioInitDigitalIn gpio_init_digital_in = 2;
-		GpioInitDigitalOut gpio_init_digital_out = 3;
-		Sam32Init sam32_init = 4;
-		Sam32SetPhaseMatrix sam32_set_phase_matrix = 5;
-		Sam32SetSignalInversion sam32_set_signal_inversion = 6;
-		UartInit uart_init = 7;
-		UartWriteData uart_write_data = 8;
-		DigitalOutSet digital_out_set = 9;
-		DigitalOutPulse digital_out_pulse = 10;
-		DigitalOutSetInLoop digital_out_loop = 11;
-		LabNetResetRequest reset = 12;
-		LabNetIdRequest id = 13;
+		LabNetResetRequest reset = 1;
+		LabNetIdRequest id = 2;
+		GpioInit gpio_init = 3;
+		GpioInitDigitalIn gpio_init_digital_in = 4;
+		GpioInitDigitalOut gpio_init_digital_out = 5;
+		Sam32Init sam32_init = 6;
+		Sam32SetPhaseMatrix sam32_set_phase_matrix = 7;
+		Sam32SetSignalInversion sam32_set_signal_inversion = 8;
+		UartInit uart_init = 9;
+		UartWriteData uart_write_data = 10;
+		DigitalOutSet digital_out_set = 11;
+		DigitalOutPulse digital_out_pulse = 12;
+		StartDigitalOutLoop start_digital_out_loop = 13;
+		StopDigitalOutLoop stop_digital_out_loop = 14;
 	}
 }

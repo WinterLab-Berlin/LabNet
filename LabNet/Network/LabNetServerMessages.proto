@@ -76,6 +76,18 @@ message LabNetIdReply {
 }
 // general messages
 
+
+// digital out loop
+message DigitalOutLoopStartResult {
+	bool is_succeed = 1;
+}
+
+message DigitalOutLoopStopped {
+	string loop_name = 1;
+}
+// digital out loop
+
+
 message ServerWrappedMessage {
 	oneof server_message {
 		DigitalOutState digital_out_state = 1;
@@ -90,5 +102,7 @@ message ServerWrappedMessage {
 		LabNetIdReply id = 10;
 		InterfaceLost interface_lost = 11;
 		InterfaceReconnected interface_reconnected = 12;
+		DigitalOutLoopStartResult digital_out_loop_start_result = 13;
+		DigitalOutLoopStopped digital_out_loop_stopped = 14;
 	}
 }
