@@ -1,36 +1,26 @@
 syntax = "proto3";
-package LabNet.Messages.Server;
+package LabNet.Server;
+import "LabNet.proto";
 
-enum Interfaces {
-	NONE = 0;
-	GPIO_TOP_PLANE = 1;
-	SAM32 = 2;
-	UART0 = 100;
-	UART1 = 101;
-	UART2 = 102;
-	UART3 = 103;
-	UART4 = 104;
-}
 
 // general messages
-message PinId {
-	Interfaces interface = 1;
-	uint32 pin = 2;
-}
 
 message DigitalOutState {
 	PinId pin = 1;
 	bool state = 2;
+	uint32 time = 3;
 }
 
 message DigitalInState {
 	PinId pin = 1;
 	bool state = 2;
+	uint32 time = 3;
 }
 
 message NewByteData {
 	PinId pin = 1;
 	bytes data = 2;
+	uint32 time = 3;
 }
 
 message DataWriteComplete {
@@ -97,7 +87,7 @@ message ServerWrappedMessage {
 		InterfaceInitResult interface_init_result = 5;
 		DigitalInInitResult digital_in_init_result = 6;
 		DigitalOutInitResult digital_out_init_result = 7;
-		OnlyOneConnectionAllowed only_one_connection = 8;
+		OnlyOneConnectionAllowed only_one_connection_allowed = 8;
 		LabNetResetReply reset = 9;
 		LabNetIdReply id = 10;
 		InterfaceLost interface_lost = 11;

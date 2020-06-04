@@ -1,0 +1,26 @@
+syntax = "proto3";
+package LabNet;
+
+enum Interfaces {
+	INTERFACE_NONE = 0;
+	INTERFACE_GPIO_TOP_PLANE = 1;
+	INTERFACE_RFID_TOP_PLANE = 2;
+	INTERFACE_UART0 = 100;
+	INTERFACE_UART1 = 101;
+	INTERFACE_UART2 = 102;
+	INTERFACE_UART3 = 103;
+	INTERFACE_UART4 = 104;
+}
+
+message PinId {
+	Interfaces interface = 1;
+	uint32 pin = 2;
+}
+
+enum Uarts {
+	UART_NONE = 0;
+	UART_PORT1 = 101;
+	UART_PORT2 = 102;
+	UART_PORT3 = 103;
+	UART_PORT4 = 104;
+}

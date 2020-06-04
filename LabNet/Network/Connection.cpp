@@ -79,7 +79,7 @@ void Connection::start_read_body(unsigned msg_len)
 
 void Connection::handle_request()
 {
-	using namespace LabNet::Messages::Client;
+	using namespace LabNet::Client;
 	
 	std::shared_ptr<ClientWrappedMessage> cwm = std::make_shared<ClientWrappedMessage>();
 	if (cwm->ParseFromArray(&m_readBuffer[HEADER_SIZE], m_readBuffer.size() - HEADER_SIZE))
@@ -96,9 +96,9 @@ void Connection::refuse_conection()
 {
 	auto self(shared_from_this());
 	
-	std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Messages::Server::ServerWrappedMessage>();
-	LabNet::Messages::Server::OnlyOneConnectionAllowed *onlyOne = new LabNet::Messages::Server::OnlyOneConnectionAllowed();
-	swm->set_allocated_only_one_connection(onlyOne);
+	std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
+	LabNet::Server::OnlyOneConnectionAllowed *onlyOne = new LabNet::Server::OnlyOneConnectionAllowed();
+	swm->set_allocated_only_one_connection_allowed(onlyOne);
 	
 	std::vector<char> msgBuffer;
 	pack_msg(swm, msgBuffer);
@@ -118,7 +118,7 @@ void Connection::refuse_conection()
 		});
 }
 
-void Connection::send_message(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> mes)
+void Connection::send_message(std::shared_ptr<LabNet::Server::ServerWrappedMessage> mes)
 {
 	auto self(shared_from_this());
 	
@@ -142,7 +142,7 @@ void Connection::send_message(std::shared_ptr<LabNet::Messages::Server::ServerWr
 	}
 }
 
-bool Connection::pack_msg(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer)
+bool Connection::pack_msg(std::shared_ptr<LabNet::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer)
 {
 	int size = msg->ByteSize();
 	data_buffer.resize(HEADER_SIZE + size);

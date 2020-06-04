@@ -8,7 +8,7 @@
 #include <LoggingFacility.h>
 #include <so_5/all.hpp>
 #include "Connection.h"
-#include "LabNetClientMessages.pb.h"
+#include "ProtocolAll.h"
 
 class ConnectionManager
 {
@@ -28,7 +28,7 @@ public:
 	/// Stop all connections.
 	void stop_all();
 	
-	void on_new_data(std::shared_ptr<LabNet::Messages::Client::ClientWrappedMessage> mes);
+	void on_new_data(std::shared_ptr<LabNet::Client::ClientWrappedMessage> mes);
 
 private:
 	Logger m_logger;

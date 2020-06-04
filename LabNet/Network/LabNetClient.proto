@@ -1,5 +1,6 @@
 syntax = "proto3";
-package LabNet.Messages.Client;
+package LabNet.Client;
+import "LabNet.proto";
 
 // GPIO top plane messages
 message GpioInit {
@@ -23,61 +24,40 @@ message GpioInitDigitalOut {
 // GPIO top plane messages
 
 
-// SAM32 top plane messages
-message Sam32Init {
+// RFID top plane messages
+message RfidInit {
 	uint32 antenna_phase1 = 1;
 	uint32 antenna_phase2 = 2;
 	uint32 phase_duration = 3;
 	bool inverted = 4;
 }
 
-message Sam32SetPhaseMatrix {
+message RfidSetPhaseMatrix {
 	uint32 antenna_phase1 = 1;
 	uint32 antenna_phase2 = 2;
 	uint32 phase_duration = 3;
 }
 	
-message Sam32SetSignalInversion {
+message RfidSetSignalInversion {
 	bool inverted = 1;
 }
-// SAM32 top plane messages
+// RFID top plane messages
 
 
 // UART messages
-enum UartPort {
-	NONE = 0;
-	UART1 = 101;
-	UART2 = 102;
-	UART3 = 103;
-	UART4 = 104;
-}
-
 message UartInit {
-	UartPort port = 1;
+	Uarts port = 1;
 	uint32 baud = 2;
 }
 
 message UartWriteData {
-	UartPort port = 1;
+	Uarts port = 1;
 	bytes data = 2;
 }
 // UART messages
 
 
 // digital out messages
-message PinId {
-	enum Interfaces {
-		NONE = 0;
-		GPIO_TOP_PLANE = 1;
-		UART1 = 101;
-		UART2 = 102;
-		UART3 = 103;
-		UART4 = 104;
-	}
-	Interfaces interface = 1;
-	uint32 pin = 2;
-}
-
 message DigitalOutSet {
 	PinId id = 1;
 	bool state = 2;
@@ -125,9 +105,9 @@ message ClientWrappedMessage {
 		GpioInit gpio_init = 3;
 		GpioInitDigitalIn gpio_init_digital_in = 4;
 		GpioInitDigitalOut gpio_init_digital_out = 5;
-		Sam32Init sam32_init = 6;
-		Sam32SetPhaseMatrix sam32_set_phase_matrix = 7;
-		Sam32SetSignalInversion sam32_set_signal_inversion = 8;
+		RfidInit rfid_init = 6;
+		RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
+		RfidSetSignalInversion rfid_set_signal_inversion = 8;
 		UartInit uart_init = 9;
 		UartWriteData uart_write_data = 10;
 		DigitalOutSet digital_out_set = 11;

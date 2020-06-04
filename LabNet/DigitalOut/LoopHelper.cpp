@@ -1,5 +1,5 @@
 #include "LoopHelper.h"
-#include "../Network/LabNetClientMessages.pb.h"
+#include "../../Network/ProtocolAll.h"
 #include "Messages.h"
 #include "../GPIO/Messages.h"
 #include <climits>
@@ -27,7 +27,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 	this >>= _waitState;
 	
 	_waitState
-		.event([this](mhood_t<LabNet::Messages::Client::StartDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNet::Client::StartDigitalOutLoop> mes)
 		{
 			_loopPause = mes->loop_pause();
 			
@@ -36,24 +36,24 @@ void DigitalOut::LoopHelper::so_define_agent()
 				DigitalOutputParameter par;
 				
 				auto interface = mes->digital_outputs()[i].id().interface();
-				if (interface == LabNet::Messages::Client::PinId::GPIO_TOP_PLANE)
+				if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
 				{
 					par.id.interface = Interface::GPIO_TOP_PLANE;
 					so_5::send<GPIO::set_digital_out>(_gpioBox, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
-				else if (interface == LabNet::Messages::Client::PinId::UART1)
+				else if (interface == LabNet::INTERFACE_UART1)
 				{
 					par.id.interface = Interface::UART1;
 				}
-				else if (interface == LabNet::Messages::Client::PinId::UART2)
+				else if (interface == LabNet::INTERFACE_UART2)
 				{
 					par.id.interface = Interface::UART2;
 				}
-				else if (interface == LabNet::Messages::Client::PinId::UART3)
+				else if (interface == LabNet::INTERFACE_UART3)
 				{
 					par.id.interface = Interface::UART3;
 				}
-				else if (interface == LabNet::Messages::Client::PinId::UART4)
+				else if (interface == LabNet::INTERFACE_UART4)
 				{
 					par.id.interface = Interface::UART4;
 				}
@@ -73,7 +73,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 			
 			this >>= _runningState;
 		})
-		.event([this](mhood_t<LabNet::Messages::Client::StopDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNet::Client::StopDigitalOutLoop> mes)
 		{
 			so_5::send<loop_stopped>(_labNetBox, mes->loop_name());
 		
@@ -86,7 +86,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 	;
 	
 	_runningState
-		.event([this](mhood_t<LabNet::Messages::Client::StopDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNet::Client::StopDigitalOutLoop> mes)
 		{
 			so_5::send<loop_stopped>(_labNetBox, mes->loop_name());
 		

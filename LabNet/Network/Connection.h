@@ -5,8 +5,7 @@
 #include <boost/asio.hpp>
 #include <vector>
 #include <LoggingFacility.h>
-#include "LabNetServerMessages.pb.h"
-#include "LabNetClientMessages.pb.h"
+#include "ProtocolAll.h"
 
 class ConnectionManager;
 
@@ -28,11 +27,11 @@ public:
 	
 	void refuse_conection();
 	
-	void send_message(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> mes);
+	void send_message(std::shared_ptr<LabNet::Server::ServerWrappedMessage> mes);
 	
 	void start_read_header();
 	void start_read_body(unsigned msg_len);
-	bool pack_msg(std::shared_ptr<LabNet::Messages::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
+	bool pack_msg(std::shared_ptr<LabNet::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
 	void encode_header(unsigned size, std::vector<char> &data_buffer);
 	unsigned decode_header();
 	void handle_request();
