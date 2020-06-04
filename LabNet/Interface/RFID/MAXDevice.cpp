@@ -4,7 +4,7 @@
 #include "MAX14830.h"
 #include "spi.h"
 #include <cstring>
-#include "SamMessages.h"
+#include "RfidMessages.h"
 #include <so_5/send_functions.hpp>
 
 #define MAXRESET 16 // pin
@@ -244,7 +244,7 @@ void MAX14830::MAXDevice::readRXFifo(uint8_t cspin, uint8_t uart)
 				data->push_back('\r');
 				data->push_back('\n');
 				
-				so_5::send<SAM::new_data>(_parentMbox, 4 * cspin + uart + 1, data);
+				so_5::send<RFID::new_data>(_parentMbox, 4 * cspin + uart + 1, data);
 			}
 			else
 			{

@@ -3,16 +3,16 @@
 #include "Network/ProtocolAll.h"
 #include "Interface/GPIO/Messages.h"
 #include "Interface/InterfaceMessages.h"
-#include "Interface/SAM32/SamMessages.h"
+#include "Interface/RFID/RfidMessages.h"
 #include "Interface/UART/SerialPortMessages.h"
 
 using namespace LabNet;
 
-LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t sam32Box, so_5::mbox_t uartBox, so_5::mbox_t digOutBox)
+LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t rfidBox, so_5::mbox_t uartBox, so_5::mbox_t digOutBox)
 	: so_5::agent_t(ctx)
 	, _logger(logger)
 	, _gpioBox(gpioBox)
-	, _sam32Box(sam32Box)
+	, _rfidBox(rfidBox)
 	, _uartBox(uartBox)
 	, _digOutBox(digOutBox)
 	, _interfaceManager(ctx.env().create_mbox("ManageInterfaces"))
@@ -33,7 +33,7 @@ void LabNetMainActor::so_define_agent()
 			_connection = mes->connection;
 			
 			so_5::send<Interface::continue_interface>(_gpioBox);
-			so_5::send<Interface::continue_interface>(_sam32Box);
+			so_5::send<Interface::continue_interface>(_rfidBox);
 			so_5::send<Interface::continue_interface>(_uartBox);
 			so_5::send<Interface::continue_interface>(_digOutBox);
 			
@@ -45,7 +45,7 @@ void LabNetMainActor::so_define_agent()
 		_connection.reset();
 			
 		so_5::send<Interface::pause_interface>(_gpioBox);
-		so_5::send<Interface::pause_interface>(_sam32Box);
+			so_5::send<Interface::pause_interface>(_rfidBox);
 		so_5::send<Interface::pause_interface>(_uartBox);
 		so_5::send<Interface::pause_interface>(_digOutBox);
 			
@@ -71,23 +71,23 @@ void LabNetMainActor::so_define_agent()
 			break;
 		case LabNet::Client::ClientWrappedMessage::kRfidInit:
 			{
-				_logger->writeInfoEntry("sam32 init mes");
+				_logger->writeInfoEntry("rfid init mes");
 				auto& init_sam = mes->rfid_init();
-				so_5::send<SAM::init_interface>(_sam32Box, init_sam.antenna_phase1(), init_sam.antenna_phase2(), init_sam.phase_duration(), init_sam.inverted());
+				so_5::send<RFID::init_interface>(_rfidBox, init_sam.antenna_phase1(), init_sam.antenna_phase2(), init_sam.phase_duration(), init_sam.inverted());
 			}
 			break;
 		case LabNet::Client::ClientWrappedMessage::kRfidSetPhaseMatrix:
 			{
-				_logger->writeInfoEntry("sam32 set phase matrix mes");
+				_logger->writeInfoEntry("rfid set phase matrix mes");
 				auto& set_phase = mes->rfid_set_phase_matrix();
-				so_5::send<SAM::set_phase_matrix>(_sam32Box, set_phase.antenna_phase1(), set_phase.antenna_phase2(), set_phase.phase_duration());
+				so_5::send<RFID::set_phase_matrix>(_rfidBox, set_phase.antenna_phase1(), set_phase.antenna_phase2(), set_phase.phase_duration());
 			}
 			break;
 		case LabNet::Client::ClientWrappedMessage::kRfidSetSignalInversion:
 			{
-				_logger->writeInfoEntry("sam32 set signal inversion mes");
+				_logger->writeInfoEntry("rfid set signal inversion mes");
 				auto& set_inv = mes->rfid_set_signal_inversion();
-				so_5::send<SAM::set_signal_inversion>(_sam32Box, set_inv.inverted());
+				so_5::send<RFID::set_signal_inversion>(_rfidBox, set_inv.inverted());
 			}
 			break;
 		case LabNet::Client::ClientWrappedMessage::kUartInit:
@@ -227,7 +227,7 @@ void LabNetMainActor::so_define_agent()
 		swm->set_allocated_digital_out_state(state);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<SAM::interface_init_result> mes)
+	.event([this](mhood_t<RFID::interface_init_result> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::InterfaceInitResult* init = new LabNet::Server::InterfaceInitResult();
@@ -236,7 +236,7 @@ void LabNetMainActor::so_define_agent()
 		swm->set_allocated_interface_init_result(init);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<SAM::new_data> mes)
+	.event([this](mhood_t<RFID::new_data> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::NewByteData* data = new LabNet::Server::NewByteData();

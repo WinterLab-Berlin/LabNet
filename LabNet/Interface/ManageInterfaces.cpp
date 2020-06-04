@@ -16,7 +16,7 @@ void Interface::ManageInterfaces::so_define_agent()
 	
 	so_subscribe(_self_mbox)
 		.event([this](mhood_t<init_gpio_request> msg) {
-			if (_sam32_init)
+			if (_rfid_init)
 			{
 				so_5::send <can_init_no>(msg->mbox);
 			}
@@ -26,19 +26,19 @@ void Interface::ManageInterfaces::so_define_agent()
 				so_5::send <can_init_yes>(msg->mbox);
 			}
 		})
-		.event([this](mhood_t<init_sam32_request> msg) {
+		.event([this](mhood_t<init_rfid_request> msg) {
 			if (_gpio_init)
 			{
 				so_5::send <can_init_no>(msg->mbox);
 			}
 			else
 			{
-				_sam32_init = true;
+				_rfid_init = true;
 				so_5::send <can_init_yes>(msg->mbox);
 			}
 		})
 		.event([this](mhood_t<reset_interface> msg) {
-			_sam32_init = false;
+			_rfid_init = false;
 			_gpio_init = false;
 		}
 	);

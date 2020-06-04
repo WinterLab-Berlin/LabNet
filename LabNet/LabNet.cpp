@@ -3,9 +3,9 @@
 #include <LoggerFactory.h>
 #include <wiringPi.h>
 #include <so_5/all.hpp>
-#include "Interface/SAM32/SamMainActor.h"
 #include "Network/Server.h"
 #include "LabNetMainActor.h"
+#include "Interface/RFID/RfidMainActor.h"
 #include "Interface/ManageInterfaces.h"
 #include "Interface/GPIO/GPIOManager.h"
 #include "Interface/UART/SerialPortsManager.h"
@@ -35,16 +35,16 @@ int main(int argc, char *argv[])
 	// Start SO-part of the app.
 	sobj.environment().introduce_coop([&](so_5::coop_t & coop) {
 		so_5::mbox_t gpioBox = coop.environment().create_mbox("gpio");
-		so_5::mbox_t sam32Box = coop.environment().create_mbox("sam32");
+		so_5::mbox_t rfidBox = coop.environment().create_mbox("rfid");
 		so_5::mbox_t uartBox = coop.environment().create_mbox("uart");
 		so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
 		
-		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, sam32Box, uartBox, digOutBox);
+		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, rfidBox, uartBox, digOutBox);
 		labNetBox = act->so_direct_mbox();
 		
 		coop.make_agent<Interface::ManageInterfaces>();
 		coop.make_agent<GPIO::GPIOManager>(gpioBox, labNetBox, logger);
-		coop.make_agent<SAM::SamMainActor>(sam32Box, labNetBox, logger);
+		coop.make_agent<RFID::SamMainActor>(rfidBox, labNetBox, logger);
 		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
 		coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
 	});

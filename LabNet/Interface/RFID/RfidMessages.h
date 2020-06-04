@@ -2,7 +2,7 @@
 
 #include <so_5/mbox.hpp>
 
-namespace SAM
+namespace RFID
 {
 	struct init_interface
 	{

@@ -11,7 +11,7 @@ namespace Interface
 			const so_5::mbox_t mbox;
 		};
 		
-		struct init_sam32_request
+		struct init_rfid_request
 		{
 			const so_5::mbox_t mbox;
 		};

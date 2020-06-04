@@ -1,9 +1,9 @@
-#include "SamMainActor.h"
-#include "SamMessages.h"
+#include "RfidMainActor.h"
+#include "RfidMessages.h"
 #include "../InitMessages.h"
 #include "../InterfaceMessages.h"
 
-SAM::SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
+RFID::SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
 	: so_5::agent_t(ctx)
 	, _selfBox(selfBox)
 	, _parentMbox(parentBox)
@@ -12,20 +12,20 @@ SAM::SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const
 {
 }
 
-SAM::SamMainActor::~SamMainActor()
+RFID::SamMainActor::~SamMainActor()
 {
 	_worker.reset();
 	_device.reset();
 }
 
-void SAM::SamMainActor::so_define_agent()
+void RFID::SamMainActor::so_define_agent()
 {
 	this >>= wait_for_init;
 	
 	wait_for_init
 		.event(_selfBox,
 			[this](mhood_t<init_interface>) {
-				so_5::send<Interface::InitMessages::init_sam32_request>(_interfaces, _selfBox);
+				so_5::send<Interface::InitMessages::init_rfid_request>(_interfaces, _selfBox);
 		})
 		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_no> msg) {

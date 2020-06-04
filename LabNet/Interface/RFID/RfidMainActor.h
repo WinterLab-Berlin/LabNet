@@ -5,7 +5,7 @@
 #include "MAXDevice.h"
 #include "DataReadWorker.h"
 
-namespace SAM
+namespace RFID
 {
 	class SamMainActor final : public so_5::agent_t
 	{
