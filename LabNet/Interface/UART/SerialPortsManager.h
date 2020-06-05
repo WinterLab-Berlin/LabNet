@@ -7,6 +7,7 @@
 #include "SerialPort.h"
 #include "PrivateMessages.h"
 #include "../InterfaceMessages.h"
+#include "../StreamMessages.h"
 
 namespace uart
 {
@@ -24,10 +25,9 @@ namespace uart
 		void get_raspi_revision();
 		void init_new_port_event(const uart::messages::init_port& ev);
 		void try_to_reconnect_event(const uart::private_messages::try_to_reconnect& ev);
-		void port_unexpected_closed_event(const uart::messages::port_unexpected_closed& ev);
-		void new_data_from_port_event(const uart::messages::new_data_from_port& data);
-		void send_data_to_port_event(const uart::messages::send_data_to_port& data);
-		void send_data_complete_event(const uart::messages::send_data_complete);
+		void port_unexpected_closed_event(const uart::private_messages::port_unexpected_closed& ev);
+		void send_data_to_port_event(const StreamMessages::send_data_to_port& data);
+		void send_data_complete_event(const uart::private_messages::send_data_complete& mes);
 		void pause_interface_event(const Interface::pause_interface &mes);
 		void reset_interface_event(const Interface::reset_interface &mes);
 		void continue_interface_event(const Interface::continue_interface &mes);

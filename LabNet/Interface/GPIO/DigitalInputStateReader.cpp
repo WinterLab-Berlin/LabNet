@@ -1,6 +1,7 @@
 #include "DigitalInputStateReader.h"
 #include "Messages.h"
 #include <wiringPi.h>
+#include <chrono>
 #include "../DigitalMessages.h"
 
 GPIO::DigitalInputStateReader::DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput> *inputs, Logger logger)
@@ -42,9 +43,9 @@ void GPIO::DigitalInputStateReader::data_read_thread()
 					_logger->writeInfoEntry("new state");
 					inp.second.state = res;
 					if (inp.second.is_inverted)
-						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, !res);
+						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, !res, std::chrono::high_resolution_clock::now());
 					else
-						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, res);
+						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, res, std::chrono::high_resolution_clock::now());
 				}
 			}
 		}

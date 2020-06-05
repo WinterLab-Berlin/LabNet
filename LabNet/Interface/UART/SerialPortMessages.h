@@ -1,42 +1,12 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <memory>
+#include "../Interfaces.h"
 
 namespace uart::messages
 {
 	struct init_port
 	{
-		const int port_id;
+		Interface::Interfaces port_id;
 		const int baud;
 	};
-	
-	struct port_unexpected_closed
-	{
-		const int port_id;
-		const int baud;
-	};
-
-	struct port_reconnected
-	{
-		const int port_id;
-	};
-
-	struct new_data_from_port
-	{
-		const int port_id;
-		std::shared_ptr<std::vector<char>> data;
-	};
-
-	struct send_data_to_port
-	{
-		const int port_id;
-		std::shared_ptr<std::vector<char>> data;
-	};
-
-	struct send_data_complete
-	{
-		const int port_id;
-	};		 
 }

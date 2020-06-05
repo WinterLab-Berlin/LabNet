@@ -1,5 +1,6 @@
 #pragma once
 
+#include <chrono>
 #include <so_5/all.hpp>
 #include "Interfaces.h"
 
@@ -17,6 +18,7 @@ namespace DigitalMessages
 		Interface::Interfaces interface;
 		const char pin;
 		const bool state;
+		std::chrono::time_point<std::chrono::high_resolution_clock> time;
 	};
 	
 	struct digital_out_init_result
@@ -39,6 +41,7 @@ namespace DigitalMessages
 		Interface::Interfaces interface;
 		const char pin;
 		const bool state;
+		std::chrono::time_point<std::chrono::high_resolution_clock> time;
 	};
 	
 	struct invalid_digital_out_pin

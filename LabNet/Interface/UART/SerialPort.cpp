@@ -3,14 +3,16 @@
 #include <chrono>
 #include <SerialPortMessages.h>
 #include "PrivateMessages.h"
+#include "../StreamMessages.h"
 
 using namespace uart::private_messages;
 
-SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const int portId, const int portHandler, const int baud)
+SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const so_5::mbox_t streamDataBox, const int portId, const int portHandler, const int baud)
 	: _parent(parent)
 	, _portId(portId)
 	, _baud(baud)
 	, _sendToPortBox(sendToPortBox)
+	, _streamDataBox(streamDataBox)
 	, _portHandler(portHandler)
 	, _futureObj(_exitSignal.get_future())
 	, _isActive(true)
@@ -47,7 +49,7 @@ void SerialPort::data_send_thread(so_5::mchain_t ch)
 					serialPutchar(_portHandler, data->at(i));
 				}
 			
-				so_5::send<uart::messages::send_data_complete>(_parent, _portId);
+				so_5::send<uart::private_messages::send_data_complete>(_parent, _portId);
 			}
 		});
 }
@@ -79,16 +81,16 @@ void SerialPort::data_read_thread()
 			
 				if (c < 0)
 				{
-					so_5::send<uart::messages::port_unexpected_closed>(_parent, _portId);
+					so_5::send<uart::private_messages::port_unexpected_closed>(_parent, _portId);
 			
 					break;
 				}
 			
-				so_5::send<uart::messages::new_data_from_port>(_parent, _portId, data);
+				so_5::send<StreamMessages::new_data_from_port>(_parent, static_cast<Interface::Interfaces>(_portId + 100), 0, data, std::chrono::high_resolution_clock::now());
 			}
 			else if (c < 0)
 			{
-				so_5::send<uart::messages::port_unexpected_closed>(_parent, _portId, _baud);
+				so_5::send<uart::private_messages::port_unexpected_closed>(_parent, _portId, _baud);
 			
 				break;
 			}

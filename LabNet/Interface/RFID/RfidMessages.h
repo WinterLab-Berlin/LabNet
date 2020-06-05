@@ -23,10 +23,4 @@ namespace RFID
 	{
 		bool inverted;
 	};
-	
-	struct new_data
-	{
-		const int port_id;
-		std::shared_ptr<std::vector<char>> data;
-	};
 }

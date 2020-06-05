@@ -51,7 +51,7 @@ void DigitalOut::PulseHelper::so_define_agent()
 		{
 			this >>= _runningState;
 			
-			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, mes->state);
+			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, mes->state, std::chrono::high_resolution_clock::now());
 			
 			_turnOffTimer = so_5::send_periodic<turn_off>(
 				so_direct_mbox(),
@@ -65,7 +65,7 @@ void DigitalOut::PulseHelper::so_define_agent()
 		})
 		.event([this](mhood_t<DigitalMessages::invalid_digital_out_pin> mes)
 		{
-			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, false);
+			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, false, std::chrono::high_resolution_clock::now());
 		})
 		.event([this](mhood_t<stop_helper> mes)
 		{

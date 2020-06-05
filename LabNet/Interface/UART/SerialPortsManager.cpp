@@ -4,7 +4,6 @@
 #include <fstream>
 #include <unistd.h>
 #include <wiringSerial.h>
-#include "../InterfaceMessages.h"
 
 using namespace uart::private_messages;
 
@@ -32,7 +31,6 @@ void uart::SerialPortsManager::so_define_agent()
 	so_default_state()
 		.event(_selfBox, &SerialPortsManager::init_new_port_event)
 		.event(_selfBox, &SerialPortsManager::port_unexpected_closed_event)
-		.event(_selfBox, &SerialPortsManager::new_data_from_port_event)
 		.event(_selfBox, &SerialPortsManager::send_data_to_port_event)
 		.event(_selfBox, &SerialPortsManager::try_to_reconnect_event)
 		.event(_selfBox, &SerialPortsManager::pause_interface_event)
@@ -63,7 +61,7 @@ void uart::SerialPortsManager::init_new_port_event(const uart::messages::init_po
 			{
 				so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 				
-				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, ev.port_id, handle, ev.baud);
+				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, _parentMbox, ev.port_id, handle, ev.baud);
 				_handle_for_port[ev.port_id] = handle;
 				
 				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), true);
@@ -94,44 +92,39 @@ void uart::SerialPortsManager::try_to_reconnect_event(const try_to_reconnect& ev
 			{
 				so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 				
-				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, ev.port_id, handle, ev.baud);
+				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, _parentMbox, ev.port_id, handle, ev.baud);
 				_handle_for_port[ev.port_id] = handle;
 				
 				// reconnected
-				so_5::send <uart::messages::port_reconnected>(_parentMbox, ev.port_id);
+				so_5::send<Interface::interface_reconnected>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100));
 			}
 		}
 	}
 }
 
-void uart::SerialPortsManager::send_data_to_port_event(const uart::messages::send_data_to_port& data)
+void uart::SerialPortsManager::send_data_to_port_event(const StreamMessages::send_data_to_port& data)
 {
-	auto it = _ports.find(data.port_id);
+	auto it = _ports.find(data.interface - 100);
 	if (it != _ports.end())
 	{
-		_ports[data.port_id]->send_data(data.data);
+		it->second->send_data(data.data);
 	}
 }
 
-void uart::SerialPortsManager::send_data_complete_event(const uart::messages::send_data_complete)
+void uart::SerialPortsManager::send_data_complete_event(const uart::private_messages::send_data_complete& mes)
 {
-	so_5::send<uart::messages::send_data_complete>(_parentMbox);
+	so_5::send<StreamMessages::send_data_complete>(_parentMbox, static_cast<Interface::Interfaces>(mes.pin + 100));
 }
 
-void uart::SerialPortsManager::port_unexpected_closed_event(const uart::messages::port_unexpected_closed& ev)
+void uart::SerialPortsManager::port_unexpected_closed_event(const uart::private_messages::port_unexpected_closed& ev)
 {
 	_logger->writeInfoEntry(string_format("port unexpected closed serial port %d", ev.port_id));
 	
 	_ports.erase(ev.port_id);
 	_handle_for_port[ev.port_id] = -1;
 	
-	so_5::send <uart::messages::port_unexpected_closed>(_parentMbox, ev);
+	so_5::send<Interface::interface_lost>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100));
 	so_5::send_delayed<try_to_reconnect>(_selfBox, std::chrono::seconds(1), ev.port_id, ev.baud);
-}
-
-void uart::SerialPortsManager::new_data_from_port_event(const uart::messages::new_data_from_port& data)
-{
-	so_5::send<uart::messages::new_data_from_port>(_parentMbox, data);
 }
 
 void uart::SerialPortsManager::pause_interface_event(const Interface::pause_interface &mes)

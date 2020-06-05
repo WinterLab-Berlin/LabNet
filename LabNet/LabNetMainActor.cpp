@@ -6,6 +6,8 @@
 #include "Interface/RFID/RfidMessages.h"
 #include "Interface/UART/SerialPortMessages.h"
 #include "Interface/DigitalMessages.h"
+#include "Interface/StreamMessages.h"
+#include <chrono>
 
 using namespace LabNet;
 
@@ -94,7 +96,7 @@ void LabNetMainActor::so_define_agent()
 		case LabNet::Client::ClientWrappedMessage::kUartInit:
 			{
 				auto& uart_init = mes->uart_init();
-				so_5::send<uart::messages::init_port>(_uartBox, uart_init.port() - 100, uart_init.baud());
+				so_5::send<uart::messages::init_port>(_uartBox, static_cast<Interface::Interfaces>(uart_init.port()), uart_init.baud());
 			}
 			break;
 		case LabNet::Client::ClientWrappedMessage::kUartWriteData:
@@ -105,7 +107,7 @@ void LabNetMainActor::so_define_agent()
 				for (int l = 0; l < uart_write.data().size(); l++)
 					data->push_back(uart_write.data()[l]);
 					
-				so_5::send<uart::messages::send_data_to_port>(_uartBox, uart_write.port() - 100, data);
+				so_5::send<StreamMessages::send_data_to_port>(_uartBox, static_cast<Interface::Interfaces>(uart_write.port()), 0, data);
 			}
 			break;
 		case LabNet::Client::ClientWrappedMessage::kDigitalOutSet:
@@ -196,11 +198,18 @@ void LabNetMainActor::so_define_agent()
 		id->set_pin(mes->pin);
 		state->set_allocated_pin(id);
 		state->set_state(mes->state);
+		
+		using namespace std::chrono;
+		google::protobuf::Timestamp* timestamp = new google::protobuf::Timestamp();
+		nanoseconds ns = duration_cast<nanoseconds>(mes->time.time_since_epoch());
+		seconds s = duration_cast<seconds>(ns);
+		
+		timestamp->set_seconds(s.count());
+		timestamp->set_nanos(ns.count() % 1000000000);
+		state->set_allocated_time(timestamp);
 			
 		swm->set_allocated_digital_in_state(state);
 		_connection->send_message(swm);
-		
-		_logger->writeInfoEntry("return digIn state");
 	})
 	.event([this](mhood_t<DigitalMessages::digital_out_init_result> mes)
 	{
@@ -223,63 +232,37 @@ void LabNetMainActor::so_define_agent()
 		state->set_allocated_pin(id);
 		state->set_state(mes->state);
 		
+		using namespace std::chrono;
+		google::protobuf::Timestamp* timestamp = new google::protobuf::Timestamp();
+		nanoseconds ns = duration_cast<nanoseconds>(mes->time.time_since_epoch());
+		seconds s = duration_cast<seconds>(ns);
+		
+		timestamp->set_seconds(s.count());
+		timestamp->set_nanos(ns.count() % 1000000000);
+		state->set_allocated_time(timestamp);
+		
 		swm->set_allocated_digital_out_state(state);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<RFID::new_data> mes)
-	{
-		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
-		LabNet::Server::NewByteData* data = new LabNet::Server::NewByteData();
-		LabNet::PinId *id = new LabNet::PinId();
-		id->set_interface(LabNet::INTERFACE_RFID_TOP_PLANE);
-		id->set_pin(mes->port_id);
-		data->set_allocated_pin(id);
-		data->set_data(mes->data->data(), mes->data->size());
-		
-		swm->set_allocated_new_byte_data(data);
-		_connection->send_message(swm);
-	})
-	.event([this](mhood_t<uart::messages::port_unexpected_closed> mes)
+	.event([this](mhood_t<Interface::interface_lost> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::InterfaceLost* lost = new LabNet::Server::InterfaceLost();
-		if (mes->port_id == 0)
-			lost->set_interface(LabNet::INTERFACE_UART0);
-		else if (mes->port_id == 1)
-			lost->set_interface(LabNet::INTERFACE_UART1);
-		else if (mes->port_id == 2)
-			lost->set_interface(LabNet::INTERFACE_UART2);
-		else if (mes->port_id == 3)
-			lost->set_interface(LabNet::INTERFACE_UART3);
-		else if (mes->port_id == 4)
-			lost->set_interface(LabNet::INTERFACE_UART4);
-		else
-			lost->set_interface(LabNet::INTERFACE_NONE);
+		lost->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		
 		swm->set_allocated_interface_lost(lost);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<uart::messages::port_reconnected> mes)
+	.event([this](mhood_t<Interface::interface_reconnected> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::InterfaceReconnected* lost = new LabNet::Server::InterfaceReconnected();
-		if (mes->port_id == 0)
-			lost->set_interface(LabNet::INTERFACE_UART0);
-		else if (mes->port_id == 1)
-			lost->set_interface(LabNet::INTERFACE_UART1);
-		else if (mes->port_id == 2)
-			lost->set_interface(LabNet::INTERFACE_UART2);
-		else if (mes->port_id == 3)
-			lost->set_interface(LabNet::INTERFACE_UART3);
-		else if (mes->port_id == 4)
-			lost->set_interface(LabNet::INTERFACE_UART4);
-		else
-			lost->set_interface(LabNet::INTERFACE_NONE);
+		lost->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		
 		swm->set_allocated_interface_reconnected(lost);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<uart::messages::new_data_from_port> mes)
+	.event([this](mhood_t<StreamMessages::new_data_from_port> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::NewByteData* data = new LabNet::Server::NewByteData();
@@ -288,42 +271,29 @@ void LabNetMainActor::so_define_agent()
 		
 		LabNet::PinId *id = new LabNet::PinId();
 		id->set_pin(0);
-		if (mes->port_id == 0)
-			id->set_interface(LabNet::INTERFACE_UART0);
-		else if (mes->port_id == 1)
-			id->set_interface(LabNet::INTERFACE_UART1);
-		else if (mes->port_id == 2)
-			id->set_interface(LabNet::INTERFACE_UART2);
-		else if (mes->port_id == 3)
-			id->set_interface(LabNet::INTERFACE_UART3);
-		else if (mes->port_id == 4)
-			id->set_interface(LabNet::INTERFACE_UART4);
-		else
-			id->set_interface(LabNet::INTERFACE_NONE);
+		id->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		data->set_allocated_pin(id);
+		
+		using namespace std::chrono;
+		google::protobuf::Timestamp* timestamp = new google::protobuf::Timestamp();
+		nanoseconds ns = duration_cast<nanoseconds>(mes->time.time_since_epoch());
+		seconds s = duration_cast<seconds>(ns);
+		
+		timestamp->set_seconds(s.count());
+		timestamp->set_nanos(ns.count() % 1000000000);
+		data->set_allocated_time(timestamp);
 		
 		swm->set_allocated_new_byte_data(data);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<uart::messages::send_data_complete> mes)
+	.event([this](mhood_t<StreamMessages::send_data_complete> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::DataWriteComplete* write = new LabNet::Server::DataWriteComplete();
 		
 		LabNet::PinId *id = new LabNet::PinId();
 		id->set_pin(0);
-		if (mes->port_id == 0)
-			id->set_interface(LabNet::INTERFACE_UART0);
-		else if (mes->port_id == 1)
-			id->set_interface(LabNet::INTERFACE_UART1);
-		else if (mes->port_id == 2)
-			id->set_interface(LabNet::INTERFACE_UART2);
-		else if (mes->port_id == 3)
-			id->set_interface(LabNet::INTERFACE_UART3);
-		else if (mes->port_id == 4)
-			id->set_interface(LabNet::INTERFACE_UART4);
-		else
-			id->set_interface(LabNet::INTERFACE_NONE);
+		id->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		write->set_allocated_pin(id);
 		
 		swm->set_allocated_data_write_complete(write);

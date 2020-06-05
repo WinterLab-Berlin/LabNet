@@ -1,5 +1,6 @@
 #include "GPIOManager.h"
 #include <wiringPi.h>
+#include <chrono>
 #include "../InitMessages.h"
 #include "../InterfaceMessages.h"
 #include "../DigitalMessages.h"
@@ -148,8 +149,8 @@ void GPIO::GPIOManager::so_define_agent()
 						digitalWrite(_outputs[msg->pin].pin_h, msg->state);
 					}
 		
-					_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
-					so_5::send<DigitalMessages::return_digital_out_state>(msg->mbox, Interface::GPIO_TOP_PLANE, msg->pin, msg->state);
+					//_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
+					so_5::send<DigitalMessages::return_digital_out_state>(msg->mbox, Interface::GPIO_TOP_PLANE, msg->pin, msg->state, std::chrono::high_resolution_clock::now());
 				}
 				else
 				{
