@@ -2,6 +2,7 @@
 
 #include <so_5/all.hpp>
 #include <LoggingFacility.h>
+#include "../Interfaces.h"
 
 namespace DigitalOut
 {
@@ -21,7 +22,7 @@ namespace DigitalOut
 	
 	class PulseHelper final : public so_5::agent_t
 	{
-	public: PulseHelper(context_t ctx, Logger logger, so_5::mbox_t dig_out_box, so_5::mbox_t lab_net_box, so_5::mbox_t interface_box, char pin);
+	public: PulseHelper(context_t ctx, Logger logger, so_5::mbox_t dig_out_box, so_5::mbox_t lab_net_box, so_5::mbox_t interface_box, Interface::Interfaces interface, char pin);
 		
 	private:
 		void so_define_agent() override;
@@ -38,6 +39,6 @@ namespace DigitalOut
 		unsigned int _highDuration, _lowDuration, _pulses;
 		so_5::timer_id_t _turnOnTimer;
 		so_5::timer_id_t _turnOffTimer;
-		
+		const Interface::Interfaces _interface;
 	};
 }

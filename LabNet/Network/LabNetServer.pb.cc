@@ -31,13 +31,16 @@ extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetResetReply;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_OnlyOneConnectionAllowed;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DataWriteComplete;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalInState;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutState;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<1> scc_info_NewByteData;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_DigitalInState;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_DigitalOutState;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto ::google::protobuf::internal::SCCInfo<2> scc_info_NewByteData;
 }  // namespace protobuf_LabNetServer_2eproto
 namespace protobuf_LabNet_2eproto {
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNet_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_PinId;
 }  // namespace protobuf_LabNet_2eproto
+namespace protobuf_google_2fprotobuf_2ftimestamp_2eproto {
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_google_2fprotobuf_2ftimestamp_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_Timestamp;
+}  // namespace protobuf_google_2fprotobuf_2ftimestamp_2eproto
 namespace LabNet {
 namespace Server {
 class DigitalOutStateDefaultTypeInternal {
@@ -143,9 +146,10 @@ static void InitDefaultsDigitalOutState() {
   ::LabNet::Server::DigitalOutState::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_DigitalOutState =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalOutState}, {
-      &protobuf_LabNet_2eproto::scc_info_PinId.base,}};
+::google::protobuf::internal::SCCInfo<2> scc_info_DigitalOutState =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsDigitalOutState}, {
+      &protobuf_LabNet_2eproto::scc_info_PinId.base,
+      &protobuf_google_2fprotobuf_2ftimestamp_2eproto::scc_info_Timestamp.base,}};
 
 static void InitDefaultsDigitalInState() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -158,9 +162,10 @@ static void InitDefaultsDigitalInState() {
   ::LabNet::Server::DigitalInState::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_DigitalInState =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsDigitalInState}, {
-      &protobuf_LabNet_2eproto::scc_info_PinId.base,}};
+::google::protobuf::internal::SCCInfo<2> scc_info_DigitalInState =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsDigitalInState}, {
+      &protobuf_LabNet_2eproto::scc_info_PinId.base,
+      &protobuf_google_2fprotobuf_2ftimestamp_2eproto::scc_info_Timestamp.base,}};
 
 static void InitDefaultsNewByteData() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -173,9 +178,10 @@ static void InitDefaultsNewByteData() {
   ::LabNet::Server::NewByteData::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<1> scc_info_NewByteData =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 1, InitDefaultsNewByteData}, {
-      &protobuf_LabNet_2eproto::scc_info_PinId.base,}};
+::google::protobuf::internal::SCCInfo<2> scc_info_NewByteData =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 2, InitDefaultsNewByteData}, {
+      &protobuf_LabNet_2eproto::scc_info_PinId.base,
+      &protobuf_google_2fprotobuf_2ftimestamp_2eproto::scc_info_Timestamp.base,}};
 
 static void InitDefaultsDataWriteComplete() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -556,59 +562,63 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\022LabNetServer.proto\022\rLabNet.Server\032\014Lab"
-      "Net.proto\"J\n\017DigitalOutState\022\032\n\003pin\030\001 \001("
-      "\0132\r.LabNet.PinId\022\r\n\005state\030\002 \001(\010\022\014\n\004time\030"
-      "\003 \001(\r\"I\n\016DigitalInState\022\032\n\003pin\030\001 \001(\0132\r.L"
-      "abNet.PinId\022\r\n\005state\030\002 \001(\010\022\014\n\004time\030\003 \001(\r"
-      "\"E\n\013NewByteData\022\032\n\003pin\030\001 \001(\0132\r.LabNet.Pi"
-      "nId\022\014\n\004data\030\002 \001(\014\022\014\n\004time\030\003 \001(\r\"/\n\021DataW"
-      "riteComplete\022\032\n\003pin\030\001 \001(\0132\r.LabNet.PinId"
-      "\"P\n\023InterfaceInitResult\022%\n\tinterface\030\001 \001"
-      "(\0162\022.LabNet.Interfaces\022\022\n\nis_succeed\030\002 \001"
-      "(\010\"6\n\rInterfaceLost\022%\n\tinterface\030\001 \001(\0162\022"
-      ".LabNet.Interfaces\"=\n\024InterfaceReconnect"
-      "ed\022%\n\tinterface\030\001 \001(\0162\022.LabNet.Interface"
-      "s\"]\n\023DigitalInInitResult\022%\n\tinterface\030\001 "
-      "\001(\0162\022.LabNet.Interfaces\022\013\n\003pin\030\002 \001(\r\022\022\n\n"
-      "is_succeed\030\003 \001(\010\"^\n\024DigitalOutInitResult"
-      "\022%\n\tinterface\030\001 \001(\0162\022.LabNet.Interfaces\022"
-      "\013\n\003pin\030\002 \001(\r\022\022\n\nis_succeed\030\003 \001(\010\"\032\n\030Only"
-      "OneConnectionAllowed\"$\n\020LabNetResetReply"
-      "\022\020\n\010is_reset\030\001 \001(\010\"I\n\rLabNetIdReply\022\n\n\002i"
-      "d\030\001 \001(\t\022\025\n\rmajor_version\030\002 \001(\r\022\025\n\rminor_"
-      "version\030\003 \001(\r\"/\n\031DigitalOutLoopStartResu"
-      "lt\022\022\n\nis_succeed\030\001 \001(\010\"*\n\025DigitalOutLoop"
-      "Stopped\022\021\n\tloop_name\030\001 \001(\t\"\262\007\n\024ServerWra"
-      "ppedMessage\022;\n\021digital_out_state\030\001 \001(\0132\036"
-      ".LabNet.Server.DigitalOutStateH\000\0229\n\020digi"
-      "tal_in_state\030\002 \001(\0132\035.LabNet.Server.Digit"
-      "alInStateH\000\0223\n\rnew_byte_data\030\003 \001(\0132\032.Lab"
-      "Net.Server.NewByteDataH\000\022\?\n\023data_write_c"
-      "omplete\030\004 \001(\0132 .LabNet.Server.DataWriteC"
-      "ompleteH\000\022C\n\025interface_init_result\030\005 \001(\013"
-      "2\".LabNet.Server.InterfaceInitResultH\000\022D"
-      "\n\026digital_in_init_result\030\006 \001(\0132\".LabNet."
-      "Server.DigitalInInitResultH\000\022F\n\027digital_"
-      "out_init_result\030\007 \001(\0132#.LabNet.Server.Di"
-      "gitalOutInitResultH\000\022N\n\033only_one_connect"
-      "ion_allowed\030\010 \001(\0132\'.LabNet.Server.OnlyOn"
-      "eConnectionAllowedH\000\0220\n\005reset\030\t \001(\0132\037.La"
-      "bNet.Server.LabNetResetReplyH\000\022*\n\002id\030\n \001"
-      "(\0132\034.LabNet.Server.LabNetIdReplyH\000\0226\n\016in"
-      "terface_lost\030\013 \001(\0132\034.LabNet.Server.Inter"
-      "faceLostH\000\022D\n\025interface_reconnected\030\014 \001("
-      "\0132#.LabNet.Server.InterfaceReconnectedH\000"
-      "\022Q\n\035digital_out_loop_start_result\030\r \001(\0132"
-      "(.LabNet.Server.DigitalOutLoopStartResul"
-      "tH\000\022H\n\030digital_out_loop_stopped\030\016 \001(\0132$."
-      "LabNet.Server.DigitalOutLoopStoppedH\000B\020\n"
-      "\016server_messageb\006proto3"
+      "Net.proto\032\037google/protobuf/timestamp.pro"
+      "to\"f\n\017DigitalOutState\022\032\n\003pin\030\001 \001(\0132\r.Lab"
+      "Net.PinId\022\r\n\005state\030\002 \001(\010\022(\n\004time\030\003 \001(\0132\032"
+      ".google.protobuf.Timestamp\"e\n\016DigitalInS"
+      "tate\022\032\n\003pin\030\001 \001(\0132\r.LabNet.PinId\022\r\n\005stat"
+      "e\030\002 \001(\010\022(\n\004time\030\003 \001(\0132\032.google.protobuf."
+      "Timestamp\"a\n\013NewByteData\022\032\n\003pin\030\001 \001(\0132\r."
+      "LabNet.PinId\022\014\n\004data\030\002 \001(\014\022(\n\004time\030\003 \001(\013"
+      "2\032.google.protobuf.Timestamp\"/\n\021DataWrit"
+      "eComplete\022\032\n\003pin\030\001 \001(\0132\r.LabNet.PinId\"P\n"
+      "\023InterfaceInitResult\022%\n\tinterface\030\001 \001(\0162"
+      "\022.LabNet.Interfaces\022\022\n\nis_succeed\030\002 \001(\010\""
+      "6\n\rInterfaceLost\022%\n\tinterface\030\001 \001(\0162\022.La"
+      "bNet.Interfaces\"=\n\024InterfaceReconnected\022"
+      "%\n\tinterface\030\001 \001(\0162\022.LabNet.Interfaces\"]"
+      "\n\023DigitalInInitResult\022%\n\tinterface\030\001 \001(\016"
+      "2\022.LabNet.Interfaces\022\013\n\003pin\030\002 \001(\r\022\022\n\nis_"
+      "succeed\030\003 \001(\010\"^\n\024DigitalOutInitResult\022%\n"
+      "\tinterface\030\001 \001(\0162\022.LabNet.Interfaces\022\013\n\003"
+      "pin\030\002 \001(\r\022\022\n\nis_succeed\030\003 \001(\010\"\032\n\030OnlyOne"
+      "ConnectionAllowed\"$\n\020LabNetResetReply\022\020\n"
+      "\010is_reset\030\001 \001(\010\"I\n\rLabNetIdReply\022\n\n\002id\030\001"
+      " \001(\t\022\025\n\rmajor_version\030\002 \001(\r\022\025\n\rminor_ver"
+      "sion\030\003 \001(\r\"/\n\031DigitalOutLoopStartResult\022"
+      "\022\n\nis_succeed\030\001 \001(\010\"*\n\025DigitalOutLoopSto"
+      "pped\022\021\n\tloop_name\030\001 \001(\t\"\262\007\n\024ServerWrappe"
+      "dMessage\022;\n\021digital_out_state\030\001 \001(\0132\036.La"
+      "bNet.Server.DigitalOutStateH\000\0229\n\020digital"
+      "_in_state\030\002 \001(\0132\035.LabNet.Server.DigitalI"
+      "nStateH\000\0223\n\rnew_byte_data\030\003 \001(\0132\032.LabNet"
+      ".Server.NewByteDataH\000\022\?\n\023data_write_comp"
+      "lete\030\004 \001(\0132 .LabNet.Server.DataWriteComp"
+      "leteH\000\022C\n\025interface_init_result\030\005 \001(\0132\"."
+      "LabNet.Server.InterfaceInitResultH\000\022D\n\026d"
+      "igital_in_init_result\030\006 \001(\0132\".LabNet.Ser"
+      "ver.DigitalInInitResultH\000\022F\n\027digital_out"
+      "_init_result\030\007 \001(\0132#.LabNet.Server.Digit"
+      "alOutInitResultH\000\022N\n\033only_one_connection"
+      "_allowed\030\010 \001(\0132\'.LabNet.Server.OnlyOneCo"
+      "nnectionAllowedH\000\0220\n\005reset\030\t \001(\0132\037.LabNe"
+      "t.Server.LabNetResetReplyH\000\022*\n\002id\030\n \001(\0132"
+      "\034.LabNet.Server.LabNetIdReplyH\000\0226\n\016inter"
+      "face_lost\030\013 \001(\0132\034.LabNet.Server.Interfac"
+      "eLostH\000\022D\n\025interface_reconnected\030\014 \001(\0132#"
+      ".LabNet.Server.InterfaceReconnectedH\000\022Q\n"
+      "\035digital_out_loop_start_result\030\r \001(\0132(.L"
+      "abNet.Server.DigitalOutLoopStartResultH\000"
+      "\022H\n\030digital_out_loop_stopped\030\016 \001(\0132$.Lab"
+      "Net.Server.DigitalOutLoopStoppedH\000B\020\n\016se"
+      "rver_messageb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1903);
+      descriptor, 2020);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetServer.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
+  ::protobuf_google_2fprotobuf_2ftimestamp_2eproto::AddDescriptors();
 }
 
 void AddDescriptors() {
@@ -630,12 +640,20 @@ namespace Server {
 void DigitalOutState::InitAsDefaultInstance() {
   ::LabNet::Server::_DigitalOutState_default_instance_._instance.get_mutable()->pin_ = const_cast< ::LabNet::PinId*>(
       ::LabNet::PinId::internal_default_instance());
+  ::LabNet::Server::_DigitalOutState_default_instance_._instance.get_mutable()->time_ = const_cast< ::google::protobuf::Timestamp*>(
+      ::google::protobuf::Timestamp::internal_default_instance());
 }
 void DigitalOutState::clear_pin() {
   if (GetArenaNoVirtual() == NULL && pin_ != NULL) {
     delete pin_;
   }
   pin_ = NULL;
+}
+void DigitalOutState::clear_time() {
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int DigitalOutState::kPinFieldNumber;
@@ -659,16 +677,19 @@ DigitalOutState::DigitalOutState(const DigitalOutState& from)
   } else {
     pin_ = NULL;
   }
-  ::memcpy(&state_, &from.state_,
-    static_cast<size_t>(reinterpret_cast<char*>(&time_) -
-    reinterpret_cast<char*>(&state_)) + sizeof(time_));
+  if (from.has_time()) {
+    time_ = new ::google::protobuf::Timestamp(*from.time_);
+  } else {
+    time_ = NULL;
+  }
+  state_ = from.state_;
   // @@protoc_insertion_point(copy_constructor:LabNet.Server.DigitalOutState)
 }
 
 void DigitalOutState::SharedCtor() {
   ::memset(&pin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&time_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(time_));
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(state_));
 }
 
 DigitalOutState::~DigitalOutState() {
@@ -678,6 +699,7 @@ DigitalOutState::~DigitalOutState() {
 
 void DigitalOutState::SharedDtor() {
   if (this != internal_default_instance()) delete pin_;
+  if (this != internal_default_instance()) delete time_;
 }
 
 void DigitalOutState::SetCachedSize(int size) const {
@@ -704,9 +726,11 @@ void DigitalOutState::Clear() {
     delete pin_;
   }
   pin_ = NULL;
-  ::memset(&state_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&time_) -
-      reinterpret_cast<char*>(&state_)) + sizeof(time_));
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
+  state_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -746,14 +770,12 @@ bool DigitalOutState::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 time = 3;
+      // .google.protobuf.Timestamp time = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &time_)));
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_time()));
         } else {
           goto handle_unusual;
         }
@@ -797,9 +819,10 @@ void DigitalOutState::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->state(), output);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->time(), output);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->_internal_time(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -828,9 +851,11 @@ void DigitalOutState::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->state(), target);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->time(), target);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, this->_internal_time(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -857,16 +882,16 @@ size_t DigitalOutState::ByteSizeLong() const {
         *pin_);
   }
 
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *time_);
+  }
+
   // bool state = 2;
   if (this->state() != 0) {
     total_size += 1 + 1;
-  }
-
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->time());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -899,11 +924,11 @@ void DigitalOutState::MergeFrom(const DigitalOutState& from) {
   if (from.has_pin()) {
     mutable_pin()->::LabNet::PinId::MergeFrom(from.pin());
   }
+  if (from.has_time()) {
+    mutable_time()->::google::protobuf::Timestamp::MergeFrom(from.time());
+  }
   if (from.state() != 0) {
     set_state(from.state());
-  }
-  if (from.time() != 0) {
-    set_time(from.time());
   }
 }
 
@@ -932,8 +957,8 @@ void DigitalOutState::Swap(DigitalOutState* other) {
 void DigitalOutState::InternalSwap(DigitalOutState* other) {
   using std::swap;
   swap(pin_, other->pin_);
-  swap(state_, other->state_);
   swap(time_, other->time_);
+  swap(state_, other->state_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -948,12 +973,20 @@ void DigitalOutState::InternalSwap(DigitalOutState* other) {
 void DigitalInState::InitAsDefaultInstance() {
   ::LabNet::Server::_DigitalInState_default_instance_._instance.get_mutable()->pin_ = const_cast< ::LabNet::PinId*>(
       ::LabNet::PinId::internal_default_instance());
+  ::LabNet::Server::_DigitalInState_default_instance_._instance.get_mutable()->time_ = const_cast< ::google::protobuf::Timestamp*>(
+      ::google::protobuf::Timestamp::internal_default_instance());
 }
 void DigitalInState::clear_pin() {
   if (GetArenaNoVirtual() == NULL && pin_ != NULL) {
     delete pin_;
   }
   pin_ = NULL;
+}
+void DigitalInState::clear_time() {
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int DigitalInState::kPinFieldNumber;
@@ -977,16 +1010,19 @@ DigitalInState::DigitalInState(const DigitalInState& from)
   } else {
     pin_ = NULL;
   }
-  ::memcpy(&state_, &from.state_,
-    static_cast<size_t>(reinterpret_cast<char*>(&time_) -
-    reinterpret_cast<char*>(&state_)) + sizeof(time_));
+  if (from.has_time()) {
+    time_ = new ::google::protobuf::Timestamp(*from.time_);
+  } else {
+    time_ = NULL;
+  }
+  state_ = from.state_;
   // @@protoc_insertion_point(copy_constructor:LabNet.Server.DigitalInState)
 }
 
 void DigitalInState::SharedCtor() {
   ::memset(&pin_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&time_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(time_));
+      reinterpret_cast<char*>(&state_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(state_));
 }
 
 DigitalInState::~DigitalInState() {
@@ -996,6 +1032,7 @@ DigitalInState::~DigitalInState() {
 
 void DigitalInState::SharedDtor() {
   if (this != internal_default_instance()) delete pin_;
+  if (this != internal_default_instance()) delete time_;
 }
 
 void DigitalInState::SetCachedSize(int size) const {
@@ -1022,9 +1059,11 @@ void DigitalInState::Clear() {
     delete pin_;
   }
   pin_ = NULL;
-  ::memset(&state_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&time_) -
-      reinterpret_cast<char*>(&state_)) + sizeof(time_));
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
+  state_ = false;
   _internal_metadata_.Clear();
 }
 
@@ -1064,14 +1103,12 @@ bool DigitalInState::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 time = 3;
+      // .google.protobuf.Timestamp time = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &time_)));
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_time()));
         } else {
           goto handle_unusual;
         }
@@ -1115,9 +1152,10 @@ void DigitalInState::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->state(), output);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->time(), output);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->_internal_time(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1146,9 +1184,11 @@ void DigitalInState::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->state(), target);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->time(), target);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, this->_internal_time(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1175,16 +1215,16 @@ size_t DigitalInState::ByteSizeLong() const {
         *pin_);
   }
 
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *time_);
+  }
+
   // bool state = 2;
   if (this->state() != 0) {
     total_size += 1 + 1;
-  }
-
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->time());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1217,11 +1257,11 @@ void DigitalInState::MergeFrom(const DigitalInState& from) {
   if (from.has_pin()) {
     mutable_pin()->::LabNet::PinId::MergeFrom(from.pin());
   }
+  if (from.has_time()) {
+    mutable_time()->::google::protobuf::Timestamp::MergeFrom(from.time());
+  }
   if (from.state() != 0) {
     set_state(from.state());
-  }
-  if (from.time() != 0) {
-    set_time(from.time());
   }
 }
 
@@ -1250,8 +1290,8 @@ void DigitalInState::Swap(DigitalInState* other) {
 void DigitalInState::InternalSwap(DigitalInState* other) {
   using std::swap;
   swap(pin_, other->pin_);
-  swap(state_, other->state_);
   swap(time_, other->time_);
+  swap(state_, other->state_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
@@ -1266,12 +1306,20 @@ void DigitalInState::InternalSwap(DigitalInState* other) {
 void NewByteData::InitAsDefaultInstance() {
   ::LabNet::Server::_NewByteData_default_instance_._instance.get_mutable()->pin_ = const_cast< ::LabNet::PinId*>(
       ::LabNet::PinId::internal_default_instance());
+  ::LabNet::Server::_NewByteData_default_instance_._instance.get_mutable()->time_ = const_cast< ::google::protobuf::Timestamp*>(
+      ::google::protobuf::Timestamp::internal_default_instance());
 }
 void NewByteData::clear_pin() {
   if (GetArenaNoVirtual() == NULL && pin_ != NULL) {
     delete pin_;
   }
   pin_ = NULL;
+}
+void NewByteData::clear_time() {
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int NewByteData::kPinFieldNumber;
@@ -1299,7 +1347,11 @@ NewByteData::NewByteData(const NewByteData& from)
   } else {
     pin_ = NULL;
   }
-  time_ = from.time_;
+  if (from.has_time()) {
+    time_ = new ::google::protobuf::Timestamp(*from.time_);
+  } else {
+    time_ = NULL;
+  }
   // @@protoc_insertion_point(copy_constructor:LabNet.Server.NewByteData)
 }
 
@@ -1318,6 +1370,7 @@ NewByteData::~NewByteData() {
 void NewByteData::SharedDtor() {
   data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete pin_;
+  if (this != internal_default_instance()) delete time_;
 }
 
 void NewByteData::SetCachedSize(int size) const {
@@ -1345,7 +1398,10 @@ void NewByteData::Clear() {
     delete pin_;
   }
   pin_ = NULL;
-  time_ = 0u;
+  if (GetArenaNoVirtual() == NULL && time_ != NULL) {
+    delete time_;
+  }
+  time_ = NULL;
   _internal_metadata_.Clear();
 }
 
@@ -1383,14 +1439,12 @@ bool NewByteData::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 time = 3;
+      // .google.protobuf.Timestamp time = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &time_)));
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_time()));
         } else {
           goto handle_unusual;
         }
@@ -1435,9 +1489,10 @@ void NewByteData::SerializeWithCachedSizes(
       2, this->data(), output);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->time(), output);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->_internal_time(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1468,9 +1523,11 @@ void NewByteData::SerializeWithCachedSizes(
         2, this->data(), target);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->time(), target);
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        3, this->_internal_time(), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1504,11 +1561,11 @@ size_t NewByteData::ByteSizeLong() const {
         *pin_);
   }
 
-  // uint32 time = 3;
-  if (this->time() != 0) {
+  // .google.protobuf.Timestamp time = 3;
+  if (this->has_time()) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->time());
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *time_);
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -1545,8 +1602,8 @@ void NewByteData::MergeFrom(const NewByteData& from) {
   if (from.has_pin()) {
     mutable_pin()->::LabNet::PinId::MergeFrom(from.pin());
   }
-  if (from.time() != 0) {
-    set_time(from.time());
+  if (from.has_time()) {
+    mutable_time()->::google::protobuf::Timestamp::MergeFrom(from.time());
   }
 }
 

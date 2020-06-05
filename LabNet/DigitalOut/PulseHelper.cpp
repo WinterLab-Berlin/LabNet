@@ -1,5 +1,6 @@
 #include "PulseHelper.h"
 #include "../GPIO/Messages.h"
+#include "../Interface/DigitalMessages.h"
 
 struct turn_on final : public so_5::signal_t {};
 struct turn_off final : public so_5::signal_t {};
@@ -9,12 +10,14 @@ DigitalOut::PulseHelper::PulseHelper(context_t ctx,
 	so_5::mbox_t dig_out_box,
 	so_5::mbox_t lab_net_box,
 	so_5::mbox_t interface_box,
+	Interface::Interfaces interface,
 	char pin)
 	: so_5::agent_t(ctx)
 	, _logger(logger)
 	, _digOutBox(dig_out_box)
 	, _labNetBox(lab_net_box)
-	,_interfaceBox(interface_box)
+	, _interfaceBox(interface_box)
+	, _interface(interface)
 	, _pin(pin)
 {
 }
@@ -30,25 +33,25 @@ void DigitalOut::PulseHelper::so_define_agent()
 			_lowDuration = mes->low_duration;
 			_pulses = mes->pulses;
 			
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, true, so_direct_mbox());
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, true, so_direct_mbox());
 			this >>= _startingState;
 		})
 		.event([this](mhood_t<stop_helper> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, false, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, false, _labNetBox);
 			so_deregister_agent_coop_normally();
 		})
 		.event([this](mhood_t<just_switch> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, mes->state, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, mes->state, _labNetBox);
 		});
 	
 	_startingState
-		.event([this](mhood_t<GPIO::return_digital_out_state> mes)
+		.event([this](mhood_t<DigitalMessages::return_digital_out_state> mes)
 		{
 			this >>= _runningState;
 			
-			so_5::send<GPIO::return_digital_out_state>(_labNetBox, mes->pin, mes->state);
+			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, mes->state);
 			
 			_turnOffTimer = so_5::send_periodic<turn_off>(
 				so_direct_mbox(),
@@ -60,17 +63,17 @@ void DigitalOut::PulseHelper::so_define_agent()
 				std::chrono::milliseconds(_highDuration + _lowDuration),
 				std::chrono::milliseconds(_highDuration + _lowDuration));
 		})
-		.event([this](mhood_t<GPIO::invalid_digital_out_pin> mes)
+		.event([this](mhood_t<DigitalMessages::invalid_digital_out_pin> mes)
 		{
-			so_5::send<GPIO::return_digital_out_state>(_labNetBox, mes->pin, false);
+			so_5::send<DigitalMessages::return_digital_out_state>(_labNetBox, _interface, mes->pin, false);
 		})
 		.event([this](mhood_t<stop_helper> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, false, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, false, _labNetBox);
 			so_deregister_agent_coop_normally();
 		}).event([this](mhood_t<just_switch> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, mes->state, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, mes->state, _labNetBox);
 			this >>= _waitState;
 		});
 	
@@ -82,23 +85,23 @@ void DigitalOut::PulseHelper::so_define_agent()
 			
 			if (_pulses <= 0)
 			{
-				so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, false, _labNetBox);
+				so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, false, _labNetBox);
 				
 				_turnOffTimer.release();
 				_turnOnTimer.release();
 			}
 			else
 			{
-				so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, false, so_direct_mbox());
+				so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, false, so_direct_mbox());
 			}
 		})
 		.event([this](mhood_t<turn_on> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, true, so_direct_mbox());
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, true, so_direct_mbox());
 		})
 		.event([this](mhood_t<stop_helper> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, false, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, false, _labNetBox);
 			_turnOffTimer.release();
 			_turnOnTimer.release();
 			so_deregister_agent_coop_normally();
@@ -112,11 +115,11 @@ void DigitalOut::PulseHelper::so_define_agent()
 			_lowDuration = mes->low_duration;
 			_pulses = mes->pulses;
 			
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, true, so_direct_mbox());
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, true, so_direct_mbox());
 			this >>= _startingState;
 		}).event([this](mhood_t<just_switch> mes)
 		{
-			so_5::send<GPIO::set_digital_out>(_interfaceBox, _pin, mes->state, _labNetBox);
+			so_5::send<DigitalMessages::set_digital_out>(_interfaceBox, _interface, _pin, mes->state, _labNetBox);
 			_turnOffTimer.release();
 			_turnOnTimer.release();
 			

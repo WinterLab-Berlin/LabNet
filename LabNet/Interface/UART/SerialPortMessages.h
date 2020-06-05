@@ -11,12 +11,6 @@ namespace uart::messages
 		const int port_id;
 		const int baud;
 	};
-
-	struct init_port_result
-	{
-		const int port_id;
-		bool is_succeed;
-	};
 	
 	struct port_unexpected_closed
 	{

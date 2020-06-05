@@ -31,6 +31,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include "LabNet.pb.h"
+#include <google/protobuf/timestamp.pb.h>
 // @@protoc_insertion_point(includes)
 #define PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetServer_2eproto 
 
@@ -218,25 +219,31 @@ class DigitalOutState : public ::google::protobuf::Message /* @@protoc_insertion
   ::LabNet::PinId* mutable_pin();
   void set_allocated_pin(::LabNet::PinId* pin);
 
+  // .google.protobuf.Timestamp time = 3;
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  private:
+  const ::google::protobuf::Timestamp& _internal_time() const;
+  public:
+  const ::google::protobuf::Timestamp& time() const;
+  ::google::protobuf::Timestamp* release_time();
+  ::google::protobuf::Timestamp* mutable_time();
+  void set_allocated_time(::google::protobuf::Timestamp* time);
+
   // bool state = 2;
   void clear_state();
   static const int kStateFieldNumber = 2;
   bool state() const;
   void set_state(bool value);
 
-  // uint32 time = 3;
-  void clear_time();
-  static const int kTimeFieldNumber = 3;
-  ::google::protobuf::uint32 time() const;
-  void set_time(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:LabNet.Server.DigitalOutState)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::LabNet::PinId* pin_;
+  ::google::protobuf::Timestamp* time_;
   bool state_;
-  ::google::protobuf::uint32 time_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
 };
@@ -341,25 +348,31 @@ class DigitalInState : public ::google::protobuf::Message /* @@protoc_insertion_
   ::LabNet::PinId* mutable_pin();
   void set_allocated_pin(::LabNet::PinId* pin);
 
+  // .google.protobuf.Timestamp time = 3;
+  bool has_time() const;
+  void clear_time();
+  static const int kTimeFieldNumber = 3;
+  private:
+  const ::google::protobuf::Timestamp& _internal_time() const;
+  public:
+  const ::google::protobuf::Timestamp& time() const;
+  ::google::protobuf::Timestamp* release_time();
+  ::google::protobuf::Timestamp* mutable_time();
+  void set_allocated_time(::google::protobuf::Timestamp* time);
+
   // bool state = 2;
   void clear_state();
   static const int kStateFieldNumber = 2;
   bool state() const;
   void set_state(bool value);
 
-  // uint32 time = 3;
-  void clear_time();
-  static const int kTimeFieldNumber = 3;
-  ::google::protobuf::uint32 time() const;
-  void set_time(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:LabNet.Server.DigitalInState)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::LabNet::PinId* pin_;
+  ::google::protobuf::Timestamp* time_;
   bool state_;
-  ::google::protobuf::uint32 time_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
 };
@@ -478,11 +491,17 @@ class NewByteData : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::LabNet::PinId* mutable_pin();
   void set_allocated_pin(::LabNet::PinId* pin);
 
-  // uint32 time = 3;
+  // .google.protobuf.Timestamp time = 3;
+  bool has_time() const;
   void clear_time();
   static const int kTimeFieldNumber = 3;
-  ::google::protobuf::uint32 time() const;
-  void set_time(::google::protobuf::uint32 value);
+  private:
+  const ::google::protobuf::Timestamp& _internal_time() const;
+  public:
+  const ::google::protobuf::Timestamp& time() const;
+  ::google::protobuf::Timestamp* release_time();
+  ::google::protobuf::Timestamp* mutable_time();
+  void set_allocated_time(::google::protobuf::Timestamp* time);
 
   // @@protoc_insertion_point(class_scope:LabNet.Server.NewByteData)
  private:
@@ -490,7 +509,7 @@ class NewByteData : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr data_;
   ::LabNet::PinId* pin_;
-  ::google::protobuf::uint32 time_;
+  ::google::protobuf::Timestamp* time_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
 };
@@ -2084,18 +2103,53 @@ inline void DigitalOutState::set_state(bool value) {
   // @@protoc_insertion_point(field_set:LabNet.Server.DigitalOutState.state)
 }
 
-// uint32 time = 3;
-inline void DigitalOutState::clear_time() {
-  time_ = 0u;
+// .google.protobuf.Timestamp time = 3;
+inline bool DigitalOutState::has_time() const {
+  return this != internal_default_instance() && time_ != NULL;
 }
-inline ::google::protobuf::uint32 DigitalOutState::time() const {
+inline const ::google::protobuf::Timestamp& DigitalOutState::_internal_time() const {
+  return *time_;
+}
+inline const ::google::protobuf::Timestamp& DigitalOutState::time() const {
+  const ::google::protobuf::Timestamp* p = time_;
   // @@protoc_insertion_point(field_get:LabNet.Server.DigitalOutState.time)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Timestamp*>(
+      &::google::protobuf::_Timestamp_default_instance_);
+}
+inline ::google::protobuf::Timestamp* DigitalOutState::release_time() {
+  // @@protoc_insertion_point(field_release:LabNet.Server.DigitalOutState.time)
+  
+  ::google::protobuf::Timestamp* temp = time_;
+  time_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Timestamp* DigitalOutState::mutable_time() {
+  
+  if (time_ == NULL) {
+    auto* p = CreateMaybeMessage<::google::protobuf::Timestamp>(GetArenaNoVirtual());
+    time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:LabNet.Server.DigitalOutState.time)
   return time_;
 }
-inline void DigitalOutState::set_time(::google::protobuf::uint32 value) {
-  
-  time_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.Server.DigitalOutState.time)
+inline void DigitalOutState::set_allocated_time(::google::protobuf::Timestamp* time) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(time_);
+  }
+  if (time) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(time)->GetArena();
+    if (message_arena != submessage_arena) {
+      time = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  time_ = time;
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Server.DigitalOutState.time)
 }
 
 // -------------------------------------------------------------------
@@ -2164,18 +2218,53 @@ inline void DigitalInState::set_state(bool value) {
   // @@protoc_insertion_point(field_set:LabNet.Server.DigitalInState.state)
 }
 
-// uint32 time = 3;
-inline void DigitalInState::clear_time() {
-  time_ = 0u;
+// .google.protobuf.Timestamp time = 3;
+inline bool DigitalInState::has_time() const {
+  return this != internal_default_instance() && time_ != NULL;
 }
-inline ::google::protobuf::uint32 DigitalInState::time() const {
+inline const ::google::protobuf::Timestamp& DigitalInState::_internal_time() const {
+  return *time_;
+}
+inline const ::google::protobuf::Timestamp& DigitalInState::time() const {
+  const ::google::protobuf::Timestamp* p = time_;
   // @@protoc_insertion_point(field_get:LabNet.Server.DigitalInState.time)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Timestamp*>(
+      &::google::protobuf::_Timestamp_default_instance_);
+}
+inline ::google::protobuf::Timestamp* DigitalInState::release_time() {
+  // @@protoc_insertion_point(field_release:LabNet.Server.DigitalInState.time)
+  
+  ::google::protobuf::Timestamp* temp = time_;
+  time_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Timestamp* DigitalInState::mutable_time() {
+  
+  if (time_ == NULL) {
+    auto* p = CreateMaybeMessage<::google::protobuf::Timestamp>(GetArenaNoVirtual());
+    time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:LabNet.Server.DigitalInState.time)
   return time_;
 }
-inline void DigitalInState::set_time(::google::protobuf::uint32 value) {
-  
-  time_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.Server.DigitalInState.time)
+inline void DigitalInState::set_allocated_time(::google::protobuf::Timestamp* time) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(time_);
+  }
+  if (time) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(time)->GetArena();
+    if (message_arena != submessage_arena) {
+      time = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  time_ = time;
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Server.DigitalInState.time)
 }
 
 // -------------------------------------------------------------------
@@ -2283,18 +2372,53 @@ inline void NewByteData::set_allocated_data(::std::string* data) {
   // @@protoc_insertion_point(field_set_allocated:LabNet.Server.NewByteData.data)
 }
 
-// uint32 time = 3;
-inline void NewByteData::clear_time() {
-  time_ = 0u;
+// .google.protobuf.Timestamp time = 3;
+inline bool NewByteData::has_time() const {
+  return this != internal_default_instance() && time_ != NULL;
 }
-inline ::google::protobuf::uint32 NewByteData::time() const {
+inline const ::google::protobuf::Timestamp& NewByteData::_internal_time() const {
+  return *time_;
+}
+inline const ::google::protobuf::Timestamp& NewByteData::time() const {
+  const ::google::protobuf::Timestamp* p = time_;
   // @@protoc_insertion_point(field_get:LabNet.Server.NewByteData.time)
+  return p != NULL ? *p : *reinterpret_cast<const ::google::protobuf::Timestamp*>(
+      &::google::protobuf::_Timestamp_default_instance_);
+}
+inline ::google::protobuf::Timestamp* NewByteData::release_time() {
+  // @@protoc_insertion_point(field_release:LabNet.Server.NewByteData.time)
+  
+  ::google::protobuf::Timestamp* temp = time_;
+  time_ = NULL;
+  return temp;
+}
+inline ::google::protobuf::Timestamp* NewByteData::mutable_time() {
+  
+  if (time_ == NULL) {
+    auto* p = CreateMaybeMessage<::google::protobuf::Timestamp>(GetArenaNoVirtual());
+    time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:LabNet.Server.NewByteData.time)
   return time_;
 }
-inline void NewByteData::set_time(::google::protobuf::uint32 value) {
-  
-  time_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.Server.NewByteData.time)
+inline void NewByteData::set_allocated_time(::google::protobuf::Timestamp* time) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(time_);
+  }
+  if (time) {
+    ::google::protobuf::Arena* submessage_arena =
+      reinterpret_cast<::google::protobuf::MessageLite*>(time)->GetArena();
+    if (message_arena != submessage_arena) {
+      time = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  time_ = time;
+  // @@protoc_insertion_point(field_set_allocated:LabNet.Server.NewByteData.time)
 }
 
 // -------------------------------------------------------------------

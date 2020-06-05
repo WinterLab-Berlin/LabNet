@@ -5,6 +5,7 @@
 #include "Interface/InterfaceMessages.h"
 #include "Interface/RFID/RfidMessages.h"
 #include "Interface/UART/SerialPortMessages.h"
+#include "Interface/DigitalMessages.h"
 
 using namespace LabNet;
 
@@ -168,19 +169,30 @@ void LabNetMainActor::so_define_agent()
 			break;
 		}
 	})
-	.event([this](mhood_t<GPIO::interface_init_result> mes) {
+	.event([this](mhood_t<Interface::interface_init_result> mes) {
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::InterfaceInitResult* init = new LabNet::Server::InterfaceInitResult();
-		init->set_interface(LabNet::INTERFACE_GPIO_TOP_PLANE);
+		init->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		init->set_is_succeed(mes->is_succeed);
 		swm->set_allocated_interface_init_result(init);
 		_connection->send_message(swm);
 	})
-	.event([this](mhood_t<GPIO::return_digital_in_state> mes) {
+	.event([this](mhood_t<DigitalMessages::digital_in_init_result> mes)
+	{
+		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
+		LabNet::Server::DigitalInInitResult* res = new LabNet::Server::DigitalInInitResult();
+		res->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
+		res->set_pin(mes->pin);
+		res->set_is_succeed(mes->is_succeed);
+			
+		swm->set_allocated_digital_in_init_result(res);
+		_connection->send_message(swm);
+	})
+	.event([this](mhood_t<DigitalMessages::return_digital_in_state> mes) {
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::DigitalInState* state = new LabNet::Server::DigitalInState();
 		LabNet::PinId *id = new LabNet::PinId();
-		id->set_interface(LabNet::INTERFACE_GPIO_TOP_PLANE);
+		id->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		id->set_pin(mes->pin);
 		state->set_allocated_pin(id);
 		state->set_state(mes->state);
@@ -190,50 +202,28 @@ void LabNetMainActor::so_define_agent()
 		
 		_logger->writeInfoEntry("return digIn state");
 	})
-	.event([this](mhood_t<GPIO::digital_in_init_result> mes)
-	{
-		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
-		LabNet::Server::DigitalInInitResult* res = new LabNet::Server::DigitalInInitResult();
-		res->set_interface(LabNet::INTERFACE_GPIO_TOP_PLANE);
-		res->set_pin(mes->pin);
-		res->set_is_succeed(mes->is_succeed);
-			
-		swm->set_allocated_digital_in_init_result(res);
-		_connection->send_message(swm);
-	})
-	.event([this](mhood_t<GPIO::digital_out_init_result> mes)
+	.event([this](mhood_t<DigitalMessages::digital_out_init_result> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::DigitalOutInitResult* res = new LabNet::Server::DigitalOutInitResult();
-		res->set_interface(LabNet::INTERFACE_GPIO_TOP_PLANE);
+		res->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		res->set_pin(mes->pin);
 		res->set_is_succeed(mes->is_succeed);
 			
 		swm->set_allocated_digital_out_init_result(res);
 		_connection->send_message(swm);
-		
-		
 	})
-	.event([this](mhood_t<GPIO::return_digital_out_state> mes)
+	.event([this](mhood_t<DigitalMessages::return_digital_out_state> mes)
 	{
 		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 		LabNet::Server::DigitalOutState* state = new LabNet::Server::DigitalOutState();
 		LabNet::PinId *id = new LabNet::PinId();
-		id->set_interface(LabNet::INTERFACE_GPIO_TOP_PLANE);
+		id->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		id->set_pin(mes->pin);
 		state->set_allocated_pin(id);
 		state->set_state(mes->state);
 		
 		swm->set_allocated_digital_out_state(state);
-		_connection->send_message(swm);
-	})
-	.event([this](mhood_t<RFID::interface_init_result> mes)
-	{
-		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
-		LabNet::Server::InterfaceInitResult* init = new LabNet::Server::InterfaceInitResult();
-		init->set_interface(LabNet::INTERFACE_RFID_TOP_PLANE);
-		init->set_is_succeed(mes->is_succeed);
-		swm->set_allocated_interface_init_result(init);
 		_connection->send_message(swm);
 	})
 	.event([this](mhood_t<RFID::new_data> mes)
@@ -247,26 +237,6 @@ void LabNetMainActor::so_define_agent()
 		data->set_data(mes->data->data(), mes->data->size());
 		
 		swm->set_allocated_new_byte_data(data);
-		_connection->send_message(swm);
-	})
-	.event([this](mhood_t<uart::messages::init_port_result> mes)
-	{
-		std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
-		LabNet::Server::InterfaceInitResult* init = new LabNet::Server::InterfaceInitResult();
-		if (mes->port_id == 0)
-			init->set_interface(LabNet::INTERFACE_UART0);
-		else if (mes->port_id == 1)
-			init->set_interface(LabNet::INTERFACE_UART1);
-		else if (mes->port_id == 2)
-			init->set_interface(LabNet::INTERFACE_UART2);
-		else if (mes->port_id == 3)
-			init->set_interface(LabNet::INTERFACE_UART3);
-		else if (mes->port_id == 4)
-			init->set_interface(LabNet::INTERFACE_UART4);
-		else
-			init->set_interface(LabNet::INTERFACE_NONE);
-		init->set_is_succeed(mes->is_succeed);
-		swm->set_allocated_interface_init_result(init);
 		_connection->send_message(swm);
 	})
 	.event([this](mhood_t<uart::messages::port_unexpected_closed> mes)

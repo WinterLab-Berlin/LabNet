@@ -4,6 +4,7 @@
 #include <fstream>
 #include <unistd.h>
 #include <wiringSerial.h>
+#include "../InterfaceMessages.h"
 
 using namespace uart::private_messages;
 
@@ -49,14 +50,14 @@ void uart::SerialPortsManager::init_new_port_event(const uart::messages::init_po
 			std::string port = port_name_for_id(ev.port_id);
 			if (port.size() == 0)
 			{
-				so_5::send <uart::messages::init_port_result>(_parentMbox, ev.port_id, false);
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), false);
 				return;
 			}
 			
 			int handle = serialOpen(port.c_str(), ev.baud);
 			if (handle < 0)
 			{
-				so_5::send <uart::messages::init_port_result>(_parentMbox, ev.port_id, false);
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), false);
 			}
 			else
 			{
@@ -65,7 +66,7 @@ void uart::SerialPortsManager::init_new_port_event(const uart::messages::init_po
 				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, ev.port_id, handle, ev.baud);
 				_handle_for_port[ev.port_id] = handle;
 				
-				so_5::send <uart::messages::init_port_result>(_parentMbox, ev.port_id, true);
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), true);
 			}
 		}
 	}

@@ -1,7 +1,8 @@
 #include "LoopHelper.h"
 #include "../../Network/ProtocolAll.h"
-#include "Messages.h"
+#include "LoopMessages.h"
 #include "../GPIO/Messages.h"
+#include "../Interface/DigitalMessages.h"
 #include <climits>
 
 struct next_time_step
@@ -39,7 +40,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 				if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
 				{
 					par.id.interface = Interface::GPIO_TOP_PLANE;
-					so_5::send<GPIO::set_digital_out>(_gpioBox, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
+					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
 				else if (interface == LabNet::INTERFACE_UART1)
 				{
@@ -174,7 +175,7 @@ void DigitalOut::LoopHelper::turn_pin_on(PinId& id)
 {
 	if (id.interface == Interface::Interfaces::GPIO_TOP_PLANE)
 	{
-		so_5::send<GPIO::set_digital_out>(_gpioBox, id.pin, true, so_direct_mbox());
+		so_5::send<DigitalMessages::set_digital_out>(_gpioBox, id.interface, id.pin, true, so_direct_mbox());
 	}
 	else if (id.interface == Interface::Interfaces::UART1)
 	{
@@ -198,7 +199,7 @@ void DigitalOut::LoopHelper::turn_pin_off(PinId& id)
 {
 	if (id.interface == Interface::Interfaces::GPIO_TOP_PLANE)
 	{
-		so_5::send<GPIO::set_digital_out>(_gpioBox, id.pin, false, so_direct_mbox());
+		so_5::send<DigitalMessages::set_digital_out>(_gpioBox, id.interface, id.pin, false, so_direct_mbox());
 	}
 	else if (id.interface == Interface::Interfaces::UART1)
 	{

@@ -4,7 +4,8 @@
 #include "PulseHelper.h"
 #include "LoopHelper.h"
 #include "../GPIO/Messages.h"
-#include "Messages.h"
+#include "LoopMessages.h"
+#include "../Interface/DigitalMessages.h"
 
 DigitalOut::DigitalOutHelper::DigitalOutHelper(context_t ctx, Logger logger, so_5::mbox_t selfBox, so_5::mbox_t lab_net_box)
 	: so_5::agent_t(ctx)
@@ -59,7 +60,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			auto interface = msg->id().interface();
 			if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
 			{
-				PinId id{Interface::Interfaces::GPIO_TOP_PLANE, msg->id().pin()};
+				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				
 				if (_pulseHelper.count(id) > 0)
 				{
@@ -67,7 +68,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 				}
 				else
 				{
-					so_5::send<GPIO::set_digital_out>(_gpioBox, msg->id().pin(), msg->state(), _labNetBox);
+					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, Interface::GPIO_TOP_PLANE, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
 			else if (interface == LabNet::INTERFACE_UART1)
@@ -92,12 +93,12 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			auto interface = msg->id().interface();
 			if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
 			{
-				PinId id{Interface::Interfaces::GPIO_TOP_PLANE, msg->id().pin()};
+				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				
 				if (_pulseHelper.count(id) == 0)
 				{
 					auto coop = so_5::create_child_coop(*this);
-					auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _gpioBox, id.pin);
+					auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _gpioBox, id.interface, id.pin);
 					
 					_pulseHelper[id] = a->so_direct_mbox();
 					

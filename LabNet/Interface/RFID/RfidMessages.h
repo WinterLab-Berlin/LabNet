@@ -12,11 +12,6 @@ namespace RFID
 		bool inverted = false;
 	};
 	
-	struct interface_init_result
-	{
-		bool is_succeed;
-	};
-	
 	struct set_phase_matrix
 	{
 		uint32_t antenna_phase1;

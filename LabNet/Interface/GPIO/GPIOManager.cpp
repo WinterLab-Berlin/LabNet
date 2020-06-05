@@ -2,6 +2,7 @@
 #include <wiringPi.h>
 #include "../InitMessages.h"
 #include "../InterfaceMessages.h"
+#include "../DigitalMessages.h"
 #include "Messages.h"
 
 GPIO::GPIOManager::GPIOManager(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
@@ -63,11 +64,11 @@ void GPIO::GPIOManager::so_define_agent()
 				for (auto& in : _inputs)
 					in.second.available = false;
 				
-				so_5::send <interface_init_result>(_parentMbox, false);
+				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, false);
 			})
 		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_yes> msg) {
-				so_5::send <interface_init_result>(_parentMbox, true);
+				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, true);
 				
 				_inputStateReader = std::make_unique<DigitalInputStateReader>(_parentMbox, &_inputs, _logger);
 				
@@ -77,7 +78,7 @@ void GPIO::GPIOManager::so_define_agent()
 	running
 		.event(_selfBox,
 		[this](mhood_t<init_interface> msg) {
-				so_5::send <interface_init_result>(_parentMbox, true);
+			so_5::send<Interface::interface_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, true);
 		})
 		.event(_selfBox,
 		[this](mhood_t<init_digital_in> msg) {
@@ -103,11 +104,11 @@ void GPIO::GPIOManager::so_define_agent()
 					_inputs[msg->pin].available = true;
 					_inputs[msg->pin].state = 2;
 					
-					so_5::send <digital_in_init_result>(_parentMbox, msg->pin, true);
+					so_5::send<DigitalMessages::digital_in_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, msg->pin, true);
 				}
 				else
 				{
-					so_5::send <digital_in_init_result>(_parentMbox, msg->pin, false);
+					so_5::send<DigitalMessages::digital_in_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, msg->pin, false);
 				}
 			})
 		.event(_selfBox,
@@ -127,15 +128,15 @@ void GPIO::GPIOManager::so_define_agent()
 						digitalWrite(_outputs[msg->pin].pin_h, 0);
 					}
 					
-					so_5::send <digital_out_init_result>(_parentMbox, msg->pin, true);
+					so_5::send<DigitalMessages::digital_out_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, msg->pin, true);
 				}
 				else
 				{
-					so_5::send <digital_out_init_result>(_parentMbox, msg->pin, false);
+					so_5::send<DigitalMessages::digital_out_init_result>(_parentMbox, Interface::GPIO_TOP_PLANE, msg->pin, false);
 				}
 			})
 		.event(_selfBox,
-			[this](mhood_t<set_digital_out> msg) {
+		[this](mhood_t<DigitalMessages::set_digital_out> msg) {
 				if (msg->pin > 0 && msg->pin < 11)
 				{
 					if (_outputs[msg->pin].is_inverted)
@@ -148,11 +149,11 @@ void GPIO::GPIOManager::so_define_agent()
 					}
 		
 					_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
-					so_5::send <return_digital_out_state>(msg->mbox, msg->pin, msg->state);
+					so_5::send<DigitalMessages::return_digital_out_state>(msg->mbox, Interface::GPIO_TOP_PLANE, msg->pin, msg->state);
 				}
 				else
 				{
-					so_5::send <invalid_digital_out_pin>(msg->mbox, msg->pin);
+					so_5::send<DigitalMessages::invalid_digital_out_pin>(msg->mbox, Interface::GPIO_TOP_PLANE, msg->pin);
 				}
 			})
 		.event(_selfBox,

@@ -1,6 +1,7 @@
 syntax = "proto3";
 package LabNet.Server;
 import "LabNet.proto";
+import "google/protobuf/timestamp.proto";
 
 
 // general messages
@@ -8,19 +9,19 @@ import "LabNet.proto";
 message DigitalOutState {
 	PinId pin = 1;
 	bool state = 2;
-	uint32 time = 3;
+	google.protobuf.Timestamp time = 3;
 }
 
 message DigitalInState {
 	PinId pin = 1;
 	bool state = 2;
-	uint32 time = 3;
+	google.protobuf.Timestamp time = 3;
 }
 
 message NewByteData {
 	PinId pin = 1;
 	bytes data = 2;
-	uint32 time = 3;
+	google.protobuf.Timestamp time = 3;
 }
 
 message DataWriteComplete {
