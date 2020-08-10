@@ -95,6 +95,7 @@ void LabNetMainActor::so_define_agent()
 			break;
 		case LabNet::Client::ClientWrappedMessage::kUartInit:
 			{
+				_logger->writeInfoEntry("uart init mes");
 				auto& uart_init = mes->uart_init();
 				so_5::send<uart::messages::init_port>(_uartBox, static_cast<Interface::Interfaces>(uart_init.port()), uart_init.baud());
 			}
@@ -145,6 +146,7 @@ void LabNetMainActor::so_define_agent()
 			{
 				so_5::send<Interface::reset_interface>(_gpioBox);
 				so_5::send<Interface::reset_interface>(_interfaceManager);
+				so_5::send<Interface::reset_interface>(_uartBox);
 				
 				std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
 				LabNet::Server::LabNetResetReply* reply = new LabNet::Server::LabNetResetReply();
@@ -270,7 +272,7 @@ void LabNetMainActor::so_define_agent()
 		data->set_data(mes->data->data(), mes->data->size());
 		
 		LabNet::PinId *id = new LabNet::PinId();
-		id->set_pin(0);
+		id->set_pin(mes->pin);
 		id->set_interface(static_cast<LabNet::Interfaces>(mes->interface));
 		data->set_allocated_pin(id);
 		

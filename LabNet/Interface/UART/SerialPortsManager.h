@@ -8,6 +8,7 @@
 #include "PrivateMessages.h"
 #include "../InterfaceMessages.h"
 #include "../StreamMessages.h"
+#include "../DigitalMessages.h"
 
 namespace uart
 {
@@ -30,6 +31,7 @@ namespace uart
 		void send_data_complete_event(const uart::private_messages::send_data_complete& mes);
 		void pause_interface_event(const Interface::pause_interface &mes);
 		void reset_interface_event(const Interface::reset_interface &mes);
+		void set_digital_out_event(const DigitalMessages::set_digital_out &mes);
 		void continue_interface_event(const Interface::continue_interface &mes);
 	
 		const so_5::mbox_t _selfBox;

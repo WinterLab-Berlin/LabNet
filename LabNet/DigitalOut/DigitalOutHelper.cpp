@@ -11,6 +11,7 @@ DigitalOut::DigitalOutHelper::DigitalOutHelper(context_t ctx, Logger logger, so_
 	: so_5::agent_t(ctx)
 	, _selfBox(selfBox)
 	, _gpioBox(ctx.environment().create_mbox("gpio"))
+	, _uartBox(ctx.environment().create_mbox("uart"))
 	, _labNetBox(lab_net_box)
 	, _logger(logger)
 {
@@ -58,6 +59,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 		.event(_selfBox,
 		[this](mhood_t<LabNet::Client::DigitalOutSet> msg) {
 			auto interface = msg->id().interface();
+			
 			if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
 			{
 				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
@@ -73,19 +75,55 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			}
 			else if (interface == LabNet::INTERFACE_UART1)
 			{
+				PinId id{Interface::UART1, msg->id().pin()};
 				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART1, msg->id().pin(), msg->state(), _labNetBox);
+				}
 			}
 			else if (interface == LabNet::INTERFACE_UART2)
 			{
+				PinId id{Interface::UART2, msg->id().pin()};
 				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART2, msg->id().pin(), msg->state(), _labNetBox);
+				}
 			}
 			else if (interface == LabNet::INTERFACE_UART3)
 			{
+				PinId id{Interface::UART3, msg->id().pin()};
 				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART3, msg->id().pin(), msg->state(), _labNetBox);
+				}
 			}
 			else if (interface == LabNet::INTERFACE_UART4)
 			{
+				PinId id{Interface::UART4, msg->id().pin()};
 				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART4, msg->id().pin(), msg->state(), _labNetBox);
+				}
 			}
 		})
 		.event(_selfBox,
@@ -107,21 +145,24 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 				
 				so_5::send<start_pulse>(_pulseHelper[id], msg->high_duration(), msg->low_duration(), msg->pulses());
 			}
-			else if (interface == LabNet::INTERFACE_UART1)
+			else if (interface == LabNet::INTERFACE_UART1
+				|| interface == LabNet::INTERFACE_UART2
+				|| interface == LabNet::INTERFACE_UART3
+				|| interface == LabNet::INTERFACE_UART4)
 			{
+				PinId id{static_cast<Interface::Interfaces>(interface), msg->id().pin()};
 				
-			}
-			else if (interface == LabNet::INTERFACE_UART2)
-			{
+				if (_pulseHelper.count(id) == 0)
+				{
+					auto coop = so_5::create_child_coop(*this);
+					auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _uartBox, id.interface, id.pin);
+					
+					_pulseHelper[id] = a->so_direct_mbox();
+					
+					so_environment().register_coop(std::move(coop));
+				}
 				
-			}
-			else if (interface == LabNet::INTERFACE_UART3)
-			{
-				
-			}
-			else if (interface == LabNet::INTERFACE_UART4)
-			{
-				
+				so_5::send<start_pulse>(_pulseHelper[id], msg->high_duration(), msg->low_duration(), msg->pulses());
 			}
 		})
 		.event(_selfBox,

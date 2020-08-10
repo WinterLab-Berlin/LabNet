@@ -103,8 +103,11 @@ void Connection::refuse_conection()
 	std::vector<char> msgBuffer;
 	pack_msg(swm, msgBuffer);
 	
+	const std::lock_guard<std::mutex> lock(_sendBufferMutex);
+	_sendBuffer.push_back(std::move(msgBuffer));
+	
 	boost::asio::async_write(m_socket,
-		boost::asio::buffer(msgBuffer),
+		boost::asio::buffer(_sendBuffer[_sendBuffer.size() - 1]),
 		[this, self](boost::system::error_code ec, std::size_t)
 		{
 			if (!ec)
@@ -125,20 +128,41 @@ void Connection::send_message(std::shared_ptr<LabNet::Server::ServerWrappedMessa
 	std::vector<char> msgBuffer;
 	if (pack_msg(mes, msgBuffer))
 	{
-		boost::asio::async_write(m_socket,
-			boost::asio::buffer(msgBuffer),
-			[this, self](boost::system::error_code ec, std::size_t)
-			{
-				//m_logger->writeInfoEntry("sended");
-				if (!ec)
-				{
+		const std::lock_guard<std::mutex> lock(_sendBufferMutex);
+		_sendBuffer.push_back(std::move(msgBuffer));
 
-				}
-				else if (ec != boost::asio::error::operation_aborted)
-				{
-					m_connection_manager.stop(shared_from_this());
-				}
-			});	
+		if (_sendBuffer.size() > 1)
+			return;
+
+		write();
+	}
+}
+
+void Connection::write()
+{
+	boost::asio::async_write(m_socket,
+		boost::asio::buffer(_sendBuffer[0]),
+		boost::bind(
+			&Connection::write_handler,
+			this,
+			boost::asio::placeholders::error,
+			boost::asio::placeholders::bytes_transferred));
+}
+
+void Connection::write_handler(const boost::system::error_code& error, const size_t bytesTransferred)
+{
+	const std::lock_guard<std::mutex> lock(_sendBufferMutex);
+	_sendBuffer.pop_front();
+
+	if (error) {
+		m_logger->writeErrorEntry(string_format("could not write: %s", boost::system::system_error(error).what()));
+		m_connection_manager.stop(shared_from_this());
+		return;
+	}
+
+	if (!_sendBuffer.empty()) {
+		// more messages to send
+		this->write();
 	}
 }
 

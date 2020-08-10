@@ -1,5 +1,5 @@
 syntax = "proto3";
-package LabNet.Client;
+package LabNetProt.Client;
 import "LabNet.proto";
 
 // GPIO top plane messages

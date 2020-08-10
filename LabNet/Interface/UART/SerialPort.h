@@ -15,6 +15,7 @@ public:
 	void send_data(std::shared_ptr<std::vector<char>> data);
 	void activate_send_receive() { _isActive = true; };
 	void deactivate_send_receive() { _isActive = false; };
+	void set_digital_out(so_5::mbox_t report, char pin, bool state);
 	
 	
 private:
@@ -32,6 +33,7 @@ private:
 	const so_5::mbox_t _parent;
 	const so_5::mbox_t _streamDataBox;
 	bool _isActive;
+	bool _isPinInverted;
 	std::thread _sendWorker;
 	std::thread _readWorker;
 	std::promise<void> _exitSignal;

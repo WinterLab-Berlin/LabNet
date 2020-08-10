@@ -36,35 +36,40 @@ void uart::SerialPortsManager::so_define_agent()
 		.event(_selfBox, &SerialPortsManager::pause_interface_event)
 		.event(_selfBox, &SerialPortsManager::reset_interface_event)
 		.event(_selfBox, &SerialPortsManager::continue_interface_event)
-		.event(_selfBox, &SerialPortsManager::send_data_complete_event);
+		.event(_selfBox, &SerialPortsManager::send_data_complete_event)
+		.event(_selfBox, &SerialPortsManager::set_digital_out_event);
 }
 
 void uart::SerialPortsManager::init_new_port_event(const uart::messages::init_port& ev)
 {
-	if (ev.port_id > -1 && ev.port_id < 5)
+	int port_id = ev.port_id - 100;
+	if (port_id > -1 && port_id < 5)
 	{
-		if (_handle_for_port[ev.port_id] < 0)
+		if (_handle_for_port[port_id] < 0)
 		{
-			std::string port = port_name_for_id(ev.port_id);
+			std::string port = port_name_for_id(port_id);
 			if (port.size() == 0)
 			{
-				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), false);
+				_logger->writeInfoEntry(string_format("failed to init uart port %d: does not exist", port_id));
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(port_id + 100), false);
 				return;
 			}
 			
 			int handle = serialOpen(port.c_str(), ev.baud);
 			if (handle < 0)
 			{
-				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), false);
+				_logger->writeInfoEntry(string_format("failed to init uart port %d: could not open", port_id));
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(port_id + 100), false);
 			}
 			else
 			{
 				so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 				
-				_ports[ev.port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, _parentMbox, ev.port_id, handle, ev.baud);
-				_handle_for_port[ev.port_id] = handle;
+				_ports[port_id] = std::make_unique<SerialPort>(_selfBox, sendToPortBox, _parentMbox, port_id, handle, ev.baud);
+				_handle_for_port[port_id] = handle;
 				
-				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(ev.port_id + 100), true);
+				_logger->writeInfoEntry(string_format("open uart port %d", port_id));
+				so_5::send<Interface::interface_init_result>(_parentMbox, static_cast<Interface::Interfaces>(port_id + 100), true);
 			}
 		}
 	}
@@ -114,6 +119,15 @@ void uart::SerialPortsManager::send_data_to_port_event(const StreamMessages::sen
 void uart::SerialPortsManager::send_data_complete_event(const uart::private_messages::send_data_complete& mes)
 {
 	so_5::send<StreamMessages::send_data_complete>(_parentMbox, static_cast<Interface::Interfaces>(mes.pin + 100));
+}
+
+void uart::SerialPortsManager::set_digital_out_event(const DigitalMessages::set_digital_out &mes)
+{
+	auto it = _ports.find(mes.interface - 100);
+	if (it != _ports.end())
+	{
+		it->second->set_digital_out(mes.mbox, mes.pin, mes.state);
+	}
 }
 
 void uart::SerialPortsManager::port_unexpected_closed_event(const uart::private_messages::port_unexpected_closed& ev)

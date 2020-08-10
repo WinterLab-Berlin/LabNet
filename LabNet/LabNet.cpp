@@ -19,12 +19,12 @@ int main(int argc, char *argv[])
 	int err = wiringPiSetup();
 	if (err == -1)
 	{
-		logger->writeInfoEntry("GPIO init failed");
+		logger->writeInfoEntry("wiringPi init failed");
 		return 0;
 	}
 	else
 	{
-		logger->writeInfoEntry("GPIO init success");
+		logger->writeInfoEntry("wiringPi init success");
 	}
 	
 	// SO Environment in a special wrapper object.

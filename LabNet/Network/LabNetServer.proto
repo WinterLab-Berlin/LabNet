@@ -1,5 +1,5 @@
 syntax = "proto3";
-package LabNet.Server;
+package LabNetProt.Server;
 import "LabNet.proto";
 import "google/protobuf/timestamp.proto";
 

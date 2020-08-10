@@ -4,6 +4,8 @@
 #include <SerialPortMessages.h>
 #include "PrivateMessages.h"
 #include "../StreamMessages.h"
+#include "../DigitalMessages.h"
+#include <sys/ioctl.h>
 
 using namespace uart::private_messages;
 
@@ -16,6 +18,7 @@ SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPor
 	, _portHandler(portHandler)
 	, _futureObj(_exitSignal.get_future())
 	, _isActive(true)
+	, _isPinInverted(false)
 {
 	std::thread sendWorker{&SerialPort::data_send_thread, this, _sendToPortBox };
 	_sendWorker = std::move(sendWorker);
@@ -86,7 +89,7 @@ void SerialPort::data_read_thread()
 					break;
 				}
 			
-				so_5::send<StreamMessages::new_data_from_port>(_parent, static_cast<Interface::Interfaces>(_portId + 100), 0, data, std::chrono::high_resolution_clock::now());
+				so_5::send<StreamMessages::new_data_from_port>(_streamDataBox, static_cast<Interface::Interfaces>(_portId + 100), 0, data, std::chrono::high_resolution_clock::now());
 			}
 			else if (c < 0)
 			{
@@ -97,5 +100,47 @@ void SerialPort::data_read_thread()
 		}
 			
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
+	}
+}
+
+void SerialPort::set_digital_out(so_5::mbox_t report, char pin, bool state)
+{
+	if (pin == 1)
+	{
+		int rts = 0;
+		if (state)
+		{
+			if (ioctl(_portHandler, TIOCMGET, &rts) == -1)
+			{
+				// error
+			}
+			
+			rts &= ~TIOCM_RTS;
+
+			if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
+			{
+				// error
+			}
+		}
+		else
+		{
+			if (ioctl(_portHandler, TIOCMGET, &rts) != -1)
+			{
+				// error
+			}
+			
+			rts |= TIOCM_RTS;
+			if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
+			{
+				// error
+			}
+		}
+		
+		//_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
+		so_5::send<DigitalMessages::return_digital_out_state>(report, static_cast<Interface::Interfaces>(_portId + 100), pin, state, std::chrono::high_resolution_clock::now());
+	}
+	else
+	{
+		so_5::send<DigitalMessages::invalid_digital_out_pin>(report, static_cast<Interface::Interfaces>(_portId + 100), pin);
 	}
 }

@@ -45,18 +45,22 @@ void DigitalOut::LoopHelper::so_define_agent()
 				else if (interface == LabNet::INTERFACE_UART1)
 				{
 					par.id.interface = Interface::UART1;
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
 				else if (interface == LabNet::INTERFACE_UART2)
 				{
 					par.id.interface = Interface::UART2;
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
 				else if (interface == LabNet::INTERFACE_UART3)
 				{
 					par.id.interface = Interface::UART3;
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
 				else if (interface == LabNet::INTERFACE_UART4)
 				{
 					par.id.interface = Interface::UART4;
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
 				else
 				{

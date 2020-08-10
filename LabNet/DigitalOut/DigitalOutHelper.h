@@ -25,6 +25,7 @@ namespace DigitalOut
 		const so_5::mbox_t _selfBox;
 		const so_5::mbox_t _labNetBox;
 		const so_5::mbox_t _gpioBox;
+		const so_5::mbox_t _uartBox;
 		
 		std::map<std::string, so_5::mbox_t> _loopHelper;
 		std::map<PinId, so_5::mbox_t> _pulseHelper;
