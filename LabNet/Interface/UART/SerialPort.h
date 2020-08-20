@@ -25,7 +25,7 @@ private:
 	
 	void data_read_thread();
 	
-	
+	const int EN_UART0 = 2;
 	const int _portId;
 	const int _portHandler;
 	const int _baud;

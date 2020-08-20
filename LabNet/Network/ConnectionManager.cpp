@@ -55,7 +55,7 @@ void ConnectionManager::stop_all()
 	m_connections.clear();
 }
 
-void ConnectionManager::on_new_data(std::shared_ptr<LabNet::Client::ClientWrappedMessage> mes)
+void ConnectionManager::on_new_data(std::shared_ptr<LabNetProt::Client::ClientWrappedMessage> mes)
 {
-	so_5::send<std::shared_ptr<LabNet::Client::ClientWrappedMessage>>(_labNetBox, mes);
+	so_5::send<std::shared_ptr<LabNetProt::Client::ClientWrappedMessage>>(_labNetBox, mes);
 }

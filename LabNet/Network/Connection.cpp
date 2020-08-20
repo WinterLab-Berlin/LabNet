@@ -79,7 +79,7 @@ void Connection::start_read_body(unsigned msg_len)
 
 void Connection::handle_request()
 {
-	using namespace LabNet::Client;
+	using namespace LabNetProt::Client;
 	
 	std::shared_ptr<ClientWrappedMessage> cwm = std::make_shared<ClientWrappedMessage>();
 	if (cwm->ParseFromArray(&m_readBuffer[HEADER_SIZE], m_readBuffer.size() - HEADER_SIZE))
@@ -96,8 +96,8 @@ void Connection::refuse_conection()
 {
 	auto self(shared_from_this());
 	
-	std::shared_ptr<LabNet::Server::ServerWrappedMessage> swm = std::make_shared<LabNet::Server::ServerWrappedMessage>();
-	LabNet::Server::OnlyOneConnectionAllowed *onlyOne = new LabNet::Server::OnlyOneConnectionAllowed();
+	std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> swm = std::make_shared<LabNetProt::Server::ServerWrappedMessage>();
+	LabNetProt::Server::OnlyOneConnectionAllowed *onlyOne = new LabNetProt::Server::OnlyOneConnectionAllowed();
 	swm->set_allocated_only_one_connection_allowed(onlyOne);
 	
 	std::vector<char> msgBuffer;
@@ -121,7 +121,7 @@ void Connection::refuse_conection()
 		});
 }
 
-void Connection::send_message(std::shared_ptr<LabNet::Server::ServerWrappedMessage> mes)
+void Connection::send_message(std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> mes)
 {
 	auto self(shared_from_this());
 	
@@ -166,7 +166,7 @@ void Connection::write_handler(const boost::system::error_code& error, const siz
 	}
 }
 
-bool Connection::pack_msg(std::shared_ptr<LabNet::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer)
+bool Connection::pack_msg(std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer)
 {
 	int size = msg->ByteSize();
 	data_buffer.resize(HEADER_SIZE + size);

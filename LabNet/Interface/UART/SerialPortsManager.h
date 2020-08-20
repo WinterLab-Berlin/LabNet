@@ -39,7 +39,9 @@ namespace uart
 		Logger _logger;
 		std::map<int, int> _handle_for_port;
 		std::map<int, std::unique_ptr<SerialPort>> _ports;
+		
 		long long _raspiRevision;
 		const long long R3BPV1_3 = 0xa020d3;
+		const long long R3BV1_2 = 0xa02082;
 	};
 }

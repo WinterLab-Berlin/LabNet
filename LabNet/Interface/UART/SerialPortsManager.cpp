@@ -175,7 +175,17 @@ std::string uart::SerialPortsManager::port_name_for_id(int id)
 	if (_raspiRevision > 0)
 	{
 		if (id == 0)
-			return std::string("/dev/ttyAMA0");
+		{
+			if (_raspiRevision == R3BPV1_3 ||
+				_raspiRevision == R3BV1_2)
+			{
+				return std::string("/dev/ttyS0");
+			}
+			else
+			{
+				return std::string("/dev/ttyAMA0");
+			}
+		}
 		
 		char path[23] = "/sys/class/tty/ttyUSB ";
 		char buffer[1024];
@@ -190,7 +200,8 @@ std::string uart::SerialPortsManager::port_name_for_id(int id)
 			int len = readlink(path, buffer, sizeof(buffer) - 1);
 			if (len > 0)
 			{
-				if (_raspiRevision == R3BPV1_3)
+				if (_raspiRevision == R3BPV1_3 ||
+					_raspiRevision == R3BV1_2)
 				{
 					if (len == 84)
 					{

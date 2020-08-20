@@ -1,5 +1,6 @@
 #include "SerialPort.h"
 #include <wiringSerial.h>
+#include <wiringPi.h>
 #include <chrono>
 #include <SerialPortMessages.h>
 #include "PrivateMessages.h"
@@ -20,6 +21,12 @@ SerialPort::SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPor
 	, _isActive(true)
 	, _isPinInverted(false)
 {
+	if (_portId == 0)
+	{
+		pinMode(EN_UART0, OUTPUT);
+		digitalWrite(EN_UART0, 0);
+	}
+	
 	std::thread sendWorker{&SerialPort::data_send_thread, this, _sendToPortBox };
 	_sendWorker = std::move(sendWorker);
 		
@@ -107,32 +114,39 @@ void SerialPort::set_digital_out(so_5::mbox_t report, char pin, bool state)
 {
 	if (pin == 1)
 	{
-		int rts = 0;
-		if (state)
+		if (_portId == 0)
 		{
-			if (ioctl(_portHandler, TIOCMGET, &rts) == -1)
-			{
-				// error
-			}
-			
-			rts &= ~TIOCM_RTS;
-
-			if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
-			{
-				// error
-			}
+			digitalWrite(EN_UART0, state);
 		}
 		else
 		{
-			if (ioctl(_portHandler, TIOCMGET, &rts) != -1)
+			int rts = 0;
+			if (state)
 			{
-				// error
-			}
+				if (ioctl(_portHandler, TIOCMGET, &rts) == -1)
+				{
+					// error
+				}
 			
-			rts |= TIOCM_RTS;
-			if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
+				rts &= ~TIOCM_RTS;
+
+				if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
+				{
+					// error
+				}
+			}
+			else
 			{
-				// error
+				if (ioctl(_portHandler, TIOCMGET, &rts) != -1)
+				{
+					// error
+				}
+			
+				rts |= TIOCM_RTS;
+				if (ioctl(_portHandler, TIOCMSET, &rts) == -1) 
+				{
+					// error
+				}
 			}
 		}
 		

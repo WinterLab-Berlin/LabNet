@@ -28,7 +28,7 @@ public:
 	/// Stop all connections.
 	void stop_all();
 	
-	void on_new_data(std::shared_ptr<LabNet::Client::ClientWrappedMessage> mes);
+	void on_new_data(std::shared_ptr<LabNetProt::Client::ClientWrappedMessage> mes);
 
 private:
 	Logger m_logger;

@@ -46,17 +46,17 @@ struct TableStruct {
 };
 void AddDescriptors();
 }  // namespace protobuf_LabNet_2eproto
-namespace LabNet {
+namespace LabNetProt {
 class PinId;
 class PinIdDefaultTypeInternal;
 extern PinIdDefaultTypeInternal _PinId_default_instance_;
-}  // namespace LabNet
+}  // namespace LabNetProt
 namespace google {
 namespace protobuf {
-template<> ::LabNet::PinId* Arena::CreateMaybeMessage<::LabNet::PinId>(Arena*);
+template<> ::LabNetProt::PinId* Arena::CreateMaybeMessage<::LabNetProt::PinId>(Arena*);
 }  // namespace protobuf
 }  // namespace google
-namespace LabNet {
+namespace LabNetProt {
 
 enum Interfaces {
   INTERFACE_NONE = 0,
@@ -87,6 +87,7 @@ inline bool Interfaces_Parse(
 }
 enum Uarts {
   UART_NONE = 0,
+  UART_PORT0 = 100,
   UART_PORT1 = 101,
   UART_PORT2 = 102,
   UART_PORT3 = 103,
@@ -111,7 +112,7 @@ inline bool Uarts_Parse(
 }
 // ===================================================================
 
-class PinId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNet.PinId) */ {
+class PinId : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.PinId) */ {
  public:
   PinId();
   virtual ~PinId();
@@ -198,11 +199,11 @@ class PinId : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 
   // accessors -------------------------------------------------------
 
-  // .LabNet.Interfaces interface = 1;
+  // .LabNetProt.Interfaces interface = 1;
   void clear_interface();
   static const int kInterfaceFieldNumber = 1;
-  ::LabNet::Interfaces interface() const;
-  void set_interface(::LabNet::Interfaces value);
+  ::LabNetProt::Interfaces interface() const;
+  void set_interface(::LabNetProt::Interfaces value);
 
   // uint32 pin = 2;
   void clear_pin();
@@ -210,7 +211,7 @@ class PinId : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   ::google::protobuf::uint32 pin() const;
   void set_pin(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:LabNet.PinId)
+  // @@protoc_insertion_point(class_scope:LabNetProt.PinId)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
@@ -230,18 +231,18 @@ class PinId : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 #endif  // __GNUC__
 // PinId
 
-// .LabNet.Interfaces interface = 1;
+// .LabNetProt.Interfaces interface = 1;
 inline void PinId::clear_interface() {
   interface_ = 0;
 }
-inline ::LabNet::Interfaces PinId::interface() const {
-  // @@protoc_insertion_point(field_get:LabNet.PinId.interface)
-  return static_cast< ::LabNet::Interfaces >(interface_);
+inline ::LabNetProt::Interfaces PinId::interface() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.PinId.interface)
+  return static_cast< ::LabNetProt::Interfaces >(interface_);
 }
-inline void PinId::set_interface(::LabNet::Interfaces value) {
+inline void PinId::set_interface(::LabNetProt::Interfaces value) {
   
   interface_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.PinId.interface)
+  // @@protoc_insertion_point(field_set:LabNetProt.PinId.interface)
 }
 
 // uint32 pin = 2;
@@ -249,13 +250,13 @@ inline void PinId::clear_pin() {
   pin_ = 0u;
 }
 inline ::google::protobuf::uint32 PinId::pin() const {
-  // @@protoc_insertion_point(field_get:LabNet.PinId.pin)
+  // @@protoc_insertion_point(field_get:LabNetProt.PinId.pin)
   return pin_;
 }
 inline void PinId::set_pin(::google::protobuf::uint32 value) {
   
   pin_ = value;
-  // @@protoc_insertion_point(field_set:LabNet.PinId.pin)
+  // @@protoc_insertion_point(field_set:LabNetProt.PinId.pin)
 }
 
 #ifdef __GNUC__
@@ -264,20 +265,20 @@ inline void PinId::set_pin(::google::protobuf::uint32 value) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace LabNet
+}  // namespace LabNetProt
 
 namespace google {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::LabNet::Interfaces> : ::std::true_type {};
+template <> struct is_proto_enum< ::LabNetProt::Interfaces> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Interfaces>() {
-  return ::LabNet::Interfaces_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::LabNetProt::Interfaces>() {
+  return ::LabNetProt::Interfaces_descriptor();
 }
-template <> struct is_proto_enum< ::LabNet::Uarts> : ::std::true_type {};
+template <> struct is_proto_enum< ::LabNetProt::Uarts> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::LabNet::Uarts>() {
-  return ::LabNet::Uarts_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::LabNetProt::Uarts>() {
+  return ::LabNetProt::Uarts_descriptor();
 }
 
 }  // namespace protobuf

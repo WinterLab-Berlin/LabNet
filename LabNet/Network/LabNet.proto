@@ -19,6 +19,7 @@ message PinId {
 
 enum Uarts {
 	UART_NONE = 0;
+	UART_PORT0 = 100;
 	UART_PORT1 = 101;
 	UART_PORT2 = 102;
 	UART_PORT3 = 103;

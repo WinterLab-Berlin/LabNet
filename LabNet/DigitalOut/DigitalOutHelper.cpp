@@ -57,10 +57,10 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			_pulseHelper.clear();
 		})
 		.event(_selfBox,
-		[this](mhood_t<LabNet::Client::DigitalOutSet> msg) {
+		[this](mhood_t<LabNetProt::Client::DigitalOutSet> msg) {
 			auto interface = msg->id().interface();
 			
-			if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
+			if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
 			{
 				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				
@@ -73,7 +73,20 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, Interface::GPIO_TOP_PLANE, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
-			else if (interface == LabNet::INTERFACE_UART1)
+			else if (interface == LabNetProt::INTERFACE_UART0)
+			{
+				PinId id{Interface::UART0, msg->id().pin()};
+				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART0, msg->id().pin(), msg->state(), _labNetBox);
+				}
+			}
+			else if (interface == LabNetProt::INTERFACE_UART1)
 			{
 				PinId id{Interface::UART1, msg->id().pin()};
 				
@@ -86,7 +99,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART1, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
-			else if (interface == LabNet::INTERFACE_UART2)
+			else if (interface == LabNetProt::INTERFACE_UART2)
 			{
 				PinId id{Interface::UART2, msg->id().pin()};
 				
@@ -99,7 +112,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART2, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
-			else if (interface == LabNet::INTERFACE_UART3)
+			else if (interface == LabNetProt::INTERFACE_UART3)
 			{
 				PinId id{Interface::UART3, msg->id().pin()};
 				
@@ -112,7 +125,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART3, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
-			else if (interface == LabNet::INTERFACE_UART4)
+			else if (interface == LabNetProt::INTERFACE_UART4)
 			{
 				PinId id{Interface::UART4, msg->id().pin()};
 				
@@ -127,9 +140,9 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			}
 		})
 		.event(_selfBox,
-		[this](mhood_t<LabNet::Client::DigitalOutPulse> msg) {
+		[this](mhood_t<LabNetProt::Client::DigitalOutPulse> msg) {
 			auto interface = msg->id().interface();
-			if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
+			if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
 			{
 				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				
@@ -145,10 +158,11 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 				
 				so_5::send<start_pulse>(_pulseHelper[id], msg->high_duration(), msg->low_duration(), msg->pulses());
 			}
-			else if (interface == LabNet::INTERFACE_UART1
-				|| interface == LabNet::INTERFACE_UART2
-				|| interface == LabNet::INTERFACE_UART3
-				|| interface == LabNet::INTERFACE_UART4)
+			else if (interface == LabNetProt::INTERFACE_UART0
+				|| interface == LabNetProt::INTERFACE_UART1
+				|| interface == LabNetProt::INTERFACE_UART2
+				|| interface == LabNetProt::INTERFACE_UART3
+				|| interface == LabNetProt::INTERFACE_UART4)
 			{
 				PinId id{static_cast<Interface::Interfaces>(interface), msg->id().pin()};
 				
@@ -166,7 +180,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			}
 		})
 		.event(_selfBox,
-		[this](mhood_t<LabNet::Client::StartDigitalOutLoop> msg) {
+		[this](mhood_t<LabNetProt::Client::StartDigitalOutLoop> msg) {
 			std::string loopName = msg->loop_name();
 			
 			if (loopName.size() > 0)
@@ -184,7 +198,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 					_loopHelper[loopName] = a->so_direct_mbox();
 					so_environment().register_coop(std::move(coop));
 			
-					so_5::send<LabNet::Client::StartDigitalOutLoop>(_loopHelper[loopName], *msg);	
+					so_5::send<LabNetProt::Client::StartDigitalOutLoop>(_loopHelper[loopName], *msg);	
 				}
 				else
 				{
@@ -193,7 +207,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			}
 		})
 		.event(_selfBox,
-		[this](mhood_t<LabNet::Client::StopDigitalOutLoop> msg) {
+		[this](mhood_t<LabNetProt::Client::StopDigitalOutLoop> msg) {
 			auto loopName = msg->loop_name();
 			
 			if (_loopHelper.count(loopName) == 0)
@@ -202,7 +216,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			}
 			else
 			{
-				so_5::send<LabNet::Client::StopDigitalOutLoop>(_loopHelper[loopName], *msg);	
+				so_5::send<LabNetProt::Client::StopDigitalOutLoop>(_loopHelper[loopName], *msg);	
 				_loopHelper.erase(loopName);
 			}
 		});

@@ -28,7 +28,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 	this >>= _waitState;
 	
 	_waitState
-		.event([this](mhood_t<LabNet::Client::StartDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNetProt::Client::StartDigitalOutLoop> mes)
 		{
 			_loopPause = mes->loop_pause();
 			
@@ -37,27 +37,27 @@ void DigitalOut::LoopHelper::so_define_agent()
 				DigitalOutputParameter par;
 				
 				auto interface = mes->digital_outputs()[i].id().interface();
-				if (interface == LabNet::INTERFACE_GPIO_TOP_PLANE)
+				if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
 				{
 					par.id.interface = Interface::GPIO_TOP_PLANE;
 					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
-				else if (interface == LabNet::INTERFACE_UART1)
+				else if (interface == LabNetProt::INTERFACE_UART1)
 				{
 					par.id.interface = Interface::UART1;
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
-				else if (interface == LabNet::INTERFACE_UART2)
+				else if (interface == LabNetProt::INTERFACE_UART2)
 				{
 					par.id.interface = Interface::UART2;
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
-				else if (interface == LabNet::INTERFACE_UART3)
+				else if (interface == LabNetProt::INTERFACE_UART3)
 				{
 					par.id.interface = Interface::UART3;
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
 				}
-				else if (interface == LabNet::INTERFACE_UART4)
+				else if (interface == LabNetProt::INTERFACE_UART4)
 				{
 					par.id.interface = Interface::UART4;
 					so_5::send<DigitalMessages::set_digital_out>(_uartBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
@@ -78,7 +78,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 			
 			this >>= _runningState;
 		})
-		.event([this](mhood_t<LabNet::Client::StopDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNetProt::Client::StopDigitalOutLoop> mes)
 		{
 			so_5::send<loop_stopped>(_labNetBox, mes->loop_name());
 		
@@ -91,7 +91,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 	;
 	
 	_runningState
-		.event([this](mhood_t<LabNet::Client::StopDigitalOutLoop> mes)
+		.event([this](mhood_t<LabNetProt::Client::StopDigitalOutLoop> mes)
 		{
 			so_5::send<loop_stopped>(_labNetBox, mes->loop_name());
 		

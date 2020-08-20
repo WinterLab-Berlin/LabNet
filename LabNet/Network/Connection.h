@@ -29,12 +29,12 @@ public:
 	
 	void refuse_conection();
 	
-	void send_message(std::shared_ptr<LabNet::Server::ServerWrappedMessage> mes);
+	void send_message(std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> mes);
 
 private:
 	void start_read_header();
 	void start_read_body(unsigned msg_len);
-	bool pack_msg(std::shared_ptr<LabNet::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
+	bool pack_msg(std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> msg, std::vector<char> &data_buffer);
 	void encode_header(unsigned size, std::vector<char> &data_buffer);
 	unsigned decode_header();
 	void handle_request();

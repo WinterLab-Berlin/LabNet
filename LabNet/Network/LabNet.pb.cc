@@ -19,23 +19,23 @@
 #endif
 // @@protoc_insertion_point(includes)
 
-namespace LabNet {
+namespace LabNetProt {
 class PinIdDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PinId>
       _instance;
 } _PinId_default_instance_;
-}  // namespace LabNet
+}  // namespace LabNetProt
 namespace protobuf_LabNet_2eproto {
 static void InitDefaultsPinId() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNet::_PinId_default_instance_;
-    new (ptr) ::LabNet::PinId();
+    void* ptr = &::LabNetProt::_PinId_default_instance_;
+    new (ptr) ::LabNetProt::PinId();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNet::PinId::InitAsDefaultInstance();
+  ::LabNetProt::PinId::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_PinId =
@@ -50,19 +50,19 @@ const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::PinId, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::PinId, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::PinId, interface_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNet::PinId, pin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::PinId, interface_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::PinId, pin_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::LabNet::PinId)},
+  { 0, -1, sizeof(::LabNetProt::PinId)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNet::_PinId_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::_PinId_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -86,19 +86,20 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\014LabNet.proto\022\006LabNet\";\n\005PinId\022%\n\tinter"
-      "face\030\001 \001(\0162\022.LabNet.Interfaces\022\013\n\003pin\030\002 "
-      "\001(\r*\305\001\n\nInterfaces\022\022\n\016INTERFACE_NONE\020\000\022\034"
-      "\n\030INTERFACE_GPIO_TOP_PLANE\020\001\022\034\n\030INTERFAC"
-      "E_RFID_TOP_PLANE\020\002\022\023\n\017INTERFACE_UART0\020d\022"
-      "\023\n\017INTERFACE_UART1\020e\022\023\n\017INTERFACE_UART2\020"
-      "f\022\023\n\017INTERFACE_UART3\020g\022\023\n\017INTERFACE_UART"
-      "4\020h*V\n\005Uarts\022\r\n\tUART_NONE\020\000\022\016\n\nUART_PORT"
-      "1\020e\022\016\n\nUART_PORT2\020f\022\016\n\nUART_PORT3\020g\022\016\n\nU"
-      "ART_PORT4\020hb\006proto3"
+      "\n\014LabNet.proto\022\nLabNetProt\"\?\n\005PinId\022)\n\ti"
+      "nterface\030\001 \001(\0162\026.LabNetProt.Interfaces\022\013"
+      "\n\003pin\030\002 \001(\r*\305\001\n\nInterfaces\022\022\n\016INTERFACE_"
+      "NONE\020\000\022\034\n\030INTERFACE_GPIO_TOP_PLANE\020\001\022\034\n\030"
+      "INTERFACE_RFID_TOP_PLANE\020\002\022\023\n\017INTERFACE_"
+      "UART0\020d\022\023\n\017INTERFACE_UART1\020e\022\023\n\017INTERFAC"
+      "E_UART2\020f\022\023\n\017INTERFACE_UART3\020g\022\023\n\017INTERF"
+      "ACE_UART4\020h*f\n\005Uarts\022\r\n\tUART_NONE\020\000\022\016\n\nU"
+      "ART_PORT0\020d\022\016\n\nUART_PORT1\020e\022\016\n\nUART_PORT"
+      "2\020f\022\016\n\nUART_PORT3\020g\022\016\n\nUART_PORT4\020hb\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 379);
+      descriptor, 403);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNet.proto", &protobuf_RegisterTypes);
 }
@@ -114,7 +115,7 @@ struct StaticDescriptorInitializer {
   }
 } static_descriptor_initializer;
 }  // namespace protobuf_LabNet_2eproto
-namespace LabNet {
+namespace LabNetProt {
 const ::google::protobuf::EnumDescriptor* Interfaces_descriptor() {
   protobuf_LabNet_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_LabNet_2eproto::file_level_enum_descriptors[0];
@@ -142,6 +143,7 @@ const ::google::protobuf::EnumDescriptor* Uarts_descriptor() {
 bool Uarts_IsValid(int value) {
   switch (value) {
     case 0:
+    case 100:
     case 101:
     case 102:
     case 103:
@@ -167,7 +169,7 @@ PinId::PinId()
   ::google::protobuf::internal::InitSCC(
       &protobuf_LabNet_2eproto::scc_info_PinId.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNet.PinId)
+  // @@protoc_insertion_point(constructor:LabNetProt.PinId)
 }
 PinId::PinId(const PinId& from)
   : ::google::protobuf::Message(),
@@ -176,7 +178,7 @@ PinId::PinId(const PinId& from)
   ::memcpy(&interface_, &from.interface_,
     static_cast<size_t>(reinterpret_cast<char*>(&pin_) -
     reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
-  // @@protoc_insertion_point(copy_constructor:LabNet.PinId)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.PinId)
 }
 
 void PinId::SharedCtor() {
@@ -186,7 +188,7 @@ void PinId::SharedCtor() {
 }
 
 PinId::~PinId() {
-  // @@protoc_insertion_point(destructor:LabNet.PinId)
+  // @@protoc_insertion_point(destructor:LabNetProt.PinId)
   SharedDtor();
 }
 
@@ -208,7 +210,7 @@ const PinId& PinId::default_instance() {
 
 
 void PinId::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNet.PinId)
+// @@protoc_insertion_point(message_clear_start:LabNetProt.PinId)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -223,13 +225,13 @@ bool PinId::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNet.PinId)
+  // @@protoc_insertion_point(parse_start:LabNetProt.PinId)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .LabNet.Interfaces interface = 1;
+      // .LabNetProt.Interfaces interface = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -237,7 +239,7 @@ bool PinId::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_interface(static_cast< ::LabNet::Interfaces >(value));
+          set_interface(static_cast< ::LabNetProt::Interfaces >(value));
         } else {
           goto handle_unusual;
         }
@@ -270,21 +272,21 @@ bool PinId::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNet.PinId)
+  // @@protoc_insertion_point(parse_success:LabNetProt.PinId)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNet.PinId)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.PinId)
   return false;
 #undef DO_
 }
 
 void PinId::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNet.PinId)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.PinId)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Interfaces interface = 1;
+  // .LabNetProt.Interfaces interface = 1;
   if (this->interface() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->interface(), output);
@@ -299,17 +301,17 @@ void PinId::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNet.PinId)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.PinId)
 }
 
 ::google::protobuf::uint8* PinId::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNet.PinId)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.PinId)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNet.Interfaces interface = 1;
+  // .LabNetProt.Interfaces interface = 1;
   if (this->interface() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->interface(), target);
@@ -324,12 +326,12 @@ void PinId::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNet.PinId)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.PinId)
   return target;
 }
 
 size_t PinId::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNet.PinId)
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.PinId)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -337,7 +339,7 @@ size_t PinId::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // .LabNet.Interfaces interface = 1;
+  // .LabNetProt.Interfaces interface = 1;
   if (this->interface() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->interface());
@@ -356,22 +358,22 @@ size_t PinId::ByteSizeLong() const {
 }
 
 void PinId::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNet.PinId)
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.PinId)
   GOOGLE_DCHECK_NE(&from, this);
   const PinId* source =
       ::google::protobuf::internal::DynamicCastToGenerated<const PinId>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNet.PinId)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.PinId)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNet.PinId)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.PinId)
     MergeFrom(*source);
   }
 }
 
 void PinId::MergeFrom(const PinId& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNet.PinId)
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.PinId)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -386,14 +388,14 @@ void PinId::MergeFrom(const PinId& from) {
 }
 
 void PinId::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNet.PinId)
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.PinId)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void PinId::CopyFrom(const PinId& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNet.PinId)
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.PinId)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -421,11 +423,11 @@ void PinId::InternalSwap(PinId* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace LabNet
+}  // namespace LabNetProt
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNet::PinId* Arena::CreateMaybeMessage< ::LabNet::PinId >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNet::PinId >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::PinId* Arena::CreateMaybeMessage< ::LabNetProt::PinId >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::PinId >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
