@@ -2,11 +2,11 @@ syntax = "proto3";
 package LabNetProt.Client;
 import "LabNet.proto";
 
-// GPIO top plane messages
-message GpioInit {
+// IO board messages
+message IoBoardInit {
 }
 
-message GpioInitDigitalIn {
+message IoBoardInitDigitalIn {
 	uint32 pin = 1;
 	enum Resistor {
 		OFF = 0;
@@ -17,31 +17,31 @@ message GpioInitDigitalIn {
 	bool is_inverted = 3;
 }
 
-message GpioInitDigitalOut {
+message IoBoardInitDigitalOut {
 	uint32 pin = 1;
 	bool is_inverted = 2;
 }
-// GPIO top plane messages
+// IO board messages
 
 
-// RFID top plane messages
-message RfidInit {
+// RFID board messages
+message RfidBoardInit {
 	uint32 antenna_phase1 = 1;
 	uint32 antenna_phase2 = 2;
 	uint32 phase_duration = 3;
 	bool inverted = 4;
 }
 
-message RfidSetPhaseMatrix {
+message RfidBoardSetPhaseMatrix {
 	uint32 antenna_phase1 = 1;
 	uint32 antenna_phase2 = 2;
 	uint32 phase_duration = 3;
 }
 	
-message RfidSetSignalInversion {
+message RfidBoardSetSignalInversion {
 	bool inverted = 1;
 }
-// RFID top plane messages
+// RFID board messages
 
 
 // UART messages
@@ -56,6 +56,27 @@ message UartWriteData {
 }
 // UART messages
 
+
+// Gpio with WiringPi
+message GpioWiringPiInit {
+}
+
+message GpioWiringPiInitDigitalIn {
+	uint32 pin = 1;
+	enum Resistor {
+		OFF = 0;
+		PULL_DOWN = 1;
+		PULL_UP = 2;
+	}
+	Resistor resistor_state = 2;
+	bool is_inverted = 3;
+}
+
+message GpioWiringPiInitDigitalOut {
+	uint32 pin = 1;
+	bool is_inverted = 2;
+}
+// Gpio with WiringPi
 
 // digital out messages
 message DigitalOutSet {
@@ -100,19 +121,22 @@ message LabNetIdRequest {
 
 message ClientWrappedMessage {
 	oneof client_message {
-		LabNetResetRequest reset = 1;
-		LabNetIdRequest id = 2;
-		GpioInit gpio_init = 3;
-		GpioInitDigitalIn gpio_init_digital_in = 4;
-		GpioInitDigitalOut gpio_init_digital_out = 5;
-		RfidInit rfid_init = 6;
-		RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
-		RfidSetSignalInversion rfid_set_signal_inversion = 8;
+		LabNetResetRequest reset_request = 1;
+		LabNetIdRequest id_request = 2;
+		IoBoardInit io_board_init = 3;
+		IoBoardInitDigitalIn io_board_init_digital_in = 4;
+		IoBoardInitDigitalOut io_board_init_digital_out = 5;
+		RfidBoardInit rfid_board_init = 6;
+		RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
+		RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
 		UartInit uart_init = 9;
 		UartWriteData uart_write_data = 10;
 		DigitalOutSet digital_out_set = 11;
 		DigitalOutPulse digital_out_pulse = 12;
 		StartDigitalOutLoop start_digital_out_loop = 13;
 		StopDigitalOutLoop stop_digital_out_loop = 14;
+		GpioWiringPiInit gpio_wiring_pi_init = 15;
+		GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
+		GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
 	}
 }

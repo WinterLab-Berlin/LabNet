@@ -2,7 +2,7 @@
 
 #include <so_5/mbox.hpp>
 
-namespace RFID
+namespace rfid_board
 {
 	struct init_interface
 	{

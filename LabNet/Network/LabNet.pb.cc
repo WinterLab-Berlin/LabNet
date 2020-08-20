@@ -88,18 +88,18 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\014LabNet.proto\022\nLabNetProt\"\?\n\005PinId\022)\n\ti"
       "nterface\030\001 \001(\0162\026.LabNetProt.Interfaces\022\013"
-      "\n\003pin\030\002 \001(\r*\305\001\n\nInterfaces\022\022\n\016INTERFACE_"
-      "NONE\020\000\022\034\n\030INTERFACE_GPIO_TOP_PLANE\020\001\022\034\n\030"
-      "INTERFACE_RFID_TOP_PLANE\020\002\022\023\n\017INTERFACE_"
-      "UART0\020d\022\023\n\017INTERFACE_UART1\020e\022\023\n\017INTERFAC"
-      "E_UART2\020f\022\023\n\017INTERFACE_UART3\020g\022\023\n\017INTERF"
-      "ACE_UART4\020h*f\n\005Uarts\022\r\n\tUART_NONE\020\000\022\016\n\nU"
-      "ART_PORT0\020d\022\016\n\nUART_PORT1\020e\022\016\n\nUART_PORT"
-      "2\020f\022\016\n\nUART_PORT3\020g\022\016\n\nUART_PORT4\020hb\006pro"
-      "to3"
+      "\n\003pin\030\002 \001(\r*\330\001\n\nInterfaces\022\022\n\016INTERFACE_"
+      "NONE\020\000\022\026\n\022INTERFACE_IO_BOARD\020\001\022\030\n\024INTERF"
+      "ACE_RFID_BOARD\020\002\022\033\n\027INTERFACE_GPIO_WIRIN"
+      "GPI\020\003\022\023\n\017INTERFACE_UART0\020d\022\023\n\017INTERFACE_"
+      "UART1\020e\022\023\n\017INTERFACE_UART2\020f\022\023\n\017INTERFAC"
+      "E_UART3\020g\022\023\n\017INTERFACE_UART4\020h*f\n\005Uarts\022"
+      "\r\n\tUART_NONE\020\000\022\016\n\nUART_PORT0\020d\022\016\n\nUART_P"
+      "ORT1\020e\022\016\n\nUART_PORT2\020f\022\016\n\nUART_PORT3\020g\022\016"
+      "\n\nUART_PORT4\020hb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 403);
+      descriptor, 422);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNet.proto", &protobuf_RegisterTypes);
 }
@@ -125,6 +125,7 @@ bool Interfaces_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
     case 100:
     case 101:
     case 102:

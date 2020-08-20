@@ -1,7 +1,7 @@
 #include "LoopHelper.h"
 #include "../../Network/ProtocolAll.h"
 #include "LoopMessages.h"
-#include "../GPIO/Messages.h"
+#include "../io_board/Messages.h"
 #include "../Interface/DigitalMessages.h"
 #include <climits>
 
@@ -37,7 +37,7 @@ void DigitalOut::LoopHelper::so_define_agent()
 				DigitalOutputParameter par;
 				
 				auto interface = mes->digital_outputs()[i].id().interface();
-				if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
+				if (interface == LabNetProt::INTERFACE_IO_BOARD)
 				{
 					par.id.interface = Interface::GPIO_TOP_PLANE;
 					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());

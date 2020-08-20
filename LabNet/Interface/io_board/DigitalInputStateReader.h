@@ -7,7 +7,7 @@
 #include <LoggingFacility.h>
 #include "DigitalInput.h"
 
-namespace GPIO
+namespace io_board
 {
 	class DigitalInputStateReader
 	{

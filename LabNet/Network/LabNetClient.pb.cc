@@ -20,14 +20,17 @@
 // @@protoc_insertion_point(includes)
 
 namespace protobuf_LabNetClient_2eproto {
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInit;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalIn;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalOut;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInit;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalIn;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalOut;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInit;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInitDigitalIn;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInitDigitalOut;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetIdRequest;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_LabNetResetRequest;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidInit;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidSetPhaseMatrix;
-extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidSetSignalInversion;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardInit;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardSetPhaseMatrix;
+extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardSetSignalInversion;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_StopDigitalOutLoop;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UartInit;
 extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNetClient_2eproto ::google::protobuf::internal::SCCInfo<0> scc_info_UartWriteData;
@@ -41,36 +44,36 @@ extern PROTOBUF_INTERNAL_EXPORT_protobuf_LabNet_2eproto ::google::protobuf::inte
 }  // namespace protobuf_LabNet_2eproto
 namespace LabNetProt {
 namespace Client {
-class GpioInitDefaultTypeInternal {
+class IoBoardInitDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GpioInit>
+  ::google::protobuf::internal::ExplicitlyConstructed<IoBoardInit>
       _instance;
-} _GpioInit_default_instance_;
-class GpioInitDigitalInDefaultTypeInternal {
+} _IoBoardInit_default_instance_;
+class IoBoardInitDigitalInDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GpioInitDigitalIn>
+  ::google::protobuf::internal::ExplicitlyConstructed<IoBoardInitDigitalIn>
       _instance;
-} _GpioInitDigitalIn_default_instance_;
-class GpioInitDigitalOutDefaultTypeInternal {
+} _IoBoardInitDigitalIn_default_instance_;
+class IoBoardInitDigitalOutDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<GpioInitDigitalOut>
+  ::google::protobuf::internal::ExplicitlyConstructed<IoBoardInitDigitalOut>
       _instance;
-} _GpioInitDigitalOut_default_instance_;
-class RfidInitDefaultTypeInternal {
+} _IoBoardInitDigitalOut_default_instance_;
+class RfidBoardInitDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RfidInit>
+  ::google::protobuf::internal::ExplicitlyConstructed<RfidBoardInit>
       _instance;
-} _RfidInit_default_instance_;
-class RfidSetPhaseMatrixDefaultTypeInternal {
+} _RfidBoardInit_default_instance_;
+class RfidBoardSetPhaseMatrixDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RfidSetPhaseMatrix>
+  ::google::protobuf::internal::ExplicitlyConstructed<RfidBoardSetPhaseMatrix>
       _instance;
-} _RfidSetPhaseMatrix_default_instance_;
-class RfidSetSignalInversionDefaultTypeInternal {
+} _RfidBoardSetPhaseMatrix_default_instance_;
+class RfidBoardSetSignalInversionDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<RfidSetSignalInversion>
+  ::google::protobuf::internal::ExplicitlyConstructed<RfidBoardSetSignalInversion>
       _instance;
-} _RfidSetSignalInversion_default_instance_;
+} _RfidBoardSetSignalInversion_default_instance_;
 class UartInitDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<UartInit>
@@ -81,6 +84,21 @@ class UartWriteDataDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<UartWriteData>
       _instance;
 } _UartWriteData_default_instance_;
+class GpioWiringPiInitDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GpioWiringPiInit>
+      _instance;
+} _GpioWiringPiInit_default_instance_;
+class GpioWiringPiInitDigitalInDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GpioWiringPiInitDigitalIn>
+      _instance;
+} _GpioWiringPiInitDigitalIn_default_instance_;
+class GpioWiringPiInitDigitalOutDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<GpioWiringPiInitDigitalOut>
+      _instance;
+} _GpioWiringPiInitDigitalOut_default_instance_;
 class DigitalOutSetDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutSet>
@@ -120,107 +138,110 @@ class ClientWrappedMessageDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<ClientWrappedMessage>
       _instance;
-  const ::LabNetProt::Client::LabNetResetRequest* reset_;
-  const ::LabNetProt::Client::LabNetIdRequest* id_;
-  const ::LabNetProt::Client::GpioInit* gpio_init_;
-  const ::LabNetProt::Client::GpioInitDigitalIn* gpio_init_digital_in_;
-  const ::LabNetProt::Client::GpioInitDigitalOut* gpio_init_digital_out_;
-  const ::LabNetProt::Client::RfidInit* rfid_init_;
-  const ::LabNetProt::Client::RfidSetPhaseMatrix* rfid_set_phase_matrix_;
-  const ::LabNetProt::Client::RfidSetSignalInversion* rfid_set_signal_inversion_;
+  const ::LabNetProt::Client::LabNetResetRequest* reset_request_;
+  const ::LabNetProt::Client::LabNetIdRequest* id_request_;
+  const ::LabNetProt::Client::IoBoardInit* io_board_init_;
+  const ::LabNetProt::Client::IoBoardInitDigitalIn* io_board_init_digital_in_;
+  const ::LabNetProt::Client::IoBoardInitDigitalOut* io_board_init_digital_out_;
+  const ::LabNetProt::Client::RfidBoardInit* rfid_board_init_;
+  const ::LabNetProt::Client::RfidBoardSetPhaseMatrix* rfid_board_set_phase_matrix_;
+  const ::LabNetProt::Client::RfidBoardSetSignalInversion* rfid_board_set_signal_inversion_;
   const ::LabNetProt::Client::UartInit* uart_init_;
   const ::LabNetProt::Client::UartWriteData* uart_write_data_;
   const ::LabNetProt::Client::DigitalOutSet* digital_out_set_;
   const ::LabNetProt::Client::DigitalOutPulse* digital_out_pulse_;
   const ::LabNetProt::Client::StartDigitalOutLoop* start_digital_out_loop_;
   const ::LabNetProt::Client::StopDigitalOutLoop* stop_digital_out_loop_;
+  const ::LabNetProt::Client::GpioWiringPiInit* gpio_wiring_pi_init_;
+  const ::LabNetProt::Client::GpioWiringPiInitDigitalIn* gpio_wiring_pi_init_digital_in_;
+  const ::LabNetProt::Client::GpioWiringPiInitDigitalOut* gpio_wiring_pi_init_digital_out_;
 } _ClientWrappedMessage_default_instance_;
 }  // namespace Client
 }  // namespace LabNetProt
 namespace protobuf_LabNetClient_2eproto {
-static void InitDefaultsGpioInit() {
+static void InitDefaultsIoBoardInit() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_GpioInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioInit();
+    void* ptr = &::LabNetProt::Client::_IoBoardInit_default_instance_;
+    new (ptr) ::LabNetProt::Client::IoBoardInit();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::GpioInit::InitAsDefaultInstance();
+  ::LabNetProt::Client::IoBoardInit::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_GpioInit =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioInit}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsIoBoardInit}, {}};
 
-static void InitDefaultsGpioInitDigitalIn() {
+static void InitDefaultsIoBoardInitDigitalIn() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_GpioInitDigitalIn_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioInitDigitalIn();
+    void* ptr = &::LabNetProt::Client::_IoBoardInitDigitalIn_default_instance_;
+    new (ptr) ::LabNetProt::Client::IoBoardInitDigitalIn();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::GpioInitDigitalIn::InitAsDefaultInstance();
+  ::LabNetProt::Client::IoBoardInitDigitalIn::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalIn =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioInitDigitalIn}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInitDigitalIn =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsIoBoardInitDigitalIn}, {}};
 
-static void InitDefaultsGpioInitDigitalOut() {
+static void InitDefaultsIoBoardInitDigitalOut() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_GpioInitDigitalOut_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioInitDigitalOut();
+    void* ptr = &::LabNetProt::Client::_IoBoardInitDigitalOut_default_instance_;
+    new (ptr) ::LabNetProt::Client::IoBoardInitDigitalOut();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::GpioInitDigitalOut::InitAsDefaultInstance();
+  ::LabNetProt::Client::IoBoardInitDigitalOut::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_GpioInitDigitalOut =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioInitDigitalOut}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_IoBoardInitDigitalOut =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsIoBoardInitDigitalOut}, {}};
 
-static void InitDefaultsRfidInit() {
+static void InitDefaultsRfidBoardInit() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_RfidInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::RfidInit();
+    void* ptr = &::LabNetProt::Client::_RfidBoardInit_default_instance_;
+    new (ptr) ::LabNetProt::Client::RfidBoardInit();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::RfidInit::InitAsDefaultInstance();
+  ::LabNetProt::Client::RfidBoardInit::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_RfidInit =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidInit}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardInit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidBoardInit}, {}};
 
-static void InitDefaultsRfidSetPhaseMatrix() {
+static void InitDefaultsRfidBoardSetPhaseMatrix() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_RfidSetPhaseMatrix_default_instance_;
-    new (ptr) ::LabNetProt::Client::RfidSetPhaseMatrix();
+    void* ptr = &::LabNetProt::Client::_RfidBoardSetPhaseMatrix_default_instance_;
+    new (ptr) ::LabNetProt::Client::RfidBoardSetPhaseMatrix();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::RfidSetPhaseMatrix::InitAsDefaultInstance();
+  ::LabNetProt::Client::RfidBoardSetPhaseMatrix::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_RfidSetPhaseMatrix =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidSetPhaseMatrix}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardSetPhaseMatrix =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidBoardSetPhaseMatrix}, {}};
 
-static void InitDefaultsRfidSetSignalInversion() {
+static void InitDefaultsRfidBoardSetSignalInversion() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_RfidSetSignalInversion_default_instance_;
-    new (ptr) ::LabNetProt::Client::RfidSetSignalInversion();
+    void* ptr = &::LabNetProt::Client::_RfidBoardSetSignalInversion_default_instance_;
+    new (ptr) ::LabNetProt::Client::RfidBoardSetSignalInversion();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::RfidSetSignalInversion::InitAsDefaultInstance();
+  ::LabNetProt::Client::RfidBoardSetSignalInversion::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_RfidSetSignalInversion =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidSetSignalInversion}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_RfidBoardSetSignalInversion =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsRfidBoardSetSignalInversion}, {}};
 
 static void InitDefaultsUartInit() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -249,6 +270,48 @@ static void InitDefaultsUartWriteData() {
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_UartWriteData =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUartWriteData}, {}};
+
+static void InitDefaultsGpioWiringPiInit() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_GpioWiringPiInit_default_instance_;
+    new (ptr) ::LabNetProt::Client::GpioWiringPiInit();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::GpioWiringPiInit::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioWiringPiInit}, {}};
+
+static void InitDefaultsGpioWiringPiInitDigitalIn() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_GpioWiringPiInitDigitalIn_default_instance_;
+    new (ptr) ::LabNetProt::Client::GpioWiringPiInitDigitalIn();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::GpioWiringPiInitDigitalIn::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalIn =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioWiringPiInitDigitalIn}, {}};
+
+static void InitDefaultsGpioWiringPiInitDigitalOut() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_GpioWiringPiInitDigitalOut_default_instance_;
+    new (ptr) ::LabNetProt::Client::GpioWiringPiInitDigitalOut();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::GpioWiringPiInitDigitalOut::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalOut =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsGpioWiringPiInitDigitalOut}, {}};
 
 static void InitDefaultsDigitalOutSet() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -363,32 +426,38 @@ static void InitDefaultsClientWrappedMessage() {
   ::LabNetProt::Client::ClientWrappedMessage::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<14> scc_info_ClientWrappedMessage =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 14, InitDefaultsClientWrappedMessage}, {
+::google::protobuf::internal::SCCInfo<17> scc_info_ClientWrappedMessage =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 17, InitDefaultsClientWrappedMessage}, {
       &protobuf_LabNetClient_2eproto::scc_info_LabNetResetRequest.base,
       &protobuf_LabNetClient_2eproto::scc_info_LabNetIdRequest.base,
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInit.base,
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalIn.base,
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalOut.base,
-      &protobuf_LabNetClient_2eproto::scc_info_RfidInit.base,
-      &protobuf_LabNetClient_2eproto::scc_info_RfidSetPhaseMatrix.base,
-      &protobuf_LabNetClient_2eproto::scc_info_RfidSetSignalInversion.base,
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInit.base,
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalIn.base,
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalOut.base,
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardInit.base,
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetPhaseMatrix.base,
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetSignalInversion.base,
       &protobuf_LabNetClient_2eproto::scc_info_UartInit.base,
       &protobuf_LabNetClient_2eproto::scc_info_UartWriteData.base,
       &protobuf_LabNetClient_2eproto::scc_info_DigitalOutSet.base,
       &protobuf_LabNetClient_2eproto::scc_info_DigitalOutPulse.base,
       &protobuf_LabNetClient_2eproto::scc_info_StartDigitalOutLoop.base,
-      &protobuf_LabNetClient_2eproto::scc_info_StopDigitalOutLoop.base,}};
+      &protobuf_LabNetClient_2eproto::scc_info_StopDigitalOutLoop.base,
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInit.base,
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalIn.base,
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalOut.base,}};
 
 void InitDefaults() {
-  ::google::protobuf::internal::InitSCC(&scc_info_GpioInit.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GpioInitDigitalIn.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_GpioInitDigitalOut.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_RfidInit.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_RfidSetPhaseMatrix.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_RfidSetSignalInversion.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInitDigitalIn.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInitDigitalOut.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RfidBoardInit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RfidBoardSetPhaseMatrix.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_RfidBoardSetSignalInversion.base);
   ::google::protobuf::internal::InitSCC(&scc_info_UartInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_UartWriteData.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GpioWiringPiInit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GpioWiringPiInitDigitalIn.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_GpioWiringPiInitDigitalOut.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutSet.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutPulse.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StartDigitalOutLoop_DigitalOutputParameter.base);
@@ -399,53 +468,53 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ClientWrappedMessage.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[16];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+::google::protobuf::Metadata file_level_metadata[19];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInit, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInit, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalIn, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalIn, pin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalIn, resistor_state_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalIn, is_inverted_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, pin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, resistor_state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, is_inverted_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalOut, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalOut, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalOut, pin_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioInitDigitalOut, is_inverted_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalOut, pin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalOut, is_inverted_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidInit, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidInit, antenna_phase1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidInit, antenna_phase2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidInit, phase_duration_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidInit, inverted_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, antenna_phase1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, antenna_phase2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, phase_duration_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, inverted_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetPhaseMatrix, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetPhaseMatrix, antenna_phase1_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetPhaseMatrix, antenna_phase2_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetPhaseMatrix, phase_duration_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, antenna_phase1_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, antenna_phase2_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, phase_duration_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetSignalInversion, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetSignalInversion, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidSetSignalInversion, inverted_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetSignalInversion, inverted_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartInit, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -460,6 +529,26 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartWriteData, port_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartWriteData, data_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, pin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, resistor_state_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, is_inverted_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalOut, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalOut, pin_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalOut, is_inverted_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::DigitalOutSet, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -513,50 +602,59 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::ClientWrappedMessage, _oneof_case_[0]),
   ~0u,  // no _weak_field_map_
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, reset_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, id_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_digital_in_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_init_digital_out_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_init_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_set_phase_matrix_),
-  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_set_signal_inversion_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, reset_request_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, id_request_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, io_board_init_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, io_board_init_digital_in_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, io_board_init_digital_out_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_board_init_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_board_set_phase_matrix_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, rfid_board_set_signal_inversion_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, uart_init_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, uart_write_data_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, digital_out_set_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, digital_out_pulse_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, start_digital_out_loop_),
   offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, stop_digital_out_loop_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_wiring_pi_init_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_wiring_pi_init_digital_in_),
+  offsetof(::LabNetProt::Client::ClientWrappedMessageDefaultTypeInternal, gpio_wiring_pi_init_digital_out_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::ClientWrappedMessage, client_message_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::LabNetProt::Client::GpioInit)},
-  { 5, -1, sizeof(::LabNetProt::Client::GpioInitDigitalIn)},
-  { 13, -1, sizeof(::LabNetProt::Client::GpioInitDigitalOut)},
-  { 20, -1, sizeof(::LabNetProt::Client::RfidInit)},
-  { 29, -1, sizeof(::LabNetProt::Client::RfidSetPhaseMatrix)},
-  { 37, -1, sizeof(::LabNetProt::Client::RfidSetSignalInversion)},
+  { 0, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
+  { 5, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalIn)},
+  { 13, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalOut)},
+  { 20, -1, sizeof(::LabNetProt::Client::RfidBoardInit)},
+  { 29, -1, sizeof(::LabNetProt::Client::RfidBoardSetPhaseMatrix)},
+  { 37, -1, sizeof(::LabNetProt::Client::RfidBoardSetSignalInversion)},
   { 43, -1, sizeof(::LabNetProt::Client::UartInit)},
   { 50, -1, sizeof(::LabNetProt::Client::UartWriteData)},
-  { 57, -1, sizeof(::LabNetProt::Client::DigitalOutSet)},
-  { 64, -1, sizeof(::LabNetProt::Client::DigitalOutPulse)},
-  { 73, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter)},
-  { 81, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop)},
-  { 89, -1, sizeof(::LabNetProt::Client::StopDigitalOutLoop)},
-  { 95, -1, sizeof(::LabNetProt::Client::LabNetResetRequest)},
-  { 100, -1, sizeof(::LabNetProt::Client::LabNetIdRequest)},
-  { 105, -1, sizeof(::LabNetProt::Client::ClientWrappedMessage)},
+  { 57, -1, sizeof(::LabNetProt::Client::GpioWiringPiInit)},
+  { 62, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalIn)},
+  { 70, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalOut)},
+  { 77, -1, sizeof(::LabNetProt::Client::DigitalOutSet)},
+  { 84, -1, sizeof(::LabNetProt::Client::DigitalOutPulse)},
+  { 93, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter)},
+  { 101, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop)},
+  { 109, -1, sizeof(::LabNetProt::Client::StopDigitalOutLoop)},
+  { 115, -1, sizeof(::LabNetProt::Client::LabNetResetRequest)},
+  { 120, -1, sizeof(::LabNetProt::Client::LabNetIdRequest)},
+  { 125, -1, sizeof(::LabNetProt::Client::ClientWrappedMessage)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioInit_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioInitDigitalIn_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioInitDigitalOut_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidInit_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidSetPhaseMatrix_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidSetSignalInversion_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_IoBoardInit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_IoBoardInitDigitalIn_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_IoBoardInitDigitalOut_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidBoardInit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidBoardSetPhaseMatrix_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_RfidBoardSetSignalInversion_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_UartInit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_UartWriteData_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioWiringPiInit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioWiringPiInitDigitalIn_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_GpioWiringPiInitDigitalOut_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_DigitalOutSet_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_DigitalOutPulse_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_StartDigitalOutLoop_DigitalOutputParameter_default_instance_),
@@ -582,68 +680,83 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 16);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 19);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\022LabNetClient.proto\022\021LabNetProt.Client\032"
-      "\014LabNet.proto\"\n\n\010GpioInit\"\255\001\n\021GpioInitDi"
-      "gitalIn\022\013\n\003pin\030\001 \001(\r\022E\n\016resistor_state\030\002"
-      " \001(\0162-.LabNetProt.Client.GpioInitDigital"
-      "In.Resistor\022\023\n\013is_inverted\030\003 \001(\010\"/\n\010Resi"
-      "stor\022\007\n\003OFF\020\000\022\r\n\tPULL_DOWN\020\001\022\013\n\007PULL_UP\020"
-      "\002\"6\n\022GpioInitDigitalOut\022\013\n\003pin\030\001 \001(\r\022\023\n\013"
-      "is_inverted\030\002 \001(\010\"d\n\010RfidInit\022\026\n\016antenna"
-      "_phase1\030\001 \001(\r\022\026\n\016antenna_phase2\030\002 \001(\r\022\026\n"
-      "\016phase_duration\030\003 \001(\r\022\020\n\010inverted\030\004 \001(\010\""
-      "\\\n\022RfidSetPhaseMatrix\022\026\n\016antenna_phase1\030"
-      "\001 \001(\r\022\026\n\016antenna_phase2\030\002 \001(\r\022\026\n\016phase_d"
-      "uration\030\003 \001(\r\"*\n\026RfidSetSignalInversion\022"
-      "\020\n\010inverted\030\001 \001(\010\"9\n\010UartInit\022\037\n\004port\030\001 "
-      "\001(\0162\021.LabNetProt.Uarts\022\014\n\004baud\030\002 \001(\r\">\n\r"
-      "UartWriteData\022\037\n\004port\030\001 \001(\0162\021.LabNetProt"
-      ".Uarts\022\014\n\004data\030\002 \001(\014\"=\n\rDigitalOutSet\022\035\n"
-      "\002id\030\001 \001(\0132\021.LabNetProt.PinId\022\r\n\005state\030\002 "
-      "\001(\010\"m\n\017DigitalOutPulse\022\035\n\002id\030\001 \001(\0132\021.Lab"
-      "NetProt.PinId\022\025\n\rhigh_duration\030\002 \001(\r\022\024\n\014"
-      "low_duration\030\003 \001(\r\022\016\n\006pulses\030\004 \001(\r\"\357\001\n\023S"
-      "tartDigitalOutLoop\022\021\n\tloop_name\030\001 \001(\t\022\022\n"
-      "\nloop_pause\030\002 \001(\r\022V\n\017digital_outputs\030\003 \003"
-      "(\0132=.LabNetProt.Client.StartDigitalOutLo"
-      "op.DigitalOutputParameter\032Y\n\026DigitalOutp"
-      "utParameter\022\035\n\002id\030\001 \001(\0132\021.LabNetProt.Pin"
-      "Id\022\016\n\006offset\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\'\n\022"
-      "StopDigitalOutLoop\022\021\n\tloop_name\030\001 \001(\t\"\024\n"
-      "\022LabNetResetRequest\"\021\n\017LabNetIdRequest\"\233"
-      "\007\n\024ClientWrappedMessage\0226\n\005reset\030\001 \001(\0132%"
-      ".LabNetProt.Client.LabNetResetRequestH\000\022"
-      "0\n\002id\030\002 \001(\0132\".LabNetProt.Client.LabNetId"
-      "RequestH\000\0220\n\tgpio_init\030\003 \001(\0132\033.LabNetPro"
-      "t.Client.GpioInitH\000\022D\n\024gpio_init_digital"
-      "_in\030\004 \001(\0132$.LabNetProt.Client.GpioInitDi"
-      "gitalInH\000\022F\n\025gpio_init_digital_out\030\005 \001(\013"
-      "2%.LabNetProt.Client.GpioInitDigitalOutH"
-      "\000\0220\n\trfid_init\030\006 \001(\0132\033.LabNetProt.Client"
-      ".RfidInitH\000\022F\n\025rfid_set_phase_matrix\030\007 \001"
-      "(\0132%.LabNetProt.Client.RfidSetPhaseMatri"
-      "xH\000\022N\n\031rfid_set_signal_inversion\030\010 \001(\0132)"
-      ".LabNetProt.Client.RfidSetSignalInversio"
-      "nH\000\0220\n\tuart_init\030\t \001(\0132\033.LabNetProt.Clie"
-      "nt.UartInitH\000\022;\n\017uart_write_data\030\n \001(\0132 "
-      ".LabNetProt.Client.UartWriteDataH\000\022;\n\017di"
-      "gital_out_set\030\013 \001(\0132 .LabNetProt.Client."
-      "DigitalOutSetH\000\022\?\n\021digital_out_pulse\030\014 \001"
-      "(\0132\".LabNetProt.Client.DigitalOutPulseH\000"
-      "\022H\n\026start_digital_out_loop\030\r \001(\0132&.LabNe"
-      "tProt.Client.StartDigitalOutLoopH\000\022F\n\025st"
-      "op_digital_out_loop\030\016 \001(\0132%.LabNetProt.C"
-      "lient.StopDigitalOutLoopH\000B\020\n\016client_mes"
-      "sageb\006proto3"
+      "\014LabNet.proto\"\r\n\013IoBoardInit\"\263\001\n\024IoBoard"
+      "InitDigitalIn\022\013\n\003pin\030\001 \001(\r\022H\n\016resistor_s"
+      "tate\030\002 \001(\01620.LabNetProt.Client.IoBoardIn"
+      "itDigitalIn.Resistor\022\023\n\013is_inverted\030\003 \001("
+      "\010\"/\n\010Resistor\022\007\n\003OFF\020\000\022\r\n\tPULL_DOWN\020\001\022\013\n"
+      "\007PULL_UP\020\002\"9\n\025IoBoardInitDigitalOut\022\013\n\003p"
+      "in\030\001 \001(\r\022\023\n\013is_inverted\030\002 \001(\010\"i\n\rRfidBoa"
+      "rdInit\022\026\n\016antenna_phase1\030\001 \001(\r\022\026\n\016antenn"
+      "a_phase2\030\002 \001(\r\022\026\n\016phase_duration\030\003 \001(\r\022\020"
+      "\n\010inverted\030\004 \001(\010\"a\n\027RfidBoardSetPhaseMat"
+      "rix\022\026\n\016antenna_phase1\030\001 \001(\r\022\026\n\016antenna_p"
+      "hase2\030\002 \001(\r\022\026\n\016phase_duration\030\003 \001(\r\"/\n\033R"
+      "fidBoardSetSignalInversion\022\020\n\010inverted\030\001"
+      " \001(\010\"9\n\010UartInit\022\037\n\004port\030\001 \001(\0162\021.LabNetP"
+      "rot.Uarts\022\014\n\004baud\030\002 \001(\r\">\n\rUartWriteData"
+      "\022\037\n\004port\030\001 \001(\0162\021.LabNetProt.Uarts\022\014\n\004dat"
+      "a\030\002 \001(\014\"\022\n\020GpioWiringPiInit\"\275\001\n\031GpioWiri"
+      "ngPiInitDigitalIn\022\013\n\003pin\030\001 \001(\r\022M\n\016resist"
+      "or_state\030\002 \001(\01625.LabNetProt.Client.GpioW"
+      "iringPiInitDigitalIn.Resistor\022\023\n\013is_inve"
+      "rted\030\003 \001(\010\"/\n\010Resistor\022\007\n\003OFF\020\000\022\r\n\tPULL_"
+      "DOWN\020\001\022\013\n\007PULL_UP\020\002\">\n\032GpioWiringPiInitD"
+      "igitalOut\022\013\n\003pin\030\001 \001(\r\022\023\n\013is_inverted\030\002 "
+      "\001(\010\"=\n\rDigitalOutSet\022\035\n\002id\030\001 \001(\0132\021.LabNe"
+      "tProt.PinId\022\r\n\005state\030\002 \001(\010\"m\n\017DigitalOut"
+      "Pulse\022\035\n\002id\030\001 \001(\0132\021.LabNetProt.PinId\022\025\n\r"
+      "high_duration\030\002 \001(\r\022\024\n\014low_duration\030\003 \001("
+      "\r\022\016\n\006pulses\030\004 \001(\r\"\357\001\n\023StartDigitalOutLoo"
+      "p\022\021\n\tloop_name\030\001 \001(\t\022\022\n\nloop_pause\030\002 \001(\r"
+      "\022V\n\017digital_outputs\030\003 \003(\0132=.LabNetProt.C"
+      "lient.StartDigitalOutLoop.DigitalOutputP"
+      "arameter\032Y\n\026DigitalOutputParameter\022\035\n\002id"
+      "\030\001 \001(\0132\021.LabNetProt.PinId\022\016\n\006offset\030\002 \001("
+      "\r\022\020\n\010duration\030\003 \001(\r\"\'\n\022StopDigitalOutLoo"
+      "p\022\021\n\tloop_name\030\001 \001(\t\"\024\n\022LabNetResetReque"
+      "st\"\021\n\017LabNetIdRequest\"\327\t\n\024ClientWrappedM"
+      "essage\022>\n\rreset_request\030\001 \001(\0132%.LabNetPr"
+      "ot.Client.LabNetResetRequestH\000\0228\n\nid_req"
+      "uest\030\002 \001(\0132\".LabNetProt.Client.LabNetIdR"
+      "equestH\000\0227\n\rio_board_init\030\003 \001(\0132\036.LabNet"
+      "Prot.Client.IoBoardInitH\000\022K\n\030io_board_in"
+      "it_digital_in\030\004 \001(\0132\'.LabNetProt.Client."
+      "IoBoardInitDigitalInH\000\022M\n\031io_board_init_"
+      "digital_out\030\005 \001(\0132(.LabNetProt.Client.Io"
+      "BoardInitDigitalOutH\000\022;\n\017rfid_board_init"
+      "\030\006 \001(\0132 .LabNetProt.Client.RfidBoardInit"
+      "H\000\022Q\n\033rfid_board_set_phase_matrix\030\007 \001(\0132"
+      "*.LabNetProt.Client.RfidBoardSetPhaseMat"
+      "rixH\000\022Y\n\037rfid_board_set_signal_inversion"
+      "\030\010 \001(\0132..LabNetProt.Client.RfidBoardSetS"
+      "ignalInversionH\000\0220\n\tuart_init\030\t \001(\0132\033.La"
+      "bNetProt.Client.UartInitH\000\022;\n\017uart_write"
+      "_data\030\n \001(\0132 .LabNetProt.Client.UartWrit"
+      "eDataH\000\022;\n\017digital_out_set\030\013 \001(\0132 .LabNe"
+      "tProt.Client.DigitalOutSetH\000\022\?\n\021digital_"
+      "out_pulse\030\014 \001(\0132\".LabNetProt.Client.Digi"
+      "talOutPulseH\000\022H\n\026start_digital_out_loop\030"
+      "\r \001(\0132&.LabNetProt.Client.StartDigitalOu"
+      "tLoopH\000\022F\n\025stop_digital_out_loop\030\016 \001(\0132%"
+      ".LabNetProt.Client.StopDigitalOutLoopH\000\022"
+      "B\n\023gpio_wiring_pi_init\030\017 \001(\0132#.LabNetPro"
+      "t.Client.GpioWiringPiInitH\000\022V\n\036gpio_wiri"
+      "ng_pi_init_digital_in\030\020 \001(\0132,.LabNetProt"
+      ".Client.GpioWiringPiInitDigitalInH\000\022X\n\037g"
+      "pio_wiring_pi_init_digital_out\030\021 \001(\0132-.L"
+      "abNetProt.Client.GpioWiringPiInitDigital"
+      "OutH\000B\020\n\016client_messageb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2092);
+      descriptor, 2711);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClient.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
@@ -662,11 +775,11 @@ struct StaticDescriptorInitializer {
 }  // namespace protobuf_LabNetClient_2eproto
 namespace LabNetProt {
 namespace Client {
-const ::google::protobuf::EnumDescriptor* GpioInitDigitalIn_Resistor_descriptor() {
+const ::google::protobuf::EnumDescriptor* IoBoardInitDigitalIn_Resistor_descriptor() {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_LabNetClient_2eproto::file_level_enum_descriptors[0];
 }
-bool GpioInitDigitalIn_Resistor_IsValid(int value) {
+bool IoBoardInitDigitalIn_Resistor_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -678,62 +791,85 @@ bool GpioInitDigitalIn_Resistor_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const GpioInitDigitalIn_Resistor GpioInitDigitalIn::OFF;
-const GpioInitDigitalIn_Resistor GpioInitDigitalIn::PULL_DOWN;
-const GpioInitDigitalIn_Resistor GpioInitDigitalIn::PULL_UP;
-const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MIN;
-const GpioInitDigitalIn_Resistor GpioInitDigitalIn::Resistor_MAX;
-const int GpioInitDigitalIn::Resistor_ARRAYSIZE;
+const IoBoardInitDigitalIn_Resistor IoBoardInitDigitalIn::OFF;
+const IoBoardInitDigitalIn_Resistor IoBoardInitDigitalIn::PULL_DOWN;
+const IoBoardInitDigitalIn_Resistor IoBoardInitDigitalIn::PULL_UP;
+const IoBoardInitDigitalIn_Resistor IoBoardInitDigitalIn::Resistor_MIN;
+const IoBoardInitDigitalIn_Resistor IoBoardInitDigitalIn::Resistor_MAX;
+const int IoBoardInitDigitalIn::Resistor_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* GpioWiringPiInitDigitalIn_Resistor_descriptor() {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetClient_2eproto::file_level_enum_descriptors[1];
+}
+bool GpioWiringPiInitDigitalIn_Resistor_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const GpioWiringPiInitDigitalIn_Resistor GpioWiringPiInitDigitalIn::OFF;
+const GpioWiringPiInitDigitalIn_Resistor GpioWiringPiInitDigitalIn::PULL_DOWN;
+const GpioWiringPiInitDigitalIn_Resistor GpioWiringPiInitDigitalIn::PULL_UP;
+const GpioWiringPiInitDigitalIn_Resistor GpioWiringPiInitDigitalIn::Resistor_MIN;
+const GpioWiringPiInitDigitalIn_Resistor GpioWiringPiInitDigitalIn::Resistor_MAX;
+const int GpioWiringPiInitDigitalIn::Resistor_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
 
-void GpioInit::InitAsDefaultInstance() {
+void IoBoardInit::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-GpioInit::GpioInit()
+IoBoardInit::IoBoardInit()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInit.base);
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInit.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.IoBoardInit)
 }
-GpioInit::GpioInit(const GpioInit& from)
+IoBoardInit::IoBoardInit(const IoBoardInit& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.IoBoardInit)
 }
 
-void GpioInit::SharedCtor() {
+void IoBoardInit::SharedCtor() {
 }
 
-GpioInit::~GpioInit() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioInit)
+IoBoardInit::~IoBoardInit() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInit)
   SharedDtor();
 }
 
-void GpioInit::SharedDtor() {
+void IoBoardInit::SharedDtor() {
 }
 
-void GpioInit::SetCachedSize(int size) const {
+void IoBoardInit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* GpioInit::descriptor() {
+const ::google::protobuf::Descriptor* IoBoardInit::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const GpioInit& GpioInit::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioInit.base);
+const IoBoardInit& IoBoardInit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_IoBoardInit.base);
   return *internal_default_instance();
 }
 
 
-void GpioInit::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioInit)
+void IoBoardInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -741,11 +877,11 @@ void GpioInit::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool GpioInit::MergePartialFromCodedStream(
+bool IoBoardInit::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.IoBoardInit)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -758,17 +894,17 @@ bool GpioInit::MergePartialFromCodedStream(
           input, tag, _internal_metadata_.mutable_unknown_fields()));
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.IoBoardInit)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.IoBoardInit)
   return false;
 #undef DO_
 }
 
-void GpioInit::SerializeWithCachedSizes(
+void IoBoardInit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.IoBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -776,13 +912,13 @@ void GpioInit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.IoBoardInit)
 }
 
-::google::protobuf::uint8* GpioInit::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* IoBoardInit::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.IoBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -790,12 +926,12 @@ void GpioInit::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.IoBoardInit)
   return target;
 }
 
-size_t GpioInit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioInit)
+size_t IoBoardInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.IoBoardInit)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -808,23 +944,23 @@ size_t GpioInit::ByteSizeLong() const {
   return total_size;
 }
 
-void GpioInit::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioInit)
+void IoBoardInit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInit)
   GOOGLE_DCHECK_NE(&from, this);
-  const GpioInit* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const GpioInit>(
+  const IoBoardInit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const IoBoardInit>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInit)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioInit)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInit)
     MergeFrom(*source);
   }
 }
 
-void GpioInit::MergeFrom(const GpioInit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioInit)
+void IoBoardInit::MergeFrom(const IoBoardInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInit)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -832,34 +968,34 @@ void GpioInit::MergeFrom(const GpioInit& from) {
 
 }
 
-void GpioInit::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioInit)
+void IoBoardInit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GpioInit::CopyFrom(const GpioInit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioInit)
+void IoBoardInit::CopyFrom(const IoBoardInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.IoBoardInit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GpioInit::IsInitialized() const {
+bool IoBoardInit::IsInitialized() const {
   return true;
 }
 
-void GpioInit::Swap(GpioInit* other) {
+void IoBoardInit::Swap(IoBoardInit* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void GpioInit::InternalSwap(GpioInit* other) {
+void IoBoardInit::InternalSwap(IoBoardInit* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata GpioInit::GetMetadata() const {
+::google::protobuf::Metadata IoBoardInit::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -867,61 +1003,61 @@ void GpioInit::InternalSwap(GpioInit* other) {
 
 // ===================================================================
 
-void GpioInitDigitalIn::InitAsDefaultInstance() {
+void IoBoardInitDigitalIn::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GpioInitDigitalIn::kPinFieldNumber;
-const int GpioInitDigitalIn::kResistorStateFieldNumber;
-const int GpioInitDigitalIn::kIsInvertedFieldNumber;
+const int IoBoardInitDigitalIn::kPinFieldNumber;
+const int IoBoardInitDigitalIn::kResistorStateFieldNumber;
+const int IoBoardInitDigitalIn::kIsInvertedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-GpioInitDigitalIn::GpioInitDigitalIn()
+IoBoardInitDigitalIn::IoBoardInitDigitalIn()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalIn.base);
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalIn.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.IoBoardInitDigitalIn)
 }
-GpioInitDigitalIn::GpioInitDigitalIn(const GpioInitDigitalIn& from)
+IoBoardInitDigitalIn::IoBoardInitDigitalIn(const IoBoardInitDigitalIn& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&pin_, &from.pin_,
     static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
     reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.IoBoardInitDigitalIn)
 }
 
-void GpioInitDigitalIn::SharedCtor() {
+void IoBoardInitDigitalIn::SharedCtor() {
   ::memset(&pin_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&is_inverted_) -
       reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
-GpioInitDigitalIn::~GpioInitDigitalIn() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioInitDigitalIn)
+IoBoardInitDigitalIn::~IoBoardInitDigitalIn() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInitDigitalIn)
   SharedDtor();
 }
 
-void GpioInitDigitalIn::SharedDtor() {
+void IoBoardInitDigitalIn::SharedDtor() {
 }
 
-void GpioInitDigitalIn::SetCachedSize(int size) const {
+void IoBoardInitDigitalIn::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* GpioInitDigitalIn::descriptor() {
+const ::google::protobuf::Descriptor* IoBoardInitDigitalIn::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const GpioInitDigitalIn& GpioInitDigitalIn::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalIn.base);
+const IoBoardInitDigitalIn& IoBoardInitDigitalIn::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalIn.base);
   return *internal_default_instance();
 }
 
 
-void GpioInitDigitalIn::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioInitDigitalIn)
+void IoBoardInitDigitalIn::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInitDigitalIn)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -932,11 +1068,11 @@ void GpioInitDigitalIn::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool GpioInitDigitalIn::MergePartialFromCodedStream(
+bool IoBoardInitDigitalIn::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.IoBoardInitDigitalIn)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -956,7 +1092,7 @@ bool GpioInitDigitalIn::MergePartialFromCodedStream(
         break;
       }
 
-      // .LabNetProt.Client.GpioInitDigitalIn.Resistor resistor_state = 2;
+      // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
@@ -964,7 +1100,7 @@ bool GpioInitDigitalIn::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_resistor_state(static_cast< ::LabNetProt::Client::GpioInitDigitalIn_Resistor >(value));
+          set_resistor_state(static_cast< ::LabNetProt::Client::IoBoardInitDigitalIn_Resistor >(value));
         } else {
           goto handle_unusual;
         }
@@ -997,17 +1133,17 @@ bool GpioInitDigitalIn::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.IoBoardInitDigitalIn)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.IoBoardInitDigitalIn)
   return false;
 #undef DO_
 }
 
-void GpioInitDigitalIn::SerializeWithCachedSizes(
+void IoBoardInitDigitalIn::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.IoBoardInitDigitalIn)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1016,7 +1152,7 @@ void GpioInitDigitalIn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pin(), output);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalIn.Resistor resistor_state = 2;
+  // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
   if (this->resistor_state() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->resistor_state(), output);
@@ -1031,13 +1167,13 @@ void GpioInitDigitalIn::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.IoBoardInitDigitalIn)
 }
 
-::google::protobuf::uint8* GpioInitDigitalIn::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* IoBoardInitDigitalIn::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.IoBoardInitDigitalIn)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1046,7 +1182,7 @@ void GpioInitDigitalIn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pin(), target);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalIn.Resistor resistor_state = 2;
+  // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
   if (this->resistor_state() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->resistor_state(), target);
@@ -1061,12 +1197,12 @@ void GpioInitDigitalIn::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.IoBoardInitDigitalIn)
   return target;
 }
 
-size_t GpioInitDigitalIn::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioInitDigitalIn)
+size_t IoBoardInitDigitalIn::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.IoBoardInitDigitalIn)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1081,7 +1217,7 @@ size_t GpioInitDigitalIn::ByteSizeLong() const {
         this->pin());
   }
 
-  // .LabNetProt.Client.GpioInitDigitalIn.Resistor resistor_state = 2;
+  // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
   if (this->resistor_state() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->resistor_state());
@@ -1097,23 +1233,23 @@ size_t GpioInitDigitalIn::ByteSizeLong() const {
   return total_size;
 }
 
-void GpioInitDigitalIn::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioInitDigitalIn)
+void IoBoardInitDigitalIn::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
   GOOGLE_DCHECK_NE(&from, this);
-  const GpioInitDigitalIn* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const GpioInitDigitalIn>(
+  const IoBoardInitDigitalIn* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const IoBoardInitDigitalIn>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInitDigitalIn)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioInitDigitalIn)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInitDigitalIn)
     MergeFrom(*source);
   }
 }
 
-void GpioInitDigitalIn::MergeFrom(const GpioInitDigitalIn& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioInitDigitalIn)
+void IoBoardInitDigitalIn::MergeFrom(const IoBoardInitDigitalIn& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1130,29 +1266,29 @@ void GpioInitDigitalIn::MergeFrom(const GpioInitDigitalIn& from) {
   }
 }
 
-void GpioInitDigitalIn::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioInitDigitalIn)
+void IoBoardInitDigitalIn::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GpioInitDigitalIn::CopyFrom(const GpioInitDigitalIn& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioInitDigitalIn)
+void IoBoardInitDigitalIn::CopyFrom(const IoBoardInitDigitalIn& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GpioInitDigitalIn::IsInitialized() const {
+bool IoBoardInitDigitalIn::IsInitialized() const {
   return true;
 }
 
-void GpioInitDigitalIn::Swap(GpioInitDigitalIn* other) {
+void IoBoardInitDigitalIn::Swap(IoBoardInitDigitalIn* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void GpioInitDigitalIn::InternalSwap(GpioInitDigitalIn* other) {
+void IoBoardInitDigitalIn::InternalSwap(IoBoardInitDigitalIn* other) {
   using std::swap;
   swap(pin_, other->pin_);
   swap(resistor_state_, other->resistor_state_);
@@ -1160,7 +1296,7 @@ void GpioInitDigitalIn::InternalSwap(GpioInitDigitalIn* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata GpioInitDigitalIn::GetMetadata() const {
+::google::protobuf::Metadata IoBoardInitDigitalIn::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1168,60 +1304,60 @@ void GpioInitDigitalIn::InternalSwap(GpioInitDigitalIn* other) {
 
 // ===================================================================
 
-void GpioInitDigitalOut::InitAsDefaultInstance() {
+void IoBoardInitDigitalOut::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int GpioInitDigitalOut::kPinFieldNumber;
-const int GpioInitDigitalOut::kIsInvertedFieldNumber;
+const int IoBoardInitDigitalOut::kPinFieldNumber;
+const int IoBoardInitDigitalOut::kIsInvertedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-GpioInitDigitalOut::GpioInitDigitalOut()
+IoBoardInitDigitalOut::IoBoardInitDigitalOut()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalOut.base);
+      &protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalOut.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.IoBoardInitDigitalOut)
 }
-GpioInitDigitalOut::GpioInitDigitalOut(const GpioInitDigitalOut& from)
+IoBoardInitDigitalOut::IoBoardInitDigitalOut(const IoBoardInitDigitalOut& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&pin_, &from.pin_,
     static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
     reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.IoBoardInitDigitalOut)
 }
 
-void GpioInitDigitalOut::SharedCtor() {
+void IoBoardInitDigitalOut::SharedCtor() {
   ::memset(&pin_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&is_inverted_) -
       reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
-GpioInitDigitalOut::~GpioInitDigitalOut() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioInitDigitalOut)
+IoBoardInitDigitalOut::~IoBoardInitDigitalOut() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInitDigitalOut)
   SharedDtor();
 }
 
-void GpioInitDigitalOut::SharedDtor() {
+void IoBoardInitDigitalOut::SharedDtor() {
 }
 
-void GpioInitDigitalOut::SetCachedSize(int size) const {
+void IoBoardInitDigitalOut::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* GpioInitDigitalOut::descriptor() {
+const ::google::protobuf::Descriptor* IoBoardInitDigitalOut::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const GpioInitDigitalOut& GpioInitDigitalOut::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioInitDigitalOut.base);
+const IoBoardInitDigitalOut& IoBoardInitDigitalOut::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_IoBoardInitDigitalOut.base);
   return *internal_default_instance();
 }
 
 
-void GpioInitDigitalOut::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioInitDigitalOut)
+void IoBoardInitDigitalOut::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInitDigitalOut)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1232,11 +1368,11 @@ void GpioInitDigitalOut::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool GpioInitDigitalOut::MergePartialFromCodedStream(
+bool IoBoardInitDigitalOut::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.IoBoardInitDigitalOut)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1282,17 +1418,17 @@ bool GpioInitDigitalOut::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.IoBoardInitDigitalOut)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.IoBoardInitDigitalOut)
   return false;
 #undef DO_
 }
 
-void GpioInitDigitalOut::SerializeWithCachedSizes(
+void IoBoardInitDigitalOut::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.IoBoardInitDigitalOut)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1310,13 +1446,13 @@ void GpioInitDigitalOut::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.IoBoardInitDigitalOut)
 }
 
-::google::protobuf::uint8* GpioInitDigitalOut::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* IoBoardInitDigitalOut::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.IoBoardInitDigitalOut)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1334,12 +1470,12 @@ void GpioInitDigitalOut::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.IoBoardInitDigitalOut)
   return target;
 }
 
-size_t GpioInitDigitalOut::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioInitDigitalOut)
+size_t IoBoardInitDigitalOut::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.IoBoardInitDigitalOut)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1364,23 +1500,23 @@ size_t GpioInitDigitalOut::ByteSizeLong() const {
   return total_size;
 }
 
-void GpioInitDigitalOut::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioInitDigitalOut)
+void IoBoardInitDigitalOut::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
   GOOGLE_DCHECK_NE(&from, this);
-  const GpioInitDigitalOut* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const GpioInitDigitalOut>(
+  const IoBoardInitDigitalOut* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const IoBoardInitDigitalOut>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInitDigitalOut)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioInitDigitalOut)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInitDigitalOut)
     MergeFrom(*source);
   }
 }
 
-void GpioInitDigitalOut::MergeFrom(const GpioInitDigitalOut& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioInitDigitalOut)
+void IoBoardInitDigitalOut::MergeFrom(const IoBoardInitDigitalOut& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1394,36 +1530,36 @@ void GpioInitDigitalOut::MergeFrom(const GpioInitDigitalOut& from) {
   }
 }
 
-void GpioInitDigitalOut::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioInitDigitalOut)
+void IoBoardInitDigitalOut::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GpioInitDigitalOut::CopyFrom(const GpioInitDigitalOut& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioInitDigitalOut)
+void IoBoardInitDigitalOut::CopyFrom(const IoBoardInitDigitalOut& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GpioInitDigitalOut::IsInitialized() const {
+bool IoBoardInitDigitalOut::IsInitialized() const {
   return true;
 }
 
-void GpioInitDigitalOut::Swap(GpioInitDigitalOut* other) {
+void IoBoardInitDigitalOut::Swap(IoBoardInitDigitalOut* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void GpioInitDigitalOut::InternalSwap(GpioInitDigitalOut* other) {
+void IoBoardInitDigitalOut::InternalSwap(IoBoardInitDigitalOut* other) {
   using std::swap;
   swap(pin_, other->pin_);
   swap(is_inverted_, other->is_inverted_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata GpioInitDigitalOut::GetMetadata() const {
+::google::protobuf::Metadata IoBoardInitDigitalOut::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1431,62 +1567,62 @@ void GpioInitDigitalOut::InternalSwap(GpioInitDigitalOut* other) {
 
 // ===================================================================
 
-void RfidInit::InitAsDefaultInstance() {
+void RfidBoardInit::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RfidInit::kAntennaPhase1FieldNumber;
-const int RfidInit::kAntennaPhase2FieldNumber;
-const int RfidInit::kPhaseDurationFieldNumber;
-const int RfidInit::kInvertedFieldNumber;
+const int RfidBoardInit::kAntennaPhase1FieldNumber;
+const int RfidBoardInit::kAntennaPhase2FieldNumber;
+const int RfidBoardInit::kPhaseDurationFieldNumber;
+const int RfidBoardInit::kInvertedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RfidInit::RfidInit()
+RfidBoardInit::RfidBoardInit()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_RfidInit.base);
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardInit.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidBoardInit)
 }
-RfidInit::RfidInit(const RfidInit& from)
+RfidBoardInit::RfidBoardInit(const RfidBoardInit& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&antenna_phase1_, &from.antenna_phase1_,
     static_cast<size_t>(reinterpret_cast<char*>(&inverted_) -
     reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(inverted_));
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidBoardInit)
 }
 
-void RfidInit::SharedCtor() {
+void RfidBoardInit::SharedCtor() {
   ::memset(&antenna_phase1_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&inverted_) -
       reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(inverted_));
 }
 
-RfidInit::~RfidInit() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidInit)
+RfidBoardInit::~RfidBoardInit() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidBoardInit)
   SharedDtor();
 }
 
-void RfidInit::SharedDtor() {
+void RfidBoardInit::SharedDtor() {
 }
 
-void RfidInit::SetCachedSize(int size) const {
+void RfidBoardInit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* RfidInit::descriptor() {
+const ::google::protobuf::Descriptor* RfidBoardInit::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RfidInit& RfidInit::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidInit.base);
+const RfidBoardInit& RfidBoardInit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidBoardInit.base);
   return *internal_default_instance();
 }
 
 
-void RfidInit::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidInit)
+void RfidBoardInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1497,11 +1633,11 @@ void RfidInit::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool RfidInit::MergePartialFromCodedStream(
+bool RfidBoardInit::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidBoardInit)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1575,17 +1711,17 @@ bool RfidInit::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidBoardInit)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidBoardInit)
   return false;
 #undef DO_
 }
 
-void RfidInit::SerializeWithCachedSizes(
+void RfidBoardInit::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1613,13 +1749,13 @@ void RfidInit::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidBoardInit)
 }
 
-::google::protobuf::uint8* RfidInit::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* RfidBoardInit::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidBoardInit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1647,12 +1783,12 @@ void RfidInit::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidBoardInit)
   return target;
 }
 
-size_t RfidInit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidInit)
+size_t RfidBoardInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidBoardInit)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1691,23 +1827,23 @@ size_t RfidInit::ByteSizeLong() const {
   return total_size;
 }
 
-void RfidInit::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidInit)
+void RfidBoardInit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidBoardInit)
   GOOGLE_DCHECK_NE(&from, this);
-  const RfidInit* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RfidInit>(
+  const RfidBoardInit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const RfidBoardInit>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidBoardInit)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidInit)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidBoardInit)
     MergeFrom(*source);
   }
 }
 
-void RfidInit::MergeFrom(const RfidInit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidInit)
+void RfidBoardInit::MergeFrom(const RfidBoardInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidBoardInit)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1727,29 +1863,29 @@ void RfidInit::MergeFrom(const RfidInit& from) {
   }
 }
 
-void RfidInit::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidInit)
+void RfidBoardInit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidBoardInit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RfidInit::CopyFrom(const RfidInit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidInit)
+void RfidBoardInit::CopyFrom(const RfidBoardInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidBoardInit)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RfidInit::IsInitialized() const {
+bool RfidBoardInit::IsInitialized() const {
   return true;
 }
 
-void RfidInit::Swap(RfidInit* other) {
+void RfidBoardInit::Swap(RfidBoardInit* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RfidInit::InternalSwap(RfidInit* other) {
+void RfidBoardInit::InternalSwap(RfidBoardInit* other) {
   using std::swap;
   swap(antenna_phase1_, other->antenna_phase1_);
   swap(antenna_phase2_, other->antenna_phase2_);
@@ -1758,7 +1894,7 @@ void RfidInit::InternalSwap(RfidInit* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata RfidInit::GetMetadata() const {
+::google::protobuf::Metadata RfidBoardInit::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -1766,61 +1902,61 @@ void RfidInit::InternalSwap(RfidInit* other) {
 
 // ===================================================================
 
-void RfidSetPhaseMatrix::InitAsDefaultInstance() {
+void RfidBoardSetPhaseMatrix::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RfidSetPhaseMatrix::kAntennaPhase1FieldNumber;
-const int RfidSetPhaseMatrix::kAntennaPhase2FieldNumber;
-const int RfidSetPhaseMatrix::kPhaseDurationFieldNumber;
+const int RfidBoardSetPhaseMatrix::kAntennaPhase1FieldNumber;
+const int RfidBoardSetPhaseMatrix::kAntennaPhase2FieldNumber;
+const int RfidBoardSetPhaseMatrix::kPhaseDurationFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RfidSetPhaseMatrix::RfidSetPhaseMatrix()
+RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_RfidSetPhaseMatrix.base);
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetPhaseMatrix.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidBoardSetPhaseMatrix)
 }
-RfidSetPhaseMatrix::RfidSetPhaseMatrix(const RfidSetPhaseMatrix& from)
+RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(const RfidBoardSetPhaseMatrix& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&antenna_phase1_, &from.antenna_phase1_,
     static_cast<size_t>(reinterpret_cast<char*>(&phase_duration_) -
     reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(phase_duration_));
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidBoardSetPhaseMatrix)
 }
 
-void RfidSetPhaseMatrix::SharedCtor() {
+void RfidBoardSetPhaseMatrix::SharedCtor() {
   ::memset(&antenna_phase1_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&phase_duration_) -
       reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(phase_duration_));
 }
 
-RfidSetPhaseMatrix::~RfidSetPhaseMatrix() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidSetPhaseMatrix)
+RfidBoardSetPhaseMatrix::~RfidBoardSetPhaseMatrix() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   SharedDtor();
 }
 
-void RfidSetPhaseMatrix::SharedDtor() {
+void RfidBoardSetPhaseMatrix::SharedDtor() {
 }
 
-void RfidSetPhaseMatrix::SetCachedSize(int size) const {
+void RfidBoardSetPhaseMatrix::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* RfidSetPhaseMatrix::descriptor() {
+const ::google::protobuf::Descriptor* RfidBoardSetPhaseMatrix::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RfidSetPhaseMatrix& RfidSetPhaseMatrix::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidSetPhaseMatrix.base);
+const RfidBoardSetPhaseMatrix& RfidBoardSetPhaseMatrix::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetPhaseMatrix.base);
   return *internal_default_instance();
 }
 
 
-void RfidSetPhaseMatrix::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidSetPhaseMatrix)
+void RfidBoardSetPhaseMatrix::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1831,11 +1967,11 @@ void RfidSetPhaseMatrix::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool RfidSetPhaseMatrix::MergePartialFromCodedStream(
+bool RfidBoardSetPhaseMatrix::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -1895,17 +2031,17 @@ bool RfidSetPhaseMatrix::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   return false;
 #undef DO_
 }
 
-void RfidSetPhaseMatrix::SerializeWithCachedSizes(
+void RfidBoardSetPhaseMatrix::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1928,13 +2064,13 @@ void RfidSetPhaseMatrix::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidBoardSetPhaseMatrix)
 }
 
-::google::protobuf::uint8* RfidSetPhaseMatrix::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* RfidBoardSetPhaseMatrix::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1957,12 +2093,12 @@ void RfidSetPhaseMatrix::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   return target;
 }
 
-size_t RfidSetPhaseMatrix::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidSetPhaseMatrix)
+size_t RfidBoardSetPhaseMatrix::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -1996,23 +2132,23 @@ size_t RfidSetPhaseMatrix::ByteSizeLong() const {
   return total_size;
 }
 
-void RfidSetPhaseMatrix::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidSetPhaseMatrix)
+void RfidBoardSetPhaseMatrix::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   GOOGLE_DCHECK_NE(&from, this);
-  const RfidSetPhaseMatrix* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RfidSetPhaseMatrix>(
+  const RfidBoardSetPhaseMatrix* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const RfidBoardSetPhaseMatrix>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidBoardSetPhaseMatrix)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidSetPhaseMatrix)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidBoardSetPhaseMatrix)
     MergeFrom(*source);
   }
 }
 
-void RfidSetPhaseMatrix::MergeFrom(const RfidSetPhaseMatrix& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidSetPhaseMatrix)
+void RfidBoardSetPhaseMatrix::MergeFrom(const RfidBoardSetPhaseMatrix& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2029,29 +2165,29 @@ void RfidSetPhaseMatrix::MergeFrom(const RfidSetPhaseMatrix& from) {
   }
 }
 
-void RfidSetPhaseMatrix::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidSetPhaseMatrix)
+void RfidBoardSetPhaseMatrix::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RfidSetPhaseMatrix::CopyFrom(const RfidSetPhaseMatrix& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidSetPhaseMatrix)
+void RfidBoardSetPhaseMatrix::CopyFrom(const RfidBoardSetPhaseMatrix& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RfidSetPhaseMatrix::IsInitialized() const {
+bool RfidBoardSetPhaseMatrix::IsInitialized() const {
   return true;
 }
 
-void RfidSetPhaseMatrix::Swap(RfidSetPhaseMatrix* other) {
+void RfidBoardSetPhaseMatrix::Swap(RfidBoardSetPhaseMatrix* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RfidSetPhaseMatrix::InternalSwap(RfidSetPhaseMatrix* other) {
+void RfidBoardSetPhaseMatrix::InternalSwap(RfidBoardSetPhaseMatrix* other) {
   using std::swap;
   swap(antenna_phase1_, other->antenna_phase1_);
   swap(antenna_phase2_, other->antenna_phase2_);
@@ -2059,7 +2195,7 @@ void RfidSetPhaseMatrix::InternalSwap(RfidSetPhaseMatrix* other) {
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata RfidSetPhaseMatrix::GetMetadata() const {
+::google::protobuf::Metadata RfidBoardSetPhaseMatrix::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2067,55 +2203,55 @@ void RfidSetPhaseMatrix::InternalSwap(RfidSetPhaseMatrix* other) {
 
 // ===================================================================
 
-void RfidSetSignalInversion::InitAsDefaultInstance() {
+void RfidBoardSetSignalInversion::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int RfidSetSignalInversion::kInvertedFieldNumber;
+const int RfidBoardSetSignalInversion::kInvertedFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-RfidSetSignalInversion::RfidSetSignalInversion()
+RfidBoardSetSignalInversion::RfidBoardSetSignalInversion()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_RfidSetSignalInversion.base);
+      &protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetSignalInversion.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.RfidBoardSetSignalInversion)
 }
-RfidSetSignalInversion::RfidSetSignalInversion(const RfidSetSignalInversion& from)
+RfidBoardSetSignalInversion::RfidBoardSetSignalInversion(const RfidBoardSetSignalInversion& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   inverted_ = from.inverted_;
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.RfidBoardSetSignalInversion)
 }
 
-void RfidSetSignalInversion::SharedCtor() {
+void RfidBoardSetSignalInversion::SharedCtor() {
   inverted_ = false;
 }
 
-RfidSetSignalInversion::~RfidSetSignalInversion() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidSetSignalInversion)
+RfidBoardSetSignalInversion::~RfidBoardSetSignalInversion() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidBoardSetSignalInversion)
   SharedDtor();
 }
 
-void RfidSetSignalInversion::SharedDtor() {
+void RfidBoardSetSignalInversion::SharedDtor() {
 }
 
-void RfidSetSignalInversion::SetCachedSize(int size) const {
+void RfidBoardSetSignalInversion::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* RfidSetSignalInversion::descriptor() {
+const ::google::protobuf::Descriptor* RfidBoardSetSignalInversion::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const RfidSetSignalInversion& RfidSetSignalInversion::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidSetSignalInversion.base);
+const RfidBoardSetSignalInversion& RfidBoardSetSignalInversion::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_RfidBoardSetSignalInversion.base);
   return *internal_default_instance();
 }
 
 
-void RfidSetSignalInversion::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidSetSignalInversion)
+void RfidBoardSetSignalInversion::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -2124,11 +2260,11 @@ void RfidSetSignalInversion::Clear() {
   _internal_metadata_.Clear();
 }
 
-bool RfidSetSignalInversion::MergePartialFromCodedStream(
+bool RfidBoardSetSignalInversion::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -2160,17 +2296,17 @@ bool RfidSetSignalInversion::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.RfidBoardSetSignalInversion)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.RfidBoardSetSignalInversion)
   return false;
 #undef DO_
 }
 
-void RfidSetSignalInversion::SerializeWithCachedSizes(
+void RfidBoardSetSignalInversion::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2183,13 +2319,13 @@ void RfidSetSignalInversion::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.RfidBoardSetSignalInversion)
 }
 
-::google::protobuf::uint8* RfidSetSignalInversion::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* RfidBoardSetSignalInversion::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -2202,12 +2338,12 @@ void RfidSetSignalInversion::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.RfidBoardSetSignalInversion)
   return target;
 }
 
-size_t RfidSetSignalInversion::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidSetSignalInversion)
+size_t RfidBoardSetSignalInversion::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -2225,23 +2361,23 @@ size_t RfidSetSignalInversion::ByteSizeLong() const {
   return total_size;
 }
 
-void RfidSetSignalInversion::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidSetSignalInversion)
+void RfidBoardSetSignalInversion::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   GOOGLE_DCHECK_NE(&from, this);
-  const RfidSetSignalInversion* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const RfidSetSignalInversion>(
+  const RfidBoardSetSignalInversion* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const RfidBoardSetSignalInversion>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidBoardSetSignalInversion)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidSetSignalInversion)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidBoardSetSignalInversion)
     MergeFrom(*source);
   }
 }
 
-void RfidSetSignalInversion::MergeFrom(const RfidSetSignalInversion& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidSetSignalInversion)
+void RfidBoardSetSignalInversion::MergeFrom(const RfidBoardSetSignalInversion& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -2252,35 +2388,35 @@ void RfidSetSignalInversion::MergeFrom(const RfidSetSignalInversion& from) {
   }
 }
 
-void RfidSetSignalInversion::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidSetSignalInversion)
+void RfidBoardSetSignalInversion::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RfidSetSignalInversion::CopyFrom(const RfidSetSignalInversion& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidSetSignalInversion)
+void RfidBoardSetSignalInversion::CopyFrom(const RfidBoardSetSignalInversion& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.RfidBoardSetSignalInversion)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RfidSetSignalInversion::IsInitialized() const {
+bool RfidBoardSetSignalInversion::IsInitialized() const {
   return true;
 }
 
-void RfidSetSignalInversion::Swap(RfidSetSignalInversion* other) {
+void RfidBoardSetSignalInversion::Swap(RfidBoardSetSignalInversion* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void RfidSetSignalInversion::InternalSwap(RfidSetSignalInversion* other) {
+void RfidBoardSetSignalInversion::InternalSwap(RfidBoardSetSignalInversion* other) {
   using std::swap;
   swap(inverted_, other->inverted_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata RfidSetSignalInversion::GetMetadata() const {
+::google::protobuf::Metadata RfidBoardSetSignalInversion::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -2819,6 +2955,749 @@ void UartWriteData::InternalSwap(UartWriteData* other) {
 }
 
 ::google::protobuf::Metadata UartWriteData::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GpioWiringPiInit::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GpioWiringPiInit::GpioWiringPiInit()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInit.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioWiringPiInit)
+}
+GpioWiringPiInit::GpioWiringPiInit(const GpioWiringPiInit& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioWiringPiInit)
+}
+
+void GpioWiringPiInit::SharedCtor() {
+}
+
+GpioWiringPiInit::~GpioWiringPiInit() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInit)
+  SharedDtor();
+}
+
+void GpioWiringPiInit::SharedDtor() {
+}
+
+void GpioWiringPiInit::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* GpioWiringPiInit::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const GpioWiringPiInit& GpioWiringPiInit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInit.base);
+  return *internal_default_instance();
+}
+
+
+void GpioWiringPiInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear();
+}
+
+bool GpioWiringPiInit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioWiringPiInit)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+  handle_unusual:
+    if (tag == 0) {
+      goto success;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, _internal_metadata_.mutable_unknown_fields()));
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioWiringPiInit)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioWiringPiInit)
+  return false;
+#undef DO_
+}
+
+void GpioWiringPiInit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioWiringPiInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioWiringPiInit)
+}
+
+::google::protobuf::uint8* GpioWiringPiInit::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioWiringPiInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioWiringPiInit)
+  return target;
+}
+
+size_t GpioWiringPiInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioWiringPiInit)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GpioWiringPiInit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GpioWiringPiInit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const GpioWiringPiInit>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInit)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInit)
+    MergeFrom(*source);
+  }
+}
+
+void GpioWiringPiInit::MergeFrom(const GpioWiringPiInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void GpioWiringPiInit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GpioWiringPiInit::CopyFrom(const GpioWiringPiInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioWiringPiInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GpioWiringPiInit::IsInitialized() const {
+  return true;
+}
+
+void GpioWiringPiInit::Swap(GpioWiringPiInit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GpioWiringPiInit::InternalSwap(GpioWiringPiInit* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata GpioWiringPiInit::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GpioWiringPiInitDigitalIn::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GpioWiringPiInitDigitalIn::kPinFieldNumber;
+const int GpioWiringPiInitDigitalIn::kResistorStateFieldNumber;
+const int GpioWiringPiInitDigitalIn::kIsInvertedFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalIn.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+}
+GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(const GpioWiringPiInitDigitalIn& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&pin_, &from.pin_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+}
+
+void GpioWiringPiInitDigitalIn::SharedCtor() {
+  ::memset(&pin_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+}
+
+GpioWiringPiInitDigitalIn::~GpioWiringPiInitDigitalIn() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  SharedDtor();
+}
+
+void GpioWiringPiInitDigitalIn::SharedDtor() {
+}
+
+void GpioWiringPiInitDigitalIn::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* GpioWiringPiInitDigitalIn::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const GpioWiringPiInitDigitalIn& GpioWiringPiInitDigitalIn::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalIn.base);
+  return *internal_default_instance();
+}
+
+
+void GpioWiringPiInitDigitalIn::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&pin_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+  _internal_metadata_.Clear();
+}
+
+bool GpioWiringPiInitDigitalIn::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 pin = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pin_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_resistor_state(static_cast< ::LabNetProt::Client::GpioWiringPiInitDigitalIn_Resistor >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool is_inverted = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_inverted_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  return false;
+#undef DO_
+}
+
+void GpioWiringPiInitDigitalIn::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pin(), output);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
+  if (this->resistor_state() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->resistor_state(), output);
+  }
+
+  // bool is_inverted = 3;
+  if (this->is_inverted() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->is_inverted(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+}
+
+::google::protobuf::uint8* GpioWiringPiInitDigitalIn::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pin(), target);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
+  if (this->resistor_state() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->resistor_state(), target);
+  }
+
+  // bool is_inverted = 3;
+  if (this->is_inverted() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->is_inverted(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  return target;
+}
+
+size_t GpioWiringPiInitDigitalIn::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->pin());
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
+  if (this->resistor_state() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->resistor_state());
+  }
+
+  // bool is_inverted = 3;
+  if (this->is_inverted() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GpioWiringPiInitDigitalIn::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GpioWiringPiInitDigitalIn* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const GpioWiringPiInitDigitalIn>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+    MergeFrom(*source);
+  }
+}
+
+void GpioWiringPiInitDigitalIn::MergeFrom(const GpioWiringPiInitDigitalIn& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.pin() != 0) {
+    set_pin(from.pin());
+  }
+  if (from.resistor_state() != 0) {
+    set_resistor_state(from.resistor_state());
+  }
+  if (from.is_inverted() != 0) {
+    set_is_inverted(from.is_inverted());
+  }
+}
+
+void GpioWiringPiInitDigitalIn::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GpioWiringPiInitDigitalIn::CopyFrom(const GpioWiringPiInitDigitalIn& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GpioWiringPiInitDigitalIn::IsInitialized() const {
+  return true;
+}
+
+void GpioWiringPiInitDigitalIn::Swap(GpioWiringPiInitDigitalIn* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GpioWiringPiInitDigitalIn::InternalSwap(GpioWiringPiInitDigitalIn* other) {
+  using std::swap;
+  swap(pin_, other->pin_);
+  swap(resistor_state_, other->resistor_state_);
+  swap(is_inverted_, other->is_inverted_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata GpioWiringPiInitDigitalIn::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void GpioWiringPiInitDigitalOut::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int GpioWiringPiInitDigitalOut::kPinFieldNumber;
+const int GpioWiringPiInitDigitalOut::kIsInvertedFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalOut.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+}
+GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(const GpioWiringPiInitDigitalOut& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&pin_, &from.pin_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+}
+
+void GpioWiringPiInitDigitalOut::SharedCtor() {
+  ::memset(&pin_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+}
+
+GpioWiringPiInitDigitalOut::~GpioWiringPiInitDigitalOut() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  SharedDtor();
+}
+
+void GpioWiringPiInitDigitalOut::SharedDtor() {
+}
+
+void GpioWiringPiInitDigitalOut::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* GpioWiringPiInitDigitalOut::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const GpioWiringPiInitDigitalOut& GpioWiringPiInitDigitalOut::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_GpioWiringPiInitDigitalOut.base);
+  return *internal_default_instance();
+}
+
+
+void GpioWiringPiInitDigitalOut::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&pin_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+  _internal_metadata_.Clear();
+}
+
+bool GpioWiringPiInitDigitalOut::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 pin = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pin_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool is_inverted = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_inverted_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  return false;
+#undef DO_
+}
+
+void GpioWiringPiInitDigitalOut::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pin(), output);
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->is_inverted(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+}
+
+::google::protobuf::uint8* GpioWiringPiInitDigitalOut::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pin(), target);
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->is_inverted(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  return target;
+}
+
+size_t GpioWiringPiInitDigitalOut::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 pin = 1;
+  if (this->pin() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->pin());
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void GpioWiringPiInitDigitalOut::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  GOOGLE_DCHECK_NE(&from, this);
+  const GpioWiringPiInitDigitalOut* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const GpioWiringPiInitDigitalOut>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+    MergeFrom(*source);
+  }
+}
+
+void GpioWiringPiInitDigitalOut::MergeFrom(const GpioWiringPiInitDigitalOut& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.pin() != 0) {
+    set_pin(from.pin());
+  }
+  if (from.is_inverted() != 0) {
+    set_is_inverted(from.is_inverted());
+  }
+}
+
+void GpioWiringPiInitDigitalOut::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GpioWiringPiInitDigitalOut::CopyFrom(const GpioWiringPiInitDigitalOut& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GpioWiringPiInitDigitalOut::IsInitialized() const {
+  return true;
+}
+
+void GpioWiringPiInitDigitalOut::Swap(GpioWiringPiInitDigitalOut* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void GpioWiringPiInitDigitalOut::InternalSwap(GpioWiringPiInitDigitalOut* other) {
+  using std::swap;
+  swap(pin_, other->pin_);
+  swap(is_inverted_, other->is_inverted_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata GpioWiringPiInitDigitalOut::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -4707,22 +5586,22 @@ void LabNetIdRequest::InternalSwap(LabNetIdRequest* other) {
 // ===================================================================
 
 void ClientWrappedMessage::InitAsDefaultInstance() {
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.reset_ = const_cast< ::LabNetProt::Client::LabNetResetRequest*>(
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.reset_request_ = const_cast< ::LabNetProt::Client::LabNetResetRequest*>(
       ::LabNetProt::Client::LabNetResetRequest::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.id_ = const_cast< ::LabNetProt::Client::LabNetIdRequest*>(
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.id_request_ = const_cast< ::LabNetProt::Client::LabNetIdRequest*>(
       ::LabNetProt::Client::LabNetIdRequest::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_init_ = const_cast< ::LabNetProt::Client::GpioInit*>(
-      ::LabNetProt::Client::GpioInit::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_init_digital_in_ = const_cast< ::LabNetProt::Client::GpioInitDigitalIn*>(
-      ::LabNetProt::Client::GpioInitDigitalIn::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_init_digital_out_ = const_cast< ::LabNetProt::Client::GpioInitDigitalOut*>(
-      ::LabNetProt::Client::GpioInitDigitalOut::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_init_ = const_cast< ::LabNetProt::Client::RfidInit*>(
-      ::LabNetProt::Client::RfidInit::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_set_phase_matrix_ = const_cast< ::LabNetProt::Client::RfidSetPhaseMatrix*>(
-      ::LabNetProt::Client::RfidSetPhaseMatrix::internal_default_instance());
-  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_set_signal_inversion_ = const_cast< ::LabNetProt::Client::RfidSetSignalInversion*>(
-      ::LabNetProt::Client::RfidSetSignalInversion::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.io_board_init_ = const_cast< ::LabNetProt::Client::IoBoardInit*>(
+      ::LabNetProt::Client::IoBoardInit::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.io_board_init_digital_in_ = const_cast< ::LabNetProt::Client::IoBoardInitDigitalIn*>(
+      ::LabNetProt::Client::IoBoardInitDigitalIn::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.io_board_init_digital_out_ = const_cast< ::LabNetProt::Client::IoBoardInitDigitalOut*>(
+      ::LabNetProt::Client::IoBoardInitDigitalOut::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_board_init_ = const_cast< ::LabNetProt::Client::RfidBoardInit*>(
+      ::LabNetProt::Client::RfidBoardInit::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_board_set_phase_matrix_ = const_cast< ::LabNetProt::Client::RfidBoardSetPhaseMatrix*>(
+      ::LabNetProt::Client::RfidBoardSetPhaseMatrix::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.rfid_board_set_signal_inversion_ = const_cast< ::LabNetProt::Client::RfidBoardSetSignalInversion*>(
+      ::LabNetProt::Client::RfidBoardSetSignalInversion::internal_default_instance());
   ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.uart_init_ = const_cast< ::LabNetProt::Client::UartInit*>(
       ::LabNetProt::Client::UartInit::internal_default_instance());
   ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.uart_write_data_ = const_cast< ::LabNetProt::Client::UartWriteData*>(
@@ -4735,118 +5614,124 @@ void ClientWrappedMessage::InitAsDefaultInstance() {
       ::LabNetProt::Client::StartDigitalOutLoop::internal_default_instance());
   ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.stop_digital_out_loop_ = const_cast< ::LabNetProt::Client::StopDigitalOutLoop*>(
       ::LabNetProt::Client::StopDigitalOutLoop::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_wiring_pi_init_ = const_cast< ::LabNetProt::Client::GpioWiringPiInit*>(
+      ::LabNetProt::Client::GpioWiringPiInit::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_wiring_pi_init_digital_in_ = const_cast< ::LabNetProt::Client::GpioWiringPiInitDigitalIn*>(
+      ::LabNetProt::Client::GpioWiringPiInitDigitalIn::internal_default_instance());
+  ::LabNetProt::Client::_ClientWrappedMessage_default_instance_.gpio_wiring_pi_init_digital_out_ = const_cast< ::LabNetProt::Client::GpioWiringPiInitDigitalOut*>(
+      ::LabNetProt::Client::GpioWiringPiInitDigitalOut::internal_default_instance());
 }
-void ClientWrappedMessage::set_allocated_reset(::LabNetProt::Client::LabNetResetRequest* reset) {
+void ClientWrappedMessage::set_allocated_reset_request(::LabNetProt::Client::LabNetResetRequest* reset_request) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (reset) {
+  if (reset_request) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      reset = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, reset, submessage_arena);
+      reset_request = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, reset_request, submessage_arena);
     }
-    set_has_reset();
-    client_message_.reset_ = reset;
+    set_has_reset_request();
+    client_message_.reset_request_ = reset_request;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.reset)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.reset_request)
 }
-void ClientWrappedMessage::set_allocated_id(::LabNetProt::Client::LabNetIdRequest* id) {
+void ClientWrappedMessage::set_allocated_id_request(::LabNetProt::Client::LabNetIdRequest* id_request) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (id) {
+  if (id_request) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      id = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, id, submessage_arena);
+      id_request = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, id_request, submessage_arena);
     }
-    set_has_id();
-    client_message_.id_ = id;
+    set_has_id_request();
+    client_message_.id_request_ = id_request;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.id)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.id_request)
 }
-void ClientWrappedMessage::set_allocated_gpio_init(::LabNetProt::Client::GpioInit* gpio_init) {
+void ClientWrappedMessage::set_allocated_io_board_init(::LabNetProt::Client::IoBoardInit* io_board_init) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (gpio_init) {
+  if (io_board_init) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      gpio_init = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, gpio_init, submessage_arena);
+      io_board_init = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, io_board_init, submessage_arena);
     }
-    set_has_gpio_init();
-    client_message_.gpio_init_ = gpio_init;
+    set_has_io_board_init();
+    client_message_.io_board_init_ = io_board_init;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_init)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.io_board_init)
 }
-void ClientWrappedMessage::set_allocated_gpio_init_digital_in(::LabNetProt::Client::GpioInitDigitalIn* gpio_init_digital_in) {
+void ClientWrappedMessage::set_allocated_io_board_init_digital_in(::LabNetProt::Client::IoBoardInitDigitalIn* io_board_init_digital_in) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (gpio_init_digital_in) {
+  if (io_board_init_digital_in) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      gpio_init_digital_in = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, gpio_init_digital_in, submessage_arena);
+      io_board_init_digital_in = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, io_board_init_digital_in, submessage_arena);
     }
-    set_has_gpio_init_digital_in();
-    client_message_.gpio_init_digital_in_ = gpio_init_digital_in;
+    set_has_io_board_init_digital_in();
+    client_message_.io_board_init_digital_in_ = io_board_init_digital_in;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_init_digital_in)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.io_board_init_digital_in)
 }
-void ClientWrappedMessage::set_allocated_gpio_init_digital_out(::LabNetProt::Client::GpioInitDigitalOut* gpio_init_digital_out) {
+void ClientWrappedMessage::set_allocated_io_board_init_digital_out(::LabNetProt::Client::IoBoardInitDigitalOut* io_board_init_digital_out) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (gpio_init_digital_out) {
+  if (io_board_init_digital_out) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      gpio_init_digital_out = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, gpio_init_digital_out, submessage_arena);
+      io_board_init_digital_out = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, io_board_init_digital_out, submessage_arena);
     }
-    set_has_gpio_init_digital_out();
-    client_message_.gpio_init_digital_out_ = gpio_init_digital_out;
+    set_has_io_board_init_digital_out();
+    client_message_.io_board_init_digital_out_ = io_board_init_digital_out;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_init_digital_out)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.io_board_init_digital_out)
 }
-void ClientWrappedMessage::set_allocated_rfid_init(::LabNetProt::Client::RfidInit* rfid_init) {
+void ClientWrappedMessage::set_allocated_rfid_board_init(::LabNetProt::Client::RfidBoardInit* rfid_board_init) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (rfid_init) {
+  if (rfid_board_init) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      rfid_init = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, rfid_init, submessage_arena);
+      rfid_board_init = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, rfid_board_init, submessage_arena);
     }
-    set_has_rfid_init();
-    client_message_.rfid_init_ = rfid_init;
+    set_has_rfid_board_init();
+    client_message_.rfid_board_init_ = rfid_board_init;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_init)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_board_init)
 }
-void ClientWrappedMessage::set_allocated_rfid_set_phase_matrix(::LabNetProt::Client::RfidSetPhaseMatrix* rfid_set_phase_matrix) {
+void ClientWrappedMessage::set_allocated_rfid_board_set_phase_matrix(::LabNetProt::Client::RfidBoardSetPhaseMatrix* rfid_board_set_phase_matrix) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (rfid_set_phase_matrix) {
+  if (rfid_board_set_phase_matrix) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      rfid_set_phase_matrix = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, rfid_set_phase_matrix, submessage_arena);
+      rfid_board_set_phase_matrix = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, rfid_board_set_phase_matrix, submessage_arena);
     }
-    set_has_rfid_set_phase_matrix();
-    client_message_.rfid_set_phase_matrix_ = rfid_set_phase_matrix;
+    set_has_rfid_board_set_phase_matrix();
+    client_message_.rfid_board_set_phase_matrix_ = rfid_board_set_phase_matrix;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_set_phase_matrix)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_board_set_phase_matrix)
 }
-void ClientWrappedMessage::set_allocated_rfid_set_signal_inversion(::LabNetProt::Client::RfidSetSignalInversion* rfid_set_signal_inversion) {
+void ClientWrappedMessage::set_allocated_rfid_board_set_signal_inversion(::LabNetProt::Client::RfidBoardSetSignalInversion* rfid_board_set_signal_inversion) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   clear_client_message();
-  if (rfid_set_signal_inversion) {
+  if (rfid_board_set_signal_inversion) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      rfid_set_signal_inversion = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, rfid_set_signal_inversion, submessage_arena);
+      rfid_board_set_signal_inversion = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, rfid_board_set_signal_inversion, submessage_arena);
     }
-    set_has_rfid_set_signal_inversion();
-    client_message_.rfid_set_signal_inversion_ = rfid_set_signal_inversion;
+    set_has_rfid_board_set_signal_inversion();
+    client_message_.rfid_board_set_signal_inversion_ = rfid_board_set_signal_inversion;
   }
-  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_set_signal_inversion)
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.rfid_board_set_signal_inversion)
 }
 void ClientWrappedMessage::set_allocated_uart_init(::LabNetProt::Client::UartInit* uart_init) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
@@ -4932,21 +5817,66 @@ void ClientWrappedMessage::set_allocated_stop_digital_out_loop(::LabNetProt::Cli
   }
   // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.stop_digital_out_loop)
 }
+void ClientWrappedMessage::set_allocated_gpio_wiring_pi_init(::LabNetProt::Client::GpioWiringPiInit* gpio_wiring_pi_init) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (gpio_wiring_pi_init) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      gpio_wiring_pi_init = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, gpio_wiring_pi_init, submessage_arena);
+    }
+    set_has_gpio_wiring_pi_init();
+    client_message_.gpio_wiring_pi_init_ = gpio_wiring_pi_init;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_wiring_pi_init)
+}
+void ClientWrappedMessage::set_allocated_gpio_wiring_pi_init_digital_in(::LabNetProt::Client::GpioWiringPiInitDigitalIn* gpio_wiring_pi_init_digital_in) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (gpio_wiring_pi_init_digital_in) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      gpio_wiring_pi_init_digital_in = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, gpio_wiring_pi_init_digital_in, submessage_arena);
+    }
+    set_has_gpio_wiring_pi_init_digital_in();
+    client_message_.gpio_wiring_pi_init_digital_in_ = gpio_wiring_pi_init_digital_in;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_wiring_pi_init_digital_in)
+}
+void ClientWrappedMessage::set_allocated_gpio_wiring_pi_init_digital_out(::LabNetProt::Client::GpioWiringPiInitDigitalOut* gpio_wiring_pi_init_digital_out) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  clear_client_message();
+  if (gpio_wiring_pi_init_digital_out) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      gpio_wiring_pi_init_digital_out = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, gpio_wiring_pi_init_digital_out, submessage_arena);
+    }
+    set_has_gpio_wiring_pi_init_digital_out();
+    client_message_.gpio_wiring_pi_init_digital_out_ = gpio_wiring_pi_init_digital_out;
+  }
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.ClientWrappedMessage.gpio_wiring_pi_init_digital_out)
+}
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int ClientWrappedMessage::kResetFieldNumber;
-const int ClientWrappedMessage::kIdFieldNumber;
-const int ClientWrappedMessage::kGpioInitFieldNumber;
-const int ClientWrappedMessage::kGpioInitDigitalInFieldNumber;
-const int ClientWrappedMessage::kGpioInitDigitalOutFieldNumber;
-const int ClientWrappedMessage::kRfidInitFieldNumber;
-const int ClientWrappedMessage::kRfidSetPhaseMatrixFieldNumber;
-const int ClientWrappedMessage::kRfidSetSignalInversionFieldNumber;
+const int ClientWrappedMessage::kResetRequestFieldNumber;
+const int ClientWrappedMessage::kIdRequestFieldNumber;
+const int ClientWrappedMessage::kIoBoardInitFieldNumber;
+const int ClientWrappedMessage::kIoBoardInitDigitalInFieldNumber;
+const int ClientWrappedMessage::kIoBoardInitDigitalOutFieldNumber;
+const int ClientWrappedMessage::kRfidBoardInitFieldNumber;
+const int ClientWrappedMessage::kRfidBoardSetPhaseMatrixFieldNumber;
+const int ClientWrappedMessage::kRfidBoardSetSignalInversionFieldNumber;
 const int ClientWrappedMessage::kUartInitFieldNumber;
 const int ClientWrappedMessage::kUartWriteDataFieldNumber;
 const int ClientWrappedMessage::kDigitalOutSetFieldNumber;
 const int ClientWrappedMessage::kDigitalOutPulseFieldNumber;
 const int ClientWrappedMessage::kStartDigitalOutLoopFieldNumber;
 const int ClientWrappedMessage::kStopDigitalOutLoopFieldNumber;
+const int ClientWrappedMessage::kGpioWiringPiInitFieldNumber;
+const int ClientWrappedMessage::kGpioWiringPiInitDigitalInFieldNumber;
+const int ClientWrappedMessage::kGpioWiringPiInitDigitalOutFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ClientWrappedMessage::ClientWrappedMessage()
@@ -4962,36 +5892,36 @@ ClientWrappedMessage::ClientWrappedMessage(const ClientWrappedMessage& from)
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   clear_has_client_message();
   switch (from.client_message_case()) {
-    case kReset: {
-      mutable_reset()->::LabNetProt::Client::LabNetResetRequest::MergeFrom(from.reset());
+    case kResetRequest: {
+      mutable_reset_request()->::LabNetProt::Client::LabNetResetRequest::MergeFrom(from.reset_request());
       break;
     }
-    case kId: {
-      mutable_id()->::LabNetProt::Client::LabNetIdRequest::MergeFrom(from.id());
+    case kIdRequest: {
+      mutable_id_request()->::LabNetProt::Client::LabNetIdRequest::MergeFrom(from.id_request());
       break;
     }
-    case kGpioInit: {
-      mutable_gpio_init()->::LabNetProt::Client::GpioInit::MergeFrom(from.gpio_init());
+    case kIoBoardInit: {
+      mutable_io_board_init()->::LabNetProt::Client::IoBoardInit::MergeFrom(from.io_board_init());
       break;
     }
-    case kGpioInitDigitalIn: {
-      mutable_gpio_init_digital_in()->::LabNetProt::Client::GpioInitDigitalIn::MergeFrom(from.gpio_init_digital_in());
+    case kIoBoardInitDigitalIn: {
+      mutable_io_board_init_digital_in()->::LabNetProt::Client::IoBoardInitDigitalIn::MergeFrom(from.io_board_init_digital_in());
       break;
     }
-    case kGpioInitDigitalOut: {
-      mutable_gpio_init_digital_out()->::LabNetProt::Client::GpioInitDigitalOut::MergeFrom(from.gpio_init_digital_out());
+    case kIoBoardInitDigitalOut: {
+      mutable_io_board_init_digital_out()->::LabNetProt::Client::IoBoardInitDigitalOut::MergeFrom(from.io_board_init_digital_out());
       break;
     }
-    case kRfidInit: {
-      mutable_rfid_init()->::LabNetProt::Client::RfidInit::MergeFrom(from.rfid_init());
+    case kRfidBoardInit: {
+      mutable_rfid_board_init()->::LabNetProt::Client::RfidBoardInit::MergeFrom(from.rfid_board_init());
       break;
     }
-    case kRfidSetPhaseMatrix: {
-      mutable_rfid_set_phase_matrix()->::LabNetProt::Client::RfidSetPhaseMatrix::MergeFrom(from.rfid_set_phase_matrix());
+    case kRfidBoardSetPhaseMatrix: {
+      mutable_rfid_board_set_phase_matrix()->::LabNetProt::Client::RfidBoardSetPhaseMatrix::MergeFrom(from.rfid_board_set_phase_matrix());
       break;
     }
-    case kRfidSetSignalInversion: {
-      mutable_rfid_set_signal_inversion()->::LabNetProt::Client::RfidSetSignalInversion::MergeFrom(from.rfid_set_signal_inversion());
+    case kRfidBoardSetSignalInversion: {
+      mutable_rfid_board_set_signal_inversion()->::LabNetProt::Client::RfidBoardSetSignalInversion::MergeFrom(from.rfid_board_set_signal_inversion());
       break;
     }
     case kUartInit: {
@@ -5016,6 +5946,18 @@ ClientWrappedMessage::ClientWrappedMessage(const ClientWrappedMessage& from)
     }
     case kStopDigitalOutLoop: {
       mutable_stop_digital_out_loop()->::LabNetProt::Client::StopDigitalOutLoop::MergeFrom(from.stop_digital_out_loop());
+      break;
+    }
+    case kGpioWiringPiInit: {
+      mutable_gpio_wiring_pi_init()->::LabNetProt::Client::GpioWiringPiInit::MergeFrom(from.gpio_wiring_pi_init());
+      break;
+    }
+    case kGpioWiringPiInitDigitalIn: {
+      mutable_gpio_wiring_pi_init_digital_in()->::LabNetProt::Client::GpioWiringPiInitDigitalIn::MergeFrom(from.gpio_wiring_pi_init_digital_in());
+      break;
+    }
+    case kGpioWiringPiInitDigitalOut: {
+      mutable_gpio_wiring_pi_init_digital_out()->::LabNetProt::Client::GpioWiringPiInitDigitalOut::MergeFrom(from.gpio_wiring_pi_init_digital_out());
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -5057,36 +5999,36 @@ const ClientWrappedMessage& ClientWrappedMessage::default_instance() {
 void ClientWrappedMessage::clear_client_message() {
 // @@protoc_insertion_point(one_of_clear_start:LabNetProt.Client.ClientWrappedMessage)
   switch (client_message_case()) {
-    case kReset: {
-      delete client_message_.reset_;
+    case kResetRequest: {
+      delete client_message_.reset_request_;
       break;
     }
-    case kId: {
-      delete client_message_.id_;
+    case kIdRequest: {
+      delete client_message_.id_request_;
       break;
     }
-    case kGpioInit: {
-      delete client_message_.gpio_init_;
+    case kIoBoardInit: {
+      delete client_message_.io_board_init_;
       break;
     }
-    case kGpioInitDigitalIn: {
-      delete client_message_.gpio_init_digital_in_;
+    case kIoBoardInitDigitalIn: {
+      delete client_message_.io_board_init_digital_in_;
       break;
     }
-    case kGpioInitDigitalOut: {
-      delete client_message_.gpio_init_digital_out_;
+    case kIoBoardInitDigitalOut: {
+      delete client_message_.io_board_init_digital_out_;
       break;
     }
-    case kRfidInit: {
-      delete client_message_.rfid_init_;
+    case kRfidBoardInit: {
+      delete client_message_.rfid_board_init_;
       break;
     }
-    case kRfidSetPhaseMatrix: {
-      delete client_message_.rfid_set_phase_matrix_;
+    case kRfidBoardSetPhaseMatrix: {
+      delete client_message_.rfid_board_set_phase_matrix_;
       break;
     }
-    case kRfidSetSignalInversion: {
-      delete client_message_.rfid_set_signal_inversion_;
+    case kRfidBoardSetSignalInversion: {
+      delete client_message_.rfid_board_set_signal_inversion_;
       break;
     }
     case kUartInit: {
@@ -5113,6 +6055,18 @@ void ClientWrappedMessage::clear_client_message() {
       delete client_message_.stop_digital_out_loop_;
       break;
     }
+    case kGpioWiringPiInit: {
+      delete client_message_.gpio_wiring_pi_init_;
+      break;
+    }
+    case kGpioWiringPiInitDigitalIn: {
+      delete client_message_.gpio_wiring_pi_init_digital_in_;
+      break;
+    }
+    case kGpioWiringPiInitDigitalOut: {
+      delete client_message_.gpio_wiring_pi_init_digital_out_;
+      break;
+    }
     case CLIENT_MESSAGE_NOT_SET: {
       break;
     }
@@ -5137,100 +6091,100 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   // @@protoc_insertion_point(parse_start:LabNetProt.Client.ClientWrappedMessage)
   for (;;) {
-    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(16383u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // .LabNetProt.Client.LabNetResetRequest reset = 1;
+      // .LabNetProt.Client.LabNetResetRequest reset_request = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_reset()));
+               input, mutable_reset_request()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.LabNetIdRequest id = 2;
+      // .LabNetProt.Client.LabNetIdRequest id_request = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_id()));
+               input, mutable_id_request()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.GpioInit gpio_init = 3;
+      // .LabNetProt.Client.IoBoardInit io_board_init = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gpio_init()));
+               input, mutable_io_board_init()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.GpioInitDigitalIn gpio_init_digital_in = 4;
+      // .LabNetProt.Client.IoBoardInitDigitalIn io_board_init_digital_in = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gpio_init_digital_in()));
+               input, mutable_io_board_init_digital_in()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.GpioInitDigitalOut gpio_init_digital_out = 5;
+      // .LabNetProt.Client.IoBoardInitDigitalOut io_board_init_digital_out = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_gpio_init_digital_out()));
+               input, mutable_io_board_init_digital_out()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.RfidInit rfid_init = 6;
+      // .LabNetProt.Client.RfidBoardInit rfid_board_init = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_rfid_init()));
+               input, mutable_rfid_board_init()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
+      // .LabNetProt.Client.RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_rfid_set_phase_matrix()));
+               input, mutable_rfid_board_set_phase_matrix()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .LabNetProt.Client.RfidSetSignalInversion rfid_set_signal_inversion = 8;
+      // .LabNetProt.Client.RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_rfid_set_signal_inversion()));
+               input, mutable_rfid_board_set_signal_inversion()));
         } else {
           goto handle_unusual;
         }
@@ -5309,6 +6263,42 @@ bool ClientWrappedMessage::MergePartialFromCodedStream(
         break;
       }
 
+      // .LabNetProt.Client.GpioWiringPiInit gpio_wiring_pi_init = 15;
+      case 15: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(122u /* 122 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_gpio_wiring_pi_init()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNetProt.Client.GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
+      case 16: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(130u /* 130 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_gpio_wiring_pi_init_digital_in()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNetProt.Client.GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
+      case 17: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(138u /* 138 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_gpio_wiring_pi_init_digital_out()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0) {
@@ -5335,52 +6325,52 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNetProt.Client.LabNetResetRequest reset = 1;
-  if (has_reset()) {
+  // .LabNetProt.Client.LabNetResetRequest reset_request = 1;
+  if (has_reset_request()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->_internal_reset(), output);
+      1, this->_internal_reset_request(), output);
   }
 
-  // .LabNetProt.Client.LabNetIdRequest id = 2;
-  if (has_id()) {
+  // .LabNetProt.Client.LabNetIdRequest id_request = 2;
+  if (has_id_request()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->_internal_id(), output);
+      2, this->_internal_id_request(), output);
   }
 
-  // .LabNetProt.Client.GpioInit gpio_init = 3;
-  if (has_gpio_init()) {
+  // .LabNetProt.Client.IoBoardInit io_board_init = 3;
+  if (has_io_board_init()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->_internal_gpio_init(), output);
+      3, this->_internal_io_board_init(), output);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalIn gpio_init_digital_in = 4;
-  if (has_gpio_init_digital_in()) {
+  // .LabNetProt.Client.IoBoardInitDigitalIn io_board_init_digital_in = 4;
+  if (has_io_board_init_digital_in()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->_internal_gpio_init_digital_in(), output);
+      4, this->_internal_io_board_init_digital_in(), output);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalOut gpio_init_digital_out = 5;
-  if (has_gpio_init_digital_out()) {
+  // .LabNetProt.Client.IoBoardInitDigitalOut io_board_init_digital_out = 5;
+  if (has_io_board_init_digital_out()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->_internal_gpio_init_digital_out(), output);
+      5, this->_internal_io_board_init_digital_out(), output);
   }
 
-  // .LabNetProt.Client.RfidInit rfid_init = 6;
-  if (has_rfid_init()) {
+  // .LabNetProt.Client.RfidBoardInit rfid_board_init = 6;
+  if (has_rfid_board_init()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->_internal_rfid_init(), output);
+      6, this->_internal_rfid_board_init(), output);
   }
 
-  // .LabNetProt.Client.RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
-  if (has_rfid_set_phase_matrix()) {
+  // .LabNetProt.Client.RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
+  if (has_rfid_board_set_phase_matrix()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->_internal_rfid_set_phase_matrix(), output);
+      7, this->_internal_rfid_board_set_phase_matrix(), output);
   }
 
-  // .LabNetProt.Client.RfidSetSignalInversion rfid_set_signal_inversion = 8;
-  if (has_rfid_set_signal_inversion()) {
+  // .LabNetProt.Client.RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
+  if (has_rfid_board_set_signal_inversion()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, this->_internal_rfid_set_signal_inversion(), output);
+      8, this->_internal_rfid_board_set_signal_inversion(), output);
   }
 
   // .LabNetProt.Client.UartInit uart_init = 9;
@@ -5419,6 +6409,24 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
       14, this->_internal_stop_digital_out_loop(), output);
   }
 
+  // .LabNetProt.Client.GpioWiringPiInit gpio_wiring_pi_init = 15;
+  if (has_gpio_wiring_pi_init()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      15, this->_internal_gpio_wiring_pi_init(), output);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
+  if (has_gpio_wiring_pi_init_digital_in()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      16, this->_internal_gpio_wiring_pi_init_digital_in(), output);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
+  if (has_gpio_wiring_pi_init_digital_out()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      17, this->_internal_gpio_wiring_pi_init_digital_out(), output);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
@@ -5433,60 +6441,60 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .LabNetProt.Client.LabNetResetRequest reset = 1;
-  if (has_reset()) {
+  // .LabNetProt.Client.LabNetResetRequest reset_request = 1;
+  if (has_reset_request()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->_internal_reset(), deterministic, target);
+        1, this->_internal_reset_request(), deterministic, target);
   }
 
-  // .LabNetProt.Client.LabNetIdRequest id = 2;
-  if (has_id()) {
+  // .LabNetProt.Client.LabNetIdRequest id_request = 2;
+  if (has_id_request()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        2, this->_internal_id(), deterministic, target);
+        2, this->_internal_id_request(), deterministic, target);
   }
 
-  // .LabNetProt.Client.GpioInit gpio_init = 3;
-  if (has_gpio_init()) {
+  // .LabNetProt.Client.IoBoardInit io_board_init = 3;
+  if (has_io_board_init()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, this->_internal_gpio_init(), deterministic, target);
+        3, this->_internal_io_board_init(), deterministic, target);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalIn gpio_init_digital_in = 4;
-  if (has_gpio_init_digital_in()) {
+  // .LabNetProt.Client.IoBoardInitDigitalIn io_board_init_digital_in = 4;
+  if (has_io_board_init_digital_in()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->_internal_gpio_init_digital_in(), deterministic, target);
+        4, this->_internal_io_board_init_digital_in(), deterministic, target);
   }
 
-  // .LabNetProt.Client.GpioInitDigitalOut gpio_init_digital_out = 5;
-  if (has_gpio_init_digital_out()) {
+  // .LabNetProt.Client.IoBoardInitDigitalOut io_board_init_digital_out = 5;
+  if (has_io_board_init_digital_out()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, this->_internal_gpio_init_digital_out(), deterministic, target);
+        5, this->_internal_io_board_init_digital_out(), deterministic, target);
   }
 
-  // .LabNetProt.Client.RfidInit rfid_init = 6;
-  if (has_rfid_init()) {
+  // .LabNetProt.Client.RfidBoardInit rfid_board_init = 6;
+  if (has_rfid_board_init()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, this->_internal_rfid_init(), deterministic, target);
+        6, this->_internal_rfid_board_init(), deterministic, target);
   }
 
-  // .LabNetProt.Client.RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
-  if (has_rfid_set_phase_matrix()) {
+  // .LabNetProt.Client.RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
+  if (has_rfid_board_set_phase_matrix()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        7, this->_internal_rfid_set_phase_matrix(), deterministic, target);
+        7, this->_internal_rfid_board_set_phase_matrix(), deterministic, target);
   }
 
-  // .LabNetProt.Client.RfidSetSignalInversion rfid_set_signal_inversion = 8;
-  if (has_rfid_set_signal_inversion()) {
+  // .LabNetProt.Client.RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
+  if (has_rfid_board_set_signal_inversion()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        8, this->_internal_rfid_set_signal_inversion(), deterministic, target);
+        8, this->_internal_rfid_board_set_signal_inversion(), deterministic, target);
   }
 
   // .LabNetProt.Client.UartInit uart_init = 9;
@@ -5531,6 +6539,27 @@ void ClientWrappedMessage::SerializeWithCachedSizes(
         14, this->_internal_stop_digital_out_loop(), deterministic, target);
   }
 
+  // .LabNetProt.Client.GpioWiringPiInit gpio_wiring_pi_init = 15;
+  if (has_gpio_wiring_pi_init()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        15, this->_internal_gpio_wiring_pi_init(), deterministic, target);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
+  if (has_gpio_wiring_pi_init_digital_in()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        16, this->_internal_gpio_wiring_pi_init_digital_in(), deterministic, target);
+  }
+
+  // .LabNetProt.Client.GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
+  if (has_gpio_wiring_pi_init_digital_out()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        17, this->_internal_gpio_wiring_pi_init_digital_out(), deterministic, target);
+  }
+
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
@@ -5549,60 +6578,60 @@ size_t ClientWrappedMessage::ByteSizeLong() const {
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
   switch (client_message_case()) {
-    // .LabNetProt.Client.LabNetResetRequest reset = 1;
-    case kReset: {
+    // .LabNetProt.Client.LabNetResetRequest reset_request = 1;
+    case kResetRequest: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.reset_);
+          *client_message_.reset_request_);
       break;
     }
-    // .LabNetProt.Client.LabNetIdRequest id = 2;
-    case kId: {
+    // .LabNetProt.Client.LabNetIdRequest id_request = 2;
+    case kIdRequest: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.id_);
+          *client_message_.id_request_);
       break;
     }
-    // .LabNetProt.Client.GpioInit gpio_init = 3;
-    case kGpioInit: {
+    // .LabNetProt.Client.IoBoardInit io_board_init = 3;
+    case kIoBoardInit: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.gpio_init_);
+          *client_message_.io_board_init_);
       break;
     }
-    // .LabNetProt.Client.GpioInitDigitalIn gpio_init_digital_in = 4;
-    case kGpioInitDigitalIn: {
+    // .LabNetProt.Client.IoBoardInitDigitalIn io_board_init_digital_in = 4;
+    case kIoBoardInitDigitalIn: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.gpio_init_digital_in_);
+          *client_message_.io_board_init_digital_in_);
       break;
     }
-    // .LabNetProt.Client.GpioInitDigitalOut gpio_init_digital_out = 5;
-    case kGpioInitDigitalOut: {
+    // .LabNetProt.Client.IoBoardInitDigitalOut io_board_init_digital_out = 5;
+    case kIoBoardInitDigitalOut: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.gpio_init_digital_out_);
+          *client_message_.io_board_init_digital_out_);
       break;
     }
-    // .LabNetProt.Client.RfidInit rfid_init = 6;
-    case kRfidInit: {
+    // .LabNetProt.Client.RfidBoardInit rfid_board_init = 6;
+    case kRfidBoardInit: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.rfid_init_);
+          *client_message_.rfid_board_init_);
       break;
     }
-    // .LabNetProt.Client.RfidSetPhaseMatrix rfid_set_phase_matrix = 7;
-    case kRfidSetPhaseMatrix: {
+    // .LabNetProt.Client.RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
+    case kRfidBoardSetPhaseMatrix: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.rfid_set_phase_matrix_);
+          *client_message_.rfid_board_set_phase_matrix_);
       break;
     }
-    // .LabNetProt.Client.RfidSetSignalInversion rfid_set_signal_inversion = 8;
-    case kRfidSetSignalInversion: {
+    // .LabNetProt.Client.RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
+    case kRfidBoardSetSignalInversion: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *client_message_.rfid_set_signal_inversion_);
+          *client_message_.rfid_board_set_signal_inversion_);
       break;
     }
     // .LabNetProt.Client.UartInit uart_init = 9;
@@ -5647,6 +6676,27 @@ size_t ClientWrappedMessage::ByteSizeLong() const {
           *client_message_.stop_digital_out_loop_);
       break;
     }
+    // .LabNetProt.Client.GpioWiringPiInit gpio_wiring_pi_init = 15;
+    case kGpioWiringPiInit: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.gpio_wiring_pi_init_);
+      break;
+    }
+    // .LabNetProt.Client.GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
+    case kGpioWiringPiInitDigitalIn: {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.gpio_wiring_pi_init_digital_in_);
+      break;
+    }
+    // .LabNetProt.Client.GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
+    case kGpioWiringPiInitDigitalOut: {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *client_message_.gpio_wiring_pi_init_digital_out_);
+      break;
+    }
     case CLIENT_MESSAGE_NOT_SET: {
       break;
     }
@@ -5679,36 +6729,36 @@ void ClientWrappedMessage::MergeFrom(const ClientWrappedMessage& from) {
   (void) cached_has_bits;
 
   switch (from.client_message_case()) {
-    case kReset: {
-      mutable_reset()->::LabNetProt::Client::LabNetResetRequest::MergeFrom(from.reset());
+    case kResetRequest: {
+      mutable_reset_request()->::LabNetProt::Client::LabNetResetRequest::MergeFrom(from.reset_request());
       break;
     }
-    case kId: {
-      mutable_id()->::LabNetProt::Client::LabNetIdRequest::MergeFrom(from.id());
+    case kIdRequest: {
+      mutable_id_request()->::LabNetProt::Client::LabNetIdRequest::MergeFrom(from.id_request());
       break;
     }
-    case kGpioInit: {
-      mutable_gpio_init()->::LabNetProt::Client::GpioInit::MergeFrom(from.gpio_init());
+    case kIoBoardInit: {
+      mutable_io_board_init()->::LabNetProt::Client::IoBoardInit::MergeFrom(from.io_board_init());
       break;
     }
-    case kGpioInitDigitalIn: {
-      mutable_gpio_init_digital_in()->::LabNetProt::Client::GpioInitDigitalIn::MergeFrom(from.gpio_init_digital_in());
+    case kIoBoardInitDigitalIn: {
+      mutable_io_board_init_digital_in()->::LabNetProt::Client::IoBoardInitDigitalIn::MergeFrom(from.io_board_init_digital_in());
       break;
     }
-    case kGpioInitDigitalOut: {
-      mutable_gpio_init_digital_out()->::LabNetProt::Client::GpioInitDigitalOut::MergeFrom(from.gpio_init_digital_out());
+    case kIoBoardInitDigitalOut: {
+      mutable_io_board_init_digital_out()->::LabNetProt::Client::IoBoardInitDigitalOut::MergeFrom(from.io_board_init_digital_out());
       break;
     }
-    case kRfidInit: {
-      mutable_rfid_init()->::LabNetProt::Client::RfidInit::MergeFrom(from.rfid_init());
+    case kRfidBoardInit: {
+      mutable_rfid_board_init()->::LabNetProt::Client::RfidBoardInit::MergeFrom(from.rfid_board_init());
       break;
     }
-    case kRfidSetPhaseMatrix: {
-      mutable_rfid_set_phase_matrix()->::LabNetProt::Client::RfidSetPhaseMatrix::MergeFrom(from.rfid_set_phase_matrix());
+    case kRfidBoardSetPhaseMatrix: {
+      mutable_rfid_board_set_phase_matrix()->::LabNetProt::Client::RfidBoardSetPhaseMatrix::MergeFrom(from.rfid_board_set_phase_matrix());
       break;
     }
-    case kRfidSetSignalInversion: {
-      mutable_rfid_set_signal_inversion()->::LabNetProt::Client::RfidSetSignalInversion::MergeFrom(from.rfid_set_signal_inversion());
+    case kRfidBoardSetSignalInversion: {
+      mutable_rfid_board_set_signal_inversion()->::LabNetProt::Client::RfidBoardSetSignalInversion::MergeFrom(from.rfid_board_set_signal_inversion());
       break;
     }
     case kUartInit: {
@@ -5733,6 +6783,18 @@ void ClientWrappedMessage::MergeFrom(const ClientWrappedMessage& from) {
     }
     case kStopDigitalOutLoop: {
       mutable_stop_digital_out_loop()->::LabNetProt::Client::StopDigitalOutLoop::MergeFrom(from.stop_digital_out_loop());
+      break;
+    }
+    case kGpioWiringPiInit: {
+      mutable_gpio_wiring_pi_init()->::LabNetProt::Client::GpioWiringPiInit::MergeFrom(from.gpio_wiring_pi_init());
+      break;
+    }
+    case kGpioWiringPiInitDigitalIn: {
+      mutable_gpio_wiring_pi_init_digital_in()->::LabNetProt::Client::GpioWiringPiInitDigitalIn::MergeFrom(from.gpio_wiring_pi_init_digital_in());
+      break;
+    }
+    case kGpioWiringPiInitDigitalOut: {
+      mutable_gpio_wiring_pi_init_digital_out()->::LabNetProt::Client::GpioWiringPiInitDigitalOut::MergeFrom(from.gpio_wiring_pi_init_digital_out());
       break;
     }
     case CLIENT_MESSAGE_NOT_SET: {
@@ -5781,29 +6843,38 @@ void ClientWrappedMessage::InternalSwap(ClientWrappedMessage* other) {
 }  // namespace LabNetProt
 namespace google {
 namespace protobuf {
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioInit >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::GpioInit >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::IoBoardInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::IoBoardInit >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::IoBoardInit >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioInitDigitalIn* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioInitDigitalIn >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::GpioInitDigitalIn >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::IoBoardInitDigitalIn* Arena::CreateMaybeMessage< ::LabNetProt::Client::IoBoardInitDigitalIn >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::IoBoardInitDigitalIn >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioInitDigitalOut* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioInitDigitalOut >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::GpioInitDigitalOut >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::IoBoardInitDigitalOut* Arena::CreateMaybeMessage< ::LabNetProt::Client::IoBoardInitDigitalOut >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::IoBoardInitDigitalOut >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidInit >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::RfidInit >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidBoardInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidBoardInit >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::RfidBoardInit >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidSetPhaseMatrix* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidSetPhaseMatrix >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::RfidSetPhaseMatrix >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidBoardSetPhaseMatrix* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidBoardSetPhaseMatrix >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::RfidBoardSetPhaseMatrix >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidSetSignalInversion* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidSetSignalInversion >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::RfidSetSignalInversion >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::RfidBoardSetSignalInversion* Arena::CreateMaybeMessage< ::LabNetProt::Client::RfidBoardSetSignalInversion >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::RfidBoardSetSignalInversion >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::UartInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::UartInit >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::UartInit >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::UartWriteData* Arena::CreateMaybeMessage< ::LabNetProt::Client::UartWriteData >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::UartWriteData >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioWiringPiInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioWiringPiInit >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::GpioWiringPiInit >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioWiringPiInitDigitalIn* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioWiringPiInitDigitalIn >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::GpioWiringPiInitDigitalIn >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::GpioWiringPiInitDigitalOut* Arena::CreateMaybeMessage< ::LabNetProt::Client::GpioWiringPiInitDigitalOut >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::GpioWiringPiInitDigitalOut >(arena);
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::DigitalOutSet* Arena::CreateMaybeMessage< ::LabNetProt::Client::DigitalOutSet >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::DigitalOutSet >(arena);

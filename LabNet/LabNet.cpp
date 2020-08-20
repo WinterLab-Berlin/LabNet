@@ -5,9 +5,9 @@
 #include <so_5/all.hpp>
 #include "Network/Server.h"
 #include "LabNetMainActor.h"
-#include "Interface/RFID/RfidMainActor.h"
+#include "Interface/rfid_board/RfidMainActor.h"
 #include "Interface/ManageInterfaces.h"
-#include "Interface/GPIO/GPIOManager.h"
+#include "Interface/io_board/GPIOManager.h"
 #include "Interface/UART/SerialPortsManager.h"
 #include "DigitalOut/DigitalOutHelper.h"
 
@@ -43,8 +43,8 @@ int main(int argc, char *argv[])
 		labNetBox = act->so_direct_mbox();
 		
 		coop.make_agent<Interface::ManageInterfaces>();
-		coop.make_agent<GPIO::GPIOManager>(gpioBox, labNetBox, logger);
-		coop.make_agent<RFID::SamMainActor>(rfidBox, labNetBox, logger);
+		coop.make_agent<io_board::GPIOManager>(gpioBox, labNetBox, logger);
+		coop.make_agent<rfid_board::SamMainActor>(rfidBox, labNetBox, logger);
 		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
 		coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
 	});

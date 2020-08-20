@@ -1,6 +1,6 @@
 #pragma once
 
-namespace GPIO
+namespace io_board
 {
 	struct DigitalOutput
 	{

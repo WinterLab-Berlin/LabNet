@@ -7,7 +7,7 @@
 #include "DigitalOutput.h"
 #include "DigitalInputStateReader.h"
 
-namespace GPIO
+namespace io_board
 {
 	class GPIOManager final : public so_5::agent_t
 	{

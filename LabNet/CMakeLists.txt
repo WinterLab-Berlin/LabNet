@@ -6,7 +6,25 @@ project(LabNet)
 
 set(LIBRARIES_FROM_REFERENCES -latomic -lpthread -lboost_system -lwiringPi so.5.7.1 -lprotobuf)
 
-add_executable(LabNet LabNet.cpp Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h Log/easylogging++.cc Log/easylogging++.h Interface/UART/SerialPort.cpp Interface/UART/SerialPort.h Log/LoggingFacility.h Log/StandardOutputLogger.h Log/EasyLogger.h Log/LoggerFactory.h Interface/UART/SerialPortMessages.h Interface/UART/SerialPortsManager.h Interface/UART/SerialPortsManager.cpp Interface/GPIO/GPIOManager.cpp Interface/GPIO/GPIOManager.h Interface/GPIO/Messages.h Interface/GPIO/DigitalInput.h Interface/GPIO/DigitalOutput.h Interface/ManageInterfaces.h Interface/InterfaceMessages.h Interface/ManageInterfaces.cpp Interface/InitMessages.h Interface/GPIO/DigitalInputStateReader.h Interface/GPIO/DigitalInputStateReader.cpp Network/LabNetServer.proto LabNetMainActor.h LabNetMainActor.cpp LabNetMainActorMessages.h Network/LabNetClient.proto Interface/UART/PrivateMessages.h DigitalOut/DigitalOutHelper.h DigitalOut/DigitalOutHelper.cpp Interface/Interfaces.h DigitalOut/LoopMessages.h DigitalOut/PulseHelper.h DigitalOut/PulseHelper.cpp DigitalOut/LoopHelper.h DigitalOut/PinId.h DigitalOut/LoopHelper.cpp Network/LabNet.proto Network/LabNet.pb.h Network/LabNetClient.pb.h Network/LabNetServer.pb.h Network/LabNet.pb.cc Network/LabNetClient.pb.cc Network/LabNetServer.pb.cc Network/ProtocolAll.h Interface/RFID/DataReadWorker.h Interface/RFID/MAX14830.h Interface/RFID/MAX14830_defs.h Interface/RFID/MAXDevice.h Interface/RFID/spi.h Interface/RFID/DataReadWorker.cpp Interface/RFID/MAX14830.cpp Interface/RFID/MAXDevice.cpp Interface/RFID/spi.cpp Interface/RFID/RfidMainActor.cpp Interface/RFID/RfidMainActor.h Interface/RFID/RfidMessages.h Interface/DigitalMessages.h Interface/StreamMessages.h)
+add_executable(LabNet LabNet.cpp LabNetMainActor.h LabNetMainActor.cpp LabNetMainActorMessages.h
+               Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h
+               Network/LabNet.pb.h Network/LabNetClient.pb.h Network/LabNetServer.pb.h Network/LabNet.pb.cc Network/LabNetClient.pb.cc
+               Network/LabNetServer.pb.cc Network/ProtocolAll.h
+               Log/easylogging++.cc Log/easylogging++.h Log/LoggingFacility.h Log/StandardOutputLogger.h Log/EasyLogger.h Log/LoggerFactory.h
+               Interface/uart/SerialPort.cpp Interface/uart/SerialPort.h Interface/uart/SerialPortMessages.h Interface/uart/SerialPortsManager.h
+               Interface/uart/SerialPortsManager.cpp
+               Interface/uart/PrivateMessages.h Interface/Interfaces.h
+               Interface/io_board/GPIOManager.cpp Interface/io_board/GPIOManager.h Interface/io_board/Messages.h Interface/io_board/DigitalInputStateReader.cpp
+               Interface/io_board/DigitalInput.h Interface/io_board/DigitalOutput.h Interface/io_board/DigitalInputStateReader.h
+               Interface/rfid_board/DataReadWorker.h Interface/rfid_board/MAX14830.h
+               Interface/rfid_board/MAX14830_defs.h Interface/rfid_board/MAXDevice.h Interface/rfid_board/spi.h Interface/rfid_board/DataReadWorker.cpp
+               Interface/rfid_board/MAX14830.cpp Interface/rfid_board/MAXDevice.cpp Interface/rfid_board/spi.cpp Interface/rfid_board/RfidMainActor.cpp
+               Interface/rfid_board/RfidMainActor.h Interface/rfid_board/RfidMessages.h
+               Interface/DigitalMessages.h Interface/StreamMessages.h
+               Interface/ManageInterfaces.h Interface/InterfaceMessages.h
+               Interface/ManageInterfaces.cpp Interface/InitMessages.h
+               DigitalOut/DigitalOutHelper.h DigitalOut/DigitalOutHelper.cpp DigitalOut/LoopMessages.h DigitalOut/PulseHelper.h
+               DigitalOut/PulseHelper.cpp DigitalOut/LoopHelper.h DigitalOut/PinId.h DigitalOut/LoopHelper.cpp)
 
 target_include_directories(LabNet PRIVATE ../sobjectizer/dev ../sobjectizer/dev Log Interface/UART)
 set_property(TARGET LabNet PROPERTY CXX_STANDARD 17)

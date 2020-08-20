@@ -3,7 +3,9 @@
 #include "../InitMessages.h"
 #include "../InterfaceMessages.h"
 
-RFID::SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
+using namespace rfid_board;
+
+SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
 	: so_5::agent_t(ctx)
 	, _selfBox(selfBox)
 	, _parentMbox(parentBox)
@@ -12,13 +14,13 @@ RFID::SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, cons
 {
 }
 
-RFID::SamMainActor::~SamMainActor()
+SamMainActor::~SamMainActor()
 {
 	_worker.reset();
 	_device.reset();
 }
 
-void RFID::SamMainActor::so_define_agent()
+void SamMainActor::so_define_agent()
 {
 	this >>= wait_for_init;
 	

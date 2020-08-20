@@ -4,23 +4,25 @@
 #include <chrono>
 #include "../DigitalMessages.h"
 
-GPIO::DigitalInputStateReader::DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput> *inputs, Logger logger)
+using namespace io_board;
+
+DigitalInputStateReader::DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput> *inputs, Logger logger)
 	: _parent(parent)
 	, _inputs(inputs)
 	, _futureObj(_exitSignal.get_future())
 	, _logger(logger)
 {
-	std::thread readWorker{&GPIO::DigitalInputStateReader::data_read_thread, this};
+	std::thread readWorker{&DigitalInputStateReader::data_read_thread, this};
 	_readWorker = std::move(readWorker);
 }
 
-GPIO::DigitalInputStateReader::~DigitalInputStateReader()
+DigitalInputStateReader::~DigitalInputStateReader()
 {
 	_exitSignal.set_value();
 	_readWorker.join();
 }
 
-bool GPIO::DigitalInputStateReader::stop_requested()
+bool DigitalInputStateReader::stop_requested()
 {
 	// checks if value in future object is available
 	if(_futureObj.wait_for(std::chrono::milliseconds(0)) == std::future_status::timeout)
@@ -28,7 +30,7 @@ bool GPIO::DigitalInputStateReader::stop_requested()
 	return true;
 }
 
-void GPIO::DigitalInputStateReader::data_read_thread()
+void DigitalInputStateReader::data_read_thread()
 {
 	int res = 0;
 	while (stop_requested() == false)

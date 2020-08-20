@@ -1,9 +1,9 @@
 #include "LabNetMainActor.h"
 #include "LabNetMainActorMessages.h"
 #include "Network/ProtocolAll.h"
-#include "Interface/GPIO/Messages.h"
+#include "Interface/io_board/Messages.h"
 #include "Interface/InterfaceMessages.h"
-#include "Interface/RFID/RfidMessages.h"
+#include "Interface/rfid_board/RfidMessages.h"
 #include "Interface/UART/SerialPortMessages.h"
 #include "Interface/DigitalMessages.h"
 #include "Interface/StreamMessages.h"
@@ -57,40 +57,37 @@ void LabNetMainActor::so_define_agent()
 	.event([this](std::shared_ptr<LabNetProt::Client::ClientWrappedMessage> mes) {
 		switch (mes->client_message_case())
 		{
-		case LabNetProt::Client::ClientWrappedMessage::kGpioInit:
-			so_5::send<GPIO::init_interface>(_gpioBox);
+		case LabNetProt::Client::ClientWrappedMessage::kIoBoardInit:
+			so_5::send<io_board::init_interface>(_gpioBox);
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kGpioInitDigitalIn:
+		case LabNetProt::Client::ClientWrappedMessage::kIoBoardInitDigitalIn:
 			{
-				auto& init_in = mes->gpio_init_digital_in();
-				so_5::send<GPIO::init_digital_in>(_gpioBox, init_in.pin(), static_cast<GPIO::resistor>(init_in.resistor_state()), init_in.is_inverted());
+				auto& init_in = mes->io_board_init_digital_in();
+				so_5::send<io_board::init_digital_in>(_gpioBox, init_in.pin(), static_cast<io_board::resistor>(init_in.resistor_state()), init_in.is_inverted());
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kGpioInitDigitalOut:
+		case LabNetProt::Client::ClientWrappedMessage::kIoBoardInitDigitalOut:
 			{
-				auto& init_out = mes->gpio_init_digital_out();
-				so_5::send<GPIO::init_digital_out>(_gpioBox, init_out.pin(), init_out.is_inverted());
+				auto& init_out = mes->io_board_init_digital_out();
+				so_5::send<io_board::init_digital_out>(_gpioBox, init_out.pin(), init_out.is_inverted());
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kRfidInit:
+		case LabNetProt::Client::ClientWrappedMessage::kRfidBoardInit:
 			{
-				_logger->writeInfoEntry("rfid init mes");
-				auto& init_sam = mes->rfid_init();
-				so_5::send<RFID::init_interface>(_rfidBox, init_sam.antenna_phase1(), init_sam.antenna_phase2(), init_sam.phase_duration(), init_sam.inverted());
+				auto& init_sam = mes->rfid_board_init();
+				so_5::send<rfid_board::init_interface>(_rfidBox, init_sam.antenna_phase1(), init_sam.antenna_phase2(), init_sam.phase_duration(), init_sam.inverted());
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kRfidSetPhaseMatrix:
+		case LabNetProt::Client::ClientWrappedMessage::kRfidBoardSetPhaseMatrix:
 			{
-				_logger->writeInfoEntry("rfid set phase matrix mes");
-				auto& set_phase = mes->rfid_set_phase_matrix();
-				so_5::send<RFID::set_phase_matrix>(_rfidBox, set_phase.antenna_phase1(), set_phase.antenna_phase2(), set_phase.phase_duration());
+				auto& set_phase = mes->rfid_board_set_phase_matrix();
+				so_5::send<rfid_board::set_phase_matrix>(_rfidBox, set_phase.antenna_phase1(), set_phase.antenna_phase2(), set_phase.phase_duration());
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kRfidSetSignalInversion:
+		case LabNetProt::Client::ClientWrappedMessage::kRfidBoardSetSignalInversion:
 			{
-				_logger->writeInfoEntry("rfid set signal inversion mes");
-				auto& set_inv = mes->rfid_set_signal_inversion();
-				so_5::send<RFID::set_signal_inversion>(_rfidBox, set_inv.inverted());
+				auto& set_inv = mes->rfid_board_set_signal_inversion();
+				so_5::send<rfid_board::set_signal_inversion>(_rfidBox, set_inv.inverted());
 			}
 			break;
 		case LabNetProt::Client::ClientWrappedMessage::kUartInit:
@@ -142,7 +139,7 @@ void LabNetMainActor::so_define_agent()
 				so_5::send<LabNetProt::Client::StopDigitalOutLoop>(_digOutBox, stopLoop);
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kReset:
+		case LabNetProt::Client::ClientWrappedMessage::kResetRequest:
 			{
 				so_5::send<Interface::reset_interface>(_gpioBox);
 				so_5::send<Interface::reset_interface>(_interfaceManager);
@@ -156,7 +153,7 @@ void LabNetMainActor::so_define_agent()
 				_connection->send_message(swm);
 			}
 			break;
-		case LabNetProt::Client::ClientWrappedMessage::kId:
+		case LabNetProt::Client::ClientWrappedMessage::kIdRequest:
 			{
 				_logger->writeInfoEntry("id mes");
 				

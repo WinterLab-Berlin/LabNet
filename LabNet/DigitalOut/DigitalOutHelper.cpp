@@ -3,7 +3,7 @@
 #include "../InterfaceMessages.h"
 #include "PulseHelper.h"
 #include "LoopHelper.h"
-#include "../GPIO/Messages.h"
+#include "../io_board/Messages.h"
 #include "LoopMessages.h"
 #include "../Interface/DigitalMessages.h"
 
@@ -60,7 +60,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 		[this](mhood_t<LabNetProt::Client::DigitalOutSet> msg) {
 			auto interface = msg->id().interface();
 			
-			if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
+			if (interface == LabNetProt::INTERFACE_IO_BOARD)
 			{
 				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				
@@ -142,7 +142,7 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 		.event(_selfBox,
 		[this](mhood_t<LabNetProt::Client::DigitalOutPulse> msg) {
 			auto interface = msg->id().interface();
-			if (interface == LabNetProt::INTERFACE_GPIO_TOP_PLANE)
+			if (interface == LabNetProt::INTERFACE_IO_BOARD)
 			{
 				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
 				

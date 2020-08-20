@@ -3,7 +3,7 @@
 #include <so_5/all.hpp>
 #include "DigitalInput.h"
 
-namespace GPIO
+namespace io_board
 {
 	struct init_interface final : public so_5::signal_t {};
 	
