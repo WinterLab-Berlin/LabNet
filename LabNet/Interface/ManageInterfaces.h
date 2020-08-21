@@ -15,6 +15,6 @@ namespace Interface
 		
 		Logger _logger;
 		const so_5::mbox_t _self_mbox;
-		bool _gpio_init = false, _rfid_init = false;
+		bool _io_board_init = false, _rfid_board_init = false, _gpio_wiring = false;
 	};
 }

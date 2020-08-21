@@ -4,8 +4,9 @@ namespace Interface
 {
 	enum Interfaces {
 		NONE           = 0,
-		GPIO_TOP_PLANE = 1,
-		RFID           = 2,
+		IO_BOARD       = 1,
+		RFID_BOARD     = 2,
+		GPIO_WIRING    = 3,
 		UART0          = 100,
 		UART1          = 101,
 		UART2          = 102,

@@ -8,7 +8,8 @@
 #include "Interface/rfid_board/RfidMainActor.h"
 #include "Interface/ManageInterfaces.h"
 #include "Interface/io_board/GPIOManager.h"
-#include "Interface/UART/SerialPortsManager.h"
+#include "Interface/gpio_wiring/GpioManager.h"
+#include "Interface/uart/SerialPortsManager.h"
 #include "DigitalOut/DigitalOutHelper.h"
 
 int main(int argc, char *argv[])
@@ -38,12 +39,14 @@ int main(int argc, char *argv[])
 		so_5::mbox_t rfidBox = coop.environment().create_mbox("rfid");
 		so_5::mbox_t uartBox = coop.environment().create_mbox("uart");
 		so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
+		so_5::mbox_t gpioWiringBox = coop.environment().create_mbox("gpioWiring");
 		
-		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, gpioBox, rfidBox, uartBox, digOutBox);
+		auto act = coop.make_agent<LabNet::LabNetMainActor>(logger, digOutBox);
 		labNetBox = act->so_direct_mbox();
 		
 		coop.make_agent<Interface::ManageInterfaces>();
 		coop.make_agent<io_board::GPIOManager>(gpioBox, labNetBox, logger);
+		coop.make_agent<gpio_wiring::GpioManager>(gpioWiringBox, labNetBox, logger);
 		coop.make_agent<rfid_board::SamMainActor>(rfidBox, labNetBox, logger);
 		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
 		coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);

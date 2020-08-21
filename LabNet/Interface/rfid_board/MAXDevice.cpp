@@ -245,7 +245,7 @@ void MAX14830::MAXDevice::readRXFifo(uint8_t cspin, uint8_t uart)
 				data->push_back('\r');
 				data->push_back('\n');
 				
-				so_5::send<StreamMessages::new_data_from_port>(_parentMbox, Interface::RFID, 4 * cspin + uart + 1, data, std::chrono::high_resolution_clock::now());
+				so_5::send<StreamMessages::new_data_from_port>(_parentMbox, Interface::RFID_BOARD, 4 * cspin + uart + 1, data, std::chrono::high_resolution_clock::now());
 			}
 			else
 			{

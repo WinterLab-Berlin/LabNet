@@ -12,6 +12,7 @@ DigitalOut::DigitalOutHelper::DigitalOutHelper(context_t ctx, Logger logger, so_
 	, _selfBox(selfBox)
 	, _gpioBox(ctx.environment().create_mbox("gpio"))
 	, _uartBox(ctx.environment().create_mbox("uart"))
+	, _gpioWiringBox(ctx.environment().create_mbox("gpioWiring"))
 	, _labNetBox(lab_net_box)
 	, _logger(logger)
 {
@@ -62,7 +63,8 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			
 			if (interface == LabNetProt::INTERFACE_IO_BOARD)
 			{
-				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
+				PinId id{Interface::IO_BOARD, msg->id().pin()}
+				;
 				
 				if (_pulseHelper.count(id) > 0)
 				{
@@ -70,7 +72,20 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 				}
 				else
 				{
-					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, Interface::GPIO_TOP_PLANE, msg->id().pin(), msg->state(), _labNetBox);
+					so_5::send<DigitalMessages::set_digital_out>(_gpioBox, Interface::IO_BOARD, msg->id().pin(), msg->state(), _labNetBox);
+				}
+			}
+			else if (interface == LabNetProt::INTERFACE_GPIO_WIRINGPI)
+			{
+				PinId id{Interface::GPIO_WIRING, msg->id().pin()};
+				
+				if (_pulseHelper.count(id) > 0)
+				{
+					so_5::send<just_switch>(_pulseHelper[id], msg->state());
+				}
+				else
+				{
+					so_5::send<DigitalMessages::set_digital_out>(_gpioWiringBox, Interface::GPIO_WIRING, msg->id().pin(), msg->state(), _labNetBox);
 				}
 			}
 			else if (interface == LabNetProt::INTERFACE_UART0)
@@ -144,12 +159,29 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
 			auto interface = msg->id().interface();
 			if (interface == LabNetProt::INTERFACE_IO_BOARD)
 			{
-				PinId id{Interface::GPIO_TOP_PLANE, msg->id().pin()};
+				PinId id{Interface::IO_BOARD, msg->id().pin()}
+				;
 				
 				if (_pulseHelper.count(id) == 0)
 				{
 					auto coop = so_5::create_child_coop(*this);
 					auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _gpioBox, id.interface, id.pin);
+					
+					_pulseHelper[id] = a->so_direct_mbox();
+					
+					so_environment().register_coop(std::move(coop));
+				}
+				
+				so_5::send<start_pulse>(_pulseHelper[id], msg->high_duration(), msg->low_duration(), msg->pulses());
+			}
+			else if (interface == LabNetProt::INTERFACE_GPIO_WIRINGPI)
+			{
+				PinId id{Interface::GPIO_WIRING, msg->id().pin()};
+				
+				if (_pulseHelper.count(id) == 0)
+				{
+					auto coop = so_5::create_child_coop(*this);
+					auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _gpioWiringBox, id.interface, id.pin);
 					
 					_pulseHelper[id] = a->so_direct_mbox();
 					

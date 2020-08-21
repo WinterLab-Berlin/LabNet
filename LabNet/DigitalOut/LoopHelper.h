@@ -49,6 +49,7 @@ namespace DigitalOut
 		const so_5::mbox_t _labNetBox;
 		const so_5::mbox_t _digOutBox;
 		so_5::mbox_t _gpioBox;
+		so_5::mbox_t _gpioWiringBox;
 		so_5::mbox_t _uartBox;
 		
 		unsigned int _loopPause;

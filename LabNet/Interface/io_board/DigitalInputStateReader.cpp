@@ -45,9 +45,9 @@ void DigitalInputStateReader::data_read_thread()
 					_logger->writeInfoEntry("new state");
 					inp.second.state = res;
 					if (inp.second.is_inverted)
-						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, !res, std::chrono::high_resolution_clock::now());
+						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::IO_BOARD, inp.second.pin_l, !res, std::chrono::high_resolution_clock::now());
 					else
-						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::GPIO_TOP_PLANE, inp.second.pin_l, res, std::chrono::high_resolution_clock::now());
+						so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::IO_BOARD, inp.second.pin_l, res, std::chrono::high_resolution_clock::now());
 				}
 			}
 		}

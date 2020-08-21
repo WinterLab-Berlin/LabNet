@@ -11,6 +11,11 @@ namespace Interface
 			const so_5::mbox_t mbox;
 		};
 		
+		struct init_gpio_wiring_request
+		{
+			const so_5::mbox_t mbox;
+		};
+		
 		struct init_rfid_request
 		{
 			const so_5::mbox_t mbox;

@@ -9,7 +9,7 @@ namespace LabNet
 	class LabNetMainActor final : public so_5::agent_t
 	{
 	public:
-		LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t rfidBox, so_5::mbox_t uartBox, so_5::mbox_t digOutBox);
+		LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t digOutBox);
 		~LabNetMainActor();
 
 	private:
@@ -21,6 +21,7 @@ namespace LabNet
 		Logger _logger;
 		std::shared_ptr<Connection> _connection;
 		const so_5::mbox_t _gpioBox;
+		const so_5::mbox_t _gpioWiringBox;
 		const so_5::mbox_t _rfidBox;
 		const so_5::mbox_t _uartBox;
 		const so_5::mbox_t _digOutBox;

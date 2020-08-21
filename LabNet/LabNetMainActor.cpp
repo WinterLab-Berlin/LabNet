@@ -2,22 +2,24 @@
 #include "LabNetMainActorMessages.h"
 #include "Network/ProtocolAll.h"
 #include "Interface/io_board/Messages.h"
+#include "Interface/gpio_wiring/Messages.h"
 #include "Interface/InterfaceMessages.h"
 #include "Interface/rfid_board/RfidMessages.h"
-#include "Interface/UART/SerialPortMessages.h"
+#include "Interface/uart/SerialPortMessages.h"
 #include "Interface/DigitalMessages.h"
 #include "Interface/StreamMessages.h"
 #include <chrono>
 
 using namespace LabNet;
 
-LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t gpioBox, so_5::mbox_t rfidBox, so_5::mbox_t uartBox, so_5::mbox_t digOutBox)
+LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger, so_5::mbox_t digOutBox)
 	: so_5::agent_t(ctx)
 	, _logger(logger)
-	, _gpioBox(gpioBox)
-	, _rfidBox(rfidBox)
-	, _uartBox(uartBox)
-	, _digOutBox(digOutBox)
+	, _rfidBox(ctx.environment().create_mbox("rfid"))
+	, _gpioBox(ctx.environment().create_mbox("gpio"))
+	, _uartBox(ctx.environment().create_mbox("uart"))
+	, _gpioWiringBox(ctx.environment().create_mbox("gpioWiring"))
+	, _digOutBox(ctx.environment().create_mbox("digOut"))
 	, _interfaceManager(ctx.env().create_mbox("ManageInterfaces"))
 {
 }
@@ -33,24 +35,26 @@ void LabNetMainActor::so_define_agent()
 
 	wait_for_connection
 		.event([this](mhood_t<Connected> mes) {
-			_connection = mes->connection;
+		_connection = mes->connection;
 			
-			so_5::send<Interface::continue_interface>(_gpioBox);
-			so_5::send<Interface::continue_interface>(_rfidBox);
-			so_5::send<Interface::continue_interface>(_uartBox);
-			so_5::send<Interface::continue_interface>(_digOutBox);
+		so_5::send<Interface::continue_interface>(_gpioBox);
+		so_5::send<Interface::continue_interface>(_rfidBox);
+		so_5::send<Interface::continue_interface>(_uartBox);
+		so_5::send<Interface::continue_interface>(_gpioWiringBox);
+		so_5::send<Interface::continue_interface>(_digOutBox);
 			
-			this >>= connected;
-		});
+		this >>= connected;
+	});
 	
 	connected
 		.event([this](mhood_t<Disconnected>) {
 		_connection.reset();
 			
 		so_5::send<Interface::pause_interface>(_gpioBox);
-			so_5::send<Interface::pause_interface>(_rfidBox);
+		so_5::send<Interface::pause_interface>(_rfidBox);
 		so_5::send<Interface::pause_interface>(_uartBox);
 		so_5::send<Interface::pause_interface>(_digOutBox);
+		so_5::send<Interface::pause_interface>(_gpioWiringBox);
 			
 		this >>= wait_for_connection;
 	})
@@ -108,6 +112,25 @@ void LabNetMainActor::so_define_agent()
 				so_5::send<StreamMessages::send_data_to_port>(_uartBox, static_cast<Interface::Interfaces>(uart_write.port()), 0, data);
 			}
 			break;
+		case LabNetProt::Client::ClientWrappedMessage::kGpioWiringPiInit:
+			{
+				so_5::send<gpio_wiring::init_interface>(_gpioWiringBox);
+			}
+			break;
+		case LabNetProt::Client::ClientWrappedMessage::kGpioWiringPiInitDigitalIn:
+			{
+				so_5::send<gpio_wiring::init_interface>(_gpioWiringBox);
+				auto& init_in = mes->gpio_wiring_pi_init_digital_in();
+				so_5::send<gpio_wiring::init_digital_in>(_gpioWiringBox, init_in.pin(), static_cast<gpio_wiring::resistor>(init_in.resistor_state()), init_in.is_inverted());
+			}
+			break;
+		case LabNetProt::Client::ClientWrappedMessage::kGpioWiringPiInitDigitalOut:
+			{
+				so_5::send<gpio_wiring::init_interface>(_gpioWiringBox);
+				auto& init_in = mes->gpio_wiring_pi_init_digital_out();
+				so_5::send<gpio_wiring::init_digital_out>(_gpioWiringBox, init_in.pin(), init_in.is_inverted());
+			}
+			break;
 		case LabNetProt::Client::ClientWrappedMessage::kDigitalOutSet:
 			{
 				auto set = mes->digital_out_set();
@@ -117,15 +140,12 @@ void LabNetMainActor::so_define_agent()
 			break;
 		case LabNetProt::Client::ClientWrappedMessage::kDigitalOutPulse:
 			{
-				_logger->writeInfoEntry("digital out pulse mes");
-				
 				auto setPulse = mes->digital_out_pulse();
 				so_5::send<LabNetProt::Client::DigitalOutPulse>(_digOutBox, setPulse);
 			}
 			break;
 		case LabNetProt::Client::ClientWrappedMessage::kStartDigitalOutLoop:
 			{
-				_logger->writeInfoEntry("start digital out loop mes");
 				auto setLoop = mes->start_digital_out_loop();
 				
 				so_5::send<LabNetProt::Client::StartDigitalOutLoop>(_digOutBox, setLoop);
@@ -133,7 +153,6 @@ void LabNetMainActor::so_define_agent()
 			break;
 		case LabNetProt::Client::ClientWrappedMessage::kStopDigitalOutLoop:
 			{
-				_logger->writeInfoEntry("stop digital out loop mes");
 				auto stopLoop = mes->stop_digital_out_loop();
 				
 				so_5::send<LabNetProt::Client::StopDigitalOutLoop>(_digOutBox, stopLoop);
@@ -144,6 +163,7 @@ void LabNetMainActor::so_define_agent()
 				so_5::send<Interface::reset_interface>(_gpioBox);
 				so_5::send<Interface::reset_interface>(_interfaceManager);
 				so_5::send<Interface::reset_interface>(_uartBox);
+				so_5::send<Interface::reset_interface>(_gpioWiringBox);
 				
 				std::shared_ptr<LabNetProt::Server::ServerWrappedMessage> swm = std::make_shared<LabNetProt::Server::ServerWrappedMessage>();
 				LabNetProt::Server::LabNetResetReply* reply = new LabNetProt::Server::LabNetResetReply();

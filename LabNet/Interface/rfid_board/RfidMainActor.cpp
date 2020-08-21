@@ -31,7 +31,7 @@ void SamMainActor::so_define_agent()
 		})
 		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_no> msg) {
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID, false);
+				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, false);
 		})
 		.event(_selfBox,
 			[this](mhood_t<Interface::InitMessages::can_init_yes> msg) {
@@ -40,7 +40,7 @@ void SamMainActor::so_define_agent()
 	
 				_worker = std::make_unique<MAX14830::DataReadWorker>(_device);
 			
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID, true);
+				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, true);
 			
 				this >>= running;
 			}
@@ -49,7 +49,7 @@ void SamMainActor::so_define_agent()
 	running
 		.event(_selfBox,
 			[this](mhood_t<init_interface>) {
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID, true);
+				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, true);
 		})
 		.event(_selfBox,
 			[this](mhood_t<set_phase_matrix> msg) {

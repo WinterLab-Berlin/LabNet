@@ -17,8 +17,6 @@ namespace io_board
 		~DigitalInputStateReader();
 		
 	private:
-		void state_read_thread();
-	
 		bool stop_requested();
 	
 		void data_read_thread();
