@@ -1,5 +1,5 @@
 #include "PulseHelper.h"
-#include "../io_board/Messages.h"
+#include "../Interface/io_board/Messages.h"
 #include "../Interface/DigitalMessages.h"
 
 struct turn_on final : public so_5::signal_t {};

@@ -1,7 +1,7 @@
 #include "LoopHelper.h"
-#include "../../Network/ProtocolAll.h"
+#include "../Network/ProtocolAll.h"
 #include "LoopMessages.h"
-#include "../io_board/Messages.h"
+#include "../Interface/io_board/Messages.h"
 #include "../Interface/DigitalMessages.h"
 #include <climits>
 

@@ -1,9 +1,9 @@
 #include "DigitalOutHelper.h"
-#include "../../Network/ProtocolAll.h"
-#include "../InterfaceMessages.h"
+#include "../Network/ProtocolAll.h"
+#include "../Interface/InterfaceMessages.h"
 #include "PulseHelper.h"
 #include "LoopHelper.h"
-#include "../io_board/Messages.h"
+#include "../Interface/io_board/Messages.h"
 #include "LoopMessages.h"
 #include "../Interface/DigitalMessages.h"
 

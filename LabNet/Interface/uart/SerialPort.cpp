@@ -2,7 +2,7 @@
 #include <wiringSerial.h>
 #include <wiringPi.h>
 #include <chrono>
-#include <SerialPortMessages.h>
+#include "SerialPortMessages.h"
 #include "PrivateMessages.h"
 #include "../StreamMessages.h"
 #include "../DigitalMessages.h"

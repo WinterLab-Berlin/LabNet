@@ -2,7 +2,7 @@
 
 #include <so_5/all.hpp>
 #include <LoggingFacility.h>
-#include "../Interfaces.h"
+#include "../Interface/Interfaces.h"
 
 namespace DigitalOut
 {
