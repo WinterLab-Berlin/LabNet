@@ -61,7 +61,7 @@ void Server::do_accept()
 			socket.set_option(option);
 			
 			m_connection_manager.start(std::make_shared<Connection>(
-			    m_logger, std::move(socket), m_connection_manager));
+			    m_logger, std::move(socket), m_connection_manager, m_connection_manager.get_lab_net_box()));
 		}
 
 		do_accept();

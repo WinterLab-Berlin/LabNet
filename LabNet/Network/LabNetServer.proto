@@ -3,6 +3,23 @@ package LabNetProt.Server;
 import "LabNet.proto";
 import "google/protobuf/timestamp.proto";
 
+enum ServerMessageType {
+	NONE = 0;
+	DIGITAL_OUT_STATE = 1;
+	DIGITAL_IN_STATE = 2;
+	NEW_BYTE_DATA = 3;
+	DATA_WRITE_COMPLETE = 4;
+	INTERFACE_INIT_RESULT = 5;
+	DIGITAL_IN_INIT_RESULT = 6;
+	DIGITAL_OUT_INIT_RESULT = 7;
+	ONLY_ONE_CONNECTION_ALLOWED = 8;
+	LABNET_RESET_REPLY = 9;
+	LABNET_ID_REPLY = 10;
+	INTERFACE_LOST = 11;
+	INTERFACE_RECONNECTED = 12;
+	DIGITAL_OUT_LOOP_START_RESULT = 13;
+	DIGITAL_OUT_LOOP_STOPPED = 14;
+}
 
 // general messages
 
@@ -70,30 +87,11 @@ message LabNetIdReply {
 
 // digital out loop
 message DigitalOutLoopStartResult {
-	bool is_succeed = 1;
+	string loop_name = 1;
+	bool is_succeed = 2;
 }
 
 message DigitalOutLoopStopped {
 	string loop_name = 1;
 }
 // digital out loop
-
-
-message ServerWrappedMessage {
-	oneof server_message {
-		DigitalOutState digital_out_state = 1;
-		DigitalInState digital_in_state = 2;
-		NewByteData new_byte_data = 3;
-		DataWriteComplete data_write_complete = 4;
-		InterfaceInitResult interface_init_result = 5;
-		DigitalInInitResult digital_in_init_result = 6;
-		DigitalOutInitResult digital_out_init_result = 7;
-		OnlyOneConnectionAllowed only_one_connection_allowed = 8;
-		LabNetResetReply reset = 9;
-		LabNetIdReply id = 10;
-		InterfaceLost interface_lost = 11;
-		InterfaceReconnected interface_reconnected = 12;
-		DigitalOutLoopStartResult digital_out_loop_start_result = 13;
-		DigitalOutLoopStopped digital_out_loop_stopped = 14;
-	}
-}

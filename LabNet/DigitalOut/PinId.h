@@ -6,14 +6,14 @@
 
 namespace DigitalOut
 {
-	struct PinId
-	{
-		Interface::Interfaces interface;
-		unsigned int pin;
-		
-		bool operator <(const PinId& a) const
-		{
-			return std::tie(interface, pin) < std::tie(a.interface, a.pin); 
-		}
-	};
+    struct PinId
+    {
+        Interface::Interfaces interface;
+        unsigned int pin;
+
+        bool operator<(const PinId& a) const
+        {
+            return std::tie(interface, pin) < std::tie(a.interface, a.pin);
+        }
+    };
 }

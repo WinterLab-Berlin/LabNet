@@ -1,5 +1,5 @@
-#ifndef	MAX14830_DEFS_H_
-#define	MAX14830_DEFS_H_
+#ifndef MAX14830_DEFS_H_
+#define MAX14830_DEFS_H_
 
 /*
 ISR Interrupt Status Register
@@ -10,14 +10,14 @@ BIT 7 6 5 4 3 2 1 0
 NAME CTSInt RFifoEmptyInt TFifoEmptyInt TFifoTrigInt RFifoTrigInt STSInt SpCharInt LSRErrInt
 RESET 0 1 1 0 0 0 0 0
 */
-#define CTSInt        7
+#define CTSInt 7
 #define RFifoEmptyInt 6
 #define TFifoEmptyInt 5
-#define TFifoTrigInt  4
-#define RFifoTrigInt  3
-#define STSInt        2
-#define SpCharInt     1
-#define LSRErrInt     0
+#define TFifoTrigInt 4
+#define RFifoTrigInt 3
+#define STSInt 2
+#define SpCharInt 1
+#define LSRErrInt 0
 
 /*
 GPIOData GPIO Data Register
@@ -46,10 +46,10 @@ BIT 7 6 5 4 3 2 1 0
 NAME GP3OD GP2OD GP1OD GP0OD GP3Out GP2Out GP1Out GP0Out
 RESET 0 0 0 0 0 0 0 0
 */
-#define GP3OD  7
-#define GP2OD  6
-#define GP1OD  5
-#define GP0OD  4
+#define GP3OD 7
+#define GP2OD 6
+#define GP1OD 5
+#define GP0OD 4
 #define GP3Out 3
 #define GP2Out 2
 #define GP1Out 1
@@ -64,14 +64,14 @@ BIT 7 6 5 4 3 2 1 0
 NAME CTSIEn RFifoEmtyIEn TFifoEmtyIEn TFifoTrgIEn RFifoTrgIEn STSIEn SpclChrIEn LSRErrIEn
 RESET 0 0 0 0 0 0 0 0
 */
-#define CTSIEn       7
+#define CTSIEn 7
 #define RFifoEmtyIEn 6
 #define TFifoEmtyIEn 5
-#define TFifoTrgIEn  4
-#define RFifoTrgIEn  3
-#define STSIEn       2
-#define SpclChrIEn   1
-#define LSRErrIEn    0
+#define TFifoTrgIEn 4
+#define RFifoTrgIEn 3
+#define STSIEn 2
+#define SpclChrIEn 1
+#define LSRErrIEn 0
 
 /*
 LSRIntEn Line Status Interrupt Enable Register
@@ -82,12 +82,12 @@ BIT 7 6 5 4 3 2 1 0
 NAME NoiseIntEn RBreakIEn FrameErrIEn ParityIEn ROverrIEn RTimoutIEn
 RESET 0 0 0 0 0 0 0 0
 */
-#define NoiseIntEn  5
-#define RBreakIEn   4
+#define NoiseIntEn 5
+#define RBreakIEn 4
 #define FrameErrIEn 3
-#define ParityIEn   2
-#define ROverrIEn   1
-#define RTimoutIEn  0
+#define ParityIEn 2
+#define ROverrIEn 1
+#define RTimoutIEn 0
 
 /*
 LSR Line Status Register
@@ -98,13 +98,13 @@ BIT 7 6 5 4 3 2 1 0
 NAME CTSbit RxNoise RxBreak FrameErr RxParityErr RxOverrun RTimeout
 RESET X 0 0 0 0 0 0 0
 */
-#define CTSbit      7
-#define RxNoise     5
-#define RxBreak     4
-#define FrameErr    3
+#define CTSbit 7
+#define RxNoise 5
+#define RxBreak 4
+#define FrameErr 3
 #define RxParityErr 2
-#define RxOverrun   1
-#define RTimeout    0
+#define RxOverrun 1
+#define RTimeout 0
 
 /*
 SpclChrIntEn Special Character Interrupt Enable Register
@@ -116,11 +116,11 @@ NAME MltDrpIntEn BREAKIntEn XOFF2IntEn XOFF1IntEn XON2IntEn XON1IntEn
 RESET 0 0 0 0 0 0 0 0
 */
 #define MltDrpIntEn 5
-#define BREAKIntEn  4
-#define XOFF2IntEn  3
-#define XOFF1IntEn  2
-#define XON2IntEn   1
-#define XON1IntEn   0
+#define BREAKIntEn 4
+#define XOFF2IntEn 3
+#define XOFF1IntEn 2
+#define XON2IntEn 1
+#define XON1IntEn 0
 
 /*
 SpclCharInt Special Character Interrupt Register
@@ -132,11 +132,11 @@ NAME MultiDropInt BREAKInt XOFF2Int XOFF1Int XON2Int XON1Int
 RESET 0 0 0 0 0 0 0 0
 */
 #define MultiDropInt 5
-#define BREAKInt     4
-#define XOFF2Int     3
-#define XOFF1Int     2
-#define XON2Int      1
-#define XON1Int      0
+#define BREAKInt 4
+#define XOFF2Int 3
+#define XOFF1Int 2
+#define XON2Int 1
+#define XON1Int 0
 
 /*
 STSIntEn STS Interrupt Enable Register
@@ -148,10 +148,10 @@ NAME ClockRdyIntEn GPI3IntEn GPI2IntEn GPI1IntEn GPI0IntEn
 RESET 0 0 0 0 0 0 0 0
 */
 #define ClockRdyIntEn 5
-#define GPI3IntEn     3
-#define GPI2IntEn     2
-#define GPI1IntEn     1
-#define GPI0IntEn     0
+#define GPI3IntEn 3
+#define GPI2IntEn 2
+#define GPI1IntEn 1
+#define GPI0IntEn 0
 
 /*
 STSInt Status Interrupt Register
@@ -163,10 +163,10 @@ NAME ClockReady GPI3Int GPI2Int GPI1Int GPI0Int
 RESET 0 0 0 0 0 0 0 0
 */
 #define ClockReady 5
-#define GPI3Int    3
-#define GPI2Int    2
-#define GPI1Int    1
-#define GPI0Int    0
+#define GPI3Int 3
+#define GPI2Int 2
+#define GPI1Int 1
+#define GPI0Int 0
 
 /*
 MODE1 Register
@@ -177,12 +177,12 @@ BIT 7 6 5 4 3 2 1 0
 NAME IRQSel TrnscvCtrl RTSHiZ TxHiZ TxDisabl RxDisabl
 RESET 0 0 0 0 0 0 0 0
 */
-#define IRQSel     7
+#define IRQSel 7
 #define TrnscvCtrl 4
-#define RTSHiZ     3
-#define TxHiZ      2
-#define TxDisabl   1
-#define RxDisabl   0
+#define RTSHiZ 3
+#define TxHiZ 2
+#define TxDisabl 1
+#define RxDisabl 0
 
 /*
 MODE2 Register
@@ -193,14 +193,14 @@ BIT 7 6 5 4 3 2 1 0
 NAME EchoSuprs MultiDrop Loopback SpecialChr RxEmtyInv RxTrigInv FIFORst RST
 RESET 0 0 0 0 0 0 0 0
 */
-#define EchoSuprs  7
-#define MultiDrop  6
-#define Loopback   5
+#define EchoSuprs 7
+#define MultiDrop 6
+#define Loopback 5
 #define SpecialChr 4
-#define RxEmtyInv  3
-#define RxTrigInv  2
-#define FIFORst    1
-#define RST        0
+#define RxEmtyInv 3
+#define RxTrigInv 2
+#define FIFORst 1
+#define RST 0
 
 /*
 LCR Line Control Register
@@ -211,14 +211,14 @@ BIT 7 6 5 4 3 2 1 0
 NAME RTSbit TxBreak ForceParity EvenParity ParityEn StopBits Length1 Length0
 RESET 0 0 0 0 0 1 0 1
 */
-#define RTSbit      7
-#define TxBreak     6
+#define RTSbit 7
+#define TxBreak 6
 #define ForceParity 5
-#define EvenParity  4
-#define ParityEn    3
-#define StopBits    2
-#define Length1     1
-#define Length0     0
+#define EvenParity 4
+#define ParityEn 3
+#define StopBits 2
+#define Length1 1
+#define Length0 0
 
 /*
 RxTimeOut Receiver Timeout Register
@@ -251,10 +251,10 @@ RESET 0 0 0 0 0 0 0 0
 #define Setup2 6
 #define Setup1 5
 #define Setup0 4
-#define Hold3  3
-#define Hold2  2
-#define Hold1  1
-#define Hold0  0
+#define Hold3 3
+#define Hold2 2
+#define Hold1 1
+#define Hold0 0
 
 /*
 IrDA Register
@@ -265,12 +265,12 @@ BIT 7 6 5 4 3 2 1 0
 NAME TxInv RxInv MIR RTSInvert SIR IrDAEn
 RESET 0 0 0 0 0 0 0 0
 */
-#define TxInv     5
-#define RxInv     4
-#define MIR       3
+#define TxInv 5
+#define RxInv 4
+#define MIR 3
 #define RTSInvert 2
-#define SIR       1
-#define IrDAEn    0
+#define SIR 1
+#define IrDAEn 0
 
 /*
 FlowLvl Flow Level Register
@@ -285,10 +285,10 @@ RESET 0 0 0 0 0 0 0 0
 #define Resume2 6
 #define Resume1 5
 #define Resume0 4
-#define Halt3   3
-#define Halt2   2
-#define Halt1   1
-#define Halt0   0
+#define Halt3 3
+#define Halt2 2
+#define Halt1 1
+#define Halt0 0
 
 /*
 FIFOTrigLvl FIFO Interrupt Trigger Level Register
@@ -353,14 +353,14 @@ BIT 7 6 5 4 3 2 1 0
 NAME SwFlow3 SwFlow2 SwFlow1 SwFlow0 SwFlowEn GPIAddr AutoCTS AutoRTS
 RESET 0 0 0 0 0 0 0 0
 */
-#define SwFlow3  7
-#define SwFlow2  6
-#define SwFlow1  5
-#define SwFlow0  4
+#define SwFlow3 7
+#define SwFlow2 6
+#define SwFlow1 5
+#define SwFlow0 4
 #define SwFlowEn 3
-#define GPIAddr  2
-#define AutoCTS  1
-#define AutoRTS  0
+#define GPIAddr 2
+#define AutoCTS 1
+#define AutoRTS 0
 
 /*
 GPIOConfg GPIO Configuration Register
@@ -371,10 +371,10 @@ BIT 7 6 5 4 3 2 1 0
 NAME GP3OD GP2OD GP1OD GP0OD GP3Out GP2Out GP1Out GP0Out
 RESET 0 0 0 0 0 0 0 0
 */
-#define GP3OD  7
-#define GP2OD  6
-#define GP1OD  5
-#define GP0OD  4
+#define GP3OD 7
+#define GP2OD 6
+#define GP1OD 5
+#define GP0OD 4
 #define GP3Out 3
 #define GP2Out 2
 #define GP1Out 1
@@ -540,8 +540,8 @@ RESET 0 0 0 0 0 0 0 0
 #define SDelay12 4
 #define SDelay11 3
 #define SDelay10 2
-#define SDelay9  1
-#define SDelay8  0
+#define SDelay9 1
+#define SDelay8 0
 
 /*
 TIMER1 Timer Register 1
@@ -571,13 +571,13 @@ NAME TmrToGPIO Timer14 Timer13 Timer12 Timer11 Timer10 Timer9 Timer8
 RESET 0 0 0 0 0 0 0 0
 */
 #define TmrToGPIO 7
-#define Timer14   6
-#define Timer13   5
-#define Timer12   4
-#define Timer11   3
-#define Timer10   2
-#define Timer9    1
-#define Timer8    0
+#define Timer14 6
+#define Timer13 5
+#define Timer12 4
+#define Timer11 3
+#define Timer10 2
+#define Timer9 1
+#define Timer8 0
 
 /*
 TxSynch Transmitter Synchronization Register
@@ -589,10 +589,10 @@ RESET 0 0 0 0 0 0 0 0
 #define CLKtoGPIO 7
 #define TxAutoDis 6
 #define TrigDelay 5
-#define SynchEn   4
-#define TrigSel3  3
-#define TrigSel2  2
-#define TrigSel1  1
-#define TrigSel0  0
+#define SynchEn 4
+#define TrigSel3 3
+#define TrigSel2 2
+#define TrigSel1 1
+#define TrigSel0 0
 
 #endif

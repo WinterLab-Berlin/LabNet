@@ -1,8 +1,8 @@
-#include <stdio.h>
+#include "spi.h"
 #include <stdint.h>
+#include <stdio.h>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
-#include "spi.h"
 
 void csHigh(uint8_t interface)
 {

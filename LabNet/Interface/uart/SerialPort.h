@@ -4,6 +4,7 @@
 #include <thread>
 #include <future>
 #include <vector>
+#include "../../Network/LabNetClient.pb.h"
 
 
 class SerialPort final
@@ -12,7 +13,7 @@ public:
 	SerialPort(const so_5::mbox_t parent, const so_5::mchain_t sendToPortBox, const so_5::mbox_t _streamDataBox, const int portId, const int portHandler, const int baud);
 	~SerialPort();
 	
-	void send_data(std::shared_ptr<std::vector<char>> data);
+	void send_data(std::shared_ptr<LabNetProt::Client::UartWriteData> data);
 	void activate_send_receive() { _isActive = true; };
 	void deactivate_send_receive() { _isActive = false; };
 	void set_digital_out(so_5::mbox_t report, char pin, bool state);

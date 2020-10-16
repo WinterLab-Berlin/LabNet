@@ -1,12 +1,12 @@
-#ifndef	SPI_H_
-#define	SPI_H_
+#ifndef SPI_H_
+#define SPI_H_
 
 #include <stdint.h>
 
 enum SPI_IF
 {
-	SPI1 = 0,
-	SPI2 = 1
+    SPI1 = 0,
+    SPI2 = 1
 };
 
 void csHigh(uint8_t interface);

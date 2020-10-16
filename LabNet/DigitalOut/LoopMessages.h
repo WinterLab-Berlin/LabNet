@@ -4,13 +4,13 @@
 
 namespace DigitalOut
 {
-	struct loop_stopped
-	{
-		std::string loop_name;
-	};
+    struct loop_stopped
+    {
+        std::string loop_name;
+    };
 
-	struct loop_start_failed
-	{
-		std::string loop_name;
-	};
+    struct loop_start_failed
+    {
+        std::string loop_name;
+    };
 }

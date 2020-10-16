@@ -1,32 +1,32 @@
 #pragma once
 
-#include <so_5/all.hpp>
-#include <thread>
+#include "DigitalInput.h"
+#include <LoggingFacility.h>
 #include <future>
 #include <map>
-#include <LoggingFacility.h>
-#include "DigitalInput.h"
+#include <so_5/all.hpp>
+#include <thread>
 
 namespace io_board
 {
-	class DigitalInputStateReader
-	{
-		
-	public:
-		DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput>* inputs, Logger logger);
-		~DigitalInputStateReader();
-		
-	private:
-		bool stop_requested();
-	
-		void data_read_thread();
-	
-		std::map<int, DigitalInput>* _inputs;
-		const so_5::mbox_t _parent;
-		
-		Logger _logger;
-		std::thread _readWorker;
-		std::promise<void> _exitSignal;
-		std::future<void> _futureObj;
-	};
+    class DigitalInputStateReader
+    {
+
+    public:
+        DigitalInputStateReader(const so_5::mbox_t parent, std::map<int, DigitalInput>* inputs, Logger logger);
+        ~DigitalInputStateReader();
+
+    private:
+        bool stop_requested();
+
+        void data_read_thread();
+
+        std::map<int, DigitalInput>* _inputs;
+        const so_5::mbox_t _parent;
+
+        Logger _logger;
+        std::thread _readWorker;
+        std::promise<void> _exitSignal;
+        std::future<void> _futureObj;
+    };
 }

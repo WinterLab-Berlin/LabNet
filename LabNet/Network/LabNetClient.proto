@@ -2,17 +2,37 @@ syntax = "proto3";
 package LabNetProt.Client;
 import "LabNet.proto";
 
+enum ClientMessageType {
+	NONE = 0;
+	LABNET_RESET_REQUEST = 1;
+	LABNET_ID_REQUEST = 2;
+	IO_BOARD_INIT = 3;
+	IO_BOARD_INIT_DIGITAL_IN = 4;
+	IO_BOARD_INIT_DIGITAL_OUT = 5;
+	RFID_BOARD_INIT = 6;
+	RFID_BOARD_SET_PHASE_MATRIX = 7;
+	UART_INIT = 8;
+	UART_WRITE_DATA = 9;
+	DIGITAL_OUT_SET = 10;
+	DIGITAL_OUT_PULSE = 11;
+	START_DIGITAL_OUT_LOOP = 12;
+	STOP_DIGITAL_OUT_LOOP = 13;
+	GPIO_WIRINGPI_INIT = 14;
+	GPIO_WIRINGPI_INIT_DIGITAL_IN = 15;
+	GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16;
+}
+
 // IO board messages
 message IoBoardInit {
 }
 
 message IoBoardInitDigitalIn {
-	uint32 pin = 1;
 	enum Resistor {
 		OFF = 0;
 		PULL_DOWN = 1;
 		PULL_UP = 2;
 	}
+	uint32 pin = 1;
 	Resistor resistor_state = 2;
 	bool is_inverted = 3;
 }
@@ -37,10 +57,6 @@ message RfidBoardSetPhaseMatrix {
 	uint32 antenna_phase2 = 2;
 	uint32 phase_duration = 3;
 }
-	
-message RfidBoardSetSignalInversion {
-	bool inverted = 1;
-}
 // RFID board messages
 
 
@@ -62,12 +78,12 @@ message GpioWiringPiInit {
 }
 
 message GpioWiringPiInitDigitalIn {
-	uint32 pin = 1;
 	enum Resistor {
 		OFF = 0;
 		PULL_DOWN = 1;
 		PULL_UP = 2;
 	}
+	uint32 pin = 1;
 	Resistor resistor_state = 2;
 	bool is_inverted = 3;
 }
@@ -118,25 +134,3 @@ message LabNetResetRequest {
 message LabNetIdRequest {
 }
 // general messages
-
-message ClientWrappedMessage {
-	oneof client_message {
-		LabNetResetRequest reset_request = 1;
-		LabNetIdRequest id_request = 2;
-		IoBoardInit io_board_init = 3;
-		IoBoardInitDigitalIn io_board_init_digital_in = 4;
-		IoBoardInitDigitalOut io_board_init_digital_out = 5;
-		RfidBoardInit rfid_board_init = 6;
-		RfidBoardSetPhaseMatrix rfid_board_set_phase_matrix = 7;
-		RfidBoardSetSignalInversion rfid_board_set_signal_inversion = 8;
-		UartInit uart_init = 9;
-		UartWriteData uart_write_data = 10;
-		DigitalOutSet digital_out_set = 11;
-		DigitalOutPulse digital_out_pulse = 12;
-		StartDigitalOutLoop start_digital_out_loop = 13;
-		StopDigitalOutLoop stop_digital_out_loop = 14;
-		GpioWiringPiInit gpio_wiring_pi_init = 15;
-		GpioWiringPiInitDigitalIn gpio_wiring_pi_init_digital_in = 16;
-		GpioWiringPiInitDigitalOut gpio_wiring_pi_init_digital_out = 17;
-	}
-}

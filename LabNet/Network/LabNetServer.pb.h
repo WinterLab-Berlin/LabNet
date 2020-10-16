@@ -29,6 +29,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "LabNet.pb.h"
 #include <google/protobuf/timestamp.pb.h>
@@ -40,7 +41,7 @@ namespace protobuf_LabNetServer_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[15];
+  static const ::google::protobuf::internal::ParseTable schema[14];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -91,9 +92,6 @@ extern NewByteDataDefaultTypeInternal _NewByteData_default_instance_;
 class OnlyOneConnectionAllowed;
 class OnlyOneConnectionAllowedDefaultTypeInternal;
 extern OnlyOneConnectionAllowedDefaultTypeInternal _OnlyOneConnectionAllowed_default_instance_;
-class ServerWrappedMessage;
-class ServerWrappedMessageDefaultTypeInternal;
-extern ServerWrappedMessageDefaultTypeInternal _ServerWrappedMessage_default_instance_;
 }  // namespace Server
 }  // namespace LabNetProt
 namespace google {
@@ -112,12 +110,45 @@ template<> ::LabNetProt::Server::LabNetIdReply* Arena::CreateMaybeMessage<::LabN
 template<> ::LabNetProt::Server::LabNetResetReply* Arena::CreateMaybeMessage<::LabNetProt::Server::LabNetResetReply>(Arena*);
 template<> ::LabNetProt::Server::NewByteData* Arena::CreateMaybeMessage<::LabNetProt::Server::NewByteData>(Arena*);
 template<> ::LabNetProt::Server::OnlyOneConnectionAllowed* Arena::CreateMaybeMessage<::LabNetProt::Server::OnlyOneConnectionAllowed>(Arena*);
-template<> ::LabNetProt::Server::ServerWrappedMessage* Arena::CreateMaybeMessage<::LabNetProt::Server::ServerWrappedMessage>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace LabNetProt {
 namespace Server {
 
+enum ServerMessageType {
+  NONE = 0,
+  DIGITAL_OUT_STATE = 1,
+  DIGITAL_IN_STATE = 2,
+  NEW_BYTE_DATA = 3,
+  DATA_WRITE_COMPLETE = 4,
+  INTERFACE_INIT_RESULT = 5,
+  DIGITAL_IN_INIT_RESULT = 6,
+  DIGITAL_OUT_INIT_RESULT = 7,
+  ONLY_ONE_CONNECTION_ALLOWED = 8,
+  LABNET_RESET_REPLY = 9,
+  LABNET_ID_REPLY = 10,
+  INTERFACE_LOST = 11,
+  INTERFACE_RECONNECTED = 12,
+  DIGITAL_OUT_LOOP_START_RESULT = 13,
+  DIGITAL_OUT_LOOP_STOPPED = 14,
+  ServerMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  ServerMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool ServerMessageType_IsValid(int value);
+const ServerMessageType ServerMessageType_MIN = NONE;
+const ServerMessageType ServerMessageType_MAX = DIGITAL_OUT_LOOP_STOPPED;
+const int ServerMessageType_ARRAYSIZE = ServerMessageType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ServerMessageType_descriptor();
+inline const ::std::string& ServerMessageType_Name(ServerMessageType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ServerMessageType_descriptor(), value);
+}
+inline bool ServerMessageType_Parse(
+    const ::std::string& name, ServerMessageType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ServerMessageType>(
+    ServerMessageType_descriptor(), name, value);
+}
 // ===================================================================
 
 class DigitalOutState : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Server.DigitalOutState) */ {
@@ -1585,9 +1616,23 @@ class DigitalOutLoopStartResult : public ::google::protobuf::Message /* @@protoc
 
   // accessors -------------------------------------------------------
 
-  // bool is_succeed = 1;
+  // string loop_name = 1;
+  void clear_loop_name();
+  static const int kLoopNameFieldNumber = 1;
+  const ::std::string& loop_name() const;
+  void set_loop_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_loop_name(::std::string&& value);
+  #endif
+  void set_loop_name(const char* value);
+  void set_loop_name(const char* value, size_t size);
+  ::std::string* mutable_loop_name();
+  ::std::string* release_loop_name();
+  void set_allocated_loop_name(::std::string* loop_name);
+
+  // bool is_succeed = 2;
   void clear_is_succeed();
-  static const int kIsSucceedFieldNumber = 1;
+  static const int kIsSucceedFieldNumber = 2;
   bool is_succeed() const;
   void set_is_succeed(bool value);
 
@@ -1595,6 +1640,7 @@ class DigitalOutLoopStartResult : public ::google::protobuf::Message /* @@protoc
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr loop_name_;
   bool is_succeed_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
@@ -1708,326 +1754,6 @@ class DigitalOutLoopStopped : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::ArenaStringPtr loop_name_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
-};
-// -------------------------------------------------------------------
-
-class ServerWrappedMessage : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Server.ServerWrappedMessage) */ {
- public:
-  ServerWrappedMessage();
-  virtual ~ServerWrappedMessage();
-
-  ServerWrappedMessage(const ServerWrappedMessage& from);
-
-  inline ServerWrappedMessage& operator=(const ServerWrappedMessage& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  ServerWrappedMessage(ServerWrappedMessage&& from) noexcept
-    : ServerWrappedMessage() {
-    *this = ::std::move(from);
-  }
-
-  inline ServerWrappedMessage& operator=(ServerWrappedMessage&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ServerWrappedMessage& default_instance();
-
-  enum ServerMessageCase {
-    kDigitalOutState = 1,
-    kDigitalInState = 2,
-    kNewByteData = 3,
-    kDataWriteComplete = 4,
-    kInterfaceInitResult = 5,
-    kDigitalInInitResult = 6,
-    kDigitalOutInitResult = 7,
-    kOnlyOneConnectionAllowed = 8,
-    kReset = 9,
-    kId = 10,
-    kInterfaceLost = 11,
-    kInterfaceReconnected = 12,
-    kDigitalOutLoopStartResult = 13,
-    kDigitalOutLoopStopped = 14,
-    SERVER_MESSAGE_NOT_SET = 0,
-  };
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const ServerWrappedMessage* internal_default_instance() {
-    return reinterpret_cast<const ServerWrappedMessage*>(
-               &_ServerWrappedMessage_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    14;
-
-  void Swap(ServerWrappedMessage* other);
-  friend void swap(ServerWrappedMessage& a, ServerWrappedMessage& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline ServerWrappedMessage* New() const final {
-    return CreateMaybeMessage<ServerWrappedMessage>(NULL);
-  }
-
-  ServerWrappedMessage* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<ServerWrappedMessage>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const ServerWrappedMessage& from);
-  void MergeFrom(const ServerWrappedMessage& from);
-  void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      bool deterministic, ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ServerWrappedMessage* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return NULL;
-  }
-  inline void* MaybeArenaPtr() const {
-    return NULL;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // .LabNetProt.Server.DigitalOutState digital_out_state = 1;
-  bool has_digital_out_state() const;
-  void clear_digital_out_state();
-  static const int kDigitalOutStateFieldNumber = 1;
-  private:
-  const ::LabNetProt::Server::DigitalOutState& _internal_digital_out_state() const;
-  public:
-  const ::LabNetProt::Server::DigitalOutState& digital_out_state() const;
-  ::LabNetProt::Server::DigitalOutState* release_digital_out_state();
-  ::LabNetProt::Server::DigitalOutState* mutable_digital_out_state();
-  void set_allocated_digital_out_state(::LabNetProt::Server::DigitalOutState* digital_out_state);
-
-  // .LabNetProt.Server.DigitalInState digital_in_state = 2;
-  bool has_digital_in_state() const;
-  void clear_digital_in_state();
-  static const int kDigitalInStateFieldNumber = 2;
-  private:
-  const ::LabNetProt::Server::DigitalInState& _internal_digital_in_state() const;
-  public:
-  const ::LabNetProt::Server::DigitalInState& digital_in_state() const;
-  ::LabNetProt::Server::DigitalInState* release_digital_in_state();
-  ::LabNetProt::Server::DigitalInState* mutable_digital_in_state();
-  void set_allocated_digital_in_state(::LabNetProt::Server::DigitalInState* digital_in_state);
-
-  // .LabNetProt.Server.NewByteData new_byte_data = 3;
-  bool has_new_byte_data() const;
-  void clear_new_byte_data();
-  static const int kNewByteDataFieldNumber = 3;
-  private:
-  const ::LabNetProt::Server::NewByteData& _internal_new_byte_data() const;
-  public:
-  const ::LabNetProt::Server::NewByteData& new_byte_data() const;
-  ::LabNetProt::Server::NewByteData* release_new_byte_data();
-  ::LabNetProt::Server::NewByteData* mutable_new_byte_data();
-  void set_allocated_new_byte_data(::LabNetProt::Server::NewByteData* new_byte_data);
-
-  // .LabNetProt.Server.DataWriteComplete data_write_complete = 4;
-  bool has_data_write_complete() const;
-  void clear_data_write_complete();
-  static const int kDataWriteCompleteFieldNumber = 4;
-  private:
-  const ::LabNetProt::Server::DataWriteComplete& _internal_data_write_complete() const;
-  public:
-  const ::LabNetProt::Server::DataWriteComplete& data_write_complete() const;
-  ::LabNetProt::Server::DataWriteComplete* release_data_write_complete();
-  ::LabNetProt::Server::DataWriteComplete* mutable_data_write_complete();
-  void set_allocated_data_write_complete(::LabNetProt::Server::DataWriteComplete* data_write_complete);
-
-  // .LabNetProt.Server.InterfaceInitResult interface_init_result = 5;
-  bool has_interface_init_result() const;
-  void clear_interface_init_result();
-  static const int kInterfaceInitResultFieldNumber = 5;
-  private:
-  const ::LabNetProt::Server::InterfaceInitResult& _internal_interface_init_result() const;
-  public:
-  const ::LabNetProt::Server::InterfaceInitResult& interface_init_result() const;
-  ::LabNetProt::Server::InterfaceInitResult* release_interface_init_result();
-  ::LabNetProt::Server::InterfaceInitResult* mutable_interface_init_result();
-  void set_allocated_interface_init_result(::LabNetProt::Server::InterfaceInitResult* interface_init_result);
-
-  // .LabNetProt.Server.DigitalInInitResult digital_in_init_result = 6;
-  bool has_digital_in_init_result() const;
-  void clear_digital_in_init_result();
-  static const int kDigitalInInitResultFieldNumber = 6;
-  private:
-  const ::LabNetProt::Server::DigitalInInitResult& _internal_digital_in_init_result() const;
-  public:
-  const ::LabNetProt::Server::DigitalInInitResult& digital_in_init_result() const;
-  ::LabNetProt::Server::DigitalInInitResult* release_digital_in_init_result();
-  ::LabNetProt::Server::DigitalInInitResult* mutable_digital_in_init_result();
-  void set_allocated_digital_in_init_result(::LabNetProt::Server::DigitalInInitResult* digital_in_init_result);
-
-  // .LabNetProt.Server.DigitalOutInitResult digital_out_init_result = 7;
-  bool has_digital_out_init_result() const;
-  void clear_digital_out_init_result();
-  static const int kDigitalOutInitResultFieldNumber = 7;
-  private:
-  const ::LabNetProt::Server::DigitalOutInitResult& _internal_digital_out_init_result() const;
-  public:
-  const ::LabNetProt::Server::DigitalOutInitResult& digital_out_init_result() const;
-  ::LabNetProt::Server::DigitalOutInitResult* release_digital_out_init_result();
-  ::LabNetProt::Server::DigitalOutInitResult* mutable_digital_out_init_result();
-  void set_allocated_digital_out_init_result(::LabNetProt::Server::DigitalOutInitResult* digital_out_init_result);
-
-  // .LabNetProt.Server.OnlyOneConnectionAllowed only_one_connection_allowed = 8;
-  bool has_only_one_connection_allowed() const;
-  void clear_only_one_connection_allowed();
-  static const int kOnlyOneConnectionAllowedFieldNumber = 8;
-  private:
-  const ::LabNetProt::Server::OnlyOneConnectionAllowed& _internal_only_one_connection_allowed() const;
-  public:
-  const ::LabNetProt::Server::OnlyOneConnectionAllowed& only_one_connection_allowed() const;
-  ::LabNetProt::Server::OnlyOneConnectionAllowed* release_only_one_connection_allowed();
-  ::LabNetProt::Server::OnlyOneConnectionAllowed* mutable_only_one_connection_allowed();
-  void set_allocated_only_one_connection_allowed(::LabNetProt::Server::OnlyOneConnectionAllowed* only_one_connection_allowed);
-
-  // .LabNetProt.Server.LabNetResetReply reset = 9;
-  bool has_reset() const;
-  void clear_reset();
-  static const int kResetFieldNumber = 9;
-  private:
-  const ::LabNetProt::Server::LabNetResetReply& _internal_reset() const;
-  public:
-  const ::LabNetProt::Server::LabNetResetReply& reset() const;
-  ::LabNetProt::Server::LabNetResetReply* release_reset();
-  ::LabNetProt::Server::LabNetResetReply* mutable_reset();
-  void set_allocated_reset(::LabNetProt::Server::LabNetResetReply* reset);
-
-  // .LabNetProt.Server.LabNetIdReply id = 10;
-  bool has_id() const;
-  void clear_id();
-  static const int kIdFieldNumber = 10;
-  private:
-  const ::LabNetProt::Server::LabNetIdReply& _internal_id() const;
-  public:
-  const ::LabNetProt::Server::LabNetIdReply& id() const;
-  ::LabNetProt::Server::LabNetIdReply* release_id();
-  ::LabNetProt::Server::LabNetIdReply* mutable_id();
-  void set_allocated_id(::LabNetProt::Server::LabNetIdReply* id);
-
-  // .LabNetProt.Server.InterfaceLost interface_lost = 11;
-  bool has_interface_lost() const;
-  void clear_interface_lost();
-  static const int kInterfaceLostFieldNumber = 11;
-  private:
-  const ::LabNetProt::Server::InterfaceLost& _internal_interface_lost() const;
-  public:
-  const ::LabNetProt::Server::InterfaceLost& interface_lost() const;
-  ::LabNetProt::Server::InterfaceLost* release_interface_lost();
-  ::LabNetProt::Server::InterfaceLost* mutable_interface_lost();
-  void set_allocated_interface_lost(::LabNetProt::Server::InterfaceLost* interface_lost);
-
-  // .LabNetProt.Server.InterfaceReconnected interface_reconnected = 12;
-  bool has_interface_reconnected() const;
-  void clear_interface_reconnected();
-  static const int kInterfaceReconnectedFieldNumber = 12;
-  private:
-  const ::LabNetProt::Server::InterfaceReconnected& _internal_interface_reconnected() const;
-  public:
-  const ::LabNetProt::Server::InterfaceReconnected& interface_reconnected() const;
-  ::LabNetProt::Server::InterfaceReconnected* release_interface_reconnected();
-  ::LabNetProt::Server::InterfaceReconnected* mutable_interface_reconnected();
-  void set_allocated_interface_reconnected(::LabNetProt::Server::InterfaceReconnected* interface_reconnected);
-
-  // .LabNetProt.Server.DigitalOutLoopStartResult digital_out_loop_start_result = 13;
-  bool has_digital_out_loop_start_result() const;
-  void clear_digital_out_loop_start_result();
-  static const int kDigitalOutLoopStartResultFieldNumber = 13;
-  private:
-  const ::LabNetProt::Server::DigitalOutLoopStartResult& _internal_digital_out_loop_start_result() const;
-  public:
-  const ::LabNetProt::Server::DigitalOutLoopStartResult& digital_out_loop_start_result() const;
-  ::LabNetProt::Server::DigitalOutLoopStartResult* release_digital_out_loop_start_result();
-  ::LabNetProt::Server::DigitalOutLoopStartResult* mutable_digital_out_loop_start_result();
-  void set_allocated_digital_out_loop_start_result(::LabNetProt::Server::DigitalOutLoopStartResult* digital_out_loop_start_result);
-
-  // .LabNetProt.Server.DigitalOutLoopStopped digital_out_loop_stopped = 14;
-  bool has_digital_out_loop_stopped() const;
-  void clear_digital_out_loop_stopped();
-  static const int kDigitalOutLoopStoppedFieldNumber = 14;
-  private:
-  const ::LabNetProt::Server::DigitalOutLoopStopped& _internal_digital_out_loop_stopped() const;
-  public:
-  const ::LabNetProt::Server::DigitalOutLoopStopped& digital_out_loop_stopped() const;
-  ::LabNetProt::Server::DigitalOutLoopStopped* release_digital_out_loop_stopped();
-  ::LabNetProt::Server::DigitalOutLoopStopped* mutable_digital_out_loop_stopped();
-  void set_allocated_digital_out_loop_stopped(::LabNetProt::Server::DigitalOutLoopStopped* digital_out_loop_stopped);
-
-  void clear_server_message();
-  ServerMessageCase server_message_case() const;
-  // @@protoc_insertion_point(class_scope:LabNetProt.Server.ServerWrappedMessage)
- private:
-  void set_has_digital_out_state();
-  void set_has_digital_in_state();
-  void set_has_new_byte_data();
-  void set_has_data_write_complete();
-  void set_has_interface_init_result();
-  void set_has_digital_in_init_result();
-  void set_has_digital_out_init_result();
-  void set_has_only_one_connection_allowed();
-  void set_has_reset();
-  void set_has_id();
-  void set_has_interface_lost();
-  void set_has_interface_reconnected();
-  void set_has_digital_out_loop_start_result();
-  void set_has_digital_out_loop_stopped();
-
-  inline bool has_server_message() const;
-  inline void clear_has_server_message();
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  union ServerMessageUnion {
-    ServerMessageUnion() {}
-    ::LabNetProt::Server::DigitalOutState* digital_out_state_;
-    ::LabNetProt::Server::DigitalInState* digital_in_state_;
-    ::LabNetProt::Server::NewByteData* new_byte_data_;
-    ::LabNetProt::Server::DataWriteComplete* data_write_complete_;
-    ::LabNetProt::Server::InterfaceInitResult* interface_init_result_;
-    ::LabNetProt::Server::DigitalInInitResult* digital_in_init_result_;
-    ::LabNetProt::Server::DigitalOutInitResult* digital_out_init_result_;
-    ::LabNetProt::Server::OnlyOneConnectionAllowed* only_one_connection_allowed_;
-    ::LabNetProt::Server::LabNetResetReply* reset_;
-    ::LabNetProt::Server::LabNetIdReply* id_;
-    ::LabNetProt::Server::InterfaceLost* interface_lost_;
-    ::LabNetProt::Server::InterfaceReconnected* interface_reconnected_;
-    ::LabNetProt::Server::DigitalOutLoopStartResult* digital_out_loop_start_result_;
-    ::LabNetProt::Server::DigitalOutLoopStopped* digital_out_loop_stopped_;
-  } server_message_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  ::google::protobuf::uint32 _oneof_case_[1];
-
   friend struct ::protobuf_LabNetServer_2eproto::TableStruct;
 };
 // ===================================================================
@@ -2744,7 +2470,60 @@ inline void LabNetIdReply::set_minor_version(::google::protobuf::uint32 value) {
 
 // DigitalOutLoopStartResult
 
-// bool is_succeed = 1;
+// string loop_name = 1;
+inline void DigitalOutLoopStartResult::clear_loop_name() {
+  loop_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& DigitalOutLoopStartResult::loop_name() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+  return loop_name_.GetNoArena();
+}
+inline void DigitalOutLoopStartResult::set_loop_name(const ::std::string& value) {
+  
+  loop_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+}
+#if LANG_CXX11
+inline void DigitalOutLoopStartResult::set_loop_name(::std::string&& value) {
+  
+  loop_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+}
+#endif
+inline void DigitalOutLoopStartResult::set_loop_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  loop_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+}
+inline void DigitalOutLoopStartResult::set_loop_name(const char* value, size_t size) {
+  
+  loop_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+}
+inline ::std::string* DigitalOutLoopStartResult::mutable_loop_name() {
+  
+  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+  return loop_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DigitalOutLoopStartResult::release_loop_name() {
+  // @@protoc_insertion_point(field_release:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+  
+  return loop_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DigitalOutLoopStartResult::set_allocated_loop_name(::std::string* loop_name) {
+  if (loop_name != NULL) {
+    
+  } else {
+    
+  }
+  loop_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), loop_name);
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Server.DigitalOutLoopStartResult.loop_name)
+}
+
+// bool is_succeed = 2;
 inline void DigitalOutLoopStartResult::clear_is_succeed() {
   is_succeed_ = false;
 }
@@ -2815,640 +2594,9 @@ inline void DigitalOutLoopStopped::set_allocated_loop_name(::std::string* loop_n
   // @@protoc_insertion_point(field_set_allocated:LabNetProt.Server.DigitalOutLoopStopped.loop_name)
 }
 
-// -------------------------------------------------------------------
-
-// ServerWrappedMessage
-
-// .LabNetProt.Server.DigitalOutState digital_out_state = 1;
-inline bool ServerWrappedMessage::has_digital_out_state() const {
-  return server_message_case() == kDigitalOutState;
-}
-inline void ServerWrappedMessage::set_has_digital_out_state() {
-  _oneof_case_[0] = kDigitalOutState;
-}
-inline void ServerWrappedMessage::clear_digital_out_state() {
-  if (has_digital_out_state()) {
-    delete server_message_.digital_out_state_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutState& ServerWrappedMessage::_internal_digital_out_state() const {
-  return *server_message_.digital_out_state_;
-}
-inline ::LabNetProt::Server::DigitalOutState* ServerWrappedMessage::release_digital_out_state() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_out_state)
-  if (has_digital_out_state()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalOutState* temp = server_message_.digital_out_state_;
-    server_message_.digital_out_state_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutState& ServerWrappedMessage::digital_out_state() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_out_state)
-  return has_digital_out_state()
-      ? *server_message_.digital_out_state_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalOutState*>(&::LabNetProt::Server::_DigitalOutState_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalOutState* ServerWrappedMessage::mutable_digital_out_state() {
-  if (!has_digital_out_state()) {
-    clear_server_message();
-    set_has_digital_out_state();
-    server_message_.digital_out_state_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalOutState >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_out_state)
-  return server_message_.digital_out_state_;
-}
-
-// .LabNetProt.Server.DigitalInState digital_in_state = 2;
-inline bool ServerWrappedMessage::has_digital_in_state() const {
-  return server_message_case() == kDigitalInState;
-}
-inline void ServerWrappedMessage::set_has_digital_in_state() {
-  _oneof_case_[0] = kDigitalInState;
-}
-inline void ServerWrappedMessage::clear_digital_in_state() {
-  if (has_digital_in_state()) {
-    delete server_message_.digital_in_state_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalInState& ServerWrappedMessage::_internal_digital_in_state() const {
-  return *server_message_.digital_in_state_;
-}
-inline ::LabNetProt::Server::DigitalInState* ServerWrappedMessage::release_digital_in_state() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_in_state)
-  if (has_digital_in_state()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalInState* temp = server_message_.digital_in_state_;
-    server_message_.digital_in_state_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalInState& ServerWrappedMessage::digital_in_state() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_in_state)
-  return has_digital_in_state()
-      ? *server_message_.digital_in_state_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalInState*>(&::LabNetProt::Server::_DigitalInState_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalInState* ServerWrappedMessage::mutable_digital_in_state() {
-  if (!has_digital_in_state()) {
-    clear_server_message();
-    set_has_digital_in_state();
-    server_message_.digital_in_state_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalInState >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_in_state)
-  return server_message_.digital_in_state_;
-}
-
-// .LabNetProt.Server.NewByteData new_byte_data = 3;
-inline bool ServerWrappedMessage::has_new_byte_data() const {
-  return server_message_case() == kNewByteData;
-}
-inline void ServerWrappedMessage::set_has_new_byte_data() {
-  _oneof_case_[0] = kNewByteData;
-}
-inline void ServerWrappedMessage::clear_new_byte_data() {
-  if (has_new_byte_data()) {
-    delete server_message_.new_byte_data_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::NewByteData& ServerWrappedMessage::_internal_new_byte_data() const {
-  return *server_message_.new_byte_data_;
-}
-inline ::LabNetProt::Server::NewByteData* ServerWrappedMessage::release_new_byte_data() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.new_byte_data)
-  if (has_new_byte_data()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::NewByteData* temp = server_message_.new_byte_data_;
-    server_message_.new_byte_data_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::NewByteData& ServerWrappedMessage::new_byte_data() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.new_byte_data)
-  return has_new_byte_data()
-      ? *server_message_.new_byte_data_
-      : *reinterpret_cast< ::LabNetProt::Server::NewByteData*>(&::LabNetProt::Server::_NewByteData_default_instance_);
-}
-inline ::LabNetProt::Server::NewByteData* ServerWrappedMessage::mutable_new_byte_data() {
-  if (!has_new_byte_data()) {
-    clear_server_message();
-    set_has_new_byte_data();
-    server_message_.new_byte_data_ = CreateMaybeMessage< ::LabNetProt::Server::NewByteData >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.new_byte_data)
-  return server_message_.new_byte_data_;
-}
-
-// .LabNetProt.Server.DataWriteComplete data_write_complete = 4;
-inline bool ServerWrappedMessage::has_data_write_complete() const {
-  return server_message_case() == kDataWriteComplete;
-}
-inline void ServerWrappedMessage::set_has_data_write_complete() {
-  _oneof_case_[0] = kDataWriteComplete;
-}
-inline void ServerWrappedMessage::clear_data_write_complete() {
-  if (has_data_write_complete()) {
-    delete server_message_.data_write_complete_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DataWriteComplete& ServerWrappedMessage::_internal_data_write_complete() const {
-  return *server_message_.data_write_complete_;
-}
-inline ::LabNetProt::Server::DataWriteComplete* ServerWrappedMessage::release_data_write_complete() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.data_write_complete)
-  if (has_data_write_complete()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DataWriteComplete* temp = server_message_.data_write_complete_;
-    server_message_.data_write_complete_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DataWriteComplete& ServerWrappedMessage::data_write_complete() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.data_write_complete)
-  return has_data_write_complete()
-      ? *server_message_.data_write_complete_
-      : *reinterpret_cast< ::LabNetProt::Server::DataWriteComplete*>(&::LabNetProt::Server::_DataWriteComplete_default_instance_);
-}
-inline ::LabNetProt::Server::DataWriteComplete* ServerWrappedMessage::mutable_data_write_complete() {
-  if (!has_data_write_complete()) {
-    clear_server_message();
-    set_has_data_write_complete();
-    server_message_.data_write_complete_ = CreateMaybeMessage< ::LabNetProt::Server::DataWriteComplete >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.data_write_complete)
-  return server_message_.data_write_complete_;
-}
-
-// .LabNetProt.Server.InterfaceInitResult interface_init_result = 5;
-inline bool ServerWrappedMessage::has_interface_init_result() const {
-  return server_message_case() == kInterfaceInitResult;
-}
-inline void ServerWrappedMessage::set_has_interface_init_result() {
-  _oneof_case_[0] = kInterfaceInitResult;
-}
-inline void ServerWrappedMessage::clear_interface_init_result() {
-  if (has_interface_init_result()) {
-    delete server_message_.interface_init_result_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::InterfaceInitResult& ServerWrappedMessage::_internal_interface_init_result() const {
-  return *server_message_.interface_init_result_;
-}
-inline ::LabNetProt::Server::InterfaceInitResult* ServerWrappedMessage::release_interface_init_result() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.interface_init_result)
-  if (has_interface_init_result()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::InterfaceInitResult* temp = server_message_.interface_init_result_;
-    server_message_.interface_init_result_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::InterfaceInitResult& ServerWrappedMessage::interface_init_result() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.interface_init_result)
-  return has_interface_init_result()
-      ? *server_message_.interface_init_result_
-      : *reinterpret_cast< ::LabNetProt::Server::InterfaceInitResult*>(&::LabNetProt::Server::_InterfaceInitResult_default_instance_);
-}
-inline ::LabNetProt::Server::InterfaceInitResult* ServerWrappedMessage::mutable_interface_init_result() {
-  if (!has_interface_init_result()) {
-    clear_server_message();
-    set_has_interface_init_result();
-    server_message_.interface_init_result_ = CreateMaybeMessage< ::LabNetProt::Server::InterfaceInitResult >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.interface_init_result)
-  return server_message_.interface_init_result_;
-}
-
-// .LabNetProt.Server.DigitalInInitResult digital_in_init_result = 6;
-inline bool ServerWrappedMessage::has_digital_in_init_result() const {
-  return server_message_case() == kDigitalInInitResult;
-}
-inline void ServerWrappedMessage::set_has_digital_in_init_result() {
-  _oneof_case_[0] = kDigitalInInitResult;
-}
-inline void ServerWrappedMessage::clear_digital_in_init_result() {
-  if (has_digital_in_init_result()) {
-    delete server_message_.digital_in_init_result_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalInInitResult& ServerWrappedMessage::_internal_digital_in_init_result() const {
-  return *server_message_.digital_in_init_result_;
-}
-inline ::LabNetProt::Server::DigitalInInitResult* ServerWrappedMessage::release_digital_in_init_result() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_in_init_result)
-  if (has_digital_in_init_result()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalInInitResult* temp = server_message_.digital_in_init_result_;
-    server_message_.digital_in_init_result_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalInInitResult& ServerWrappedMessage::digital_in_init_result() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_in_init_result)
-  return has_digital_in_init_result()
-      ? *server_message_.digital_in_init_result_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalInInitResult*>(&::LabNetProt::Server::_DigitalInInitResult_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalInInitResult* ServerWrappedMessage::mutable_digital_in_init_result() {
-  if (!has_digital_in_init_result()) {
-    clear_server_message();
-    set_has_digital_in_init_result();
-    server_message_.digital_in_init_result_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalInInitResult >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_in_init_result)
-  return server_message_.digital_in_init_result_;
-}
-
-// .LabNetProt.Server.DigitalOutInitResult digital_out_init_result = 7;
-inline bool ServerWrappedMessage::has_digital_out_init_result() const {
-  return server_message_case() == kDigitalOutInitResult;
-}
-inline void ServerWrappedMessage::set_has_digital_out_init_result() {
-  _oneof_case_[0] = kDigitalOutInitResult;
-}
-inline void ServerWrappedMessage::clear_digital_out_init_result() {
-  if (has_digital_out_init_result()) {
-    delete server_message_.digital_out_init_result_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutInitResult& ServerWrappedMessage::_internal_digital_out_init_result() const {
-  return *server_message_.digital_out_init_result_;
-}
-inline ::LabNetProt::Server::DigitalOutInitResult* ServerWrappedMessage::release_digital_out_init_result() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_out_init_result)
-  if (has_digital_out_init_result()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalOutInitResult* temp = server_message_.digital_out_init_result_;
-    server_message_.digital_out_init_result_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutInitResult& ServerWrappedMessage::digital_out_init_result() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_out_init_result)
-  return has_digital_out_init_result()
-      ? *server_message_.digital_out_init_result_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalOutInitResult*>(&::LabNetProt::Server::_DigitalOutInitResult_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalOutInitResult* ServerWrappedMessage::mutable_digital_out_init_result() {
-  if (!has_digital_out_init_result()) {
-    clear_server_message();
-    set_has_digital_out_init_result();
-    server_message_.digital_out_init_result_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalOutInitResult >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_out_init_result)
-  return server_message_.digital_out_init_result_;
-}
-
-// .LabNetProt.Server.OnlyOneConnectionAllowed only_one_connection_allowed = 8;
-inline bool ServerWrappedMessage::has_only_one_connection_allowed() const {
-  return server_message_case() == kOnlyOneConnectionAllowed;
-}
-inline void ServerWrappedMessage::set_has_only_one_connection_allowed() {
-  _oneof_case_[0] = kOnlyOneConnectionAllowed;
-}
-inline void ServerWrappedMessage::clear_only_one_connection_allowed() {
-  if (has_only_one_connection_allowed()) {
-    delete server_message_.only_one_connection_allowed_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::OnlyOneConnectionAllowed& ServerWrappedMessage::_internal_only_one_connection_allowed() const {
-  return *server_message_.only_one_connection_allowed_;
-}
-inline ::LabNetProt::Server::OnlyOneConnectionAllowed* ServerWrappedMessage::release_only_one_connection_allowed() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.only_one_connection_allowed)
-  if (has_only_one_connection_allowed()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::OnlyOneConnectionAllowed* temp = server_message_.only_one_connection_allowed_;
-    server_message_.only_one_connection_allowed_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::OnlyOneConnectionAllowed& ServerWrappedMessage::only_one_connection_allowed() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.only_one_connection_allowed)
-  return has_only_one_connection_allowed()
-      ? *server_message_.only_one_connection_allowed_
-      : *reinterpret_cast< ::LabNetProt::Server::OnlyOneConnectionAllowed*>(&::LabNetProt::Server::_OnlyOneConnectionAllowed_default_instance_);
-}
-inline ::LabNetProt::Server::OnlyOneConnectionAllowed* ServerWrappedMessage::mutable_only_one_connection_allowed() {
-  if (!has_only_one_connection_allowed()) {
-    clear_server_message();
-    set_has_only_one_connection_allowed();
-    server_message_.only_one_connection_allowed_ = CreateMaybeMessage< ::LabNetProt::Server::OnlyOneConnectionAllowed >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.only_one_connection_allowed)
-  return server_message_.only_one_connection_allowed_;
-}
-
-// .LabNetProt.Server.LabNetResetReply reset = 9;
-inline bool ServerWrappedMessage::has_reset() const {
-  return server_message_case() == kReset;
-}
-inline void ServerWrappedMessage::set_has_reset() {
-  _oneof_case_[0] = kReset;
-}
-inline void ServerWrappedMessage::clear_reset() {
-  if (has_reset()) {
-    delete server_message_.reset_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::LabNetResetReply& ServerWrappedMessage::_internal_reset() const {
-  return *server_message_.reset_;
-}
-inline ::LabNetProt::Server::LabNetResetReply* ServerWrappedMessage::release_reset() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.reset)
-  if (has_reset()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::LabNetResetReply* temp = server_message_.reset_;
-    server_message_.reset_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::LabNetResetReply& ServerWrappedMessage::reset() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.reset)
-  return has_reset()
-      ? *server_message_.reset_
-      : *reinterpret_cast< ::LabNetProt::Server::LabNetResetReply*>(&::LabNetProt::Server::_LabNetResetReply_default_instance_);
-}
-inline ::LabNetProt::Server::LabNetResetReply* ServerWrappedMessage::mutable_reset() {
-  if (!has_reset()) {
-    clear_server_message();
-    set_has_reset();
-    server_message_.reset_ = CreateMaybeMessage< ::LabNetProt::Server::LabNetResetReply >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.reset)
-  return server_message_.reset_;
-}
-
-// .LabNetProt.Server.LabNetIdReply id = 10;
-inline bool ServerWrappedMessage::has_id() const {
-  return server_message_case() == kId;
-}
-inline void ServerWrappedMessage::set_has_id() {
-  _oneof_case_[0] = kId;
-}
-inline void ServerWrappedMessage::clear_id() {
-  if (has_id()) {
-    delete server_message_.id_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::LabNetIdReply& ServerWrappedMessage::_internal_id() const {
-  return *server_message_.id_;
-}
-inline ::LabNetProt::Server::LabNetIdReply* ServerWrappedMessage::release_id() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.id)
-  if (has_id()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::LabNetIdReply* temp = server_message_.id_;
-    server_message_.id_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::LabNetIdReply& ServerWrappedMessage::id() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.id)
-  return has_id()
-      ? *server_message_.id_
-      : *reinterpret_cast< ::LabNetProt::Server::LabNetIdReply*>(&::LabNetProt::Server::_LabNetIdReply_default_instance_);
-}
-inline ::LabNetProt::Server::LabNetIdReply* ServerWrappedMessage::mutable_id() {
-  if (!has_id()) {
-    clear_server_message();
-    set_has_id();
-    server_message_.id_ = CreateMaybeMessage< ::LabNetProt::Server::LabNetIdReply >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.id)
-  return server_message_.id_;
-}
-
-// .LabNetProt.Server.InterfaceLost interface_lost = 11;
-inline bool ServerWrappedMessage::has_interface_lost() const {
-  return server_message_case() == kInterfaceLost;
-}
-inline void ServerWrappedMessage::set_has_interface_lost() {
-  _oneof_case_[0] = kInterfaceLost;
-}
-inline void ServerWrappedMessage::clear_interface_lost() {
-  if (has_interface_lost()) {
-    delete server_message_.interface_lost_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::InterfaceLost& ServerWrappedMessage::_internal_interface_lost() const {
-  return *server_message_.interface_lost_;
-}
-inline ::LabNetProt::Server::InterfaceLost* ServerWrappedMessage::release_interface_lost() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.interface_lost)
-  if (has_interface_lost()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::InterfaceLost* temp = server_message_.interface_lost_;
-    server_message_.interface_lost_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::InterfaceLost& ServerWrappedMessage::interface_lost() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.interface_lost)
-  return has_interface_lost()
-      ? *server_message_.interface_lost_
-      : *reinterpret_cast< ::LabNetProt::Server::InterfaceLost*>(&::LabNetProt::Server::_InterfaceLost_default_instance_);
-}
-inline ::LabNetProt::Server::InterfaceLost* ServerWrappedMessage::mutable_interface_lost() {
-  if (!has_interface_lost()) {
-    clear_server_message();
-    set_has_interface_lost();
-    server_message_.interface_lost_ = CreateMaybeMessage< ::LabNetProt::Server::InterfaceLost >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.interface_lost)
-  return server_message_.interface_lost_;
-}
-
-// .LabNetProt.Server.InterfaceReconnected interface_reconnected = 12;
-inline bool ServerWrappedMessage::has_interface_reconnected() const {
-  return server_message_case() == kInterfaceReconnected;
-}
-inline void ServerWrappedMessage::set_has_interface_reconnected() {
-  _oneof_case_[0] = kInterfaceReconnected;
-}
-inline void ServerWrappedMessage::clear_interface_reconnected() {
-  if (has_interface_reconnected()) {
-    delete server_message_.interface_reconnected_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::InterfaceReconnected& ServerWrappedMessage::_internal_interface_reconnected() const {
-  return *server_message_.interface_reconnected_;
-}
-inline ::LabNetProt::Server::InterfaceReconnected* ServerWrappedMessage::release_interface_reconnected() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.interface_reconnected)
-  if (has_interface_reconnected()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::InterfaceReconnected* temp = server_message_.interface_reconnected_;
-    server_message_.interface_reconnected_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::InterfaceReconnected& ServerWrappedMessage::interface_reconnected() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.interface_reconnected)
-  return has_interface_reconnected()
-      ? *server_message_.interface_reconnected_
-      : *reinterpret_cast< ::LabNetProt::Server::InterfaceReconnected*>(&::LabNetProt::Server::_InterfaceReconnected_default_instance_);
-}
-inline ::LabNetProt::Server::InterfaceReconnected* ServerWrappedMessage::mutable_interface_reconnected() {
-  if (!has_interface_reconnected()) {
-    clear_server_message();
-    set_has_interface_reconnected();
-    server_message_.interface_reconnected_ = CreateMaybeMessage< ::LabNetProt::Server::InterfaceReconnected >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.interface_reconnected)
-  return server_message_.interface_reconnected_;
-}
-
-// .LabNetProt.Server.DigitalOutLoopStartResult digital_out_loop_start_result = 13;
-inline bool ServerWrappedMessage::has_digital_out_loop_start_result() const {
-  return server_message_case() == kDigitalOutLoopStartResult;
-}
-inline void ServerWrappedMessage::set_has_digital_out_loop_start_result() {
-  _oneof_case_[0] = kDigitalOutLoopStartResult;
-}
-inline void ServerWrappedMessage::clear_digital_out_loop_start_result() {
-  if (has_digital_out_loop_start_result()) {
-    delete server_message_.digital_out_loop_start_result_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutLoopStartResult& ServerWrappedMessage::_internal_digital_out_loop_start_result() const {
-  return *server_message_.digital_out_loop_start_result_;
-}
-inline ::LabNetProt::Server::DigitalOutLoopStartResult* ServerWrappedMessage::release_digital_out_loop_start_result() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_start_result)
-  if (has_digital_out_loop_start_result()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalOutLoopStartResult* temp = server_message_.digital_out_loop_start_result_;
-    server_message_.digital_out_loop_start_result_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutLoopStartResult& ServerWrappedMessage::digital_out_loop_start_result() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_start_result)
-  return has_digital_out_loop_start_result()
-      ? *server_message_.digital_out_loop_start_result_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalOutLoopStartResult*>(&::LabNetProt::Server::_DigitalOutLoopStartResult_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalOutLoopStartResult* ServerWrappedMessage::mutable_digital_out_loop_start_result() {
-  if (!has_digital_out_loop_start_result()) {
-    clear_server_message();
-    set_has_digital_out_loop_start_result();
-    server_message_.digital_out_loop_start_result_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalOutLoopStartResult >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_start_result)
-  return server_message_.digital_out_loop_start_result_;
-}
-
-// .LabNetProt.Server.DigitalOutLoopStopped digital_out_loop_stopped = 14;
-inline bool ServerWrappedMessage::has_digital_out_loop_stopped() const {
-  return server_message_case() == kDigitalOutLoopStopped;
-}
-inline void ServerWrappedMessage::set_has_digital_out_loop_stopped() {
-  _oneof_case_[0] = kDigitalOutLoopStopped;
-}
-inline void ServerWrappedMessage::clear_digital_out_loop_stopped() {
-  if (has_digital_out_loop_stopped()) {
-    delete server_message_.digital_out_loop_stopped_;
-    clear_has_server_message();
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutLoopStopped& ServerWrappedMessage::_internal_digital_out_loop_stopped() const {
-  return *server_message_.digital_out_loop_stopped_;
-}
-inline ::LabNetProt::Server::DigitalOutLoopStopped* ServerWrappedMessage::release_digital_out_loop_stopped() {
-  // @@protoc_insertion_point(field_release:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_stopped)
-  if (has_digital_out_loop_stopped()) {
-    clear_has_server_message();
-      ::LabNetProt::Server::DigitalOutLoopStopped* temp = server_message_.digital_out_loop_stopped_;
-    server_message_.digital_out_loop_stopped_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline const ::LabNetProt::Server::DigitalOutLoopStopped& ServerWrappedMessage::digital_out_loop_stopped() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_stopped)
-  return has_digital_out_loop_stopped()
-      ? *server_message_.digital_out_loop_stopped_
-      : *reinterpret_cast< ::LabNetProt::Server::DigitalOutLoopStopped*>(&::LabNetProt::Server::_DigitalOutLoopStopped_default_instance_);
-}
-inline ::LabNetProt::Server::DigitalOutLoopStopped* ServerWrappedMessage::mutable_digital_out_loop_stopped() {
-  if (!has_digital_out_loop_stopped()) {
-    clear_server_message();
-    set_has_digital_out_loop_stopped();
-    server_message_.digital_out_loop_stopped_ = CreateMaybeMessage< ::LabNetProt::Server::DigitalOutLoopStopped >(
-        GetArenaNoVirtual());
-  }
-  // @@protoc_insertion_point(field_mutable:LabNetProt.Server.ServerWrappedMessage.digital_out_loop_stopped)
-  return server_message_.digital_out_loop_stopped_;
-}
-
-inline bool ServerWrappedMessage::has_server_message() const {
-  return server_message_case() != SERVER_MESSAGE_NOT_SET;
-}
-inline void ServerWrappedMessage::clear_has_server_message() {
-  _oneof_case_[0] = SERVER_MESSAGE_NOT_SET;
-}
-inline ServerWrappedMessage::ServerMessageCase ServerWrappedMessage::server_message_case() const {
-  return ServerWrappedMessage::ServerMessageCase(_oneof_case_[0]);
-}
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -3480,6 +2628,18 @@ inline ServerWrappedMessage::ServerMessageCase ServerWrappedMessage::server_mess
 
 }  // namespace Server
 }  // namespace LabNetProt
+
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::LabNetProt::Server::ServerMessageType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::LabNetProt::Server::ServerMessageType>() {
+  return ::LabNetProt::Server::ServerMessageType_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
 
 // @@protoc_insertion_point(global_scope)
 

@@ -17,7 +17,7 @@ void ConnectionManager::start(std::shared_ptr<Connection> c)
 		m_connection = c;
 		c->start();
 		
-		so_5::send<LabNet::Connected>(_labNetBox, c);
+		so_5::send<LabNet::ClientConnected>(_labNetBox, c);
 	}
 	else {
 		m_logger->writeInfoEntry("only one connection possible");
@@ -34,7 +34,7 @@ void ConnectionManager::stop(std::shared_ptr<Connection> c)
 		c->stop();
 		m_connection = nullptr;
 		
-		so_5::send<LabNet::Disconnected>(_labNetBox);
+		so_5::send<LabNet::ClientDisconnected>(_labNetBox);
 	}
 	else
 	{
@@ -55,7 +55,3 @@ void ConnectionManager::stop_all()
 	m_connections.clear();
 }
 
-void ConnectionManager::on_new_data(std::shared_ptr<LabNetProt::Client::ClientWrappedMessage> mes)
-{
-	so_5::send<std::shared_ptr<LabNetProt::Client::ClientWrappedMessage>>(_labNetBox, mes);
-}

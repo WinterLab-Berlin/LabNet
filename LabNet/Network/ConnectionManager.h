@@ -27,8 +27,11 @@ public:
 
 	/// Stop all connections.
 	void stop_all();
-	
-	void on_new_data(std::shared_ptr<LabNetProt::Client::ClientWrappedMessage> mes);
+
+	so_5::mbox_t get_lab_net_box()
+	{
+		return _labNetBox;
+	};
 
 private:
 	Logger m_logger;

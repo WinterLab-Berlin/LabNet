@@ -1,84 +1,93 @@
 #include "RfidMainActor.h"
-#include "RfidMessages.h"
-#include "../InitMessages.h"
+#include "../../Network/LabNet.pb.h"
+#include "../../Network/LabNetClient.pb.h"
 #include "../InterfaceMessages.h"
 
 using namespace rfid_board;
 
-SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t selfBox, const so_5::mbox_t parentBox, Logger logger)
-	: so_5::agent_t(ctx)
-	, _selfBox(selfBox)
-	, _parentMbox(parentBox)
-	, _logger(logger)
-	, _interfaces(ctx.env().create_mbox("ManageInterfaces"))
+SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t self_box, const so_5::mbox_t interfaces_manager_box, const so_5::mbox_t events_box, Logger logger)
+    : so_5::agent_t(ctx)
+    , _self_box(self_box)
+    , _interfaces_manager_box(interfaces_manager_box)
+    , _events_box(events_box)
+    , _logger(logger)
 {
 }
 
 SamMainActor::~SamMainActor()
 {
-	_worker.reset();
-	_device.reset();
+    _worker.reset();
+    _device.reset();
+}
+
+void SamMainActor::so_evt_start()
+{
+}
+
+void SamMainActor::so_evt_finish()
+{
+    _worker.reset();
+    _device.reset();
 }
 
 void SamMainActor::so_define_agent()
 {
-	this >>= wait_for_init;
-	
-	wait_for_init
-		.event(_selfBox,
-			[this](mhood_t<init_interface>) {
-				so_5::send<Interface::InitMessages::init_rfid_request>(_interfaces, _selfBox);
-		})
-		.event(_selfBox,
-			[this](mhood_t<Interface::InitMessages::can_init_no> msg) {
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, false);
-		})
-		.event(_selfBox,
-			[this](mhood_t<Interface::InitMessages::can_init_yes> msg) {
-				_device = std::make_shared<MAX14830::MAXDevice>(_logger, _parentMbox);
-				_device->init();
-	
-				_worker = std::make_unique<MAX14830::DataReadWorker>(_device);
-			
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, true);
-			
-				this >>= running;
-			}
-		);
-	
-	running
-		.event(_selfBox,
-			[this](mhood_t<init_interface>) {
-				so_5::send<Interface::interface_init_result>(_parentMbox, Interface::RFID_BOARD, true);
-		})
-		.event(_selfBox,
-			[this](mhood_t<set_phase_matrix> msg) {
-				_device->set_phase_matrix(msg->antenna_phase1, msg->antenna_phase2, msg->phase_duration);
-		})
-		.event(_selfBox,
-			[this](mhood_t<set_signal_inversion> msg) {
-				_device->invert(msg->inverted);
-		})
-		.event(_selfBox,
-			[this](mhood_t<Interface::pause_interface>) {
-				_worker.reset();
-			
-				this >>= paused;
-		})
-		.event(_selfBox,
-			[this](mhood_t<Interface::reset_interface>) {
-				_worker.reset();
-				_device.reset();
-			
-				this >>= wait_for_init;
-			}
-		);
-	
-	paused
-		.event(_selfBox,
-			[this](mhood_t<Interface::continue_interface>) {
-				_worker = std::make_unique<MAX14830::DataReadWorker>(_device);
-				this >>= running;
-		})
-		;
+    this >>= init_state;
+
+    init_state
+        .event(_self_box,
+            [this](const mhood_t<init_interface>& msg) {
+                _phase1 = msg->antenna_phase1;
+                _phase2 = msg->antenna_phase2;
+                _phase_dur = msg->phase_duration;
+                _is_inverted = msg->is_inverted;
+
+                _device = std::make_shared<MAX14830::MAXDevice>(_logger, _events_box);
+                _device->set_phase_matrix(_phase1, _phase2, _phase_dur);
+                _device->init(_is_inverted);
+
+                _worker = std::make_unique<MAX14830::DataReadWorker>(_device);
+
+                so_5::send<Interface::interface_init_result>(_interfaces_manager_box, Interface::Interfaces::RFID_BOARD, true);
+
+                this >>= running_state;
+            })
+        .event(_self_box,
+            [this](mhood_t<Interface::stop_interface>) {
+                so_deregister_agent_coop_normally();
+            });
+
+    running_state
+        .event(_self_box,
+            [this](const mhood_t<init_interface>& msg) {
+                so_5::send<Interface::interface_init_result>(_interfaces_manager_box, Interface::Interfaces::RFID_BOARD, true);
+            })
+        .event(_self_box,
+            [this](const mhood_t<set_phase_matrix>& msg) {
+                _phase1 = msg->antenna_phase1;
+                _phase2 = msg->antenna_phase2;
+                _phase_dur = msg->phase_duration;
+                _device->set_phase_matrix(_phase1, _phase2, _phase_dur);
+            })
+        .event(_self_box,
+            [this](mhood_t<Interface::pause_interface>) {
+                _worker.reset();
+
+                this >>= paused_state;
+            })
+        .event(_self_box,
+            [this](mhood_t<Interface::stop_interface>) {
+                so_deregister_agent_coop_normally();
+            });
+
+    paused_state
+        .event(_self_box,
+            [this](mhood_t<Interface::continue_interface>) {
+                _worker = std::make_unique<MAX14830::DataReadWorker>(_device);
+                this >>= running_state;
+            })
+        .event(_self_box,
+            [this](mhood_t<Interface::stop_interface>) {
+                so_deregister_agent_coop_normally();
+            });
 }
