@@ -37,7 +37,7 @@ void DigitalOut::DigitalOutHelper::so_evt_start()
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, stopLoop.GetTypeName(), _selfBox);
 
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _selfBox);
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("reset_interface"), _selfBox);
+    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _selfBox);
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("continue_interface"), _selfBox);
 }
 
@@ -74,6 +74,8 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
                     so_5::send<stop_helper>(pulse.second);
                 }
                 _pulseHelper.clear();
+
+                so_5::send<Interface::reset_done>(_labNetBox, _selfBox);
             })
         .event(_selfBox,
             [this](std::shared_ptr<LabNetProt::Client::DigitalOutSet> msg) {

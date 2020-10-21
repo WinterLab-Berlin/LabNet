@@ -29,10 +29,12 @@ namespace uart
         void so_evt_start() override;
         void so_evt_finish() override;
 
+        bool is_raspi_revision_valid();
         std::string port_name_for_id(int id);
         void get_raspi_revision();
-        void init_new_port(const init_serial_port& ev);
-        void try_to_reconnect_event(const uart::private_messages::try_to_reconnect& ev);
+        void init_new_port_event(const so_5::mhood_t<init_serial_port> ev);
+        void try_to_reconnect_event(const so_5::mhood_t<uart::private_messages::try_to_reconnect> ev);
+        void stop_interface_event(mhood_t<Interface::stop_interface> msg);
 
         so_5::state_t running_state { this, "running_state" };
         so_5::state_t paused_state { this, "paused_state" };

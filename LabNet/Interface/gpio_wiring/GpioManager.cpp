@@ -36,10 +36,14 @@ GpioManager::~GpioManager()
 void GpioManager::so_evt_finish()
 {
     _inputStateReader.reset();
+
+    so_5::send<Interface::interface_stopped>(_interfaces_manager_box, Interface::Interfaces::GPIO_WIRING);
+    _logger->writeInfoEntry("gpio wiringPi finished");
 }
 
 void GpioManager::so_evt_start()
 {
+    _logger->writeInfoEntry("gpio wiringPi started");
 }
 
 void GpioManager::so_define_agent()
@@ -55,10 +59,6 @@ void GpioManager::so_define_agent()
                 so_5::send<Interface::interface_init_result>(_interfaces_manager_box, Interface::Interfaces::GPIO_WIRING, true);
 
                 this >>= running_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
             });
 
     running_state
@@ -87,7 +87,7 @@ void GpioManager::so_define_agent()
                 }
             })
         .event(_self_box,
-            [this](std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalOut> msg) {
+            [this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalOut> msg) {
                 uint32_t pin = msg->pin();
                 std::map<char, char>::iterator it = _pins.find(pin);
                 if (it != _pins.end() && it->second != pin_type::In)
@@ -141,17 +141,9 @@ void GpioManager::so_define_agent()
                 so_5::send<Interface::pause_interface>(_reader_box);
 
                 this >>= paused_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface> msg) {
-                so_deregister_agent_coop_normally();
             });
 
     paused_state
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface> msg) {
-                so_deregister_agent_coop_normally();
-            })
         .event(_self_box,
             [this](mhood_t<Interface::continue_interface> msg) {
                 so_5::send<Interface::continue_interface>(_reader_box);

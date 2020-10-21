@@ -149,9 +149,6 @@ void Connection::handle_request()
     case ClientMessageType::RFID_BOARD_SET_PHASE_MATRIX:
         parse_and_send_message<RfidBoardSetPhaseMatrix>();
         break;
-    case ClientMessageType::RFID_BOARD_SET_SIGNAL_INVERSION:
-        parse_and_send_message<RfidBoardSetSignalInversion>();
-        break;
     case ClientMessageType::UART_INIT:
         parse_and_send_message<UartInit>();
         break;

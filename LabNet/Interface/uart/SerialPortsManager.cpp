@@ -31,6 +31,11 @@ void uart::SerialPortsManager::so_evt_start()
     _handle_for_port[2] = -1;
     _handle_for_port[3] = -1;
     _handle_for_port[4] = -1;
+
+    if (is_raspi_revision_valid())
+        _logger->writeInfoEntry("serial ports manager starts on known raspi version");
+    else
+        _logger->writeInfoEntry("serial ports manager starts on unknown raspi version");
 }
 
 void uart::SerialPortsManager::so_evt_finish()
@@ -46,7 +51,8 @@ void uart::SerialPortsManager::so_define_agent()
     this >>= running_state;
 
     running_state
-        .event(_self_box, &SerialPortsManager::init_new_port)
+        .event(_self_box, &SerialPortsManager::init_new_port_event)
+        .event(_self_box, &SerialPortsManager::try_to_reconnect_event)
         .event(_self_box,
             [this](const mhood_t<uart::private_messages::port_unexpected_closed>& msg) {
                 _logger->writeInfoEntry(string_format("port unexpected closed serial port %d", msg->port_id));
@@ -57,7 +63,6 @@ void uart::SerialPortsManager::so_define_agent()
                 so_5::send<Interface::interface_lost>(_interfaces_manager_box, static_cast<Interface::Interfaces>(msg->port_id + 100));
                 so_5::send_delayed<try_to_reconnect>(_self_box, std::chrono::seconds(1), msg->port_id, msg->baud);
             })
-        .event(_self_box, &SerialPortsManager::try_to_reconnect_event)
         .event(_self_box,
             [this](std::shared_ptr<LabNetProt::Client::UartWriteData> data) {
                 uint32_t port = data->port() - 100;
@@ -76,16 +81,13 @@ void uart::SerialPortsManager::so_define_agent()
 
                 this >>= paused_state;
             })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
-            })
+        .event(_self_box, &SerialPortsManager::stop_interface_event)
         .event(_self_box,
             [this](const uart::private_messages::send_data_complete& mes) {
-                so_5::send<StreamMessages::send_data_complete>(_interfaces_manager_box, static_cast<Interface::Interfaces>(mes.pin + 100));
+                so_5::send<StreamMessages::send_data_complete>(_events_box, static_cast<Interface::Interfaces>(mes.pin + 100));
             })
         .event(_self_box,
-            [this](const mhood_t<DigitalMessages::set_digital_out> &msg) {
+            [this](const mhood_t<DigitalMessages::set_digital_out>& msg) {
                 uint32_t port = msg->interface - 100;
                 auto it = _ports.find(port);
                 if (it != _ports.end())
@@ -94,11 +96,8 @@ void uart::SerialPortsManager::so_define_agent()
                 }
             });
 
-     paused_state
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface> msg) {
-                so_deregister_agent_coop_normally();
-            })
+    paused_state
+        .event(_self_box, &SerialPortsManager::stop_interface_event)
         .event(_self_box,
             [this](mhood_t<Interface::continue_interface> msg) {
                 for (auto& port : _ports)
@@ -110,16 +109,26 @@ void uart::SerialPortsManager::so_define_agent()
             });
 }
 
-void uart::SerialPortsManager::init_new_port(const init_serial_port& ev)
+void uart::SerialPortsManager::stop_interface_event(mhood_t<Interface::stop_interface> msg)
+{
+    _ports.clear();
+    _handle_for_port.clear();
+
+    so_5::send<Interface::interface_stopped>(_interfaces_manager_box, Interface::Interfaces::UART0);
+    _logger->writeInfoEntry("all uarts stopped");
+}
+
+void uart::SerialPortsManager::init_new_port_event(const so_5::mhood_t<init_serial_port> ev)
 {
     bool port_init_succes = false;
-    int port_id = ev.port_id - 100;
+    int port_id = ev->port_id - 100;
 
     if (_raspi_revision == R3BV1_2 || _raspi_revision == R3BPV1_3)
     {
         if (port_id > -1 && port_id < 5)
         {
-            if (_handle_for_port[port_id] < 0)
+            //auto it = _handle_for_port.find(port_id);
+            if (_handle_for_port[port_id] <= 0)
             {
                 std::string port = port_name_for_id(port_id);
                 if (port.size() == 0)
@@ -128,7 +137,7 @@ void uart::SerialPortsManager::init_new_port(const init_serial_port& ev)
                     return;
                 }
 
-                int handle = serialOpen(port.c_str(), ev.baud);
+                int handle = serialOpen(port.c_str(), ev->baud);
                 if (handle < 0)
                 {
                     _logger->writeInfoEntry(string_format("failed to init uart port %d: could not open", port_id));
@@ -137,7 +146,7 @@ void uart::SerialPortsManager::init_new_port(const init_serial_port& ev)
                 {
                     so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 
-                    _ports[port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, port_id, handle, ev.baud);
+                    _ports[port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, port_id, handle, ev->baud);
                     _handle_for_port[port_id] = handle;
 
                     _logger->writeInfoEntry(string_format("open uart port %d", port_id));
@@ -154,35 +163,47 @@ void uart::SerialPortsManager::init_new_port(const init_serial_port& ev)
     so_5::send<Interface::interface_init_result>(_interfaces_manager_box, static_cast<Interface::Interfaces>(port_id + 100), port_init_succes);
 }
 
-void uart::SerialPortsManager::try_to_reconnect_event(const try_to_reconnect& ev)
+void uart::SerialPortsManager::try_to_reconnect_event(const so_5::mhood_t<try_to_reconnect> ev)
 {
-    if (ev.port_id > -1 && ev.port_id < 5)
+    if (ev->port_id > -1 && ev->port_id < 5)
     {
-        if (_handle_for_port[ev.port_id] < 0)
+        if (_handle_for_port[ev->port_id] < 0)
         {
-            std::string port = port_name_for_id(ev.port_id);
+            std::string port = port_name_for_id(ev->port_id);
             if (port.size() == 0)
             {
-                so_5::send_delayed<try_to_reconnect>(_self_box, std::chrono::seconds(1), ev.port_id, ev.baud);
+                so_5::send_delayed<try_to_reconnect>(_self_box, std::chrono::seconds(1), ev->port_id, ev->baud);
                 return;
             }
 
-            int handle = serialOpen(port.c_str(), ev.baud);
+            int handle = serialOpen(port.c_str(), ev->baud);
             if (handle < 0)
             {
-                so_5::send_delayed<try_to_reconnect>(_self_box, std::chrono::seconds(1), ev.port_id, ev.baud);
+                so_5::send_delayed<try_to_reconnect>(_self_box, std::chrono::seconds(1), ev->port_id, ev->baud);
             }
             else
             {
                 so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 
-                _ports[ev.port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, ev.port_id, handle, ev.baud);
-                _handle_for_port[ev.port_id] = handle;
+                _ports[ev->port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, ev->port_id, handle, ev->baud);
+                _handle_for_port[ev->port_id] = handle;
 
                 // reconnected
-                so_5::send<Interface::interface_reconnected>(_interfaces_manager_box, static_cast<Interface::Interfaces>(ev.port_id + 100));
+                so_5::send<Interface::interface_reconnected>(_interfaces_manager_box, static_cast<Interface::Interfaces>(ev->port_id + 100));
+
+                _logger->writeInfoEntry(string_format("successfully reconnected to uart port %d", ev->port_id));
             }
         }
+    }
+}
+
+bool uart::SerialPortsManager::is_raspi_revision_valid()
+{
+    if (_raspi_revision == R3BPV1_3 || _raspi_revision == R3BV1_2)
+        return true;
+    else
+    {
+        return false;
     }
 }
 

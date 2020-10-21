@@ -25,6 +25,9 @@ GPIOManager::~GPIOManager()
 void GPIOManager::so_evt_finish()
 {
     _inputStateReader.reset();
+
+    so_5::send<Interface::interface_stopped>(_interfaces_manager_box, Interface::Interfaces::IO_BOARD);
+    _logger->writeInfoEntry("io board finished");
 }
 
 void GPIOManager::so_evt_start()
@@ -56,6 +59,8 @@ void GPIOManager::so_evt_start()
     {
         _inputs[inp.first] = DigitalInput { inp.second, inp.first };
     }
+
+    _logger->writeInfoEntry("io board started");
 }
 
 void GPIOManager::so_define_agent()
@@ -70,10 +75,6 @@ void GPIOManager::so_define_agent()
                 so_5::send<Interface::interface_init_result>(_interfaces_manager_box, Interface::Interfaces::IO_BOARD, true);
 
                 this >>= running_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
             });
 
     running_state
@@ -150,7 +151,6 @@ void GPIOManager::so_define_agent()
                         digitalWrite(_outputs[msg->pin].pin_h, msg->state);
                     }
 
-                    //_logger->writeInfoEntry(string_format("gpio set %d", msg->state));
                     so_5::send<DigitalMessages::return_digital_out_state>(msg->mbox, Interface::IO_BOARD, msg->pin, msg->state, std::chrono::high_resolution_clock::now());
                 }
                 else
@@ -163,17 +163,9 @@ void GPIOManager::so_define_agent()
                 _inputStateReader.reset();
 
                 this >>= paused_state;
-            })
-        .event(_self_box,
-            [this](const mhood_t<Interface::stop_interface>& msg) {
-                so_deregister_agent_coop_normally();
             });
 
     paused_state
-        .event(_self_box,
-            [this](const mhood_t<Interface::stop_interface>& msg) {
-                so_deregister_agent_coop_normally();
-            })
         .event(_self_box,
             [this](const mhood_t<Interface::continue_interface>& msg) {
                 _inputStateReader = std::make_unique<DigitalInputStateReader>(_events_box, &_inputs, _logger);

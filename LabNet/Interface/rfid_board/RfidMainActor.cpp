@@ -16,18 +16,20 @@ SamMainActor::SamMainActor(context_t ctx, const so_5::mbox_t self_box, const so_
 
 SamMainActor::~SamMainActor()
 {
-    _worker.reset();
-    _device.reset();
 }
 
 void SamMainActor::so_evt_start()
 {
+    _logger->writeInfoEntry("rfid board started");
 }
 
 void SamMainActor::so_evt_finish()
 {
     _worker.reset();
     _device.reset();
+
+    so_5::send<Interface::interface_stopped>(_interfaces_manager_box, Interface::Interfaces::RFID_BOARD);
+    _logger->writeInfoEntry("rfid board finished");
 }
 
 void SamMainActor::so_define_agent()
@@ -51,10 +53,6 @@ void SamMainActor::so_define_agent()
                 so_5::send<Interface::interface_init_result>(_interfaces_manager_box, Interface::Interfaces::RFID_BOARD, true);
 
                 this >>= running_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
             });
 
     running_state
@@ -74,10 +72,6 @@ void SamMainActor::so_define_agent()
                 _worker.reset();
 
                 this >>= paused_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
             });
 
     paused_state
@@ -85,9 +79,5 @@ void SamMainActor::so_define_agent()
             [this](mhood_t<Interface::continue_interface>) {
                 _worker = std::make_unique<MAX14830::DataReadWorker>(_device);
                 this >>= running_state;
-            })
-        .event(_self_box,
-            [this](mhood_t<Interface::stop_interface>) {
-                so_deregister_agent_coop_normally();
             });
 }

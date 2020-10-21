@@ -7,6 +7,11 @@
 
 namespace Interface
 {
+    struct reset_done
+    {
+        const so_5::mbox_t mbox;
+    };
+
     struct stop_interface
     {
     };
@@ -21,6 +26,11 @@ namespace Interface
     {
         Interface::Interfaces interface;
         bool is_succeed;
+    };
+
+    struct interface_stopped
+    {
+        Interface::Interfaces interface;
     };
 
     struct interface_lost
