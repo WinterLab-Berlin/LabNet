@@ -173,6 +173,12 @@ void LabNetMainActor::so_define_agent()
         .event([this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalOut> mes) {
             send_message(mes);
         })
+        .event([this](std::shared_ptr<LabNetProt::Client::InitSound> mes) {
+            send_message(mes);
+        })
+        .event([this](std::shared_ptr<LabNetProt::Client::DefineSineTone> mes) {
+            send_message(mes);
+        })
         .event([this](std::shared_ptr<LabNetProt::Server::DigitalOutState> mes) {
             _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
         })

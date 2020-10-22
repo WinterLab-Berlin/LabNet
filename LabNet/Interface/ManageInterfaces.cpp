@@ -12,6 +12,7 @@
 #include "io_board/GPIOManager.h"
 #include "rfid_board/RfidMainActor.h"
 #include "uart/SerialPortsManager.h"
+#include "sound/SignalGenerator.h"
 
 Interface::ManageInterfaces::ManageInterfaces(context_t ctx, Logger logger, so_5::mbox_t labNetBox)
     : so_5::agent_t(ctx)
@@ -23,6 +24,7 @@ Interface::ManageInterfaces::ManageInterfaces(context_t ctx, Logger logger, so_5
     _reset_state[1] = false;
     _reset_state[2] = false;
     _reset_state[3] = false;
+    _reset_state[4] = false;
 }
 
 void Interface::ManageInterfaces::so_define_agent()
@@ -40,6 +42,8 @@ void Interface::ManageInterfaces::so_define_agent()
                     so_5::send<Interface::continue_interface>(_rfid_board_box);
                 if (_uart_box)
                     so_5::send<Interface::continue_interface>(_uart_box);
+                if (_sound_box)
+                    so_5::send<Interface::continue_interface>(_sound_box);
             })
         .event(_self_mbox,
             [this](const mhood_t<pause_interface>& msg) {
@@ -51,6 +55,8 @@ void Interface::ManageInterfaces::so_define_agent()
                     so_5::send<Interface::pause_interface>(_rfid_board_box);
                 if (_uart_box)
                     so_5::send<Interface::pause_interface>(_uart_box);
+                if (_sound_box)
+                    so_5::send<Interface::pause_interface>(_sound_box);
             })
         .event(_self_mbox,
             [this](const mhood_t<stop_interface>& msg) {
@@ -73,6 +79,11 @@ void Interface::ManageInterfaces::so_define_agent()
                 {
                     _reset_state[3] = true;
                     so_5::send<Interface::stop_interface>(_uart_box);
+                }
+                if (_sound_box)
+                {
+                    _reset_state[4] = true;
+                    so_5::send<Interface::stop_interface>(_sound_box);
                 }
 
                 if (!is_reset_done())
@@ -277,6 +288,24 @@ void Interface::ManageInterfaces::so_define_agent()
         .event(_self_mbox,
             [this](const so_5::mhood_t<interface_reconnected>& msg) {
                 so_5::send<interface_reconnected>(_labNetBox, msg->interface);
+            })
+        .event(_self_mbox,
+            [this](std::shared_ptr<LabNetProt::Client::InitSound> msg) {
+                if (!_sound_box)
+                {
+                    _sound_box = so_environment().create_mbox("sound");
+                    auto sound = so_environment().make_agent<sound::SignalGenerator>(_sound_box, _self_mbox, _labNetBox, _logger);
+                    _sound_coop = so_environment().register_agent_as_coop(std::move(sound));
+                }
+
+                so_5::send<sound::init_sound>(_sound_box);
+            })
+        .event(_self_mbox,
+            [this](std::shared_ptr<LabNetProt::Client::DefineSineTone> msg) {
+                if (_sound_box)
+                {
+                    so_5::send<std::shared_ptr<LabNetProt::Client::DefineSineTone>>(_sound_box, msg);
+                }
             });
 
     reset_state
@@ -351,6 +380,12 @@ void Interface::ManageInterfaces::so_evt_start()
 
     LabNetProt::Client::GpioWiringPiInitDigitalOut gpioWiringPiInitDigOut;
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, gpioWiringPiInitDigOut.GetTypeName(), _self_mbox);
+
+    LabNetProt::Client::InitSound initSound;
+    so_5::send<LabNet::RegisterForMessage>(_labNetBox, initSound.GetTypeName(), _self_mbox);
+
+    LabNetProt::Client::DefineSineTone defineSineTone;
+    so_5::send<LabNet::RegisterForMessage>(_labNetBox, defineSineTone.GetTypeName(), _self_mbox);
 
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _self_mbox);
     so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _self_mbox);

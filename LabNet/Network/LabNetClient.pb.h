@@ -40,7 +40,7 @@ namespace protobuf_LabNetClient_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[17];
+  static const ::google::protobuf::internal::ParseTable schema[19];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -49,6 +49,9 @@ void AddDescriptors();
 }  // namespace protobuf_LabNetClient_2eproto
 namespace LabNetProt {
 namespace Client {
+class DefineSineTone;
+class DefineSineToneDefaultTypeInternal;
+extern DefineSineToneDefaultTypeInternal _DefineSineTone_default_instance_;
 class DigitalOutPulse;
 class DigitalOutPulseDefaultTypeInternal;
 extern DigitalOutPulseDefaultTypeInternal _DigitalOutPulse_default_instance_;
@@ -64,6 +67,9 @@ extern GpioWiringPiInitDigitalInDefaultTypeInternal _GpioWiringPiInitDigitalIn_d
 class GpioWiringPiInitDigitalOut;
 class GpioWiringPiInitDigitalOutDefaultTypeInternal;
 extern GpioWiringPiInitDigitalOutDefaultTypeInternal _GpioWiringPiInitDigitalOut_default_instance_;
+class InitSound;
+class InitSoundDefaultTypeInternal;
+extern InitSoundDefaultTypeInternal _InitSound_default_instance_;
 class IoBoardInit;
 class IoBoardInitDefaultTypeInternal;
 extern IoBoardInitDefaultTypeInternal _IoBoardInit_default_instance_;
@@ -104,11 +110,13 @@ extern UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
 }  // namespace LabNetProt
 namespace google {
 namespace protobuf {
+template<> ::LabNetProt::Client::DefineSineTone* Arena::CreateMaybeMessage<::LabNetProt::Client::DefineSineTone>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutPulse* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutPulse>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutSet* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutSet>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInit* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInit>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInitDigitalIn>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInitDigitalOut>(Arena*);
+template<> ::LabNetProt::Client::InitSound* Arena::CreateMaybeMessage<::LabNetProt::Client::InitSound>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInit* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInit>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInitDigitalIn>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInitDigitalOut>(Arena*);
@@ -188,12 +196,14 @@ enum ClientMessageType {
   GPIO_WIRINGPI_INIT = 14,
   GPIO_WIRINGPI_INIT_DIGITAL_IN = 15,
   GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16,
+  INIT_SOUND = 17,
+  DEFINE_SINE_TONE = 18,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ClientMessageType_IsValid(int value);
 const ClientMessageType ClientMessageType_MIN = NONE;
-const ClientMessageType ClientMessageType_MAX = GPIO_WIRINGPI_INIT_DIGITAL_OUT;
+const ClientMessageType ClientMessageType_MAX = DEFINE_SINE_TONE;
 const int ClientMessageType_ARRAYSIZE = ClientMessageType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientMessageType_descriptor();
@@ -2182,6 +2192,219 @@ class LabNetIdRequest : public ::google::protobuf::Message /* @@protoc_insertion
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class InitSound : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.InitSound) */ {
+ public:
+  InitSound();
+  virtual ~InitSound();
+
+  InitSound(const InitSound& from);
+
+  inline InitSound& operator=(const InitSound& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  InitSound(InitSound&& from) noexcept
+    : InitSound() {
+    *this = ::std::move(from);
+  }
+
+  inline InitSound& operator=(InitSound&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const InitSound& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const InitSound* internal_default_instance() {
+    return reinterpret_cast<const InitSound*>(
+               &_InitSound_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  void Swap(InitSound* other);
+  friend void swap(InitSound& a, InitSound& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline InitSound* New() const final {
+    return CreateMaybeMessage<InitSound>(NULL);
+  }
+
+  InitSound* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<InitSound>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const InitSound& from);
+  void MergeFrom(const InitSound& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(InitSound* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.InitSound)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.DefineSineTone) */ {
+ public:
+  DefineSineTone();
+  virtual ~DefineSineTone();
+
+  DefineSineTone(const DefineSineTone& from);
+
+  inline DefineSineTone& operator=(const DefineSineTone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DefineSineTone(DefineSineTone&& from) noexcept
+    : DefineSineTone() {
+    *this = ::std::move(from);
+  }
+
+  inline DefineSineTone& operator=(DefineSineTone&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DefineSineTone& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DefineSineTone* internal_default_instance() {
+    return reinterpret_cast<const DefineSineTone*>(
+               &_DefineSineTone_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    18;
+
+  void Swap(DefineSineTone* other);
+  friend void swap(DefineSineTone& a, DefineSineTone& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DefineSineTone* New() const final {
+    return CreateMaybeMessage<DefineSineTone>(NULL);
+  }
+
+  DefineSineTone* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<DefineSineTone>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const DefineSineTone& from);
+  void MergeFrom(const DefineSineTone& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DefineSineTone* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::uint32 id() const;
+  void set_id(::google::protobuf::uint32 value);
+
+  // uint32 frequenz = 2;
+  void clear_frequenz();
+  static const int kFrequenzFieldNumber = 2;
+  ::google::protobuf::uint32 frequenz() const;
+  void set_frequenz(::google::protobuf::uint32 value);
+
+  // float volume = 3;
+  void clear_volume();
+  static const int kVolumeFieldNumber = 3;
+  float volume() const;
+  void set_volume(float value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.DefineSineTone)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 id_;
+  ::google::protobuf::uint32 frequenz_;
+  float volume_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -2968,9 +3191,63 @@ inline void StopDigitalOutLoop::set_allocated_loop_name(::std::string* loop_name
 
 // LabNetIdRequest
 
+// -------------------------------------------------------------------
+
+// InitSound
+
+// -------------------------------------------------------------------
+
+// DefineSineTone
+
+// uint32 id = 1;
+inline void DefineSineTone::clear_id() {
+  id_ = 0u;
+}
+inline ::google::protobuf::uint32 DefineSineTone::id() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.id)
+  return id_;
+}
+inline void DefineSineTone::set_id(::google::protobuf::uint32 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.id)
+}
+
+// uint32 frequenz = 2;
+inline void DefineSineTone::clear_frequenz() {
+  frequenz_ = 0u;
+}
+inline ::google::protobuf::uint32 DefineSineTone::frequenz() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.frequenz)
+  return frequenz_;
+}
+inline void DefineSineTone::set_frequenz(::google::protobuf::uint32 value) {
+  
+  frequenz_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.frequenz)
+}
+
+// float volume = 3;
+inline void DefineSineTone::clear_volume() {
+  volume_ = 0;
+}
+inline float DefineSineTone::volume() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.volume)
+  return volume_;
+}
+inline void DefineSineTone::set_volume(float value) {
+  
+  volume_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.volume)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

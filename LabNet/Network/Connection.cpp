@@ -176,6 +176,12 @@ void Connection::handle_request()
     case ClientMessageType::GPIO_WIRINGPI_INIT_DIGITAL_OUT:
         parse_and_send_message<GpioWiringPiInitDigitalOut>();
         break;
+    case ClientMessageType::INIT_SOUND:
+        parse_and_send_message<InitSound>();
+        break;
+    case ClientMessageType::DEFINE_SINE_TONE:
+        parse_and_send_message<DefineSineTone>();
+        break;
     default:
         break;
     }

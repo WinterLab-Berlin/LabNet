@@ -13,6 +13,7 @@ DigitalOut::DigitalOutHelper::DigitalOutHelper(context_t ctx, Logger logger, so_
     , _gpioBox(ctx.environment().create_mbox("gpio"))
     , _uartBox(ctx.environment().create_mbox("uart"))
     , _gpioWiringBox(ctx.environment().create_mbox("gpioWiring"))
+    , _soundBox(ctx.environment().create_mbox("sound"))
     , _labNetBox(lab_net_box)
     , _logger(logger)
 {
@@ -172,6 +173,19 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
                         so_5::send<DigitalMessages::set_digital_out>(_uartBox, Interface::UART4, msg->id().pin(), msg->state(), _labNetBox);
                     }
                 }
+                else if (interface == LabNetProt::INTERFACE_SOUND)
+                {
+                    PinId id { Interface::SOUND, msg->id().pin() };
+
+                    if (_pulseHelper.count(id) > 0)
+                    {
+                        so_5::send<just_switch>(_pulseHelper[id], msg->state());
+                    }
+                    else
+                    {
+                        so_5::send<DigitalMessages::set_digital_out>(_soundBox, Interface::SOUND, msg->id().pin(), msg->state(), _labNetBox);
+                    }
+                }
             })
         .event(_selfBox,
             [this](std::shared_ptr<LabNetProt::Client::DigitalOutPulse> msg) {
@@ -220,6 +234,22 @@ void DigitalOut::DigitalOutHelper::so_define_agent()
                     {
                         auto coop = so_5::create_child_coop(*this);
                         auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _uartBox, id.interface, id.pin);
+
+                        _pulseHelper[id] = a->so_direct_mbox();
+
+                        so_environment().register_coop(std::move(coop));
+                    }
+
+                    so_5::send<start_pulse>(_pulseHelper[id], msg->high_duration(), msg->low_duration(), msg->pulses());
+                }
+                else if (interface == LabNetProt::INTERFACE_SOUND)
+                {
+                    PinId id { Interface::SOUND, msg->id().pin() };
+
+                    if (_pulseHelper.count(id) == 0)
+                    {
+                        auto coop = so_5::create_child_coop(*this);
+                        auto a = coop->make_agent<PulseHelper>(_logger, _selfBox, _labNetBox, _soundBox, id.interface, id.pin);
 
                         _pulseHelper[id] = a->so_direct_mbox();
 

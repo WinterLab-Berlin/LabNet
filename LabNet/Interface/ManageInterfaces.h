@@ -31,6 +31,8 @@ namespace Interface
         so_5::coop_handle_t _gpio_wiring_coop;
         so_5::mbox_t _uart_box;
         so_5::coop_handle_t _uart_coop;
+        so_5::mbox_t _sound_box;
+        so_5::coop_handle_t _sound_coop;
 
         std::map<uint8_t, bool> _reset_state;
     };

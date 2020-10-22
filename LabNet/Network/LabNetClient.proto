@@ -20,6 +20,8 @@ enum ClientMessageType {
 	GPIO_WIRINGPI_INIT = 14;
 	GPIO_WIRINGPI_INIT_DIGITAL_IN = 15;
 	GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16;
+	INIT_SOUND = 17;
+	DEFINE_SINE_TONE = 18;
 }
 
 // IO board messages
@@ -134,3 +136,15 @@ message LabNetResetRequest {
 message LabNetIdRequest {
 }
 // general messages
+
+
+// sound
+message InitSound {
+}
+
+message DefineSineTone {
+	uint32 id = 1;
+	uint32 frequenz = 2;
+	float volume = 3;
+}
+// sound

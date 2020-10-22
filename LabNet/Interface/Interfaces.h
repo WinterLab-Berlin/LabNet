@@ -8,6 +8,7 @@ namespace Interface
         IO_BOARD = 1,
         RFID_BOARD = 2,
         GPIO_WIRING = 3,
+        SOUND = 4,
         UART0 = 100,
         UART1 = 101,
         UART2 = 102,
