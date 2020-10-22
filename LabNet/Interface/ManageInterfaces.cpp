@@ -83,7 +83,7 @@ void Interface::ManageInterfaces::so_define_agent()
                 if (_sound_box)
                 {
                     _reset_state[4] = true;
-                    so_5::send<Interface::stop_interface>(_sound_box);
+                    so_environment().deregister_coop(_sound_coop, so_5::dereg_reason::normal);
                 }
 
                 if (!is_reset_done())
@@ -142,6 +142,14 @@ void Interface::ManageInterfaces::so_define_agent()
                         {
                             so_environment().deregister_coop(_rfid_board_coop, so_5::dereg_reason::normal);
                             _rfid_board_box = nullptr;
+                        }
+                    }
+                    case Interface::Interfaces::SOUND:
+                    {
+                        if (!msg->is_succeed)
+                        {
+                            so_environment().deregister_coop(_sound_coop, so_5::dereg_reason::normal);
+                            _sound_box = nullptr;
                         }
                     }
                     break;
@@ -329,6 +337,12 @@ void Interface::ManageInterfaces::so_define_agent()
                     {
                         _rfid_board_box = nullptr;
                         _reset_state[2] = false;
+                    }
+                    break;
+                    case Interface::Interfaces::SOUND:
+                    {
+                        _sound_box = nullptr;
+                        _reset_state[4] = false;
                     }
                     break;
                     case Interface::Interfaces::UART0:
