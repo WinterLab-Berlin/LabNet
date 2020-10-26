@@ -32,7 +32,7 @@ void uart::SerialPortsManager::so_evt_start()
     _handle_for_port[3] = -1;
     _handle_for_port[4] = -1;
 
-    if (is_raspi_revision_valid())
+    if (is_raspi_type_valid())
         _logger->writeInfoEntry("serial ports manager starts on known raspi version");
     else
         _logger->writeInfoEntry("serial ports manager starts on unknown raspi version");
@@ -123,7 +123,7 @@ void uart::SerialPortsManager::init_new_port_event(const so_5::mhood_t<init_seri
     bool port_init_succes = false;
     int port_id = ev->port_id - 100;
 
-    if (_raspi_revision == R3BV1_2 || _raspi_revision == R3BPV1_3)
+    if (is_raspi_type_valid())
     {
         if (port_id > -1 && port_id < 5)
         {
@@ -134,23 +134,24 @@ void uart::SerialPortsManager::init_new_port_event(const so_5::mhood_t<init_seri
                 if (port.size() == 0)
                 {
                     _logger->writeInfoEntry(string_format("failed to init uart port %d: does not exist", port_id));
-                    return;
-                }
-
-                int handle = serialOpen(port.c_str(), ev->baud);
-                if (handle < 0)
-                {
-                    _logger->writeInfoEntry(string_format("failed to init uart port %d: could not open", port_id));
                 }
                 else
                 {
-                    so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
+                    int handle = serialOpen(port.c_str(), ev->baud);
+                    if (handle < 0)
+                    {
+                        _logger->writeInfoEntry(string_format("failed to init uart port %d: could not open", port_id));
+                    }
+                    else
+                    {
+                        so_5::mchain_t sendToPortBox = create_mchain(this->so_environment());
 
-                    _ports[port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, port_id, handle, ev->baud);
-                    _handle_for_port[port_id] = handle;
+                        _ports[port_id] = std::make_unique<SerialPort>(_self_box, sendToPortBox, _events_box, port_id, handle, ev->baud);
+                        _handle_for_port[port_id] = handle;
 
-                    _logger->writeInfoEntry(string_format("open uart port %d", port_id));
-                    port_init_succes = true;
+                        _logger->writeInfoEntry(string_format("open uart port %d", port_id));
+                        port_init_succes = true;
+                    }
                 }
             }
             else
@@ -197,9 +198,9 @@ void uart::SerialPortsManager::try_to_reconnect_event(const so_5::mhood_t<try_to
     }
 }
 
-bool uart::SerialPortsManager::is_raspi_revision_valid()
+bool uart::SerialPortsManager::is_raspi_type_valid()
 {
-    if (_raspi_revision == R3BPV1_3 || _raspi_revision == R3BV1_2)
+    if (_raspi_type > 0)
         return true;
     else
     {
@@ -209,11 +210,17 @@ bool uart::SerialPortsManager::is_raspi_revision_valid()
 
 std::string uart::SerialPortsManager::port_name_for_id(int id)
 {
-    if (_raspi_revision > 0)
+    /* 
+    * befor Raspi3 the path length from "readlink" was always 84 bytes long
+	* and it was easy to identify on which USB port the UART converter connected to.
+    * Now it is a bit more complicated and must be implemented separately for each raspi ype.
+	*/
+
+    if (_raspi_type > 0)
     {
         if (id == 0)
         {
-            if (_raspi_revision == R3BPV1_3 || _raspi_revision == R3BV1_2)
+            if (_raspi_type > 2)
             {
                 return std::string("/dev/ttyS0");
             }
@@ -230,13 +237,11 @@ std::string uart::SerialPortsManager::port_name_for_id(int id)
             path[21] = i + '0';
             int portId = -1;
 
-            /* befor Raspi3B+ V1.3 the path length from "readlink" was always 84
-			 * and it was easy to identify on which USB port the UART converter connected to.
-			 **/
+            
             int len = readlink(path, buffer, sizeof(buffer) - 1);
             if (len > 0)
             {
-                if (_raspi_revision == R3BPV1_3 || _raspi_revision == R3BV1_2)
+                if (_raspi_type == 3)
                 {
                     if (len == 84)
                     {
@@ -253,9 +258,8 @@ std::string uart::SerialPortsManager::port_name_for_id(int id)
                             portId = 1;
                     }
                 }
-                else
+                else if (_raspi_type < 3)
                 {
-                    /* for Raspi 1 until Raspi3 V1.2*/
                     if (len == 84)
                     {
                         if (buffer[59] == '2')
@@ -287,7 +291,7 @@ void uart::SerialPortsManager::get_raspi_revision()
 {
     using namespace std;
 
-    _raspi_revision = -1;
+    _raspi_revision = 0;
     string line;
     ifstream cpuinfo("/proc/cpuinfo");
     if (cpuinfo.is_open())
@@ -305,5 +309,32 @@ void uart::SerialPortsManager::get_raspi_revision()
                 }
             }
         }
+    }
+
+    bool is_new_style = _raspi_revision & 0x800000;
+    _raspi_type = 0;
+    if (is_new_style)
+    {
+        _raspi_type = (_raspi_revision & 0xFF0) >> 4;
+        if (_raspi_type >= 0 && _raspi_type < 4) // A, B, A+, B+
+        {
+            _raspi_type = 1;
+        }
+        else if (_raspi_type == 4) // 2B
+        {
+            _raspi_type = 2;
+        }
+        else if (_raspi_type == 8 || _raspi_type == 0xD || _raspi_type == 0xE) // 3B, 3B+, 3A+
+        {
+            _raspi_type = 3;
+        }
+        else // Raspi 4, all CMs and Zeros are not supported
+        {
+            _raspi_type = 0;
+        }
+    }
+    else
+    {
+        _raspi_type = 1;
     }
 }

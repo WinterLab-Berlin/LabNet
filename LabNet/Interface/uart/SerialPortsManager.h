@@ -29,7 +29,7 @@ namespace uart
         void so_evt_start() override;
         void so_evt_finish() override;
 
-        bool is_raspi_revision_valid();
+        bool is_raspi_type_valid();
         std::string port_name_for_id(int id);
         void get_raspi_revision();
         void init_new_port_event(const so_5::mhood_t<init_serial_port> ev);
@@ -46,8 +46,7 @@ namespace uart
         std::map<int, int> _handle_for_port;
         std::map<int, std::unique_ptr<SerialPort>> _ports;
 
-        long long _raspi_revision;
-        const long long R3BPV1_3 = 0xa020d3;
-        const long long R3BV1_2 = 0xa02082;
+        uint64_t _raspi_revision;
+        uint16_t _raspi_type;
     };
 }
