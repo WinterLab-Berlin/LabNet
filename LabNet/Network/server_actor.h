@@ -1,19 +1,19 @@
 #pragma once
 
-#include "Network/Connection.h"
+#include "Connection.h"
 #include <LoggingFacility.h>
 #include <google/protobuf/message.h>
 #include <map>
 #include <so_5/all.hpp>
 #include <vector>
 
-namespace LabNet
+namespace LabNet::network
 {
-    class LabNetMainActor final : public so_5::agent_t
+    class server_actor final : public so_5::agent_t
     {
     public:
-        LabNetMainActor(context_t ctx, Logger logger);
-        ~LabNetMainActor();
+        server_actor(context_t ctx, Logger logger);
+        ~server_actor();
 
     private:
         void so_define_agent() override;

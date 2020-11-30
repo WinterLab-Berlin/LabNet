@@ -1,9 +1,9 @@
 #include <chrono>
 #include <memory>
 
-#include "../LabNetMainActorMessages.h"
-#include "../Network/LabNet.pb.h"
-#include "../Network/LabNetClient.pb.h"
+#include "../network/server_messages.h"
+#include "../network/LabNet.pb.h"
+#include "../network/LabNetClient.pb.h"
 #include "DigitalMessages.h"
 #include "InterfaceMessages.h"
 #include "ManageInterfaces.h"
@@ -366,44 +366,44 @@ void Interface::ManageInterfaces::so_define_agent()
 void Interface::ManageInterfaces::so_evt_start()
 {
     LabNetProt::Client::IoBoardInit ioBordInit;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, ioBordInit.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, ioBordInit.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::IoBoardInitDigitalIn ioBordInitDigIn;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, ioBordInitDigIn.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, ioBordInitDigIn.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::IoBoardInitDigitalOut ioBordInitDigOut;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, ioBordInitDigOut.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, ioBordInitDigOut.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::RfidBoardInit rfidBordInit;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, rfidBordInit.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, rfidBordInit.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::RfidBoardSetPhaseMatrix rfidSetPhaseMatrix;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, rfidSetPhaseMatrix.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, rfidSetPhaseMatrix.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::UartInit uartInit;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, uartInit.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, uartInit.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::UartWriteData uartWrite;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, uartWrite.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, uartWrite.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::GpioWiringPiInit gpioWiringPiInit;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, gpioWiringPiInit.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, gpioWiringPiInit.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::GpioWiringPiInitDigitalIn gpioWiringPiInitDigIn;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, gpioWiringPiInitDigIn.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, gpioWiringPiInitDigIn.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::GpioWiringPiInitDigitalOut gpioWiringPiInitDigOut;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, gpioWiringPiInitDigOut.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, gpioWiringPiInitDigOut.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::InitSound initSound;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, initSound.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, initSound.GetTypeName(), _self_mbox);
 
     LabNetProt::Client::DefineSineTone defineSineTone;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, defineSineTone.GetTypeName(), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, defineSineTone.GetTypeName(), _self_mbox);
 
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _self_mbox);
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _self_mbox);
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("continue_interface"), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _self_mbox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("continue_interface"), _self_mbox);
 }
 
 bool Interface::ManageInterfaces::is_reset_done()

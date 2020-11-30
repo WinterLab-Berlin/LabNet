@@ -1,8 +1,8 @@
 #include "DigitalOutHelper.h"
 #include "../Interface/DigitalMessages.h"
 #include "../Interface/InterfaceMessages.h"
-#include "../LabNetMainActorMessages.h"
-#include "../Network/ProtocolAll.h"
+#include "../network/server_messages.h"
+#include "../network/ProtocolAll.h"
 #include "LoopHelper.h"
 #include "LoopMessages.h"
 #include "PulseHelper.h"
@@ -26,20 +26,20 @@ DigitalOut::DigitalOutHelper::~DigitalOutHelper()
 void DigitalOut::DigitalOutHelper::so_evt_start()
 {
     LabNetProt::Client::DigitalOutSet outSet;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, outSet.GetTypeName(), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, outSet.GetTypeName(), _selfBox);
 
     LabNetProt::Client::DigitalOutPulse outPulse;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, outPulse.GetTypeName(), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, outPulse.GetTypeName(), _selfBox);
 
     LabNetProt::Client::StartDigitalOutLoop startLoop;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, startLoop.GetTypeName(), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, startLoop.GetTypeName(), _selfBox);
 
     LabNetProt::Client::StopDigitalOutLoop stopLoop;
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, stopLoop.GetTypeName(), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, stopLoop.GetTypeName(), _selfBox);
 
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _selfBox);
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _selfBox);
-    so_5::send<LabNet::RegisterForMessage>(_labNetBox, std::string("continue_interface"), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("pause_interface"), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("stop_interface"), _selfBox);
+    so_5::send<LabNet::network::RegisterForMessage>(_labNetBox, std::string("continue_interface"), _selfBox);
 }
 
 void DigitalOut::DigitalOutHelper::so_define_agent()

@@ -1,6 +1,6 @@
 
 #include "ConnectionManager.h"
-#include "../LabNetMainActorMessages.h"
+#include "server_messages.h"
 
 ConnectionManager::ConnectionManager(Logger logger, so_5::mbox_t labNetBox)
 	: m_logger(logger)
@@ -17,7 +17,7 @@ void ConnectionManager::start(std::shared_ptr<Connection> c)
 		m_connection = c;
 		c->start();
 		
-		so_5::send<LabNet::ClientConnected>(_labNetBox, c);
+		so_5::send<LabNet::network::client_connected>(_labNetBox, c);
 	}
 	else {
 		m_logger->writeInfoEntry("only one connection possible");
@@ -34,7 +34,7 @@ void ConnectionManager::stop(std::shared_ptr<Connection> c)
 		c->stop();
 		m_connection = nullptr;
 		
-		so_5::send<LabNet::ClientDisconnected>(_labNetBox);
+		so_5::send<LabNet::network::client_disconnected>(_labNetBox);
 	}
 	else
 	{

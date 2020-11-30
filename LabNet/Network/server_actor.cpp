@@ -2,31 +2,31 @@
 #include <chrono>
 
 #include "../Interface/StreamMessages.h"
-#include "Interface/DigitalMessages.h"
-#include "Interface/InterfaceMessages.h"
-#include "LabNetMainActor.h"
-#include "LabNetMainActorMessages.h"
-#include "Network/ProtocolAll.h"
+#include "../Interface/DigitalMessages.h"
+#include "../Interface/InterfaceMessages.h"
+#include "server_actor.h"
+#include "server_messages.h"
+#include "ProtocolAll.h"
 
-using namespace LabNet;
+using namespace LabNet::network;
 
-LabNetMainActor::LabNetMainActor(context_t ctx, Logger logger)
+server_actor::server_actor(context_t ctx, Logger logger)
     : so_5::agent_t(ctx)
     , _logger(logger)
     , _receiver()
 {
 }
 
-LabNetMainActor::~LabNetMainActor()
+server_actor::~server_actor()
 {
 }
 
-void LabNetMainActor::so_define_agent()
+void server_actor::so_define_agent()
 {
     this >>= wait_for_connection_state;
 
     wait_for_connection_state
-        .event([this](mhood_t<ClientConnected> mes) {
+        .event([this](mhood_t<client_connected> mes) {
             _connection = mes->connection;
             Interface::continue_interface ci;
             send_message(ci, "continue_interface");
@@ -47,7 +47,7 @@ void LabNetMainActor::so_define_agent()
         });
 
     reset_state
-        .event([this](mhood_t<ClientDisconnected>) {
+        .event([this](mhood_t<client_disconnected>) {
             _connection.reset();
 
             this >>= reset_no_connection_state;
@@ -74,7 +74,7 @@ void LabNetMainActor::so_define_agent()
             }
         });
     reset_no_connection_state
-        .event([this](mhood_t<ClientConnected> mes) {
+        .event([this](mhood_t<client_connected> mes) {
             _connection = mes->connection;
 
             this >>= reset_state;
@@ -99,7 +99,7 @@ void LabNetMainActor::so_define_agent()
         });
 
     connected_state
-        .event([this](mhood_t<ClientDisconnected>) {
+        .event([this](mhood_t<client_disconnected>) {
             _connection.reset();
             Interface::pause_interface pi;
             send_message(pi, "pause_interface");

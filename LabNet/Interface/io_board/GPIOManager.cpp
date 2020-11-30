@@ -1,7 +1,7 @@
 #include "GPIOManager.h"
-#include "../../LabNetMainActorMessages.h"
-#include "../../Network/LabNet.pb.h"
-#include "../../Network/LabNetClient.pb.h"
+#include "../../network/server_messages.h"
+#include "../../network/LabNet.pb.h"
+#include "../../network/LabNetClient.pb.h"
 #include "../DigitalMessages.h"
 #include "../InterfaceMessages.h"
 #include <chrono>

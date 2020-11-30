@@ -1,13 +1,13 @@
 #pragma once
 
 #include <so_5/all.hpp>
-#include "Network/Connection.h"
+#include "Connection.h"
 
-namespace LabNet
+namespace LabNet::network
 {
-	struct ClientConnected final : public so_5::message_t
+	struct client_connected final : public so_5::message_t
 	{
-		ClientConnected(std::shared_ptr<Connection> c)
+            client_connected(std::shared_ptr<Connection> c)
 			: connection(c)
 		{
 		};
@@ -15,7 +15,7 @@ namespace LabNet
 		std::shared_ptr<Connection> connection;
 	};
 	
-	struct ClientDisconnected final : public so_5::signal_t
+	struct client_disconnected final : public so_5::signal_t
 	{
 	};
 

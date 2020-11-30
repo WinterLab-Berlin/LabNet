@@ -6,8 +6,8 @@
 #include "Interface/io_board/GPIOManager.h"
 #include "Interface/rfid_board/RfidMainActor.h"
 #include "Interface/uart/SerialPortsManager.h"
-#include "LabNetMainActor.h"
-#include "Network/Server.h"
+#include "network/server_actor.h"
+#include "network/Server.h"
 #include <LoggerFactory.h>
 #include <so_5/all.hpp>
 #include <wiringPi.h>
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
         [&](so_5::coop_t& coop) {
             so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
 
-            auto act = coop.make_agent<LabNet::LabNetMainActor>(logger);
+            auto act = coop.make_agent<LabNet::network::server_actor>(logger);
             labNetBox = act->so_direct_mbox();
 
             coop.make_agent<Interface::ManageInterfaces>(logger, labNetBox);

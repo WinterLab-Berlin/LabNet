@@ -4,7 +4,7 @@
 #include <thread>
 #include <future>
 #include <vector>
-#include "../../Network/LabNetClient.pb.h"
+#include "../../network/LabNetClient.pb.h"
 
 
 class SerialPort final

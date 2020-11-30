@@ -6,8 +6,8 @@
 #include <climits>
 #include <cmath>
 
-#include "../../Network/LabNet.pb.h"
-#include "../../Network/LabNetClient.pb.h"
+#include "../../network/LabNet.pb.h"
+#include "../../network/LabNetClient.pb.h"
 #include "../DigitalMessages.h"
 #include "../InterfaceMessages.h"
 #include "SignalGenerator.h"

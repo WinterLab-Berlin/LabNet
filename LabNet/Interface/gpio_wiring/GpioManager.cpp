@@ -1,8 +1,8 @@
 #include "GpioManager.h"
 #include "../DigitalMessages.h"
 #include "../InterfaceMessages.h"
-#include "../../Network/LabNet.pb.h"
-#include "../../Network/LabNetClient.pb.h"
+#include "../../network/LabNet.pb.h"
+#include "../../network/LabNetClient.pb.h"
 #include <chrono>
 #include <wiringPi.h>
 

@@ -6,11 +6,12 @@ find_package(SFML COMPONENTS audio REQUIRED)
 find_path(BOOST_SIGNALS2_INCLUDE_DIRS "boost/signals2.hpp")
 find_path(BOOST_ASIO_INCLUDE_DIRS "boost/asio.hpp")
 
-add_executable(LabNet LabNet.cpp LabNetMainActor.h LabNetMainActor.cpp LabNetMainActorMessages.h
+add_executable(LabNet LabNet.cpp
                Log/easylogging++.cc Log/easylogging++.h Log/LoggingFacility.h Log/StandardOutputLogger.h Log/EasyLogger.h Log/LoggerFactory.h               
-               Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h
-               Network/LabNet.pb.h Network/LabNetClient.pb.h Network/LabNetServer.pb.h Network/LabNet.pb.cc Network/LabNetClient.pb.cc
-               Network/LabNetServer.pb.cc Network/ProtocolAll.h Network/shared_buffer.h
+               network/Connection.cpp network/Connection.h network/ConnectionManager.cpp network/ConnectionManager.h network/Server.cpp network/Server.h
+               network/LabNet.pb.h network/LabNetClient.pb.h network/LabNetServer.pb.h network/LabNet.pb.cc network/LabNetClient.pb.cc
+               network/LabNetServer.pb.cc network/ProtocolAll.h network/shared_buffer.h
+               network/server_messages.h network/server_actor.h network/server_actor.cpp
                Interface/uart/SerialPort.cpp Interface/uart/SerialPort.h  Interface/uart/SerialPortsManager.h
                Interface/uart/SerialPortsManager.cpp
                Interface/uart/PrivateMessages.h Interface/Interfaces.h
