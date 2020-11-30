@@ -41,7 +41,7 @@ void DigitalInputStateReader::data_read_thread()
                 res = digitalRead(inp.second.pin_h);
                 if (res != inp.second.state)
                 {
-                    _logger->writeInfoEntry("new state");
+                    //_logger->writeInfoEntry(string_format("new state %d", res));
                     inp.second.state = res;
                     if (inp.second.is_inverted)
                         so_5::send<DigitalMessages::return_digital_in_state>(_parent, Interface::IO_BOARD, inp.second.pin_l, !res, std::chrono::high_resolution_clock::now());

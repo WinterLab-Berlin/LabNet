@@ -140,6 +140,7 @@ void GPIOManager::so_define_agent()
             })
         .event(_self_box,
             [this](const mhood_t<DigitalMessages::set_digital_out>& msg) {
+                //_logger->writeInfoEntry(string_format("set digital out %d", msg->state));
                 if (msg->pin > 0 && msg->pin < 11)
                 {
                     if (_outputs[msg->pin].is_inverted)

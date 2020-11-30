@@ -3,6 +3,7 @@
 #include <google/protobuf/io/zero_copy_stream_impl.h>
 #include <google/protobuf/util/delimited_message_util.h>
 #include <iostream>
+#include "shared_buffer.h"
 
 Connection::Connection(Logger logger, boost::asio::ip::tcp::socket socket, ConnectionManager& connection_manager, so_5::mbox_t labNetBox)
     : m_logger(logger)
@@ -126,64 +127,64 @@ void Connection::handle_request()
 
     switch (_msgType)
     {
-    case ClientMessageType::NONE:
-        break;
-    case ClientMessageType::LABNET_RESET_REQUEST:
-        parse_and_send_message<LabNetResetRequest>();
-        break;
-    case ClientMessageType::LABNET_ID_REQUEST:
-        parse_and_send_message<LabNetIdRequest>();
-        break;
-    case ClientMessageType::IO_BOARD_INIT:
-        parse_and_send_message<IoBoardInit>();
-        break;
-    case ClientMessageType::IO_BOARD_INIT_DIGITAL_IN:
-        parse_and_send_message<IoBoardInitDigitalIn>();
-        break;
-    case ClientMessageType::IO_BOARD_INIT_DIGITAL_OUT:
-        parse_and_send_message<IoBoardInitDigitalOut>();
-        break;
-    case ClientMessageType::RFID_BOARD_INIT:
-        parse_and_send_message<RfidBoardInit>();
-        break;
-    case ClientMessageType::RFID_BOARD_SET_PHASE_MATRIX:
-        parse_and_send_message<RfidBoardSetPhaseMatrix>();
-        break;
-    case ClientMessageType::UART_INIT:
-        parse_and_send_message<UartInit>();
-        break;
-    case ClientMessageType::UART_WRITE_DATA:
-        parse_and_send_message<UartWriteData>();
-        break;
-    case ClientMessageType::DIGITAL_OUT_SET:
-        parse_and_send_message<DigitalOutSet>();
-        break;
-    case ClientMessageType::DIGITAL_OUT_PULSE:
-        parse_and_send_message<DigitalOutPulse>();
-        break;
-    case ClientMessageType::START_DIGITAL_OUT_LOOP:
-        parse_and_send_message<StartDigitalOutLoop>();
-        break;
-    case ClientMessageType::STOP_DIGITAL_OUT_LOOP:
-        parse_and_send_message<StopDigitalOutLoop>();
-        break;
-    case ClientMessageType::GPIO_WIRINGPI_INIT:
-        parse_and_send_message<GpioWiringPiInit>();
-        break;
-    case ClientMessageType::GPIO_WIRINGPI_INIT_DIGITAL_IN:
-        parse_and_send_message<GpioWiringPiInitDigitalIn>();
-        break;
-    case ClientMessageType::GPIO_WIRINGPI_INIT_DIGITAL_OUT:
-        parse_and_send_message<GpioWiringPiInitDigitalOut>();
-        break;
-    case ClientMessageType::INIT_SOUND:
-        parse_and_send_message<InitSound>();
-        break;
-    case ClientMessageType::DEFINE_SINE_TONE:
-        parse_and_send_message<DefineSineTone>();
-        break;
-    default:
-        break;
+        case ClientMessageType::NONE:
+            break;
+        case ClientMessageType::LABNET_RESET_REQUEST:
+            parse_and_send_message<LabNetResetRequest>();
+            break;
+        case ClientMessageType::LABNET_ID_REQUEST:
+            parse_and_send_message<LabNetIdRequest>();
+            break;
+        case ClientMessageType::IO_BOARD_INIT:
+            parse_and_send_message<IoBoardInit>();
+            break;
+        case ClientMessageType::IO_BOARD_INIT_DIGITAL_IN:
+            parse_and_send_message<IoBoardInitDigitalIn>();
+            break;
+        case ClientMessageType::IO_BOARD_INIT_DIGITAL_OUT:
+            parse_and_send_message<IoBoardInitDigitalOut>();
+            break;
+        case ClientMessageType::RFID_BOARD_INIT:
+            parse_and_send_message<RfidBoardInit>();
+            break;
+        case ClientMessageType::RFID_BOARD_SET_PHASE_MATRIX:
+            parse_and_send_message<RfidBoardSetPhaseMatrix>();
+            break;
+        case ClientMessageType::UART_INIT:
+            parse_and_send_message<UartInit>();
+            break;
+        case ClientMessageType::UART_WRITE_DATA:
+            parse_and_send_message<UartWriteData>();
+            break;
+        case ClientMessageType::DIGITAL_OUT_SET:
+            parse_and_send_message<DigitalOutSet>();
+            break;
+        case ClientMessageType::DIGITAL_OUT_PULSE:
+            parse_and_send_message<DigitalOutPulse>();
+            break;
+        case ClientMessageType::START_DIGITAL_OUT_LOOP:
+            parse_and_send_message<StartDigitalOutLoop>();
+            break;
+        case ClientMessageType::STOP_DIGITAL_OUT_LOOP:
+            parse_and_send_message<StopDigitalOutLoop>();
+            break;
+        case ClientMessageType::GPIO_WIRINGPI_INIT:
+            parse_and_send_message<GpioWiringPiInit>();
+            break;
+        case ClientMessageType::GPIO_WIRINGPI_INIT_DIGITAL_IN:
+            parse_and_send_message<GpioWiringPiInitDigitalIn>();
+            break;
+        case ClientMessageType::GPIO_WIRINGPI_INIT_DIGITAL_OUT:
+            parse_and_send_message<GpioWiringPiInitDigitalOut>();
+            break;
+        case ClientMessageType::INIT_SOUND:
+            parse_and_send_message<InitSound>();
+            break;
+        case ClientMessageType::DEFINE_SINE_TONE:
+            parse_and_send_message<DefineSineTone>();
+            break;
+        default:
+            break;
     }
 }
 
@@ -191,61 +192,59 @@ void Connection::refuse_conection()
 {
     auto self(shared_from_this());
 
-    std::shared_ptr<boost::asio::streambuf> b = std::make_shared<boost::asio::streambuf>();
+    shared_buffer b(m_logger, std::bind(&Connection::write_stop_handler, this, std::placeholders::_1, std::placeholders::_2));
     {
-        std::ostream os(b.get());
+        std::ostream os(b.data_.get());
         google::protobuf::io::OstreamOutputStream oos(&os);
         google::protobuf::io::CodedOutputStream st(&oos);
-        st.WriteVarint32(LabNetProt::Server::ServerMessageType::ONLY_ONE_CONNECTION_ALLOWED);
 
+        st.WriteVarint32(LabNetProt::Server::ServerMessageType::ONLY_ONE_CONNECTION_ALLOWED);
+        
         LabNetProt::Server::OnlyOneConnectionAllowed mes;
-        google::protobuf::util::SerializeDelimitedToCodedStream(mes, &st);
+        st.WriteVarint32(mes.ByteSize());
+        mes.SerializeWithCachedSizes(&st);
     }
 
     boost::asio::async_write(m_socket,
-        *b.get(),
-        [this, self](boost::system::error_code ec, std::size_t) {
-            if (!ec)
-            {
-                m_connection_manager.stop(shared_from_this());
-            }
-            else if (ec != boost::asio::error::operation_aborted)
-            {
-                m_connection_manager.stop(shared_from_this());
-            }
-        });
+        *b.data_.get(),
+        boost::bind(
+            &shared_buffer::write_handler,
+            b,
+            boost::asio::placeholders::error,
+            boost::asio::placeholders::bytes_transferred));
 }
 
 void Connection::send_message(std::shared_ptr<google::protobuf::Message> mes, LabNetProt::Server::ServerMessageType mesType)
 {
     auto self(shared_from_this());
 
-    std::shared_ptr<boost::asio::streambuf> b = std::make_shared<boost::asio::streambuf>();
-
+    //std::shared_ptr<boost::asio::streambuf> b = std::make_shared<boost::asio::streambuf>();
+    shared_buffer b(m_logger, std::bind(&Connection::write_error_handler, this, std::placeholders::_1, std::placeholders::_2));
     {
-        std::ostream os(b.get());
+        std::ostream os(b.data_.get());
         google::protobuf::io::OstreamOutputStream oos(&os);
         google::protobuf::io::CodedOutputStream st(&oos);
+        
+        
         st.WriteVarint32(mesType);
+        st.WriteVarint32(mes->ByteSize());
+        mes->SerializeWithCachedSizes(&st);
+        
+        //mes->SerializePartialToOstream(&os);
 
-        google::protobuf::util::SerializeDelimitedToCodedStream(*mes.get(), &st);
+        //google::protobuf::util::SerializeDelimitedToCodedStream(*mes.get(), &st);
     }
 
-    write(b);
-}
-
-void Connection::write(std::shared_ptr<boost::asio::streambuf> buffer)
-{
     boost::asio::async_write(m_socket,
-        *buffer.get(),
+        *b.data_.get(),
         boost::bind(
-            &Connection::write_handler,
-            this,
+            &shared_buffer::write_handler,
+            b,
             boost::asio::placeholders::error,
             boost::asio::placeholders::bytes_transferred));
 }
 
-void Connection::write_handler(const boost::system::error_code& error, const size_t bytesTransferred)
+void Connection::write_error_handler(const boost::system::error_code& error, const size_t bytesTransferred)
 {
     if (error)
     {
@@ -253,6 +252,11 @@ void Connection::write_handler(const boost::system::error_code& error, const siz
         m_connection_manager.stop(shared_from_this());
         return;
     }
+}
+
+void Connection::write_stop_handler(const boost::system::error_code& error, const size_t bytesTransferred)
+{
+    m_connection_manager.stop(shared_from_this());
 }
 
 bool Connection::decode_msg_type_and_length()

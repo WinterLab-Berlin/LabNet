@@ -32,7 +32,12 @@ public:
 
     void send_message(std::shared_ptr<google::protobuf::Message> mes, LabNetProt::Server::ServerMessageType mesType);
 
+    
+
 private:
+    void write_error_handler(const boost::system::error_code& error, const size_t bytesTransferred);
+    void write_stop_handler(const boost::system::error_code& error, const size_t bytesTransferred);
+
     void start_read_header();
     void read_header();
 
@@ -52,9 +57,6 @@ private:
             m_logger->writeInfoEntry("invalid message");
         }
     };
-
-    void write(std::shared_ptr<boost::asio::streambuf> buffer);
-    void write_handler(const boost::system::error_code& error, const size_t bytesTransferred);
 
     bool decode_msg_type_and_length();
 

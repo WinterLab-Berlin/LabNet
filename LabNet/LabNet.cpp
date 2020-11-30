@@ -33,25 +33,20 @@ int main(int argc, char* argv[])
     so_5::wrapped_env_t sobj;
     so_5::mbox_t labNetBox;
 
+    namespace pool_disp = so_5::disp::thread_pool;
+
     // Start SO-part of the app.
-    sobj.environment().introduce_coop([&](so_5::coop_t& coop) {
-        /*so_5::mbox_t rfidBox = coop.environment().create_mbox("rfid");
-		so_5::mbox_t uartBox = coop.environment().create_mbox("uart");
-		so_5::mbox_t gpioWiringBox = coop.environment().create_mbox("gpioWiring");*/
+    sobj.environment().introduce_coop(
+        pool_disp::make_dispatcher(sobj.environment()).binder(),
+        [&](so_5::coop_t& coop) {
+            so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
 
-        so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
+            auto act = coop.make_agent<LabNet::LabNetMainActor>(logger);
+            labNetBox = act->so_direct_mbox();
 
-        auto act = coop.make_agent<LabNet::LabNetMainActor>(logger);
-        labNetBox = act->so_direct_mbox();
-
-        coop.make_agent<Interface::ManageInterfaces>(logger, labNetBox);
-        coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
-
-        /*coop.make_agent<gpio_wiring::GpioManager>(gpioWiringBox, labNetBox, logger);
-		coop.make_agent<rfid_board::SamMainActor>(rfidBox, labNetBox, logger);
-		coop.make_agent<uart::SerialPortsManager>(uartBox, labNetBox, logger);
-		*/
-    });
+            coop.make_agent<Interface::ManageInterfaces>(logger, labNetBox);
+            coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
+        });
 
     ConnectionManager connection_manager(logger, labNetBox);
 

@@ -10,7 +10,7 @@ add_executable(LabNet LabNet.cpp LabNetMainActor.h LabNetMainActor.cpp LabNetMai
                Log/easylogging++.cc Log/easylogging++.h Log/LoggingFacility.h Log/StandardOutputLogger.h Log/EasyLogger.h Log/LoggerFactory.h               
                Network/Connection.cpp Network/Connection.h Network/ConnectionManager.cpp Network/ConnectionManager.h Network/Server.cpp Network/Server.h
                Network/LabNet.pb.h Network/LabNetClient.pb.h Network/LabNetServer.pb.h Network/LabNet.pb.cc Network/LabNetClient.pb.cc
-               Network/LabNetServer.pb.cc Network/ProtocolAll.h
+               Network/LabNetServer.pb.cc Network/ProtocolAll.h Network/shared_buffer.h
                Interface/uart/SerialPort.cpp Interface/uart/SerialPort.h  Interface/uart/SerialPortsManager.h
                Interface/uart/SerialPortsManager.cpp
                Interface/uart/PrivateMessages.h Interface/Interfaces.h
