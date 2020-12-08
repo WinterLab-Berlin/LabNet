@@ -18,16 +18,4 @@ namespace LabNet::network
 	struct client_disconnected final : public so_5::signal_t
 	{
 	};
-
-	struct RegisterForMessage final : public so_5::message_t
-	{
-		RegisterForMessage(std::string message, so_5::mbox_t rec)
-			: message_name(message)
-			, receiver(rec)
-		{
-		};
-
-		std::string message_name;
-		so_5::mbox_t receiver;
-	};
 }

@@ -1,11 +1,13 @@
 #define BOOST_BIND_NO_PLACEHOLDERS
 
-#include "DigitalOut/DigitalOutHelper.h"
-#include "Interface/ManageInterfaces.h"
-#include "Interface/gpio_wiring/GpioManager.h"
-#include "Interface/io_board/GPIOManager.h"
-#include "Interface/rfid_board/RfidMainActor.h"
-#include "Interface/uart/SerialPortsManager.h"
+#include "DigitalOut/digital_out_helper.h"
+#include "Interface/manage_interfaces.h"
+#include "Interface/gpio_wiring/gpio_manager.h"
+#include "Interface/io_board/board_actor.h"
+#include "Interface/rfid_board/rfid_main_actor.h"
+#include "Interface/uart/serial_ports_manager.h"
+#include "resources/resources_actor.h"
+#include "helper/reset_helper.h"
 #include "network/server_actor.h"
 #include "network/Server.h"
 #include <LoggerFactory.h>
@@ -31,24 +33,25 @@ int main(int argc, char* argv[])
     // SO Environment in a special wrapper object.
     // Environment will be started automatically.
     so_5::wrapped_env_t sobj;
-    so_5::mbox_t labNetBox;
+    so_5::mbox_t server_in_box;
 
     namespace pool_disp = so_5::disp::thread_pool;
 
     // Start SO-part of the app.
     sobj.environment().introduce_coop(
-        pool_disp::make_dispatcher(sobj.environment()).binder(),
+        //pool_disp::make_dispatcher(sobj.environment()).binder(),
         [&](so_5::coop_t& coop) {
-            so_5::mbox_t digOutBox = coop.environment().create_mbox("digOut");
+            server_in_box = coop.environment().create_mbox("server_in");
 
             auto act = coop.make_agent<LabNet::network::server_actor>(logger);
-            labNetBox = act->so_direct_mbox();
 
-            coop.make_agent<Interface::ManageInterfaces>(logger, labNetBox);
-            coop.make_agent<DigitalOut::DigitalOutHelper>(logger, digOutBox, labNetBox);
+            coop.make_agent<LabNet::interface::ManageInterfaces>(logger);
+            coop.make_agent<LabNet::digital_out::DigitalOutHelper>(logger);
+            coop.make_agent<LabNet::helper::ResetHelper>(logger);
+            coop.make_agent<LabNet::resources::resources_actor>(logger);
         });
 
-    ConnectionManager connection_manager(logger, labNetBox);
+    ConnectionManager connection_manager(logger, server_in_box);
 
     try
     {
