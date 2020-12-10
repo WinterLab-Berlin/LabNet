@@ -4,23 +4,30 @@ namespace LabNet::interface::uart::private_messages
 {
     struct TryToReconnect
     {
-        const int port_id;
-        const int baud;
+        const uint32_t port_id;
+        const uint32_t baud;
     };
 
     struct SendDataComplete
     {
-        const char pin;
+        const uint8_t pin;
     };
 
     struct PortUnexpectedClosed
     {
-        const int port_id;
-        const int baud;
+        const uint32_t port_id;
+        const uint32_t baud;
     };
 
     struct PortReconnected
     {
-        const int port_id;
+        const uint32_t port_id;
+    };
+
+    struct SetDigitalOut
+    {
+        so_5::mbox_t report_box;
+        uint8_t pin;
+        bool state;
     };
 }

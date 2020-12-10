@@ -228,6 +228,20 @@ namespace LabNet::interface
                     }
                 })
             .event(_server_out_box,
+                [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalIn> msg) {
+                    if (_uart_box)
+                    {
+                        so_5::send<std::shared_ptr<LabNetProt::Client::UartInitDigitalIn>>(_uart_box, msg);
+                    }
+                })
+            .event(_server_out_box,
+                [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalOut> msg) {
+                    if (_uart_box)
+                    {
+                        so_5::send<std::shared_ptr<LabNetProt::Client::UartInitDigitalOut>>(_uart_box, msg);
+                    }
+                })
+            .event(_server_out_box,
                 [this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInit> msg) {
                     if (!_gpio_wiring_box)
                     {

@@ -40,7 +40,7 @@ namespace protobuf_LabNetClient_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[19];
+  static const ::google::protobuf::internal::ParseTable schema[21];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -103,6 +103,12 @@ extern StopDigitalOutLoopDefaultTypeInternal _StopDigitalOutLoop_default_instanc
 class UartInit;
 class UartInitDefaultTypeInternal;
 extern UartInitDefaultTypeInternal _UartInit_default_instance_;
+class UartInitDigitalIn;
+class UartInitDigitalInDefaultTypeInternal;
+extern UartInitDigitalInDefaultTypeInternal _UartInitDigitalIn_default_instance_;
+class UartInitDigitalOut;
+class UartInitDigitalOutDefaultTypeInternal;
+extern UartInitDigitalOutDefaultTypeInternal _UartInitDigitalOut_default_instance_;
 class UartWriteData;
 class UartWriteDataDefaultTypeInternal;
 extern UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
@@ -128,6 +134,8 @@ template<> ::LabNetProt::Client::StartDigitalOutLoop* Arena::CreateMaybeMessage<
 template<> ::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter* Arena::CreateMaybeMessage<::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter>(Arena*);
 template<> ::LabNetProt::Client::StopDigitalOutLoop* Arena::CreateMaybeMessage<::LabNetProt::Client::StopDigitalOutLoop>(Arena*);
 template<> ::LabNetProt::Client::UartInit* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInit>(Arena*);
+template<> ::LabNetProt::Client::UartInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInitDigitalIn>(Arena*);
+template<> ::LabNetProt::Client::UartInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInitDigitalOut>(Arena*);
 template<> ::LabNetProt::Client::UartWriteData* Arena::CreateMaybeMessage<::LabNetProt::Client::UartWriteData>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -198,12 +206,14 @@ enum ClientMessageType {
   GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16,
   INIT_SOUND = 17,
   DEFINE_SINE_TONE = 18,
+  UART_INIT_DIGITAL_IN = 19,
+  UART_INIT_DIGITAL_OUT = 20,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ClientMessageType_IsValid(int value);
 const ClientMessageType ClientMessageType_MIN = NONE;
-const ClientMessageType ClientMessageType_MAX = DEFINE_SINE_TONE;
+const ClientMessageType ClientMessageType_MAX = UART_INIT_DIGITAL_OUT;
 const int ClientMessageType_ARRAYSIZE = ClientMessageType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientMessageType_descriptor();
@@ -1038,6 +1048,240 @@ class UartWriteData : public ::google::protobuf::Message /* @@protoc_insertion_p
 };
 // -------------------------------------------------------------------
 
+class UartInitDigitalIn : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.UartInitDigitalIn) */ {
+ public:
+  UartInitDigitalIn();
+  virtual ~UartInitDigitalIn();
+
+  UartInitDigitalIn(const UartInitDigitalIn& from);
+
+  inline UartInitDigitalIn& operator=(const UartInitDigitalIn& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  UartInitDigitalIn(UartInitDigitalIn&& from) noexcept
+    : UartInitDigitalIn() {
+    *this = ::std::move(from);
+  }
+
+  inline UartInitDigitalIn& operator=(UartInitDigitalIn&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UartInitDigitalIn& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UartInitDigitalIn* internal_default_instance() {
+    return reinterpret_cast<const UartInitDigitalIn*>(
+               &_UartInitDigitalIn_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  void Swap(UartInitDigitalIn* other);
+  friend void swap(UartInitDigitalIn& a, UartInitDigitalIn& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UartInitDigitalIn* New() const final {
+    return CreateMaybeMessage<UartInitDigitalIn>(NULL);
+  }
+
+  UartInitDigitalIn* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<UartInitDigitalIn>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const UartInitDigitalIn& from);
+  void MergeFrom(const UartInitDigitalIn& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UartInitDigitalIn* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .LabNetProt.Uarts port = 1;
+  void clear_port();
+  static const int kPortFieldNumber = 1;
+  ::LabNetProt::Uarts port() const;
+  void set_port(::LabNetProt::Uarts value);
+
+  // uint32 pin = 2;
+  void clear_pin();
+  static const int kPinFieldNumber = 2;
+  ::google::protobuf::uint32 pin() const;
+  void set_pin(::google::protobuf::uint32 value);
+
+  // bool is_inverted = 3;
+  void clear_is_inverted();
+  static const int kIsInvertedFieldNumber = 3;
+  bool is_inverted() const;
+  void set_is_inverted(bool value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.UartInitDigitalIn)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  int port_;
+  ::google::protobuf::uint32 pin_;
+  bool is_inverted_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class UartInitDigitalOut : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.UartInitDigitalOut) */ {
+ public:
+  UartInitDigitalOut();
+  virtual ~UartInitDigitalOut();
+
+  UartInitDigitalOut(const UartInitDigitalOut& from);
+
+  inline UartInitDigitalOut& operator=(const UartInitDigitalOut& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  UartInitDigitalOut(UartInitDigitalOut&& from) noexcept
+    : UartInitDigitalOut() {
+    *this = ::std::move(from);
+  }
+
+  inline UartInitDigitalOut& operator=(UartInitDigitalOut&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UartInitDigitalOut& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UartInitDigitalOut* internal_default_instance() {
+    return reinterpret_cast<const UartInitDigitalOut*>(
+               &_UartInitDigitalOut_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  void Swap(UartInitDigitalOut* other);
+  friend void swap(UartInitDigitalOut& a, UartInitDigitalOut& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UartInitDigitalOut* New() const final {
+    return CreateMaybeMessage<UartInitDigitalOut>(NULL);
+  }
+
+  UartInitDigitalOut* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<UartInitDigitalOut>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const UartInitDigitalOut& from);
+  void MergeFrom(const UartInitDigitalOut& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UartInitDigitalOut* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .LabNetProt.Uarts port = 1;
+  void clear_port();
+  static const int kPortFieldNumber = 1;
+  ::LabNetProt::Uarts port() const;
+  void set_port(::LabNetProt::Uarts value);
+
+  // uint32 pin = 2;
+  void clear_pin();
+  static const int kPinFieldNumber = 2;
+  ::google::protobuf::uint32 pin() const;
+  void set_pin(::google::protobuf::uint32 value);
+
+  // bool is_inverted = 3;
+  void clear_is_inverted();
+  static const int kIsInvertedFieldNumber = 3;
+  bool is_inverted() const;
+  void set_is_inverted(bool value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.UartInitDigitalOut)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  int port_;
+  ::google::protobuf::uint32 pin_;
+  bool is_inverted_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class GpioWiringPiInit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.GpioWiringPiInit) */ {
  public:
   GpioWiringPiInit();
@@ -1073,7 +1317,7 @@ class GpioWiringPiInit : public ::google::protobuf::Message /* @@protoc_insertio
                &_GpioWiringPiInit_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   void Swap(GpioWiringPiInit* other);
   friend void swap(GpioWiringPiInit& a, GpioWiringPiInit& b) {
@@ -1169,7 +1413,7 @@ class GpioWiringPiInitDigitalIn : public ::google::protobuf::Message /* @@protoc
                &_GpioWiringPiInitDigitalIn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   void Swap(GpioWiringPiInitDigitalIn* other);
   friend void swap(GpioWiringPiInitDigitalIn& a, GpioWiringPiInitDigitalIn& b) {
@@ -1314,7 +1558,7 @@ class GpioWiringPiInitDigitalOut : public ::google::protobuf::Message /* @@proto
                &_GpioWiringPiInitDigitalOut_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   void Swap(GpioWiringPiInitDigitalOut* other);
   friend void swap(GpioWiringPiInitDigitalOut& a, GpioWiringPiInitDigitalOut& b) {
@@ -1424,7 +1668,7 @@ class DigitalOutSet : public ::google::protobuf::Message /* @@protoc_insertion_p
                &_DigitalOutSet_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   void Swap(DigitalOutSet* other);
   friend void swap(DigitalOutSet& a, DigitalOutSet& b) {
@@ -1540,7 +1784,7 @@ class DigitalOutPulse : public ::google::protobuf::Message /* @@protoc_insertion
                &_DigitalOutPulse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   void Swap(DigitalOutPulse* other);
   friend void swap(DigitalOutPulse& a, DigitalOutPulse& b) {
@@ -1670,7 +1914,7 @@ class StartDigitalOutLoop_DigitalOutputParameter : public ::google::protobuf::Me
                &_StartDigitalOutLoop_DigitalOutputParameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   void Swap(StartDigitalOutLoop_DigitalOutputParameter* other);
   friend void swap(StartDigitalOutLoop_DigitalOutputParameter& a, StartDigitalOutLoop_DigitalOutputParameter& b) {
@@ -1793,7 +2037,7 @@ class StartDigitalOutLoop : public ::google::protobuf::Message /* @@protoc_inser
                &_StartDigitalOutLoop_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   void Swap(StartDigitalOutLoop* other);
   friend void swap(StartDigitalOutLoop& a, StartDigitalOutLoop& b) {
@@ -1926,7 +2170,7 @@ class StopDigitalOutLoop : public ::google::protobuf::Message /* @@protoc_insert
                &_StopDigitalOutLoop_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   void Swap(StopDigitalOutLoop* other);
   friend void swap(StopDigitalOutLoop& a, StopDigitalOutLoop& b) {
@@ -2037,7 +2281,7 @@ class LabNetResetRequest : public ::google::protobuf::Message /* @@protoc_insert
                &_LabNetResetRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   void Swap(LabNetResetRequest* other);
   friend void swap(LabNetResetRequest& a, LabNetResetRequest& b) {
@@ -2133,7 +2377,7 @@ class LabNetIdRequest : public ::google::protobuf::Message /* @@protoc_insertion
                &_LabNetIdRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   void Swap(LabNetIdRequest* other);
   friend void swap(LabNetIdRequest& a, LabNetIdRequest& b) {
@@ -2229,7 +2473,7 @@ class InitSound : public ::google::protobuf::Message /* @@protoc_insertion_point
                &_InitSound_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    19;
 
   void Swap(InitSound* other);
   friend void swap(InitSound& a, InitSound& b) {
@@ -2325,7 +2569,7 @@ class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_
                &_DefineSineTone_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    20;
 
   void Swap(DefineSineTone* other);
   friend void swap(DefineSineTone& a, DefineSineTone& b) {
@@ -2701,6 +2945,98 @@ inline void UartWriteData::set_allocated_data(::std::string* data) {
   }
   data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
   // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.UartWriteData.data)
+}
+
+// -------------------------------------------------------------------
+
+// UartInitDigitalIn
+
+// .LabNetProt.Uarts port = 1;
+inline void UartInitDigitalIn::clear_port() {
+  port_ = 0;
+}
+inline ::LabNetProt::Uarts UartInitDigitalIn::port() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalIn.port)
+  return static_cast< ::LabNetProt::Uarts >(port_);
+}
+inline void UartInitDigitalIn::set_port(::LabNetProt::Uarts value) {
+  
+  port_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalIn.port)
+}
+
+// uint32 pin = 2;
+inline void UartInitDigitalIn::clear_pin() {
+  pin_ = 0u;
+}
+inline ::google::protobuf::uint32 UartInitDigitalIn::pin() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalIn.pin)
+  return pin_;
+}
+inline void UartInitDigitalIn::set_pin(::google::protobuf::uint32 value) {
+  
+  pin_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalIn.pin)
+}
+
+// bool is_inverted = 3;
+inline void UartInitDigitalIn::clear_is_inverted() {
+  is_inverted_ = false;
+}
+inline bool UartInitDigitalIn::is_inverted() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalIn.is_inverted)
+  return is_inverted_;
+}
+inline void UartInitDigitalIn::set_is_inverted(bool value) {
+  
+  is_inverted_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalIn.is_inverted)
+}
+
+// -------------------------------------------------------------------
+
+// UartInitDigitalOut
+
+// .LabNetProt.Uarts port = 1;
+inline void UartInitDigitalOut::clear_port() {
+  port_ = 0;
+}
+inline ::LabNetProt::Uarts UartInitDigitalOut::port() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalOut.port)
+  return static_cast< ::LabNetProt::Uarts >(port_);
+}
+inline void UartInitDigitalOut::set_port(::LabNetProt::Uarts value) {
+  
+  port_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalOut.port)
+}
+
+// uint32 pin = 2;
+inline void UartInitDigitalOut::clear_pin() {
+  pin_ = 0u;
+}
+inline ::google::protobuf::uint32 UartInitDigitalOut::pin() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalOut.pin)
+  return pin_;
+}
+inline void UartInitDigitalOut::set_pin(::google::protobuf::uint32 value) {
+  
+  pin_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalOut.pin)
+}
+
+// bool is_inverted = 3;
+inline void UartInitDigitalOut::clear_is_inverted() {
+  is_inverted_ = false;
+}
+inline bool UartInitDigitalOut::is_inverted() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartInitDigitalOut.is_inverted)
+  return is_inverted_;
+}
+inline void UartInitDigitalOut::set_is_inverted(bool value) {
+  
+  is_inverted_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartInitDigitalOut.is_inverted)
 }
 
 // -------------------------------------------------------------------
@@ -3244,6 +3580,10 @@ inline void DefineSineTone::set_volume(float value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

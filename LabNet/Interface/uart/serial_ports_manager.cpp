@@ -87,6 +87,34 @@ void SerialPortsManager::so_define_agent()
                 so_5::send<stream_messages::SendDataComplete>(_events_box, static_cast<Interfaces>(mes.pin + 100));
             })
         .event(_self_box,
+            [this](const mhood_t<LabNetProt::Client::UartInitDigitalIn> msg) {
+                uint32_t port = static_cast<uint32_t>(msg->pin()) - 100;
+                auto it = _ports.find(port);
+                if (it != _ports.end() && port != 100 && msg->pin() > 0 && msg->pin() < 3)
+                {
+                    it->second->InitDigitalIn(msg->pin(), msg->is_inverted());
+                    so_5::send<digital_messages::DigitalInInitResult>(_interfaces_manager_box, static_cast<Interfaces>(msg->pin() + 100), msg->pin(), true);
+                }
+                else
+                {
+                    so_5::send<digital_messages::DigitalInInitResult>(_interfaces_manager_box, static_cast<Interfaces>(msg->pin() + 100), msg->pin(), false);
+                }
+            })
+        .event(_self_box,
+            [this](const mhood_t<LabNetProt::Client::UartInitDigitalOut> msg) {
+                uint32_t port = static_cast<uint32_t>(msg->pin()) - 100;
+                auto it = _ports.find(port);
+                if (it != _ports.end() && port != 100 && msg->pin() > 0 && msg->pin() < 3)
+                {
+                    it->second->InitDigitalOut(msg->pin(), msg->is_inverted());
+                    so_5::send<digital_messages::DigitalOutInitResult>(_interfaces_manager_box, static_cast<Interfaces>(msg->pin() + 100), msg->pin(), true);
+                }
+                else
+                {
+                    so_5::send<digital_messages::DigitalOutInitResult>(_interfaces_manager_box, static_cast<Interfaces>(msg->pin() + 100), msg->pin(), false);
+                }
+            })
+        .event(_self_box,
             [this](const mhood_t<digital_messages::SetDigitalOut>& msg) {
                 uint32_t port = static_cast<uint32_t>(msg->interface) - 100;
                 auto it = _ports.find(port);

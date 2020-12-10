@@ -22,6 +22,8 @@ enum ClientMessageType {
 	GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16;
 	INIT_SOUND = 17;
 	DEFINE_SINE_TONE = 18;
+	UART_INIT_DIGITAL_IN = 19;
+	UART_INIT_DIGITAL_OUT = 20;
 }
 
 // IO board messages
@@ -71,6 +73,18 @@ message UartInit {
 message UartWriteData {
 	Uarts port = 1;
 	bytes data = 2;
+}
+
+message UartInitDigitalIn {
+	Uarts port = 1;
+	uint32 pin = 2;
+	bool is_inverted = 3;
+}
+
+message UartInitDigitalOut {
+	Uarts port = 1;
+	uint32 pin = 2;
+	bool is_inverted = 3;
 }
 // UART messages
 

@@ -5,7 +5,7 @@ namespace LabNet
 {
     namespace resources
     {
-        std::map<resource, int32_t> bcm_to_wiring_map = {
+        std::map<resource, int32_t> resource_to_wiring_map = {
             { resource::GPIO0, 30 },
             { resource::GPIO1, 31 },
             { resource::GPIO2, 8 },
@@ -36,7 +36,7 @@ namespace LabNet
             { resource::GPIO27, 2 }
         };
 
-        std::map<int32_t, resource> wiring_to_bcm_map = {
+        std::map<int32_t, resource> wiring_to_resource_map = {
             { 0, resource::GPIO17 },
             { 1, resource::GPIO18 },
             { 2, resource::GPIO27 },
@@ -67,10 +67,10 @@ namespace LabNet
             { 31, resource::GPIO1 }
         };
 
-        int32_t bcm_to_wiring(resource bcm)
+        int32_t resource_to_wiring(resource bcm)
         {
-            auto it = bcm_to_wiring_map.find(bcm);
-            if (it != bcm_to_wiring_map.end())
+            auto it = resource_to_wiring_map.find(bcm);
+            if (it != resource_to_wiring_map.end())
                 return it->second;
             else
             {
@@ -78,18 +78,18 @@ namespace LabNet
             }
         }
 
-        int32_t bcm_to_wiring(int32_t bcm)
+        int32_t resource_to_wiring(int32_t bcm)
         {
             if (bcm < 0 || bcm > 27)
                 return -1;
             else
-                bcm_to_wiring(static_cast<resource>(bcm));
+                resource_to_wiring(static_cast<resource>(bcm));
         }
 
-        resource wiring_to_bcm(int32_t wiring)
+        resource wiring_to_resource(int32_t wiring)
         {
-            auto it = wiring_to_bcm_map.find(wiring);
-            if (it != wiring_to_bcm_map.end())
+            auto it = wiring_to_resource_map.find(wiring);
+            if (it != wiring_to_resource_map.end())
                 return it->second;
             else
             {

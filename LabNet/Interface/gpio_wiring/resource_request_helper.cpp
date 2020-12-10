@@ -32,7 +32,7 @@ void ResourceRequestHelper::so_define_agent()
 {
     so_subscribe_self()
         .event([this](const so_5::mhood_t<DigitalInput> msg) {
-            resources::resource res = resources::wiring_to_bcm(msg->pin);
+            resources::resource res = resources::wiring_to_resource(msg->pin);
             if (res != resources::resource::None)
             {
                 request_id++;
@@ -48,7 +48,7 @@ void ResourceRequestHelper::so_define_agent()
             }
         })
         .event([this](const so_5::mhood_t<DigitalOutput> msg) {
-            resources::resource res = resources::wiring_to_bcm(msg->pin);
+            resources::resource res = resources::wiring_to_resource(msg->pin);
             if (res != resources::resource::None)
             {
                 request_id++;
@@ -69,7 +69,7 @@ void ResourceRequestHelper::so_define_agent()
             {
                 if (msg->result)
                 {
-                    resources::resource res = resources::wiring_to_bcm(inp_it->second->pin);
+                    resources::resource res = resources::wiring_to_resource(inp_it->second->pin);
                     _acquired.push_back(res);
                 }
 
@@ -84,7 +84,7 @@ void ResourceRequestHelper::so_define_agent()
                 {
                     if (msg->result)
                     {
-                        resources::resource res = resources::wiring_to_bcm(out_it->second->pin);
+                        resources::resource res = resources::wiring_to_resource(out_it->second->pin);
                         _acquired.push_back(res);
                     }
 

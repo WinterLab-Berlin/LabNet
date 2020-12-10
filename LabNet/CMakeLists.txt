@@ -13,7 +13,7 @@ add_executable(LabNet LabNet.cpp
                network/LabNetServer.pb.cc network/ProtocolAll.h network/shared_buffer.h
                network/server_messages.h network/server_actor.h network/server_actor.cpp
                Interface/uart/serial_port.cpp Interface/uart/serial_port.h  Interface/uart/serial_ports_manager.h
-               Interface/uart/serial_ports_manager.cpp Interface/uart/private_messages.h 
+               Interface/uart/serial_ports_manager.cpp Interface/uart/private_messages.h Interface/uart/digital_input.h Interface/uart/digital_output.h 
                Interface/io_board/board_actor.h Interface/io_board/board_actor.cpp  Interface/io_board/digital_input_state_reader.cpp
                Interface/io_board/digital_input.h Interface/io_board/digital_output.h Interface/io_board/digital_input_state_reader.h
                Interface/io_board/resource_request_helper.h Interface/io_board/resource_request_helper.cpp
