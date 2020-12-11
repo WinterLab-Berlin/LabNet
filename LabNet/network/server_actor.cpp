@@ -1,203 +1,203 @@
 #include <boost/format.hpp>
 #include <chrono>
 
-#include "../Interface/digital_messages.h"
-#include "../Interface/interface_messages.h"
-#include "../Interface/stream_messages.h"
+#include "../interface/digital_messages.h"
+#include "../interface/interface_messages.h"
+#include "../interface/stream_messages.h"
 #include "../helper/reset_msg.h"
-#include "ProtocolAll.h"
+#include "protocol_all.h"
 #include "server_actor.h"
 #include "server_messages.h"
 
 using namespace LabNet::network;
 
-server_actor::server_actor(context_t ctx, Logger logger)
+ServerActor::ServerActor(context_t ctx, log::Logger logger)
     : so_5::agent_t(ctx)
-    , _logger(logger)
-    , _server_in_box(ctx.env().create_mbox("server_in"))
-    , _server_out_box(ctx.env().create_mbox("server_out"))
+    , logger_(logger)
+    , server_in_box_(ctx.env().create_mbox("server_in"))
+    , server_out_box_(ctx.env().create_mbox("server_out"))
 {
 }
 
-server_actor::~server_actor()
+ServerActor::~ServerActor()
 {
 }
 
-void server_actor::so_define_agent()
+void ServerActor::so_define_agent()
 {
-    this >>= wait_for_connection_state;
+    this >>= wait_for_connection_state_;
 
-    wait_for_connection_state
-        .event(_server_in_box,
-            [this](mhood_t<client_connected> mes) {
-                _connection = mes->connection;
-                so_5::send<interface::ContinueInterface>(_server_out_box);
+    wait_for_connection_state_
+        .event(server_in_box_,
+            [this](mhood_t<ClientConnected> mes) {
+                connection_ = mes->connection;
+                so_5::send<interface::ContinueInterface>(server_out_box_);
 
-                this >>= connected_state;
+                this >>= connected_state_;
             });
 
-    reset_state
-        .event(_server_in_box,
-            [this](mhood_t<client_disconnected>) {
-                _connection.reset();
+    reset_state_
+        .event(server_in_box_,
+            [this](mhood_t<ClientDisconnected>) {
+                connection_.reset();
 
-                this >>= reset_no_connection_state;
+                this >>= reset_no_connection_state_;
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<LabNet::helper::ResetDone> msg) {
                 std::shared_ptr<LabNetProt::Server::LabNetResetReply> resetReply = std::make_shared<LabNetProt::Server::LabNetResetReply>();
-                _connection->send_message(resetReply, LabNetProt::Server::ServerMessageType::LABNET_RESET_REPLY);
+                connection_->SendMessage(resetReply, LabNetProt::Server::ServerMessageType::LABNET_RESET_REPLY);
 
-                this >>= connected_state;
+                this >>= connected_state_;
             });
 
-    reset_no_connection_state
-        .event(_server_in_box,
-            [this](mhood_t<client_connected> mes) {
-                _connection = mes->connection;
+    reset_no_connection_state_
+        .event(server_in_box_,
+            [this](mhood_t<ClientConnected> mes) {
+                connection_ = mes->connection;
 
-                this >>= reset_state;
+                this >>= reset_state_;
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<LabNet::helper::ResetDone> msg) {
-                this >>= wait_for_connection_state;
+                this >>= wait_for_connection_state_;
             });
 
-    connected_state
-        .event(_server_in_box,
-            [this](mhood_t<client_disconnected>) {
-                _connection.reset();
-                so_5::send<interface::PauseInterface>(_server_out_box);
+    connected_state_
+        .event(server_in_box_,
+            [this](mhood_t<ClientDisconnected>) {
+                connection_.reset();
+                so_5::send<interface::PauseInterface>(server_out_box_);
 
-                this >>= wait_for_connection_state;
+                this >>= wait_for_connection_state_;
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::LabNetResetRequest> mes) {
-                so_5::send<LabNet::helper::StartReset>(_server_out_box);
-                this >>= reset_state;
+                so_5::send<LabNet::helper::StartReset>(server_out_box_);
+                this >>= reset_state_;
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::LabNetIdRequest> req) {
                 std::shared_ptr<LabNetProt::Server::LabNetIdReply> reply = std::make_shared<LabNetProt::Server::LabNetIdReply>();
                 reply->set_id("LabNet");
                 reply->set_major_version(1);
                 reply->set_minor_version(0);
 
-                _connection->send_message(reply, LabNetProt::Server::ServerMessageType::LABNET_ID_REPLY);
+                connection_->SendMessage(reply, LabNetProt::Server::ServerMessageType::LABNET_ID_REPLY);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::IoBoardInit> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInit>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInit>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalIn> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalIn>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalIn>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalOut> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalOut>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::IoBoardInitDigitalOut>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::RfidBoardInit> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::RfidBoardInit>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::RfidBoardInit>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::RfidBoardSetPhaseMatrix> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::RfidBoardSetPhaseMatrix>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::RfidBoardSetPhaseMatrix>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::UartInit> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::UartInit>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::UartInit>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::UartWriteData> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::UartWriteData>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::UartWriteData>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::DigitalOutSet> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::DigitalOutSet>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::DigitalOutSet>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::DigitalOutPulse> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::DigitalOutPulse>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::DigitalOutPulse>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::StartDigitalOutLoop> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::StartDigitalOutLoop>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::StartDigitalOutLoop>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::StopDigitalOutLoop> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::StopDigitalOutLoop>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::StopDigitalOutLoop>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInit> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInit>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInit>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalIn> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalIn>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalIn>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalOut> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalOut>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::GpioWiringPiInitDigitalOut>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::InitSound> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::InitSound>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::InitSound>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Client::DefineSineTone> mes) {
-                so_5::send<std::shared_ptr<LabNetProt::Client::DefineSineTone>>(_server_out_box, mes);
+                so_5::send<std::shared_ptr<LabNetProt::Client::DefineSineTone>>(server_out_box_, mes);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalOutState> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalInState> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_IN_STATE);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_IN_STATE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::NewByteData> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::NEW_BYTE_DATA);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::NEW_BYTE_DATA);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DataWriteComplete> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DATA_WRITE_COMPLETE);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DATA_WRITE_COMPLETE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::InterfaceInitResult> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::INTERFACE_INIT_RESULT);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::INTERFACE_INIT_RESULT);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalInInitResult> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_IN_INIT_RESULT);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_IN_INIT_RESULT);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalOutInitResult> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_INIT_RESULT);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_INIT_RESULT);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::LabNetResetReply> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::LABNET_RESET_REPLY);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::LABNET_RESET_REPLY);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::InterfaceLost> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::INTERFACE_LOST);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::INTERFACE_LOST);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::InterfaceReconnected> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::INTERFACE_RECONNECTED);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::INTERFACE_RECONNECTED);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalOutLoopStartResult> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_LOOP_START_RESULT);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_LOOP_START_RESULT);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalOutLoopStopped> mes) {
-                _connection->send_message(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_LOOP_STOPPED);
+                connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_LOOP_STOPPED);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](const mhood_t<interface::digital_messages::ReturnDigitalOutState>& mes) {
                 std::shared_ptr<LabNetProt::Server::DigitalOutState> digOutState = std::make_shared<LabNetProt::Server::DigitalOutState>();
                 LabNetProt::PinId* id = new LabNetProt::PinId();
@@ -215,9 +215,9 @@ void server_actor::so_define_agent()
                 timestamp->set_nanos(ns.count() % 1000000000);
                 digOutState->set_allocated_time(timestamp);
 
-                _connection->send_message(digOutState, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
+                connection_->SendMessage(digOutState, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<interface::digital_messages::ReturnDigitalInState> mes) {
                 std::shared_ptr<LabNetProt::Server::DigitalInState> digInState = std::make_shared<LabNetProt::Server::DigitalInState>();
                 LabNetProt::PinId* id = new LabNetProt::PinId();
@@ -235,23 +235,23 @@ void server_actor::so_define_agent()
                 timestamp->set_nanos(ns.count() % 1000000000);
                 digInState->set_allocated_time(timestamp);
 
-                _connection->send_message(digInState, LabNetProt::Server::ServerMessageType::DIGITAL_IN_STATE);
+                connection_->SendMessage(digInState, LabNetProt::Server::ServerMessageType::DIGITAL_IN_STATE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<interface::InterfaceLost> mes) {
                 std::shared_ptr<LabNetProt::Server::InterfaceLost> lost = std::make_shared<LabNetProt::Server::InterfaceLost>();
                 lost->set_interface(static_cast<LabNetProt::Interfaces>(mes->interface));
 
-                _connection->send_message(lost, LabNetProt::Server::ServerMessageType::INTERFACE_LOST);
+                connection_->SendMessage(lost, LabNetProt::Server::ServerMessageType::INTERFACE_LOST);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<interface::InterfaceReconnected> mes) {
                 std::shared_ptr<LabNetProt::Server::InterfaceReconnected> recon = std::make_shared<LabNetProt::Server::InterfaceReconnected>();
                 recon->set_interface(static_cast<LabNetProt::Interfaces>(mes->interface));
 
-                _connection->send_message(recon, LabNetProt::Server::ServerMessageType::INTERFACE_RECONNECTED);
+                connection_->SendMessage(recon, LabNetProt::Server::ServerMessageType::INTERFACE_RECONNECTED);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<interface::stream_messages::NewDataFromPort> mes) {
                 std::shared_ptr<LabNetProt::Server::NewByteData> data = std::make_shared<LabNetProt::Server::NewByteData>();
                 data->set_data(mes->data->data(), mes->data->size());
@@ -270,9 +270,9 @@ void server_actor::so_define_agent()
                 timestamp->set_nanos(ns.count() % 1000000000);
                 data->set_allocated_time(timestamp);
 
-                _connection->send_message(data, LabNetProt::Server::ServerMessageType::NEW_BYTE_DATA);
+                connection_->SendMessage(data, LabNetProt::Server::ServerMessageType::NEW_BYTE_DATA);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](mhood_t<interface::stream_messages::SendDataComplete> mes) {
                 std::shared_ptr<LabNetProt::Server::DataWriteComplete> write = std::make_shared<LabNetProt::Server::DataWriteComplete>();
 
@@ -281,24 +281,24 @@ void server_actor::so_define_agent()
                 id->set_interface(static_cast<LabNetProt::Interfaces>(mes->interface));
                 write->set_allocated_pin(id);
 
-                _connection->send_message(write, LabNetProt::Server::ServerMessageType::DATA_WRITE_COMPLETE);
+                connection_->SendMessage(write, LabNetProt::Server::ServerMessageType::DATA_WRITE_COMPLETE);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](const interface::digital_messages::DigitalInInitResult& msg) {
                 std::shared_ptr<LabNetProt::Server::DigitalInInitResult> init = std::make_shared<LabNetProt::Server::DigitalInInitResult>();
                 init->set_interface(static_cast<LabNetProt::Interfaces>(msg.interface));
                 init->set_is_succeed(msg.is_succeed);
                 init->set_pin(msg.pin);
 
-                _connection->send_message(init, LabNetProt::Server::ServerMessageType::DIGITAL_IN_INIT_RESULT);
+                connection_->SendMessage(init, LabNetProt::Server::ServerMessageType::DIGITAL_IN_INIT_RESULT);
             })
-        .event(_server_in_box,
+        .event(server_in_box_,
             [this](const interface::digital_messages::DigitalOutInitResult& msg) {
                 std::shared_ptr<LabNetProt::Server::DigitalOutInitResult> init = std::make_shared<LabNetProt::Server::DigitalOutInitResult>();
                 init->set_interface(static_cast<LabNetProt::Interfaces>(msg.interface));
                 init->set_is_succeed(msg.is_succeed);
                 init->set_pin(msg.pin);
 
-                _connection->send_message(init, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_INIT_RESULT);
+                connection_->SendMessage(init, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_INIT_RESULT);
             });
 }

@@ -83,7 +83,7 @@ namespace LabNet
             if (bcm < 0 || bcm > 27)
                 return -1;
             else
-                ResourceToWiring(static_cast<Resource>(bcm));
+                return ResourceToWiring(static_cast<Resource>(bcm));
         }
 
         Resource WiringToResource(int32_t wiring)

@@ -2,22 +2,22 @@
 
 namespace LabNet::resources
 {
-    resources_actor::resources_actor(context_t ctx, Logger logger)
+    ResourcesActor::ResourcesActor(context_t ctx, log::Logger logger)
         : so_5::agent_t(ctx)
-        , _self_mbox(ctx.env().create_mbox("res_man"))
-        , _logger(logger)
-        , _resources()
+        , self_mbox_(ctx.env().create_mbox("res_man"))
+        , logger_(logger)
+        , resources_()
     {
     }
 
-    resources_actor::~resources_actor()
+    ResourcesActor ::~ResourcesActor ()
     {
     }
 
-    void resources_actor::so_define_agent()
+    void ResourcesActor ::so_define_agent()
     {
         so_default_state()
-            .event(_self_mbox,
+            .event(self_mbox_,
                 [this](const mhood_t<ReserveResourcesRequest> msg) {
                     if (msg->reply_to && msg->reserve_for)
                     {
@@ -27,8 +27,8 @@ namespace LabNet::resources
                         {
                             if (r != Resource::None)
                             {
-                                auto it = _resources.find(r);
-                                if (it != _resources.end() && it->second != id)
+                                auto it = resources_.find(r);
+                                if (it != resources_.end() && it->second != id)
                                 {
                                     can_reserve = false;
                                     break;
@@ -40,14 +40,14 @@ namespace LabNet::resources
                         {
                             for (auto& r : msg->resources)
                             {
-                                _resources[r] = id;
+                                resources_[r] = id;
                             }
                         }
 
                         so_5::send<ReserveResourcesReply>(msg->reply_to, can_reserve, msg->request_id);
                     }
                 })
-            .event(_self_mbox,
+            .event(self_mbox_,
                 [this](const mhood_t<ReleaseResourcesRequest> msg) {
                     if (msg->reply_to && msg->reserved_for)
                     {
@@ -56,10 +56,10 @@ namespace LabNet::resources
 
                         for (auto& r : msg->resources)
                         {
-                            auto it = _resources.find(r);
-                            if (it == _resources.end() || it->second == id)
+                            auto it = resources_.find(r);
+                            if (it == resources_.end() || it->second == id)
                             {
-                                _resources.erase(r);
+                                resources_.erase(r);
                                 released.push_back(r);
                             }
                         }

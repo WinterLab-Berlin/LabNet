@@ -1,6 +1,6 @@
 #pragma once
 
-#include <LoggingFacility.h>
+#include <logging_facility.h>
 #include <so_5/all.hpp>
 
 namespace LabNet::helper
@@ -8,19 +8,19 @@ namespace LabNet::helper
     class ResetHelper final : public so_5::agent_t
     {
     public:
-        ResetHelper(context_t ctx, Logger logger);
+        ResetHelper(context_t ctx, log::Logger logger);
         ~ResetHelper();
 
     private:
         void so_define_agent() override;
 
-        const Logger _logger;
-        const so_5::mbox_t _server_out_box;
-        const so_5::mbox_t _server_in_box;
-        const so_5::mbox_t _manage_interfaces_box;
-        const so_5::mbox_t _dig_out_helper_box;
+        const log::Logger logger_;
+        const so_5::mbox_t server_out_box_;
+        const so_5::mbox_t server_in_box_;
+        const so_5::mbox_t manage_interfaces_box_;
+        const so_5::mbox_t dig_out_helper_box_;
 
-        bool _reset_manage_interfaces;
-        bool _reset_dig_out_helper;
+        bool reset_manage_interfaces_;
+        bool reset_dig_out_helper_;
     };
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <LoggingFacility.h>
+#include <logging_facility.h>
 #include <map>
 #include <so_5/all.hpp>
 #include <vector>
@@ -38,18 +38,18 @@ namespace LabNet
             uint16_t request_id;
         };
 
-        class resources_actor final : public so_5::agent_t
+        class ResourcesActor final : public so_5::agent_t
         {
         public:
-            resources_actor(context_t ctx, Logger logger);
-            ~resources_actor();
+            ResourcesActor(context_t ctx, log::Logger logger);
+            ~ResourcesActor();
 
         private:
             void so_define_agent() override;
 
-            Logger _logger;
-            const so_5::mbox_t _self_mbox;
-            std::map<Resource, uint64_t> _resources;
+            log::Logger logger_;
+            const so_5::mbox_t self_mbox_;
+            std::map<Resource, uint64_t> resources_;
         };
     }
 }

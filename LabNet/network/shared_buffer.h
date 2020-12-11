@@ -1,24 +1,22 @@
 #pragma once
 
-#include "Connection.h"
+#include <boost/asio.hpp>
 
-class shared_buffer
+class SharedBuffer
 {
 public:
-    explicit shared_buffer(Logger logger, std::function<void(const boost::system::error_code&, const size_t)> callback)
-        : m_logger(logger)
-        , _callback(callback)
+    explicit SharedBuffer(std::function<void(const boost::system::error_code&, const size_t)> callback)
+        : callback_(callback)
     {
     }
 
     void write_handler(const boost::system::error_code& error, const size_t bytesTransferred)
     {
-        _callback(error, bytesTransferred);
+        callback_(error, bytesTransferred);
     };
 
-    std::shared_ptr<boost::asio::streambuf> data_ = std::make_shared<boost::asio::streambuf>();
+    std::shared_ptr<boost::asio::streambuf> data = std::make_shared<boost::asio::streambuf>();
 
 private:
-    Logger m_logger;
-    std::function<void(const boost::system::error_code&, const size_t)> _callback;
+    std::function<void(const boost::system::error_code&, const size_t)> callback_;
 };

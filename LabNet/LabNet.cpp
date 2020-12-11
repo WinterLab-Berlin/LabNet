@@ -1,33 +1,33 @@
 #define BOOST_BIND_NO_PLACEHOLDERS
 
-#include "DigitalOut/digital_out_helper.h"
-#include "Interface/manage_interfaces.h"
-#include "Interface/gpio_wiring/gpio_manager.h"
-#include "Interface/io_board/board_actor.h"
-#include "Interface/rfid_board/rfid_main_actor.h"
-#include "Interface/uart/serial_ports_manager.h"
+#include "digital_out/digital_out_helper.h"
+#include "interface/manage_interfaces.h"
+#include "interface/gpio_wiring/gpio_manager.h"
+#include "interface/io_board/board_actor.h"
+#include "interface/rfid_board/rfid_main_actor.h"
+#include "interface/uart/serial_ports_manager.h"
 #include "resources/resources_actor.h"
 #include "helper/reset_helper.h"
 #include "network/server_actor.h"
-#include "network/Server.h"
-#include <LoggerFactory.h>
+#include "network/server.h"
+#include <logger_factory.h>
 #include <so_5/all.hpp>
 #include <wiringPi.h>
 
 int main(int argc, char* argv[])
 {
-    Logger logger = LoggerFactory::create();
-    logger->writeInfoEntry("LabNet starting");
+    LabNet::log::Logger logger = LabNet::log::LoggerFactory::create();
+    logger->WriteInfoEntry("LabNet starting");
 
     int err = wiringPiSetup();
     if (err == -1)
     {
-        logger->writeInfoEntry("wiringPi init failed");
+        logger->WriteInfoEntry("wiringPi init failed");
         return 0;
     }
     else
     {
-        logger->writeInfoEntry("wiringPi init success");
+        logger->WriteInfoEntry("wiringPi init success");
     }
 
     // SO Environment in a special wrapper object.
@@ -43,24 +43,24 @@ int main(int argc, char* argv[])
         [&](so_5::coop_t& coop) {
             server_in_box = coop.environment().create_mbox("server_in");
 
-            auto act = coop.make_agent<LabNet::network::server_actor>(logger);
+            auto act = coop.make_agent<LabNet::network::ServerActor>(logger);
 
             coop.make_agent<LabNet::interface::ManageInterfaces>(logger);
             coop.make_agent<LabNet::digital_out::DigitalOutHelper>(logger);
             coop.make_agent<LabNet::helper::ResetHelper>(logger);
-            coop.make_agent<LabNet::resources::resources_actor>(logger);
+            coop.make_agent<LabNet::resources::ResourcesActor>(logger);
         });
 
-    ConnectionManager connection_manager(logger, server_in_box);
+    LabNet::network::ConnectionManager connection_manager(logger, server_in_box);
 
     try
     {
-        Server server(logger, connection_manager, 8080);
-        server.run();
+        LabNet::network::Server server(logger, connection_manager, 8080);
+        server.Run();
     }
     catch (std::exception& e)
     {
-        logger->writeFatalEntry(std::string("network server error ") + e.what());
+        logger->WriteFatalEntry(std::string("network server error ") + e.what());
     }
 
     return 0;
