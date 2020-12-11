@@ -6,41 +6,41 @@ namespace LabNet
 {
     namespace resources
     {
-        enum class resource
+        enum class Resource
         {
             None = -1,
-            GPIO0 = 0, // ph 27
-            GPIO1 = 1, // ph 28
-            GPIO2 = 2, // ph 3
-            GPIO3 = 3, // ph 5
-            GPIO4 = 4, // ph 7
-            GPIO5 = 5, // ph 29
-            GPIO6 = 6, // ph 31
-            GPIO7 = 7, // ph 26
-            GPIO8 = 8, // ph 24
-            GPIO9 = 9, // ph 21
-            GPIO10 = 10, // ph 19
-            GPIO11 = 11, // ph 23
-            GPIO12 = 12, // ph 32
-            GPIO13 = 13, // ph 33
-            GPIO14 = 14, // ph 8
-            GPIO15 = 15, // ph 10
-            GPIO16 = 16, // ph 36
-            GPIO17 = 17, // ph 11
-            GPIO18 = 18, // ph 12
-            GPIO19 = 19, // ph 35
-            GPIO20 = 20, // ph 38
-            GPIO21 = 21, // ph 40
-            GPIO22 = 22, // ph 15
-            GPIO23 = 23, // ph 16
-            GPIO24 = 24, // ph 18
-            GPIO25 = 25, // ph 22
-            GPIO26 = 26, // ph 37
-            GPIO27 = 27  // ph 13
+            Gpio0 = 0, // ph 27
+            Gpio1 = 1, // ph 28
+            Gpio2 = 2, // ph 3
+            Gpio3 = 3, // ph 5
+            Gpio4 = 4, // ph 7
+            Gpio5 = 5, // ph 29
+            Gpio6 = 6, // ph 31
+            Gpio7 = 7, // ph 26
+            Gpio8 = 8, // ph 24
+            Gpio9 = 9, // ph 21
+            Gpio10 = 10, // ph 19
+            Gpio11 = 11, // ph 23
+            Gpio12 = 12, // ph 32
+            Gpio13 = 13, // ph 33
+            Gpio14 = 14, // ph 8
+            Gpio15 = 15, // ph 10
+            Gpio16 = 16, // ph 36
+            Gpio17 = 17, // ph 11
+            Gpio18 = 18, // ph 12
+            Gpio19 = 19, // ph 35
+            Gpio20 = 20, // ph 38
+            Gpio21 = 21, // ph 40
+            Gpio22 = 22, // ph 15
+            Gpio23 = 23, // ph 16
+            Gpio24 = 24, // ph 18
+            Gpio25 = 25, // ph 22
+            Gpio26 = 26, // ph 37
+            Gpio27 = 27  // ph 13
         };
 
-        int32_t resource_to_wiring(resource bcm);
-        int32_t resource_to_wiring(int32_t bcm);
-        resource wiring_to_resource(int32_t);
+        int32_t ResourceToWiring(Resource bcm);
+        int32_t ResourceToWiring(int32_t bcm);
+        Resource WiringToResource(int32_t);
     }
 }

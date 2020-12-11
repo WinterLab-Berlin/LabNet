@@ -38,7 +38,7 @@ namespace LabNet::interface::gpio_wiring
         const so_5::mbox_t _res_box;
         std::map<uint16_t, std::shared_ptr<DigitalInput>> _inputs;
         std::map<uint16_t, std::shared_ptr<DigitalOutput>> _outputs;
-        std::vector<resources::resource> _acquired;
+        std::vector<resources::Resource> _acquired;
         uint16_t request_id = 0;
     };
 }

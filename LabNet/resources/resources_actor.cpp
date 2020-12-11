@@ -18,14 +18,14 @@ namespace LabNet::resources
     {
         so_default_state()
             .event(_self_mbox,
-                [this](const mhood_t<reserve_resources_request> msg) {
+                [this](const mhood_t<ReserveResourcesRequest> msg) {
                     if (msg->reply_to && msg->reserve_for)
                     {
                         uint64_t id = msg->reserve_for->id();
                         bool can_reserve = true;
                         for (auto& r : msg->resources)
                         {
-                            if (r != resource::None)
+                            if (r != Resource::None)
                             {
                                 auto it = _resources.find(r);
                                 if (it != _resources.end() && it->second != id)
@@ -44,15 +44,15 @@ namespace LabNet::resources
                             }
                         }
 
-                        so_5::send<reserve_resources_reply>(msg->reply_to, can_reserve, msg->request_id);
+                        so_5::send<ReserveResourcesReply>(msg->reply_to, can_reserve, msg->request_id);
                     }
                 })
             .event(_self_mbox,
-                [this](const mhood_t<release_resources_request> msg) {
+                [this](const mhood_t<ReleaseResourcesRequest> msg) {
                     if (msg->reply_to && msg->reserved_for)
                     {
                         uint64_t id = msg->reserved_for->id();
-                        std::vector<resource> released;
+                        std::vector<Resource> released;
 
                         for (auto& r : msg->resources)
                         {
@@ -64,7 +64,7 @@ namespace LabNet::resources
                             }
                         }
 
-                        so_5::send<release_resources_reply>(msg->reply_to, released, msg->request_id);
+                        so_5::send<ReleaseResourcesReply>(msg->reply_to, released, msg->request_id);
                     }
                 });
     }

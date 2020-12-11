@@ -1,9 +1,11 @@
 #pragma once
 
+#include <vector>
 #include "data_read_worker.h"
 #include "max_device.h"
 #include <LoggingFacility.h>
 #include <so_5/all.hpp>
+#include "../resources/resource.h"
 
 namespace LabNet::interface::rfid_board
 {
@@ -47,5 +49,10 @@ namespace LabNet::interface::rfid_board
 
         uint32_t _phase1, _phase2, _phase_dur;
         bool _is_inverted;
+
+        const so_5::mbox_t res_box_;
+        const std::vector<int32_t> pins_ = {16, 28, 12, 13, 14, 10, 11, 15, 9, 5, 23, 24, 22, 4, 1};
+        std::vector<resources::Resource> resources_;
+        bool res_reserved_;
     };
 }

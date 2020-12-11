@@ -24,7 +24,7 @@ void ResourceRequestHelper::so_evt_finish()
 {
     if (_acquired.size() > 0)
     {
-        so_5::send<LabNet::resources::release_resources_request>(_res_box, so_direct_mbox(), _parent, _acquired, static_cast<uint16_t>(0));
+        so_5::send<LabNet::resources::ReleaseResourcesRequest>(_res_box, so_direct_mbox(), _parent, _acquired, static_cast<uint16_t>(0));
     }
 }
 
@@ -32,13 +32,13 @@ void ResourceRequestHelper::so_define_agent()
 {
     so_subscribe_self()
         .event([this](const so_5::mhood_t<DigitalInput> msg) {
-            resources::resource res = resources::wiring_to_resource(msg->pin);
-            if (res != resources::resource::None)
+            resources::Resource res = resources::WiringToResource(msg->pin);
+            if (res != resources::Resource::None)
             {
                 request_id++;
-                std::vector<resources::resource> res_vec;
+                std::vector<resources::Resource> res_vec;
                 res_vec.push_back(res);
-                so_5::send<resources::reserve_resources_request>(_res_box, so_direct_mbox(), _parent, res_vec, request_id);
+                so_5::send<resources::ReserveResourcesRequest>(_res_box, so_direct_mbox(), _parent, res_vec, request_id);
 
                 _inputs[request_id] = std::make_shared<DigitalInput>(*msg);
             }
@@ -48,13 +48,13 @@ void ResourceRequestHelper::so_define_agent()
             }
         })
         .event([this](const so_5::mhood_t<DigitalOutput> msg) {
-            resources::resource res = resources::wiring_to_resource(msg->pin);
-            if (res != resources::resource::None)
+            resources::Resource res = resources::WiringToResource(msg->pin);
+            if (res != resources::Resource::None)
             {
                 request_id++;
-                std::vector<resources::resource> res_vec;
+                std::vector<resources::Resource> res_vec;
                 res_vec.push_back(res);
-                so_5::send<resources::reserve_resources_request>(_res_box, so_direct_mbox(), _parent, res_vec, request_id);
+                so_5::send<resources::ReserveResourcesRequest>(_res_box, so_direct_mbox(), _parent, res_vec, request_id);
 
                 _outputs[request_id] = std::make_shared<DigitalOutput>(*msg);
             }
@@ -63,13 +63,13 @@ void ResourceRequestHelper::so_define_agent()
                 so_5::send<AcquireOutputResult>(_parent, DigitalOutput(*msg), false);
             }
         })
-        .event([this](const so_5::mhood_t<resources::reserve_resources_reply> msg) {
+        .event([this](const so_5::mhood_t<resources::ReserveResourcesReply> msg) {
             auto inp_it = _inputs.find(msg->request_id);
             if (inp_it != _inputs.end())
             {
                 if (msg->result)
                 {
-                    resources::resource res = resources::wiring_to_resource(inp_it->second->pin);
+                    resources::Resource res = resources::WiringToResource(inp_it->second->pin);
                     _acquired.push_back(res);
                 }
 
@@ -84,7 +84,7 @@ void ResourceRequestHelper::so_define_agent()
                 {
                     if (msg->result)
                     {
-                        resources::resource res = resources::wiring_to_resource(out_it->second->pin);
+                        resources::Resource res = resources::WiringToResource(out_it->second->pin);
                         _acquired.push_back(res);
                     }
 

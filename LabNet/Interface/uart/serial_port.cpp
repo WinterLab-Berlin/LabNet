@@ -87,7 +87,7 @@ namespace LabNet::interface::uart
                 }
             },
             [this](const so_5::mhood_t<DigitalOutput> msg) {
-                if (port_id_ != 100)
+                if (port_id_ != 100 && msg->pin > 0 && msg->pin < 3)
                 {
                     auto it = outputs_.find(msg->pin);
                     if (it == outputs_.end())
@@ -97,6 +97,25 @@ namespace LabNet::interface::uart
                     else
                     {
                         it->second->is_inverted = msg->is_inverted;
+                    }
+
+                    // set to low
+                    int32_t line = 0;
+                    if (msg->pin == 1)
+                        line = TIOCM_DTR;
+                    else if (msg->pin == 2)
+                        line = TIOCM_RTS;
+
+                    bool state = false ^ msg->is_inverted;
+                    if (line != 0)
+                    {
+                        int rts = 0;
+                        ioctl(port_handler_, TIOCMGET, &rts);
+                        if (state)
+                            rts &= ~line;
+                        else
+                            rts |= ~line;
+                        ioctl(port_handler_, TIOCMSET, &rts);
                     }
                 }
             },
