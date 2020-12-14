@@ -150,6 +150,14 @@ void ServerActor::so_define_agent()
                 so_5::send<std::shared_ptr<LabNetProt::Client::DefineSineTone>>(server_out_box_, mes);
             })
         .event(server_in_box_,
+            [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalIn> mes) {
+                so_5::send<std::shared_ptr<LabNetProt::Client::UartInitDigitalIn>>(server_out_box_, mes);
+            })
+        .event(server_in_box_,
+            [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalOut> mes) {
+                so_5::send<std::shared_ptr<LabNetProt::Client::UartInitDigitalOut>>(server_out_box_, mes);
+            })
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::DigitalOutState> mes) {
                 connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::DIGITAL_OUT_STATE);
             })
