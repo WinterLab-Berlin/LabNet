@@ -283,13 +283,13 @@ namespace LabNet::interface
                         sound_coop_ = so_environment().register_agent_as_coop(std::move(sound));
                     }
 
-                    so_5::send<sound::init_sound>(sound_box_);
+                    so_5::send<sound::InitSound>(sound_box_);
                 })
             .event(server_out_box_,
-                [this](std::shared_ptr<LabNetProt::Client::DefineSineTone> msg) {
+                [this](std::shared_ptr<LabNetProt::Client::InitSoundSignal> msg) {
                     if (sound_box_)
                     {
-                        so_5::send<std::shared_ptr<LabNetProt::Client::DefineSineTone>>(sound_box_, msg);
+                        so_5::send<std::shared_ptr<LabNetProt::Client::InitSoundSignal>>(sound_box_, msg);
                     }
                 });
 

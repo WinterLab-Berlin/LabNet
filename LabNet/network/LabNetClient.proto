@@ -21,7 +21,7 @@ enum ClientMessageType {
 	GPIO_WIRINGPI_INIT_DIGITAL_IN = 15;
 	GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16;
 	INIT_SOUND = 17;
-	DEFINE_SINE_TONE = 18;
+	INIT_SOUND_SIGNAL = 18;
 	UART_INIT_DIGITAL_IN = 19;
 	UART_INIT_DIGITAL_OUT = 20;
 }
@@ -156,9 +156,22 @@ message LabNetIdRequest {
 message InitSound {
 }
 
-message DefineSineTone {
-	uint32 id = 1;
-	uint32 frequenz = 2;
-	float volume = 3;
+enum SoundSignalType {
+	SINE_WAVE = 0;
+	SQUARE_WAVE = 1;
+	TRIANGLE_WAVE = 2;
+	SAW_TOOTH_WAVE = 3;
+	WHITE_NOISE = 4;
+	PINK_NOISE = 5;
+	SWEEP = 6;
+}
+
+message InitSoundSignal {
+	SoundSignalType signal_type = 1;
+	uint32 id = 2;
+	uint32 frequency = 3;
+	uint32 frequency_end = 4;
+	float sweep_length_seconds = 5;
+	float volume = 6;
 }
 // sound

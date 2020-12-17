@@ -3,13 +3,14 @@
 #include <logging_facility.h>
 #include <SFML/Audio.hpp>
 #include <map>
+#include <vector>
 #include <memory>
 #include <so_5/all.hpp>
 #include "signals.h"
 
 namespace LabNet::interface::sound
 {
-    struct init_sound
+    struct InitSound
     {
         const so_5::mbox_t mbox;
     };
@@ -27,6 +28,7 @@ namespace LabNet::interface::sound
 
         bool TurnSoundOn(uint32_t id);
         bool TurnSoundOff(uint32_t id);
+        bool InitNewSignal(std::shared_ptr<Signal> signal);
 
         so_5::state_t init_state_ { this, "init_state" };
         so_5::state_t running_state_ { this, "running_state" };
@@ -37,13 +39,11 @@ namespace LabNet::interface::sound
         const so_5::mbox_t interfaces_manager_box_;
         const so_5::mbox_t self_box_;
 
-        const unsigned kSampleRate = 44100;
-        const unsigned kSamples = 44100;
+        const uint32_t kSampleRate = 192000;
         sf::Sound sine_wave_sound_;
         sf::SoundBuffer sound_buffer_;
-        sf::Int16* raw_buffer_;
 
         int32_t signal_id_;
-        std::map<uint32_t, std::unique_ptr<Signal>> signals_;
+        std::map<uint32_t, std::shared_ptr<Signal>> signals_;
     };
 }

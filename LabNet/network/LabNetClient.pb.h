@@ -49,9 +49,6 @@ void AddDescriptors();
 }  // namespace protobuf_LabNetClient_2eproto
 namespace LabNetProt {
 namespace Client {
-class DefineSineTone;
-class DefineSineToneDefaultTypeInternal;
-extern DefineSineToneDefaultTypeInternal _DefineSineTone_default_instance_;
 class DigitalOutPulse;
 class DigitalOutPulseDefaultTypeInternal;
 extern DigitalOutPulseDefaultTypeInternal _DigitalOutPulse_default_instance_;
@@ -70,6 +67,9 @@ extern GpioWiringPiInitDigitalOutDefaultTypeInternal _GpioWiringPiInitDigitalOut
 class InitSound;
 class InitSoundDefaultTypeInternal;
 extern InitSoundDefaultTypeInternal _InitSound_default_instance_;
+class InitSoundSignal;
+class InitSoundSignalDefaultTypeInternal;
+extern InitSoundSignalDefaultTypeInternal _InitSoundSignal_default_instance_;
 class IoBoardInit;
 class IoBoardInitDefaultTypeInternal;
 extern IoBoardInitDefaultTypeInternal _IoBoardInit_default_instance_;
@@ -116,13 +116,13 @@ extern UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
 }  // namespace LabNetProt
 namespace google {
 namespace protobuf {
-template<> ::LabNetProt::Client::DefineSineTone* Arena::CreateMaybeMessage<::LabNetProt::Client::DefineSineTone>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutPulse* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutPulse>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutSet* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutSet>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInit* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInit>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInitDigitalIn>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInitDigitalOut>(Arena*);
 template<> ::LabNetProt::Client::InitSound* Arena::CreateMaybeMessage<::LabNetProt::Client::InitSound>(Arena*);
+template<> ::LabNetProt::Client::InitSoundSignal* Arena::CreateMaybeMessage<::LabNetProt::Client::InitSoundSignal>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInit* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInit>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInitDigitalIn>(Arena*);
 template<> ::LabNetProt::Client::IoBoardInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInitDigitalOut>(Arena*);
@@ -205,7 +205,7 @@ enum ClientMessageType {
   GPIO_WIRINGPI_INIT_DIGITAL_IN = 15,
   GPIO_WIRINGPI_INIT_DIGITAL_OUT = 16,
   INIT_SOUND = 17,
-  DEFINE_SINE_TONE = 18,
+  INIT_SOUND_SIGNAL = 18,
   UART_INIT_DIGITAL_IN = 19,
   UART_INIT_DIGITAL_OUT = 20,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
@@ -225,6 +225,32 @@ inline bool ClientMessageType_Parse(
     const ::std::string& name, ClientMessageType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<ClientMessageType>(
     ClientMessageType_descriptor(), name, value);
+}
+enum SoundSignalType {
+  SINE_WAVE = 0,
+  SQUARE_WAVE = 1,
+  TRIANGLE_WAVE = 2,
+  SAW_TOOTH_WAVE = 3,
+  WHITE_NOISE = 4,
+  PINK_NOISE = 5,
+  SWEEP = 6,
+  SoundSignalType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SoundSignalType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool SoundSignalType_IsValid(int value);
+const SoundSignalType SoundSignalType_MIN = SINE_WAVE;
+const SoundSignalType SoundSignalType_MAX = SWEEP;
+const int SoundSignalType_ARRAYSIZE = SoundSignalType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SoundSignalType_descriptor();
+inline const ::std::string& SoundSignalType_Name(SoundSignalType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SoundSignalType_descriptor(), value);
+}
+inline bool SoundSignalType_Parse(
+    const ::std::string& name, SoundSignalType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SoundSignalType>(
+    SoundSignalType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2534,24 +2560,24 @@ class InitSound : public ::google::protobuf::Message /* @@protoc_insertion_point
 };
 // -------------------------------------------------------------------
 
-class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.DefineSineTone) */ {
+class InitSoundSignal : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.InitSoundSignal) */ {
  public:
-  DefineSineTone();
-  virtual ~DefineSineTone();
+  InitSoundSignal();
+  virtual ~InitSoundSignal();
 
-  DefineSineTone(const DefineSineTone& from);
+  InitSoundSignal(const InitSoundSignal& from);
 
-  inline DefineSineTone& operator=(const DefineSineTone& from) {
+  inline InitSoundSignal& operator=(const InitSoundSignal& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  DefineSineTone(DefineSineTone&& from) noexcept
-    : DefineSineTone() {
+  InitSoundSignal(InitSoundSignal&& from) noexcept
+    : InitSoundSignal() {
     *this = ::std::move(from);
   }
 
-  inline DefineSineTone& operator=(DefineSineTone&& from) noexcept {
+  inline InitSoundSignal& operator=(InitSoundSignal&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -2561,34 +2587,34 @@ class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const DefineSineTone& default_instance();
+  static const InitSoundSignal& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DefineSineTone* internal_default_instance() {
-    return reinterpret_cast<const DefineSineTone*>(
-               &_DefineSineTone_default_instance_);
+  static inline const InitSoundSignal* internal_default_instance() {
+    return reinterpret_cast<const InitSoundSignal*>(
+               &_InitSoundSignal_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     20;
 
-  void Swap(DefineSineTone* other);
-  friend void swap(DefineSineTone& a, DefineSineTone& b) {
+  void Swap(InitSoundSignal* other);
+  friend void swap(InitSoundSignal& a, InitSoundSignal& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline DefineSineTone* New() const final {
-    return CreateMaybeMessage<DefineSineTone>(NULL);
+  inline InitSoundSignal* New() const final {
+    return CreateMaybeMessage<InitSoundSignal>(NULL);
   }
 
-  DefineSineTone* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<DefineSineTone>(arena);
+  InitSoundSignal* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<InitSoundSignal>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const DefineSineTone& from);
-  void MergeFrom(const DefineSineTone& from);
+  void CopyFrom(const InitSoundSignal& from);
+  void MergeFrom(const InitSoundSignal& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -2605,7 +2631,7 @@ class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DefineSineTone* other);
+  void InternalSwap(InitSoundSignal* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -2621,30 +2647,51 @@ class DefineSineTone : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // uint32 id = 1;
+  // .LabNetProt.Client.SoundSignalType signal_type = 1;
+  void clear_signal_type();
+  static const int kSignalTypeFieldNumber = 1;
+  ::LabNetProt::Client::SoundSignalType signal_type() const;
+  void set_signal_type(::LabNetProt::Client::SoundSignalType value);
+
+  // uint32 id = 2;
   void clear_id();
-  static const int kIdFieldNumber = 1;
+  static const int kIdFieldNumber = 2;
   ::google::protobuf::uint32 id() const;
   void set_id(::google::protobuf::uint32 value);
 
-  // uint32 frequenz = 2;
-  void clear_frequenz();
-  static const int kFrequenzFieldNumber = 2;
-  ::google::protobuf::uint32 frequenz() const;
-  void set_frequenz(::google::protobuf::uint32 value);
+  // uint32 frequency = 3;
+  void clear_frequency();
+  static const int kFrequencyFieldNumber = 3;
+  ::google::protobuf::uint32 frequency() const;
+  void set_frequency(::google::protobuf::uint32 value);
 
-  // float volume = 3;
+  // uint32 frequency_end = 4;
+  void clear_frequency_end();
+  static const int kFrequencyEndFieldNumber = 4;
+  ::google::protobuf::uint32 frequency_end() const;
+  void set_frequency_end(::google::protobuf::uint32 value);
+
+  // float sweep_length_seconds = 5;
+  void clear_sweep_length_seconds();
+  static const int kSweepLengthSecondsFieldNumber = 5;
+  float sweep_length_seconds() const;
+  void set_sweep_length_seconds(float value);
+
+  // float volume = 6;
   void clear_volume();
-  static const int kVolumeFieldNumber = 3;
+  static const int kVolumeFieldNumber = 6;
   float volume() const;
   void set_volume(float value);
 
-  // @@protoc_insertion_point(class_scope:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.InitSoundSignal)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  int signal_type_;
   ::google::protobuf::uint32 id_;
-  ::google::protobuf::uint32 frequenz_;
+  ::google::protobuf::uint32 frequency_;
+  ::google::protobuf::uint32 frequency_end_;
+  float sweep_length_seconds_;
   float volume_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
@@ -3533,48 +3580,90 @@ inline void StopDigitalOutLoop::set_allocated_loop_name(::std::string* loop_name
 
 // -------------------------------------------------------------------
 
-// DefineSineTone
+// InitSoundSignal
 
-// uint32 id = 1;
-inline void DefineSineTone::clear_id() {
+// .LabNetProt.Client.SoundSignalType signal_type = 1;
+inline void InitSoundSignal::clear_signal_type() {
+  signal_type_ = 0;
+}
+inline ::LabNetProt::Client::SoundSignalType InitSoundSignal::signal_type() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.signal_type)
+  return static_cast< ::LabNetProt::Client::SoundSignalType >(signal_type_);
+}
+inline void InitSoundSignal::set_signal_type(::LabNetProt::Client::SoundSignalType value) {
+  
+  signal_type_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.signal_type)
+}
+
+// uint32 id = 2;
+inline void InitSoundSignal::clear_id() {
   id_ = 0u;
 }
-inline ::google::protobuf::uint32 DefineSineTone::id() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.id)
+inline ::google::protobuf::uint32 InitSoundSignal::id() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.id)
   return id_;
 }
-inline void DefineSineTone::set_id(::google::protobuf::uint32 value) {
+inline void InitSoundSignal::set_id(::google::protobuf::uint32 value) {
   
   id_ = value;
-  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.id)
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.id)
 }
 
-// uint32 frequenz = 2;
-inline void DefineSineTone::clear_frequenz() {
-  frequenz_ = 0u;
+// uint32 frequency = 3;
+inline void InitSoundSignal::clear_frequency() {
+  frequency_ = 0u;
 }
-inline ::google::protobuf::uint32 DefineSineTone::frequenz() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.frequenz)
-  return frequenz_;
+inline ::google::protobuf::uint32 InitSoundSignal::frequency() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.frequency)
+  return frequency_;
 }
-inline void DefineSineTone::set_frequenz(::google::protobuf::uint32 value) {
+inline void InitSoundSignal::set_frequency(::google::protobuf::uint32 value) {
   
-  frequenz_ = value;
-  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.frequenz)
+  frequency_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.frequency)
 }
 
-// float volume = 3;
-inline void DefineSineTone::clear_volume() {
+// uint32 frequency_end = 4;
+inline void InitSoundSignal::clear_frequency_end() {
+  frequency_end_ = 0u;
+}
+inline ::google::protobuf::uint32 InitSoundSignal::frequency_end() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.frequency_end)
+  return frequency_end_;
+}
+inline void InitSoundSignal::set_frequency_end(::google::protobuf::uint32 value) {
+  
+  frequency_end_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.frequency_end)
+}
+
+// float sweep_length_seconds = 5;
+inline void InitSoundSignal::clear_sweep_length_seconds() {
+  sweep_length_seconds_ = 0;
+}
+inline float InitSoundSignal::sweep_length_seconds() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.sweep_length_seconds)
+  return sweep_length_seconds_;
+}
+inline void InitSoundSignal::set_sweep_length_seconds(float value) {
+  
+  sweep_length_seconds_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.sweep_length_seconds)
+}
+
+// float volume = 6;
+inline void InitSoundSignal::clear_volume() {
   volume_ = 0;
 }
-inline float DefineSineTone::volume() const {
-  // @@protoc_insertion_point(field_get:LabNetProt.Client.DefineSineTone.volume)
+inline float InitSoundSignal::volume() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.InitSoundSignal.volume)
   return volume_;
 }
-inline void DefineSineTone::set_volume(float value) {
+inline void InitSoundSignal::set_volume(float value) {
   
   volume_ = value;
-  // @@protoc_insertion_point(field_set:LabNetProt.Client.DefineSineTone.volume)
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.volume)
 }
 
 #ifdef __GNUC__
@@ -3643,6 +3732,11 @@ template <> struct is_proto_enum< ::LabNetProt::Client::ClientMessageType> : ::s
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::LabNetProt::Client::ClientMessageType>() {
   return ::LabNetProt::Client::ClientMessageType_descriptor();
+}
+template <> struct is_proto_enum< ::LabNetProt::Client::SoundSignalType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::LabNetProt::Client::SoundSignalType>() {
+  return ::LabNetProt::Client::SoundSignalType_descriptor();
 }
 
 }  // namespace protobuf

@@ -127,11 +127,11 @@ class InitSoundDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<InitSound>
       _instance;
 } _InitSound_default_instance_;
-class DefineSineToneDefaultTypeInternal {
+class InitSoundSignalDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<DefineSineTone>
+  ::google::protobuf::internal::ExplicitlyConstructed<InitSoundSignal>
       _instance;
-} _DefineSineTone_default_instance_;
+} _InitSoundSignal_default_instance_;
 }  // namespace Client
 }  // namespace LabNetProt
 namespace protobuf_LabNetClient_2eproto {
@@ -419,19 +419,19 @@ static void InitDefaultsInitSound() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_InitSound =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInitSound}, {}};
 
-static void InitDefaultsDefineSineTone() {
+static void InitDefaultsInitSoundSignal() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::LabNetProt::Client::_DefineSineTone_default_instance_;
-    new (ptr) ::LabNetProt::Client::DefineSineTone();
+    void* ptr = &::LabNetProt::Client::_InitSoundSignal_default_instance_;
+    new (ptr) ::LabNetProt::Client::InitSoundSignal();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::LabNetProt::Client::DefineSineTone::InitAsDefaultInstance();
+  ::LabNetProt::Client::InitSoundSignal::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_DefineSineTone =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDefineSineTone}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_InitSoundSignal =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsInitSoundSignal}, {}};
 
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInit.base);
@@ -454,11 +454,11 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_LabNetResetRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_LabNetIdRequest.base);
   ::google::protobuf::internal::InitSCC(&scc_info_InitSound.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_DefineSineTone.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_InitSoundSignal.base);
 }
 
 ::google::protobuf::Metadata file_level_metadata[21];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -602,13 +602,16 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::DefineSineTone, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::DefineSineTone, id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::DefineSineTone, frequenz_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::DefineSineTone, volume_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, signal_type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, frequency_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, frequency_end_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, sweep_length_seconds_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, volume_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
@@ -631,7 +634,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 125, -1, sizeof(::LabNetProt::Client::LabNetResetRequest)},
   { 130, -1, sizeof(::LabNetProt::Client::LabNetIdRequest)},
   { 135, -1, sizeof(::LabNetProt::Client::InitSound)},
-  { 140, -1, sizeof(::LabNetProt::Client::DefineSineTone)},
+  { 140, -1, sizeof(::LabNetProt::Client::InitSoundSignal)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -655,7 +658,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_LabNetResetRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_LabNetIdRequest_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_InitSound_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_DefineSineTone_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_InitSoundSignal_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -719,25 +722,31 @@ void AddDescriptorsImpl() {
       "set\030\002 \001(\r\022\020\n\010duration\030\003 \001(\r\"\'\n\022StopDigit"
       "alOutLoop\022\021\n\tloop_name\030\001 \001(\t\"\024\n\022LabNetRe"
       "setRequest\"\021\n\017LabNetIdRequest\"\013\n\tInitSou"
-      "nd\">\n\016DefineSineTone\022\n\n\002id\030\001 \001(\r\022\020\n\010freq"
-      "uenz\030\002 \001(\r\022\016\n\006volume\030\003 \001(\002*\225\004\n\021ClientMes"
-      "sageType\022\010\n\004NONE\020\000\022\025\n\021LABNET_ID_REQUEST\020"
-      "\001\022\030\n\024LABNET_RESET_REQUEST\020\002\022\021\n\rIO_BOARD_"
-      "INIT\020\003\022\034\n\030IO_BOARD_INIT_DIGITAL_IN\020\004\022\035\n\031"
-      "IO_BOARD_INIT_DIGITAL_OUT\020\005\022\023\n\017RFID_BOAR"
-      "D_INIT\020\006\022\037\n\033RFID_BOARD_SET_PHASE_MATRIX\020"
-      "\007\022\r\n\tUART_INIT\020\010\022\023\n\017UART_WRITE_DATA\020\t\022\023\n"
-      "\017DIGITAL_OUT_SET\020\n\022\025\n\021DIGITAL_OUT_PULSE\020"
-      "\013\022\032\n\026START_DIGITAL_OUT_LOOP\020\014\022\031\n\025STOP_DI"
-      "GITAL_OUT_LOOP\020\r\022\026\n\022GPIO_WIRINGPI_INIT\020\016"
-      "\022!\n\035GPIO_WIRINGPI_INIT_DIGITAL_IN\020\017\022\"\n\036G"
-      "PIO_WIRINGPI_INIT_DIGITAL_OUT\020\020\022\016\n\nINIT_"
-      "SOUND\020\021\022\024\n\020DEFINE_SINE_TONE\020\022\022\030\n\024UART_IN"
-      "IT_DIGITAL_IN\020\023\022\031\n\025UART_INIT_DIGITAL_OUT"
-      "\020\024b\006proto3"
+      "nd\"\256\001\n\017InitSoundSignal\0227\n\013signal_type\030\001 "
+      "\001(\0162\".LabNetProt.Client.SoundSignalType\022"
+      "\n\n\002id\030\002 \001(\r\022\021\n\tfrequency\030\003 \001(\r\022\025\n\rfreque"
+      "ncy_end\030\004 \001(\r\022\034\n\024sweep_length_seconds\030\005 "
+      "\001(\002\022\016\n\006volume\030\006 \001(\002*\226\004\n\021ClientMessageTyp"
+      "e\022\010\n\004NONE\020\000\022\025\n\021LABNET_ID_REQUEST\020\001\022\030\n\024LA"
+      "BNET_RESET_REQUEST\020\002\022\021\n\rIO_BOARD_INIT\020\003\022"
+      "\034\n\030IO_BOARD_INIT_DIGITAL_IN\020\004\022\035\n\031IO_BOAR"
+      "D_INIT_DIGITAL_OUT\020\005\022\023\n\017RFID_BOARD_INIT\020"
+      "\006\022\037\n\033RFID_BOARD_SET_PHASE_MATRIX\020\007\022\r\n\tUA"
+      "RT_INIT\020\010\022\023\n\017UART_WRITE_DATA\020\t\022\023\n\017DIGITA"
+      "L_OUT_SET\020\n\022\025\n\021DIGITAL_OUT_PULSE\020\013\022\032\n\026ST"
+      "ART_DIGITAL_OUT_LOOP\020\014\022\031\n\025STOP_DIGITAL_O"
+      "UT_LOOP\020\r\022\026\n\022GPIO_WIRINGPI_INIT\020\016\022!\n\035GPI"
+      "O_WIRINGPI_INIT_DIGITAL_IN\020\017\022\"\n\036GPIO_WIR"
+      "INGPI_INIT_DIGITAL_OUT\020\020\022\016\n\nINIT_SOUND\020\021"
+      "\022\025\n\021INIT_SOUND_SIGNAL\020\022\022\030\n\024UART_INIT_DIG"
+      "ITAL_IN\020\023\022\031\n\025UART_INIT_DIGITAL_OUT\020\024*\204\001\n"
+      "\017SoundSignalType\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUAR"
+      "E_WAVE\020\001\022\021\n\rTRIANGLE_WAVE\020\002\022\022\n\016SAW_TOOTH"
+      "_WAVE\020\003\022\017\n\013WHITE_NOISE\020\004\022\016\n\nPINK_NOISE\020\005"
+      "\022\t\n\005SWEEP\020\006b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2210);
+      descriptor, 2459);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClient.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
@@ -829,6 +838,25 @@ bool ClientMessageType_IsValid(int value) {
     case 18:
     case 19:
     case 20:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* SoundSignalType_descriptor() {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetClient_2eproto::file_level_enum_descriptors[3];
+}
+bool SoundSignalType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -6159,85 +6187,103 @@ void InitSound::InternalSwap(InitSound* other) {
 
 // ===================================================================
 
-void DefineSineTone::InitAsDefaultInstance() {
+void InitSoundSignal::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DefineSineTone::kIdFieldNumber;
-const int DefineSineTone::kFrequenzFieldNumber;
-const int DefineSineTone::kVolumeFieldNumber;
+const int InitSoundSignal::kSignalTypeFieldNumber;
+const int InitSoundSignal::kIdFieldNumber;
+const int InitSoundSignal::kFrequencyFieldNumber;
+const int InitSoundSignal::kFrequencyEndFieldNumber;
+const int InitSoundSignal::kSweepLengthSecondsFieldNumber;
+const int InitSoundSignal::kVolumeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-DefineSineTone::DefineSineTone()
+InitSoundSignal::InitSoundSignal()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   ::google::protobuf::internal::InitSCC(
-      &protobuf_LabNetClient_2eproto::scc_info_DefineSineTone.base);
+      &protobuf_LabNetClient_2eproto::scc_info_InitSoundSignal.base);
   SharedCtor();
-  // @@protoc_insertion_point(constructor:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.InitSoundSignal)
 }
-DefineSineTone::DefineSineTone(const DefineSineTone& from)
+InitSoundSignal::InitSoundSignal(const InitSoundSignal& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&id_, &from.id_,
+  ::memcpy(&signal_type_, &from.signal_type_,
     static_cast<size_t>(reinterpret_cast<char*>(&volume_) -
-    reinterpret_cast<char*>(&id_)) + sizeof(volume_));
-  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.DefineSineTone)
+    reinterpret_cast<char*>(&signal_type_)) + sizeof(volume_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.InitSoundSignal)
 }
 
-void DefineSineTone::SharedCtor() {
-  ::memset(&id_, 0, static_cast<size_t>(
+void InitSoundSignal::SharedCtor() {
+  ::memset(&signal_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&volume_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(volume_));
+      reinterpret_cast<char*>(&signal_type_)) + sizeof(volume_));
 }
 
-DefineSineTone::~DefineSineTone() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.DefineSineTone)
+InitSoundSignal::~InitSoundSignal() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.InitSoundSignal)
   SharedDtor();
 }
 
-void DefineSineTone::SharedDtor() {
+void InitSoundSignal::SharedDtor() {
 }
 
-void DefineSineTone::SetCachedSize(int size) const {
+void InitSoundSignal::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ::google::protobuf::Descriptor* DefineSineTone::descriptor() {
+const ::google::protobuf::Descriptor* InitSoundSignal::descriptor() {
   ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const DefineSineTone& DefineSineTone::default_instance() {
-  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_DefineSineTone.base);
+const InitSoundSignal& InitSoundSignal::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_InitSoundSignal.base);
   return *internal_default_instance();
 }
 
 
-void DefineSineTone::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.DefineSineTone)
+void InitSoundSignal::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.InitSoundSignal)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&id_, 0, static_cast<size_t>(
+  ::memset(&signal_type_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&volume_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(volume_));
+      reinterpret_cast<char*>(&signal_type_)) + sizeof(volume_));
   _internal_metadata_.Clear();
 }
 
-bool DefineSineTone::MergePartialFromCodedStream(
+bool InitSoundSignal::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.InitSoundSignal)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // uint32 id = 1;
+      // .LabNetProt.Client.SoundSignalType signal_type = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_signal_type(static_cast< ::LabNetProt::Client::SoundSignalType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // uint32 id = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -6248,24 +6294,52 @@ bool DefineSineTone::MergePartialFromCodedStream(
         break;
       }
 
-      // uint32 frequenz = 2;
-      case 2: {
+      // uint32 frequency = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &frequenz_)));
+                 input, &frequency_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // float volume = 3;
-      case 3: {
+      // uint32 frequency_end = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(29u /* 29 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &frequency_end_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float sweep_length_seconds = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(45u /* 45 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &sweep_length_seconds_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // float volume = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
@@ -6288,74 +6362,106 @@ bool DefineSineTone::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.InitSoundSignal)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.InitSoundSignal)
   return false;
 #undef DO_
 }
 
-void DefineSineTone::SerializeWithCachedSizes(
+void InitSoundSignal::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.InitSoundSignal)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 id = 1;
+  // .LabNetProt.Client.SoundSignalType signal_type = 1;
+  if (this->signal_type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->signal_type(), output);
+  }
+
+  // uint32 id = 2;
   if (this->id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->id(), output);
   }
 
-  // uint32 frequenz = 2;
-  if (this->frequenz() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->frequenz(), output);
+  // uint32 frequency = 3;
+  if (this->frequency() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->frequency(), output);
   }
 
-  // float volume = 3;
+  // uint32 frequency_end = 4;
+  if (this->frequency_end() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->frequency_end(), output);
+  }
+
+  // float sweep_length_seconds = 5;
+  if (this->sweep_length_seconds() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->sweep_length_seconds(), output);
+  }
+
+  // float volume = 6;
   if (this->volume() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->volume(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->volume(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
   }
-  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.InitSoundSignal)
 }
 
-::google::protobuf::uint8* DefineSineTone::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* InitSoundSignal::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.InitSoundSignal)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 id = 1;
+  // .LabNetProt.Client.SoundSignalType signal_type = 1;
+  if (this->signal_type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->signal_type(), target);
+  }
+
+  // uint32 id = 2;
   if (this->id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->id(), target);
   }
 
-  // uint32 frequenz = 2;
-  if (this->frequenz() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->frequenz(), target);
+  // uint32 frequency = 3;
+  if (this->frequency() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->frequency(), target);
   }
 
-  // float volume = 3;
+  // uint32 frequency_end = 4;
+  if (this->frequency_end() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->frequency_end(), target);
+  }
+
+  // float sweep_length_seconds = 5;
+  if (this->sweep_length_seconds() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->sweep_length_seconds(), target);
+  }
+
+  // float volume = 6;
   if (this->volume() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->volume(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->volume(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.InitSoundSignal)
   return target;
 }
 
-size_t DefineSineTone::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.DefineSineTone)
+size_t InitSoundSignal::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.InitSoundSignal)
   size_t total_size = 0;
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6363,21 +6469,39 @@ size_t DefineSineTone::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // uint32 id = 1;
+  // .LabNetProt.Client.SoundSignalType signal_type = 1;
+  if (this->signal_type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->signal_type());
+  }
+
+  // uint32 id = 2;
   if (this->id() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->id());
   }
 
-  // uint32 frequenz = 2;
-  if (this->frequenz() != 0) {
+  // uint32 frequency = 3;
+  if (this->frequency() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->frequenz());
+        this->frequency());
   }
 
-  // float volume = 3;
+  // uint32 frequency_end = 4;
+  if (this->frequency_end() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->frequency_end());
+  }
+
+  // float sweep_length_seconds = 5;
+  if (this->sweep_length_seconds() != 0) {
+    total_size += 1 + 4;
+  }
+
+  // float volume = 6;
   if (this->volume() != 0) {
     total_size += 1 + 4;
   }
@@ -6387,70 +6511,82 @@ size_t DefineSineTone::ByteSizeLong() const {
   return total_size;
 }
 
-void DefineSineTone::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.DefineSineTone)
+void InitSoundSignal::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.InitSoundSignal)
   GOOGLE_DCHECK_NE(&from, this);
-  const DefineSineTone* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const DefineSineTone>(
+  const InitSoundSignal* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const InitSoundSignal>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.InitSoundSignal)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.DefineSineTone)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.InitSoundSignal)
     MergeFrom(*source);
   }
 }
 
-void DefineSineTone::MergeFrom(const DefineSineTone& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.DefineSineTone)
+void InitSoundSignal::MergeFrom(const InitSoundSignal& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.InitSoundSignal)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.signal_type() != 0) {
+    set_signal_type(from.signal_type());
+  }
   if (from.id() != 0) {
     set_id(from.id());
   }
-  if (from.frequenz() != 0) {
-    set_frequenz(from.frequenz());
+  if (from.frequency() != 0) {
+    set_frequency(from.frequency());
+  }
+  if (from.frequency_end() != 0) {
+    set_frequency_end(from.frequency_end());
+  }
+  if (from.sweep_length_seconds() != 0) {
+    set_sweep_length_seconds(from.sweep_length_seconds());
   }
   if (from.volume() != 0) {
     set_volume(from.volume());
   }
 }
 
-void DefineSineTone::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.DefineSineTone)
+void InitSoundSignal::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.InitSoundSignal)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DefineSineTone::CopyFrom(const DefineSineTone& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.DefineSineTone)
+void InitSoundSignal::CopyFrom(const InitSoundSignal& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.InitSoundSignal)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DefineSineTone::IsInitialized() const {
+bool InitSoundSignal::IsInitialized() const {
   return true;
 }
 
-void DefineSineTone::Swap(DefineSineTone* other) {
+void InitSoundSignal::Swap(InitSoundSignal* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void DefineSineTone::InternalSwap(DefineSineTone* other) {
+void InitSoundSignal::InternalSwap(InitSoundSignal* other) {
   using std::swap;
+  swap(signal_type_, other->signal_type_);
   swap(id_, other->id_);
-  swap(frequenz_, other->frequenz_);
+  swap(frequency_, other->frequency_);
+  swap(frequency_end_, other->frequency_end_);
+  swap(sweep_length_seconds_, other->sweep_length_seconds_);
   swap(volume_, other->volume_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
 }
 
-::google::protobuf::Metadata DefineSineTone::GetMetadata() const {
+::google::protobuf::Metadata InitSoundSignal::GetMetadata() const {
   protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
 }
@@ -6521,8 +6657,8 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::LabNetIdRequ
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::InitSound* Arena::CreateMaybeMessage< ::LabNetProt::Client::InitSound >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::InitSound >(arena);
 }
-template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::DefineSineTone* Arena::CreateMaybeMessage< ::LabNetProt::Client::DefineSineTone >(Arena* arena) {
-  return Arena::CreateInternal< ::LabNetProt::Client::DefineSineTone >(arena);
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::InitSoundSignal* Arena::CreateMaybeMessage< ::LabNetProt::Client::InitSoundSignal >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::InitSoundSignal >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

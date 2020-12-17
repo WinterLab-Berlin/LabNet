@@ -182,8 +182,8 @@ namespace LabNet::network
             case ClientMessageType::INIT_SOUND:
                 ParseAndSendMessage<InitSound>();
                 break;
-            case ClientMessageType::DEFINE_SINE_TONE:
-                ParseAndSendMessage<DefineSineTone>();
+            case ClientMessageType::INIT_SOUND_SIGNAL:
+                ParseAndSendMessage<InitSoundSignal>();
                 break;
             case ClientMessageType::UART_INIT_DIGITAL_IN:
                 ParseAndSendMessage<UartInitDigitalIn>();
