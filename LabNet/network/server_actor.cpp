@@ -46,6 +46,7 @@ void ServerActor::so_define_agent()
         .event(server_in_box_,
             [this](mhood_t<LabNet::helper::ResetDone> msg) {
                 std::shared_ptr<LabNetProt::Server::LabNetResetReply> resetReply = std::make_shared<LabNetProt::Server::LabNetResetReply>();
+                resetReply->set_is_reset(true);
                 connection_->SendMessage(resetReply, LabNetProt::Server::ServerMessageType::LABNET_RESET_REPLY);
 
                 this >>= connected_state_;
