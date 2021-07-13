@@ -7,4 +7,5 @@ project ("LabNet")
 
 # Include sub-projects.
 add_subdirectory("LabNet")
+
 add_subdirectory(sobjectizer/dev sobjectizer)

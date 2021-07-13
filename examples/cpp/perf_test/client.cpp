@@ -21,6 +21,7 @@ Client::Client(std::string server, uint16_t port)
         [this](const boost::system::error_code& ec) {
             if (!ec)
             {
+                tcp_socket_.set_option(boost::asio::ip::tcp::no_delay(true));
                 so_5::send<start>(recv_box_);
 
                 StartReadHeader();

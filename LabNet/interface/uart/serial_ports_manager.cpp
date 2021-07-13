@@ -87,8 +87,8 @@ void SerialPortsManager::so_define_agent()
                 so_5::send<stream_messages::SendDataComplete>(events_box_, static_cast<Interfaces>(mes.pin + 100));
             })
         .event(self_box_,
-            [this](const mhood_t<LabNetProt::Client::UartInitDigitalIn> msg) {
-                uint32_t port = static_cast<uint32_t>(msg->pin()) - 100;
+            [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalIn> msg) {
+                uint32_t port = static_cast<uint32_t>(msg->port()) - 100;
                 auto it = ports_.find(port);
                 if (it != ports_.end() && port != 100 && msg->pin() > 0 && msg->pin() < 3)
                 {
@@ -101,8 +101,8 @@ void SerialPortsManager::so_define_agent()
                 }
             })
         .event(self_box_,
-            [this](const mhood_t<LabNetProt::Client::UartInitDigitalOut> msg) {
-                uint32_t port = static_cast<uint32_t>(msg->pin()) - 100;
+            [this](std::shared_ptr<LabNetProt::Client::UartInitDigitalOut> msg) {
+                uint32_t port = static_cast<uint32_t>(msg->port()) - 100;
                 auto it = ports_.find(port);
                 if (it != ports_.end() && port != 100 && msg->pin() > 0 && msg->pin() < 3)
                 {

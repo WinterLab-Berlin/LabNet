@@ -16,6 +16,7 @@ class Client:
             self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         else:
             self.sock = sock
+        self.sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, True)
 
     def __enter__(self, sock=None):
         return self

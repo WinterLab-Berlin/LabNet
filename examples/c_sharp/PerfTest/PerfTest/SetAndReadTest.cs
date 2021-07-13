@@ -137,11 +137,14 @@ namespace PerfTest
                         double mean = Statistics.Mean(_stats);
                         double median = Statistics.Median(_stats);
                         double sdv = Statistics.StandardDeviation(_stats);
-                        double percentile95 = Statistics.Percentile(_stats, 95);
-                        double min = Statistics.Minimum(_stats);
-                        double max = Statistics.Maximum(_stats);
+                        double p25 = Statistics.Quantile(_stats, 0.25);
+                        double p75 = Statistics.Quantile(_stats, 0.75);
+                        double p97_5 = Statistics.Quantile(_stats, 0.975);
+                        double p2_5 = Statistics.Quantile(_stats, 0.025);
+                        //double min = Statistics.Minimum(_stats);
+                        //double max = Statistics.Maximum(_stats);
 
-                        Console.WriteLine($"\rmean: {mean:0.00} std: {sdv:0.00} median: {median:0.00} p95: {percentile95:0.00} min: {min:0.00} max: {max:0.00}");
+                        Console.WriteLine($"\rmean: {mean:0.00} std: {sdv:0.00} median: {median:0.00} p25: {p25:0.00} p75: {p75:0.00} p2.5: {p2_5:0.00} p97.5: {p97_5:0.00}");
                         Context.Stop(Self);
                     }
                 }

@@ -50,7 +50,8 @@ private:
                     {
                         std::cout << std::fixed << std::setprecision(2)
                                   << "\rmean: " << stats.GetMean() << " std dev: " << stats.GetStandardDeviation() << " median: " << stats.GetPercentile(50)
-                                  << " p95: " << stats.GetPercentile(95) << " min: " << stats.GetMin() << " max: " << stats.GetMax() << std::endl;
+                                  << " p25: " << stats.GetPercentile(25) << " p75: " << stats.GetPercentile(75)
+                                  << " p2.5: " << stats.GetPercentile(2.5) << " p97.5: " << stats.GetPercentile(97.5) << std::endl;
 
                         if (next_box_)
                         {

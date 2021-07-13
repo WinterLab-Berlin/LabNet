@@ -29,12 +29,12 @@ namespace LabNet::interface::rfid_board
 
     void MAXDevice::ResetBuffers()
     {
-        for (int i = 0; i < 8; i++)
+        for (uint8_t i = 0; i < 8; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (uint8_t j = 0; j < 4; j++)
             {
                 max_uart_RFIDCounter[i][j] = 0;
-                for (int k = 0; k < 14; k++)
+                for (uint8_t k = 0; k < 14; k++)
                 {
                     max_uart_RFIDFifo[i][j][k] = 0;
                 }
@@ -44,8 +44,6 @@ namespace LabNet::interface::rfid_board
 
     void MAXDevice::Reset()
     {
-        uint8_t cnt1, cnt2;
-
         logger_->WriteInfoEntry("reset max14830");
 
         // set reset pin to output
@@ -57,8 +55,8 @@ namespace LabNet::interface::rfid_board
 
         //TODO: there's no check here whether everything works
         // assure MAX14830 is ready
-        for (cnt1 = 0; cnt1 < 8; cnt1++)
-            for (cnt2 = 0; cnt2 < 4; cnt2++)
+        for (uint8_t cnt1 = 0; cnt1 < 8; cnt1++)
+            for (uint8_t cnt2 = 0; cnt2 < 4; cnt2++)
                 max14830_isReady(cnt1, cnt2);
     }
 
@@ -81,7 +79,6 @@ namespace LabNet::interface::rfid_board
         // get baud rate and line status
         for (cnt1 = 0; cnt1 < 8; cnt1++)
         {
-            // may be unsafe FK
             //uint8_t revId = max14830_getRevisionId(cnt1);
             //printf("Revision ID (%02d): 0x%02x\n", cnt1, revId);
 
@@ -97,7 +94,6 @@ namespace LabNet::interface::rfid_board
             //printf("%s", "\n");
         }
 
-        // reset FIFO; timing with delay? FK
         for (cnt1 = 0; cnt1 < 8; cnt1++)
             for (cnt2 = 0; cnt2 < 4; cnt2++)
                 max14830_resetFifo(cnt1, cnt2);
@@ -156,12 +152,10 @@ namespace LabNet::interface::rfid_board
 
     void MAXDevice::Stop()
     {
-        uint8_t cnt1, cnt2;
-
         // switch off antenna and disable chip select
-        for (cnt1 = 0; cnt1 < 8; cnt1++)
+        for (uint8_t cnt1 = 0; cnt1 < 8; cnt1++)
         {
-            for (cnt2 = 0; cnt2 < 4; cnt2++)
+            for (uint8_t cnt2 = 0; cnt2 < 4; cnt2++)
                 max14830_setAntenna(cnt1, cnt2, false);
 
             max14830_disable(cnt1);
@@ -303,7 +297,7 @@ namespace LabNet::interface::rfid_board
                     matrix_phase_ = 1;
                 }
 
-                //logger_->WriteInfoEntry(string_format("switch matrix %u", matrix));
+                //logger_->WriteInfoEntry(log::StringFormat("switch matrix %u", matrix));
                 for (cnt1 = 0; cnt1 < 8; cnt1++)
                 {
                     for (cnt2 = 0; cnt2 < 4; cnt2++)
@@ -321,9 +315,8 @@ namespace LabNet::interface::rfid_board
 
     void MAXDevice::ReadAllAndSetAntenna()
     {
-        uint8_t cnt1, cnt2;
-        for (cnt1 = 0; cnt1 < 8; cnt1++)
-            for (cnt2 = 0; cnt2 < 4; cnt2++)
+        for (uint8_t cnt1 = 0; cnt1 < 8; cnt1++)
+            for (uint8_t cnt2 = 0; cnt2 < 4; cnt2++)
                 ReadRXFifo(cnt1, cnt2);
 
         SwitchPhaseMatrix();

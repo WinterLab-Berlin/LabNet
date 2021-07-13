@@ -7,10 +7,11 @@ import LabNetServer_pb2 as LabNetServer
 
 from client import Client
 
+labnet_ip = "192.168.137.101"
 
 with Client() as labNet:
     print("start ID test")
-    labNet.connect("192.168.137.101", 8080)
+    labNet.connect(labnet_ip, 8080)
     
     reset = LabNetClient.LabNetResetRequest()
     labNet.send(reset)
@@ -36,18 +37,21 @@ with Client() as labNet:
             print("wrong response")
     
     median = np.percentile(times, 50)
-    p95 = np.percentile(times, 95)
-    min = np.min(times)
-    max = np.max(times)
+    p2_5 = np.percentile(times, 2.5)
+    p25 = np.percentile(times, 25)
+    p75 = np.percentile(times, 75)
+    p97_5 = np.percentile(times, 97.5)
+    #min = np.min(times)
+    #max = np.max(times)
     mean = np.mean(times)
     std = np.std(times)
 
-    print(f"\nmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p95: {p95:.2f} min: {min:.2f} max: {max:.2f}")
+    print(f"\rmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p25: {p25:.2f} p75: {p75:.2f} p2.5: {p2_5:.2f} p97.5: {p97_5:.2f}")
 
 
 with Client() as labNet:
     print("start set digital out test")
-    labNet.connect("192.168.137.101", 8080)
+    labNet.connect(labnet_ip, 8080)
 
     reset = LabNetClient.LabNetResetRequest()
     labNet.send(reset)
@@ -109,19 +113,21 @@ with Client() as labNet:
         turn_on = not turn_on
 
     median = np.percentile(times, 50)
-    p95 = np.percentile(times, 95)
-    min = np.min(times)
-    max = np.max(times)
+    p2_5 = np.percentile(times, 2.5)
+    p25 = np.percentile(times, 25)
+    p75 = np.percentile(times, 75)
+    p97_5 = np.percentile(times, 97.5)
+    #min = np.min(times)
+    #max = np.max(times)
     mean = np.mean(times)
     std = np.std(times)
 
-    print(
-        f"\nmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p95: {p95:.2f} min: {min:.2f} max: {max:.2f}")
+    print(f"\rmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p25: {p25:.2f} p75: {p75:.2f} p2.5: {p2_5:.2f} p97.5: {p97_5:.2f}")
 
 
 with Client() as labNet:
     print("start set and read GPIO test")
-    labNet.connect("192.168.137.101", 8080)
+    labNet.connect(labnet_ip, 8080)
 
     reset = LabNetClient.LabNetResetRequest()
     labNet.send(reset)
@@ -200,11 +206,13 @@ with Client() as labNet:
         turn_on = not turn_on
 
     median = np.percentile(times, 50)
-    p95 = np.percentile(times, 95)
-    min = np.min(times)
-    max = np.max(times)
+    p2_5 = np.percentile(times, 2.5)
+    p25 = np.percentile(times, 25)
+    p75 = np.percentile(times, 75)
+    p97_5 = np.percentile(times, 97.5)
+    #min = np.min(times)
+    #max = np.max(times)
     mean = np.mean(times)
     std = np.std(times)
 
-    print(
-        f"\nmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p95: {p95:.2f} min: {min:.2f} max: {max:.2f}")
+    print(f"\rmean: {mean:.2f} std dev: {std:.2f} median: {median:.2f} p25: {p25:.2f} p75: {p75:.2f} p2.5: {p2_5:.2f} p97.5: {p97_5:.2f}")
