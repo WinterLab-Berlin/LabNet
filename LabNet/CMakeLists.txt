@@ -31,7 +31,8 @@ add_executable(LabNet LabNet.cpp
                digital_out/digital_out_helper.h digital_out/digital_out_helper.cpp digital_out/loop_messages.h digital_out/pulse_helper.h
                digital_out/pulse_helper.cpp digital_out/loop_helper.h digital_out/pin_id.h digital_out/loop_helper.cpp
                helper/reset_helper.h helper/reset_helper.cpp helper/reset_msg.h
-               resources/resource.h resources/resource.cpp resources/resources_actor.h  resources/resources_actor.cpp)
+               resources/resource.h resources/resource.cpp resources/resources_actor.h  resources/resources_actor.cpp
+               "interface/chi_bio/chi_bio_main_actor.h" "interface/chi_bio/chi_bio_main_actor.cpp")
 
 target_include_directories(LabNet PRIVATE ${BOOST_ASIO_INCLUDE_DIRS} ${BOOST_SIGNALS2_INCLUDE_DIRS})
 target_include_directories(LabNet PRIVATE ../sobjectizer/dev)

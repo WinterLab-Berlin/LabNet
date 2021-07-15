@@ -36,6 +36,8 @@ namespace LabNet::interface
         so_5::coop_handle_t uart_coop_;
         so_5::mbox_t sound_box_;
         so_5::coop_handle_t sound_coop_;
+        so_5::mbox_t chi_bio_box_;
+        so_5::coop_handle_t chi_bio_coop_;
 
         std::map<uint8_t, bool> reset_states_;
     };

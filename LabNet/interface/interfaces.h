@@ -9,6 +9,7 @@ namespace LabNet::interface
         RfidBoard = 2,
         GpioWiring = 3,
         Sound = 4,
+        ChiBio = 5,
         Uart0 = 100,
         Uart1 = 101,
         Uart2 = 102,

@@ -24,6 +24,8 @@ enum ClientMessageType {
 	INIT_SOUND_SIGNAL = 18;
 	UART_INIT_DIGITAL_IN = 19;
 	UART_INIT_DIGITAL_OUT = 20;
+	CHI_BIO_INIT = 21;
+	MOVE_CHI_BIO_PUMP = 22;
 }
 
 // IO board messages
@@ -175,3 +177,14 @@ message InitSoundSignal {
 	float volume = 6;
 }
 // sound
+
+// ChiBio
+message ChiBioInit {
+
+}
+
+message MoveChiBioPump {
+	uint32 pump_id = 1;
+	int32 move = 2;
+}
+// ChiBio

@@ -19,6 +19,7 @@ enum ServerMessageType {
 	INTERFACE_RECONNECTED = 12;
 	DIGITAL_OUT_LOOP_START_RESULT = 13;
 	DIGITAL_OUT_LOOP_STOPPED = 14;
+	CHI_BIO_PUMP_MOVE_RESULT = 25;
 }
 
 // general messages
@@ -95,3 +96,16 @@ message DigitalOutLoopStopped {
 	string loop_name = 1;
 }
 // digital out loop
+
+
+// ChiBio
+message ChiBioPumpMoveResult {
+	enum MoveResult {
+		STOPPED = 0;
+		MOVE_DOWN = 1;
+		MOVE_UP = 2;
+	}
+	uint32 pump_id = 1;
+	MoveResult result = 2;
+}
+// ChiBio

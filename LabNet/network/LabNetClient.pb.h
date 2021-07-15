@@ -40,7 +40,7 @@ namespace protobuf_LabNetClient_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[21];
+  static const ::google::protobuf::internal::ParseTable schema[23];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -49,6 +49,9 @@ void AddDescriptors();
 }  // namespace protobuf_LabNetClient_2eproto
 namespace LabNetProt {
 namespace Client {
+class ChiBioInit;
+class ChiBioInitDefaultTypeInternal;
+extern ChiBioInitDefaultTypeInternal _ChiBioInit_default_instance_;
 class DigitalOutPulse;
 class DigitalOutPulseDefaultTypeInternal;
 extern DigitalOutPulseDefaultTypeInternal _DigitalOutPulse_default_instance_;
@@ -85,6 +88,9 @@ extern LabNetIdRequestDefaultTypeInternal _LabNetIdRequest_default_instance_;
 class LabNetResetRequest;
 class LabNetResetRequestDefaultTypeInternal;
 extern LabNetResetRequestDefaultTypeInternal _LabNetResetRequest_default_instance_;
+class MoveChiBioPump;
+class MoveChiBioPumpDefaultTypeInternal;
+extern MoveChiBioPumpDefaultTypeInternal _MoveChiBioPump_default_instance_;
 class RfidBoardInit;
 class RfidBoardInitDefaultTypeInternal;
 extern RfidBoardInitDefaultTypeInternal _RfidBoardInit_default_instance_;
@@ -116,6 +122,7 @@ extern UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
 }  // namespace LabNetProt
 namespace google {
 namespace protobuf {
+template<> ::LabNetProt::Client::ChiBioInit* Arena::CreateMaybeMessage<::LabNetProt::Client::ChiBioInit>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutPulse* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutPulse>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutSet* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutSet>(Arena*);
 template<> ::LabNetProt::Client::GpioWiringPiInit* Arena::CreateMaybeMessage<::LabNetProt::Client::GpioWiringPiInit>(Arena*);
@@ -128,6 +135,7 @@ template<> ::LabNetProt::Client::IoBoardInitDigitalIn* Arena::CreateMaybeMessage
 template<> ::LabNetProt::Client::IoBoardInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::IoBoardInitDigitalOut>(Arena*);
 template<> ::LabNetProt::Client::LabNetIdRequest* Arena::CreateMaybeMessage<::LabNetProt::Client::LabNetIdRequest>(Arena*);
 template<> ::LabNetProt::Client::LabNetResetRequest* Arena::CreateMaybeMessage<::LabNetProt::Client::LabNetResetRequest>(Arena*);
+template<> ::LabNetProt::Client::MoveChiBioPump* Arena::CreateMaybeMessage<::LabNetProt::Client::MoveChiBioPump>(Arena*);
 template<> ::LabNetProt::Client::RfidBoardInit* Arena::CreateMaybeMessage<::LabNetProt::Client::RfidBoardInit>(Arena*);
 template<> ::LabNetProt::Client::RfidBoardSetPhaseMatrix* Arena::CreateMaybeMessage<::LabNetProt::Client::RfidBoardSetPhaseMatrix>(Arena*);
 template<> ::LabNetProt::Client::StartDigitalOutLoop* Arena::CreateMaybeMessage<::LabNetProt::Client::StartDigitalOutLoop>(Arena*);
@@ -208,12 +216,14 @@ enum ClientMessageType {
   INIT_SOUND_SIGNAL = 18,
   UART_INIT_DIGITAL_IN = 19,
   UART_INIT_DIGITAL_OUT = 20,
+  CHI_BIO_INIT = 21,
+  MOVE_CHI_BIO_PUMP = 22,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ClientMessageType_IsValid(int value);
 const ClientMessageType ClientMessageType_MIN = NONE;
-const ClientMessageType ClientMessageType_MAX = UART_INIT_DIGITAL_OUT;
+const ClientMessageType ClientMessageType_MAX = MOVE_CHI_BIO_PUMP;
 const int ClientMessageType_ARRAYSIZE = ClientMessageType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientMessageType_descriptor();
@@ -2696,6 +2706,212 @@ class InitSoundSignal : public ::google::protobuf::Message /* @@protoc_insertion
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class ChiBioInit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.ChiBioInit) */ {
+ public:
+  ChiBioInit();
+  virtual ~ChiBioInit();
+
+  ChiBioInit(const ChiBioInit& from);
+
+  inline ChiBioInit& operator=(const ChiBioInit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ChiBioInit(ChiBioInit&& from) noexcept
+    : ChiBioInit() {
+    *this = ::std::move(from);
+  }
+
+  inline ChiBioInit& operator=(ChiBioInit&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ChiBioInit& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ChiBioInit* internal_default_instance() {
+    return reinterpret_cast<const ChiBioInit*>(
+               &_ChiBioInit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    21;
+
+  void Swap(ChiBioInit* other);
+  friend void swap(ChiBioInit& a, ChiBioInit& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ChiBioInit* New() const final {
+    return CreateMaybeMessage<ChiBioInit>(NULL);
+  }
+
+  ChiBioInit* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ChiBioInit>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const ChiBioInit& from);
+  void MergeFrom(const ChiBioInit& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ChiBioInit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.ChiBioInit)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class MoveChiBioPump : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.MoveChiBioPump) */ {
+ public:
+  MoveChiBioPump();
+  virtual ~MoveChiBioPump();
+
+  MoveChiBioPump(const MoveChiBioPump& from);
+
+  inline MoveChiBioPump& operator=(const MoveChiBioPump& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MoveChiBioPump(MoveChiBioPump&& from) noexcept
+    : MoveChiBioPump() {
+    *this = ::std::move(from);
+  }
+
+  inline MoveChiBioPump& operator=(MoveChiBioPump&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MoveChiBioPump& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MoveChiBioPump* internal_default_instance() {
+    return reinterpret_cast<const MoveChiBioPump*>(
+               &_MoveChiBioPump_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    22;
+
+  void Swap(MoveChiBioPump* other);
+  friend void swap(MoveChiBioPump& a, MoveChiBioPump& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MoveChiBioPump* New() const final {
+    return CreateMaybeMessage<MoveChiBioPump>(NULL);
+  }
+
+  MoveChiBioPump* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<MoveChiBioPump>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const MoveChiBioPump& from);
+  void MergeFrom(const MoveChiBioPump& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MoveChiBioPump* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 pump_id = 1;
+  void clear_pump_id();
+  static const int kPumpIdFieldNumber = 1;
+  ::google::protobuf::uint32 pump_id() const;
+  void set_pump_id(::google::protobuf::uint32 value);
+
+  // int32 move = 2;
+  void clear_move();
+  static const int kMoveFieldNumber = 2;
+  ::google::protobuf::int32 move() const;
+  void set_move(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.MoveChiBioPump)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 pump_id_;
+  ::google::protobuf::int32 move_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3666,9 +3882,49 @@ inline void InitSoundSignal::set_volume(float value) {
   // @@protoc_insertion_point(field_set:LabNetProt.Client.InitSoundSignal.volume)
 }
 
+// -------------------------------------------------------------------
+
+// ChiBioInit
+
+// -------------------------------------------------------------------
+
+// MoveChiBioPump
+
+// uint32 pump_id = 1;
+inline void MoveChiBioPump::clear_pump_id() {
+  pump_id_ = 0u;
+}
+inline ::google::protobuf::uint32 MoveChiBioPump::pump_id() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.MoveChiBioPump.pump_id)
+  return pump_id_;
+}
+inline void MoveChiBioPump::set_pump_id(::google::protobuf::uint32 value) {
+  
+  pump_id_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.MoveChiBioPump.pump_id)
+}
+
+// int32 move = 2;
+inline void MoveChiBioPump::clear_move() {
+  move_ = 0;
+}
+inline ::google::protobuf::int32 MoveChiBioPump::move() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.MoveChiBioPump.move)
+  return move_;
+}
+inline void MoveChiBioPump::set_move(::google::protobuf::int32 value) {
+  
+  move_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.MoveChiBioPump.move)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

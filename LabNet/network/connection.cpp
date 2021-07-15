@@ -191,6 +191,12 @@ namespace LabNet::network
             case ClientMessageType::UART_INIT_DIGITAL_OUT:
                 ParseAndSendMessage<UartInitDigitalOut>();
                 break;
+            case ClientMessageType::CHI_BIO_INIT:
+                ParseAndSendMessage<ChiBioInit>();
+                break;
+            case ClientMessageType::MOVE_CHI_BIO_PUMP:
+                ParseAndSendMessage<MoveChiBioPump>();
+                break;
             default:
                 break;
         }

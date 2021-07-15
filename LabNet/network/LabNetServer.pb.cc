@@ -97,6 +97,11 @@ class DigitalOutLoopStoppedDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<DigitalOutLoopStopped>
       _instance;
 } _DigitalOutLoopStopped_default_instance_;
+class ChiBioPumpMoveResultDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<ChiBioPumpMoveResult>
+      _instance;
+} _ChiBioPumpMoveResult_default_instance_;
 }  // namespace Server
 }  // namespace LabNetProt
 namespace protobuf_LabNetServer_2eproto {
@@ -303,6 +308,20 @@ static void InitDefaultsDigitalOutLoopStopped() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_DigitalOutLoopStopped =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsDigitalOutLoopStopped}, {}};
 
+static void InitDefaultsChiBioPumpMoveResult() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Server::_ChiBioPumpMoveResult_default_instance_;
+    new (ptr) ::LabNetProt::Server::ChiBioPumpMoveResult();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Server::ChiBioPumpMoveResult::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_ChiBioPumpMoveResult =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsChiBioPumpMoveResult}, {}};
+
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutState.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalInState.base);
@@ -318,10 +337,11 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_LabNetIdReply.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutLoopStartResult.base);
   ::google::protobuf::internal::InitSCC(&scc_info_DigitalOutLoopStopped.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_ChiBioPumpMoveResult.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[14];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[1];
+::google::protobuf::Metadata file_level_metadata[15];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -421,6 +441,13 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Server::DigitalOutLoopStopped, loop_name_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Server::ChiBioPumpMoveResult, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Server::ChiBioPumpMoveResult, pump_id_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Server::ChiBioPumpMoveResult, result_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::LabNetProt::Server::DigitalOutState)},
@@ -437,6 +464,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 76, -1, sizeof(::LabNetProt::Server::LabNetIdReply)},
   { 84, -1, sizeof(::LabNetProt::Server::DigitalOutLoopStartResult)},
   { 91, -1, sizeof(::LabNetProt::Server::DigitalOutLoopStopped)},
+  { 97, -1, sizeof(::LabNetProt::Server::ChiBioPumpMoveResult)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -454,6 +482,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Server::_LabNetIdReply_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Server::_DigitalOutLoopStartResult_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Server::_DigitalOutLoopStopped_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Server::_ChiBioPumpMoveResult_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -471,7 +500,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 14);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 15);
 }
 
 void AddDescriptorsImpl() {
@@ -505,20 +534,24 @@ void AddDescriptorsImpl() {
       "sion\030\003 \001(\r\"B\n\031DigitalOutLoopStartResult\022"
       "\021\n\tloop_name\030\001 \001(\t\022\022\n\nis_succeed\030\002 \001(\010\"*"
       "\n\025DigitalOutLoopStopped\022\021\n\tloop_name\030\001 \001"
-      "(\t*\210\003\n\021ServerMessageType\022\010\n\004NONE\020\000\022\023\n\017LA"
-      "BNET_ID_REPLY\020\001\022\026\n\022LABNET_RESET_REPLY\020\002\022"
-      "\025\n\021DIGITAL_OUT_STATE\020\003\022\024\n\020DIGITAL_IN_STA"
-      "TE\020\004\022\021\n\rNEW_BYTE_DATA\020\005\022\027\n\023DATA_WRITE_CO"
-      "MPLETE\020\006\022\031\n\025INTERFACE_INIT_RESULT\020\007\022\032\n\026D"
-      "IGITAL_IN_INIT_RESULT\020\010\022\033\n\027DIGITAL_OUT_I"
-      "NIT_RESULT\020\t\022\037\n\033ONLY_ONE_CONNECTION_ALLO"
-      "WED\020\n\022\022\n\016INTERFACE_LOST\020\013\022\031\n\025INTERFACE_R"
-      "ECONNECTED\020\014\022!\n\035DIGITAL_OUT_LOOP_START_R"
-      "ESULT\020\r\022\034\n\030DIGITAL_OUT_LOOP_STOPPED\020\016b\006p"
-      "roto3"
+      "(\t\"\242\001\n\024ChiBioPumpMoveResult\022\017\n\007pump_id\030\001"
+      " \001(\r\022B\n\006result\030\002 \001(\01622.LabNetProt.Server"
+      ".ChiBioPumpMoveResult.MoveResult\"5\n\nMove"
+      "Result\022\013\n\007STOPPED\020\000\022\r\n\tMOVE_DOWN\020\001\022\013\n\007MO"
+      "VE_UP\020\002*\246\003\n\021ServerMessageType\022\010\n\004NONE\020\000\022"
+      "\023\n\017LABNET_ID_REPLY\020\001\022\026\n\022LABNET_RESET_REP"
+      "LY\020\002\022\025\n\021DIGITAL_OUT_STATE\020\003\022\024\n\020DIGITAL_I"
+      "N_STATE\020\004\022\021\n\rNEW_BYTE_DATA\020\005\022\027\n\023DATA_WRI"
+      "TE_COMPLETE\020\006\022\031\n\025INTERFACE_INIT_RESULT\020\007"
+      "\022\032\n\026DIGITAL_IN_INIT_RESULT\020\010\022\033\n\027DIGITAL_"
+      "OUT_INIT_RESULT\020\t\022\037\n\033ONLY_ONE_CONNECTION"
+      "_ALLOWED\020\n\022\022\n\016INTERFACE_LOST\020\013\022\031\n\025INTERF"
+      "ACE_RECONNECTED\020\014\022!\n\035DIGITAL_OUT_LOOP_ST"
+      "ART_RESULT\020\r\022\034\n\030DIGITAL_OUT_LOOP_STOPPED"
+      "\020\016\022\034\n\030CHI_BIO_PUMP_MOVE_RESULT\020\031b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1525);
+      descriptor, 1720);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetServer.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
@@ -538,9 +571,32 @@ struct StaticDescriptorInitializer {
 }  // namespace protobuf_LabNetServer_2eproto
 namespace LabNetProt {
 namespace Server {
-const ::google::protobuf::EnumDescriptor* ServerMessageType_descriptor() {
+const ::google::protobuf::EnumDescriptor* ChiBioPumpMoveResult_MoveResult_descriptor() {
   protobuf_LabNetServer_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_LabNetServer_2eproto::file_level_enum_descriptors[0];
+}
+bool ChiBioPumpMoveResult_MoveResult_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const ChiBioPumpMoveResult_MoveResult ChiBioPumpMoveResult::STOPPED;
+const ChiBioPumpMoveResult_MoveResult ChiBioPumpMoveResult::MOVE_DOWN;
+const ChiBioPumpMoveResult_MoveResult ChiBioPumpMoveResult::MOVE_UP;
+const ChiBioPumpMoveResult_MoveResult ChiBioPumpMoveResult::MoveResult_MIN;
+const ChiBioPumpMoveResult_MoveResult ChiBioPumpMoveResult::MoveResult_MAX;
+const int ChiBioPumpMoveResult::MoveResult_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* ServerMessageType_descriptor() {
+  protobuf_LabNetServer_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_LabNetServer_2eproto::file_level_enum_descriptors[1];
 }
 bool ServerMessageType_IsValid(int value) {
   switch (value) {
@@ -559,6 +615,7 @@ bool ServerMessageType_IsValid(int value) {
     case 12:
     case 13:
     case 14:
+    case 25:
       return true;
     default:
       return false;
@@ -4376,6 +4433,273 @@ void DigitalOutLoopStopped::InternalSwap(DigitalOutLoopStopped* other) {
 }
 
 
+// ===================================================================
+
+void ChiBioPumpMoveResult::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int ChiBioPumpMoveResult::kPumpIdFieldNumber;
+const int ChiBioPumpMoveResult::kResultFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+ChiBioPumpMoveResult::ChiBioPumpMoveResult()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetServer_2eproto::scc_info_ChiBioPumpMoveResult.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Server.ChiBioPumpMoveResult)
+}
+ChiBioPumpMoveResult::ChiBioPumpMoveResult(const ChiBioPumpMoveResult& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&pump_id_, &from.pump_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&pump_id_)) + sizeof(result_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Server.ChiBioPumpMoveResult)
+}
+
+void ChiBioPumpMoveResult::SharedCtor() {
+  ::memset(&pump_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&pump_id_)) + sizeof(result_));
+}
+
+ChiBioPumpMoveResult::~ChiBioPumpMoveResult() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Server.ChiBioPumpMoveResult)
+  SharedDtor();
+}
+
+void ChiBioPumpMoveResult::SharedDtor() {
+}
+
+void ChiBioPumpMoveResult::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* ChiBioPumpMoveResult::descriptor() {
+  ::protobuf_LabNetServer_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServer_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const ChiBioPumpMoveResult& ChiBioPumpMoveResult::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetServer_2eproto::scc_info_ChiBioPumpMoveResult.base);
+  return *internal_default_instance();
+}
+
+
+void ChiBioPumpMoveResult::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&pump_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&pump_id_)) + sizeof(result_));
+  _internal_metadata_.Clear();
+}
+
+bool ChiBioPumpMoveResult::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 pump_id = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &pump_id_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .LabNetProt.Server.ChiBioPumpMoveResult.MoveResult result = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_result(static_cast< ::LabNetProt::Server::ChiBioPumpMoveResult_MoveResult >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Server.ChiBioPumpMoveResult)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Server.ChiBioPumpMoveResult)
+  return false;
+#undef DO_
+}
+
+void ChiBioPumpMoveResult::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pump_id = 1;
+  if (this->pump_id() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->pump_id(), output);
+  }
+
+  // .LabNetProt.Server.ChiBioPumpMoveResult.MoveResult result = 2;
+  if (this->result() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->result(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Server.ChiBioPumpMoveResult)
+}
+
+::google::protobuf::uint8* ChiBioPumpMoveResult::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pump_id = 1;
+  if (this->pump_id() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->pump_id(), target);
+  }
+
+  // .LabNetProt.Server.ChiBioPumpMoveResult.MoveResult result = 2;
+  if (this->result() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->result(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Server.ChiBioPumpMoveResult)
+  return target;
+}
+
+size_t ChiBioPumpMoveResult::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 pump_id = 1;
+  if (this->pump_id() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->pump_id());
+  }
+
+  // .LabNetProt.Server.ChiBioPumpMoveResult.MoveResult result = 2;
+  if (this->result() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->result());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ChiBioPumpMoveResult::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ChiBioPumpMoveResult* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const ChiBioPumpMoveResult>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Server.ChiBioPumpMoveResult)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Server.ChiBioPumpMoveResult)
+    MergeFrom(*source);
+  }
+}
+
+void ChiBioPumpMoveResult::MergeFrom(const ChiBioPumpMoveResult& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.pump_id() != 0) {
+    set_pump_id(from.pump_id());
+  }
+  if (from.result() != 0) {
+    set_result(from.result());
+  }
+}
+
+void ChiBioPumpMoveResult::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ChiBioPumpMoveResult::CopyFrom(const ChiBioPumpMoveResult& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Server.ChiBioPumpMoveResult)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ChiBioPumpMoveResult::IsInitialized() const {
+  return true;
+}
+
+void ChiBioPumpMoveResult::Swap(ChiBioPumpMoveResult* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void ChiBioPumpMoveResult::InternalSwap(ChiBioPumpMoveResult* other) {
+  using std::swap;
+  swap(pump_id_, other->pump_id_);
+  swap(result_, other->result_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata ChiBioPumpMoveResult::GetMetadata() const {
+  protobuf_LabNetServer_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetServer_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Server
 }  // namespace LabNetProt
@@ -4422,6 +4746,9 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Server::DigitalOutLo
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Server::DigitalOutLoopStopped* Arena::CreateMaybeMessage< ::LabNetProt::Server::DigitalOutLoopStopped >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Server::DigitalOutLoopStopped >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Server::ChiBioPumpMoveResult* Arena::CreateMaybeMessage< ::LabNetProt::Server::ChiBioPumpMoveResult >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Server::ChiBioPumpMoveResult >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

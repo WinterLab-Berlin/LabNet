@@ -14,6 +14,7 @@
 #include "rfid_board/rfid_main_actor.h"
 #include "sound/signal_generator.h"
 #include "uart/serial_ports_manager.h"
+#include "chi_bio/chi_bio_main_actor.h"
 
 namespace LabNet::interface
 {
@@ -29,6 +30,7 @@ namespace LabNet::interface
         reset_states_[2] = false;
         reset_states_[3] = false;
         reset_states_[4] = false;
+        reset_states_[5] = false;
     }
 
     void ManageInterfaces::so_define_agent()
@@ -48,6 +50,8 @@ namespace LabNet::interface
                         so_5::send<ContinueInterface>(uart_box_);
                     if (sound_box_)
                         so_5::send<ContinueInterface>(sound_box_);
+                    if (chi_bio_box_)
+                        so_5::send<ContinueInterface>(chi_bio_box_);
                 })
             .event(server_out_box_,
                 [this](const mhood_t<PauseInterface>& msg) {
@@ -61,6 +65,8 @@ namespace LabNet::interface
                         so_5::send<PauseInterface>(uart_box_);
                     if (sound_box_)
                         so_5::send<PauseInterface>(sound_box_);
+                    if (chi_bio_box_)
+                        so_5::send<PauseInterface>(chi_bio_box_);
                 })
             .event(self_mbox_,
                 [this](const mhood_t<LabNet::helper::ResetRequest>& msg) {
@@ -88,6 +94,11 @@ namespace LabNet::interface
                     {
                         reset_states_[4] = true;
                         so_environment().deregister_coop(sound_coop_, so_5::dereg_reason::normal);
+                    }
+                    if (chi_bio_box_)
+                    {
+                        reset_states_[5] = true;
+                        so_environment().deregister_coop(chi_bio_coop_, so_5::dereg_reason::normal);
                     }
 
                     reset_response_box_ = msg->response_box;
@@ -141,6 +152,15 @@ namespace LabNet::interface
                             {
                                 so_environment().deregister_coop(sound_coop_, so_5::dereg_reason::normal);
                                 sound_box_ = nullptr;
+                            }
+                        }
+                        break;
+                        case Interfaces::ChiBio:
+                        {
+                            if (!msg->is_succeed)
+                            {
+                                so_environment().deregister_coop(chi_bio_coop_, so_5::dereg_reason::normal);
+                                chi_bio_box_ = nullptr;
                             }
                         }
                         break;
@@ -291,6 +311,24 @@ namespace LabNet::interface
                     {
                         so_5::send<std::shared_ptr<LabNetProt::Client::InitSoundSignal>>(sound_box_, msg);
                     }
+                })
+            .event(server_out_box_,
+                [this](std::shared_ptr<LabNetProt::Client::ChiBioInit> msg) {
+                    if (!chi_bio_box_)
+                    {
+                        chi_bio_box_ = so_environment().create_mbox("chi_bio");
+                        auto chi_bio = so_environment().make_agent<chi_bio::ChiBioMainActor>(chi_bio_box_, self_mbox_, server_in_box_, logger_);
+                        chi_bio_coop_ = so_environment().register_agent_as_coop(std::move(chi_bio));
+                    }
+
+                    so_5::send<chi_bio::InitChiBio>(chi_bio_box_);
+                })
+            .event(server_out_box_,
+                [this](std::shared_ptr<LabNetProt::Client::MoveChiBioPump> msg) {
+                    if (chi_bio_box_)
+                    {
+                        so_5::send<std::shared_ptr<LabNetProt::Client::MoveChiBioPump>>(chi_bio_box_, msg);
+                    }
                 });
 
         reset_state_
@@ -320,6 +358,12 @@ namespace LabNet::interface
                         {
                             sound_box_ = nullptr;
                             reset_states_[4] = false;
+                        }
+                        break;
+                        case Interfaces::ChiBio:
+                        {
+                            chi_bio_box_ = nullptr;
+                            reset_states_[5] = false;
                         }
                         break;
                         case Interfaces::Uart0:

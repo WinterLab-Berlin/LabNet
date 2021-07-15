@@ -8,6 +8,7 @@ namespace LabNet::resources
         , logger_(logger)
         , resources_()
     {
+        logger_->WriteInfoEntry("res_man running");
     }
 
     ResourcesActor ::~ResourcesActor ()
