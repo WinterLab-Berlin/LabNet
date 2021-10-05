@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/411164461.svg)](https://zenodo.org/badge/latestdoi/411164461)
+
 # LabNet
 
 LabNet is a server to control hardware connected to RaspberryPi over Ethernet in behavioral experiment with animals. The protocol uses Google [Protobuf](https://github.com/protocolbuffers/protobuf) for the TCP/IP transport. The main goals are:
