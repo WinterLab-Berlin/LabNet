@@ -5,6 +5,8 @@
 #include <future>
 #include <so_5/mbox.hpp>
 #include <thread>
+#include <vector>
+#include <stdint-gcc.h>
 
 namespace LabNet::interface::rfid_board
 {
@@ -32,13 +34,12 @@ namespace LabNet::interface::rfid_board
         log::Logger logger_;
         so_5::mbox_t parent_mbox_;
 
-        uint8_t max_uart_RFIDFifo[8][4][14]; // actual readout from UART FIFO
+        uint8_t max_uart_RFIDFifo[8][4][16]; // actual readout from UART FIFO
         uint8_t max_uart_RFIDCounter[8][4]; // ring buffer
 
-        uint32_t antenna_phase1_ = UINT32_MAX, antenna_phase2_ = UINT32_MAX;
         uint32_t phase_duration_ = 250;
-        char matrix_phase_ = 1;
-        bool set_matrix_ = true;
+        std::vector<std::vector<uint8_t>> phases_;
+        size_t matrix_phase_ = 1;
         std::chrono::time_point<std::chrono::steady_clock, std::chrono::milliseconds> switch_time_;
     };
 }

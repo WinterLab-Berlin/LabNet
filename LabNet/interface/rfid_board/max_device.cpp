@@ -1,13 +1,14 @@
 #include "max_device.h"
 #include "../stream_messages.h"
 #include "max_14830.h"
+#include "max_14830_defs.h"
 #include "spi.h"
+#include <algorithm>
 #include <chrono>
 #include <cstring>
 #include <so_5/send_functions.hpp>
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
-#include "max_14830_defs.h"
 
 #define MAXRESET 16 // pin
 
@@ -21,6 +22,8 @@ namespace LabNet::interface::rfid_board
         using namespace std::chrono;
         typedef time_point<steady_clock, milliseconds> timePoint;
         switch_time_ = time_point_cast<timePoint::duration>(steady_clock::time_point(steady_clock::now()));
+
+        matrix_phase_ = 0;
     }
 
     MAXDevice::~MAXDevice()
@@ -34,7 +37,7 @@ namespace LabNet::interface::rfid_board
             for (uint8_t j = 0; j < 4; j++)
             {
                 max_uart_RFIDCounter[i][j] = 0;
-                for (uint8_t k = 0; k < 14; k++)
+                for (uint8_t k = 0; k < 16; k++)
                 {
                     max_uart_RFIDFifo[i][j][k] = 0;
                 }
@@ -144,10 +147,10 @@ namespace LabNet::interface::rfid_board
         // initialize UARTs
         InitUart();
 
-        // turn on antennas
+        // turn off antennas
         for (cnt1 = 0; cnt1 < 8; cnt1++)
             for (cnt2 = 0; cnt2 < 4; cnt2++)
-                max14830_setAntenna(cnt1, cnt2, true);
+                max14830_setAntenna(cnt1, cnt2, false);
     }
 
     void MAXDevice::Stop()
@@ -161,8 +164,7 @@ namespace LabNet::interface::rfid_board
             max14830_disable(cnt1);
         }
 
-        set_matrix_ = true;
-        matrix_phase_ = 1;
+        matrix_phase_ = 0;
     }
 
     //void MAX14830::MAXDevice::invert(bool inverted)
@@ -232,37 +234,65 @@ namespace LabNet::interface::rfid_board
             max_uart_RFIDFifo[cspin][uart][max_uart_RFIDCounter[cspin][uart]] = RXByte;
             max_uart_RFIDCounter[cspin][uart]++;
 
+            uint8_t start = 0, count = 0;
+
             if (max_uart_RFIDCounter[cspin][uart] == 14)
             {
                 if ((max_uart_RFIDFifo[cspin][uart][0] == 0x02) && (max_uart_RFIDFifo[cspin][uart][12] == 0x0a) && (max_uart_RFIDFifo[cspin][uart][13] == 0x03))
                 {
+                    start = 1;
+                    count = 10;
                     max_uart_RFIDCounter[cspin][uart] = 0;
-
-                    std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
-                    for (int l = 1; l < 11; l++)
-                    {
-                        data->push_back(max_uart_RFIDFifo[cspin][uart][l]);
-                    }
-                    data->push_back('\r');
-                    data->push_back('\n');
-
-                    so_5::send<stream_messages::NewDataFromPort>(parent_mbox_, Interfaces::RfidBoard, 4 * cspin + uart + 1, data, std::chrono::high_resolution_clock::now());
-                }
-                else
-                {
                 }
             }
+            else if (max_uart_RFIDCounter[cspin][uart] == 16)
+            {
+                if (max_uart_RFIDFifo[cspin][uart][0] == 0x02 && max_uart_RFIDFifo[cspin][uart][15] == 0x03)
+                {
+                    max_uart_RFIDCounter[cspin][uart] = 0;
+
+                    start = 1;
+                    count = 10;
+                }
+            }
+
+            if (count > 0)
+            {
+                std::shared_ptr<std::vector<char>> data = std::make_shared<std::vector<char>>();
+                for (uint8_t l = start; l < (start + count); l++)
+                {
+                    data->push_back(max_uart_RFIDFifo[cspin][uart][l]);
+                }
+                data->push_back('\r');
+                data->push_back('\n');
+
+                so_5::send<stream_messages::NewDataFromPort>(parent_mbox_, Interfaces::RfidBoard, 4 * cspin + uart + 1, data, std::chrono::high_resolution_clock::now());
+            }
+
             counter--;
         }
     }
 
     void MAXDevice::SetPhaseMatrix(uint32_t antenna_phase1, uint32_t antenna_phase2, uint32_t phase_duration)
     {
-        antenna_phase1_ = antenna_phase1;
-        antenna_phase2_ = antenna_phase2;
+        std::vector<uint8_t> phase1;
+        std::vector<uint8_t> phase2;
+        for (uint8_t i = 0; i < 32; i++)
+        {
+            if (antenna_phase1 & (1 << i))
+            {
+                phase1.push_back(i);
+            }
+            if (antenna_phase2 & (1 << i))
+            {
+                phase2.push_back(i);
+            }
+        }
+        phases_.push_back(phase1);
+        phases_.push_back(phase2);
+
         phase_duration_ = phase_duration;
-        set_matrix_ = true;
-        matrix_phase_ = 1;
+        matrix_phase_ = 0;
 
         using namespace std::chrono;
         typedef time_point<steady_clock, milliseconds> timePoint;
@@ -273,42 +303,32 @@ namespace LabNet::interface::rfid_board
     {
         using namespace std::chrono;
 
-        if (set_matrix_)
+        time_point<std::chrono::steady_clock> now = steady_clock::now();
+
+        if (now >= switch_time_)
         {
-            time_point<std::chrono::steady_clock> now = steady_clock::now();
+            switch_time_ += milliseconds(phase_duration_);
 
-            if (now >= switch_time_)
+            size_t next_phase = (matrix_phase_ + 1) % phases_.size();
+
+            for (size_t i = 0; i < phases_[matrix_phase_].size(); i++)
             {
-                switch_time_ += milliseconds(phase_duration_);
-
-                if (antenna_phase1_ == antenna_phase2_)
-                    set_matrix_ = false;
-
-                uint32_t matrix = 0;
-                uint8_t cnt1, cnt2, cnt;
-                if (matrix_phase_ == 1)
+                if (std::find(phases_[next_phase].begin(), phases_[next_phase].end(), phases_[matrix_phase_][i]) == phases_[next_phase].end())
                 {
-                    matrix = antenna_phase1_;
-                    matrix_phase_ = 2;
+                    uint8_t a = phases_[matrix_phase_][i];
+                    uint8_t cnt1 = phases_[matrix_phase_][i] / 4;
+                    uint8_t cnt2 = phases_[matrix_phase_][i] % 4;
+                    max14830_setAntenna(cnt1, cnt2, false);
                 }
-                else
-                {
-                    matrix = antenna_phase2_;
-                    matrix_phase_ = 1;
-                }
+            }
 
-                //logger_->WriteInfoEntry(log::StringFormat("switch matrix %u", matrix));
-                for (cnt1 = 0; cnt1 < 8; cnt1++)
-                {
-                    for (cnt2 = 0; cnt2 < 4; cnt2++)
-                    {
-                        cnt = (uint8_t)(4 * cnt1 + cnt2);
-                        if ((matrix >> cnt) & 1)
-                            max14830_setAntenna(cnt1, cnt2, true);
-                        else
-                            max14830_setAntenna(cnt1, cnt2, false);
-                    }
-                }
+            matrix_phase_ = next_phase;
+            for (size_t i = 0; i < phases_[matrix_phase_].size(); i++)
+            {
+                uint8_t a = phases_[matrix_phase_][i];
+                uint8_t cnt1 = phases_[matrix_phase_][i] / 4;
+                uint8_t cnt2 = phases_[matrix_phase_][i] % 4;
+                max14830_setAntenna(cnt1, cnt2, true);
             }
         }
     }
