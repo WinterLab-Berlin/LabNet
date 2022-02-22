@@ -35,9 +35,9 @@ bool DigitalInputStateReader::stop_requested()
 void DigitalInputStateReader::box_msg_handler()
 {
     using namespace std::chrono_literals;
-
+    
     receive(
-        from(reader_box_).handle_all().empty_timeout(1ms),
+        from(reader_box_).handle_all().empty_timeout(check_inputs_ ? 250us : 1ms),
         [&](so_5::mhood_t<DigitalInput> msg) {
             inputs_[msg->pin] = std::make_shared<DigitalInput>(*msg);
 
@@ -85,6 +85,5 @@ void DigitalInputStateReader::data_read_thread()
         }
 
         box_msg_handler();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }

@@ -224,6 +224,21 @@ namespace PerfTest
                 PackMessageAndSend(msg, ClientMessageType.IoBoardInitDigitalIn);
             });
 
+            Receive<GpioWiringPiInit>(msg =>
+            {
+                PackMessageAndSend(msg, ClientMessageType.GpioWiringpiInit);
+            });
+
+            Receive<GpioWiringPiInitDigitalOut>(msg =>
+            {
+                PackMessageAndSend(msg, ClientMessageType.GpioWiringpiInitDigitalOut);
+            });
+
+            Receive<GpioWiringPiInitDigitalIn>(msg =>
+            {
+                PackMessageAndSend(msg, ClientMessageType.GpioWiringpiInitDigitalIn);
+            });
+
             Receive<DigitalOutSet>(msg =>
             {
                 PackMessageAndSend(msg, ClientMessageType.DigitalOutSet);

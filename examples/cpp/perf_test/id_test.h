@@ -42,7 +42,7 @@ private:
                     req_--;
                     if (req_ >= 0)
                     {
-                        std::cout << "\r" << req_;
+                        std::cout << "\r       \r" << req_;
                         client_->SendMessage(id_mes_, LabNetProt::Client::LABNET_ID_REQUEST);
                         start_time = std::chrono::high_resolution_clock::now();
                     }

@@ -23,7 +23,7 @@ with Client() as labNet:
     req = LabNetClient.LabNetIdRequest()
     
     times = []
-    cycles = 10_000
+    cycles = 100_000
     for r in range(cycles):
         print(f"\r{r+1} from {cycles}", end='', flush=True)
         t0 = time.perf_counter_ns()
@@ -94,7 +94,7 @@ with Client() as labNet:
 
     times = []
     turn_on = True
-    cycles = 10_000
+    cycles = 100_000
     for r in range(cycles):
         print(f"\r{r+1} from {cycles}", end='', flush=True)
         t0 = time.perf_counter_ns()
@@ -187,7 +187,7 @@ with Client() as labNet:
 
     times = []
     turn_on = not dig_in_state.state
-    cycles = 10_000
+    cycles = 100_000
     for r in range(cycles):
         print(f"\r{r+1} from {cycles}", end='', flush=True)
         t0 = time.perf_counter_ns()

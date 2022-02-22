@@ -6,6 +6,7 @@
 #include "resource_request_helper.h"
 #include <chrono>
 #include <wiringPi.h>
+#include <stdint-gcc.h>
 
 
 namespace LabNet::interface::gpio_wiring

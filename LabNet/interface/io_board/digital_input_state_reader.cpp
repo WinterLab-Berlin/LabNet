@@ -37,7 +37,7 @@ void DigitalInputStateReader::BoxMsgHandler()
     using namespace std::chrono_literals;
 
     receive(
-        from(reader_box_).handle_all().empty_timeout(1ms),
+        from(reader_box_).handle_all().empty_timeout(check_inputs_ ? 250us : 1ms),
         [&](so_5::mhood_t<DigitalInput> msg) {
             inputs_[msg->pin_l] = std::make_unique<DigitalInput>(*msg);
 
@@ -85,6 +85,5 @@ void DigitalInputStateReader::DataReadThread()
         }
 
         BoxMsgHandler();
-        //std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 }

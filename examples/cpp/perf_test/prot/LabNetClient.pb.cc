@@ -14,374 +14,321 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-extern PROTOBUF_INTERNAL_EXPORT_LabNetClient_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_LabNet_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PinId_LabNet_2eproto;
+
+PROTOBUF_PRAGMA_INIT_SEG
 namespace LabNetProt {
 namespace Client {
-class IoBoardInitDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IoBoardInit> _instance;
-} _IoBoardInit_default_instance_;
-class IoBoardInitDigitalInDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IoBoardInitDigitalIn> _instance;
-} _IoBoardInitDigitalIn_default_instance_;
-class IoBoardInitDigitalOutDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<IoBoardInitDigitalOut> _instance;
-} _IoBoardInitDigitalOut_default_instance_;
-class RfidBoardInitDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RfidBoardInit> _instance;
-} _RfidBoardInit_default_instance_;
-class RfidBoardSetPhaseMatrixDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<RfidBoardSetPhaseMatrix> _instance;
-} _RfidBoardSetPhaseMatrix_default_instance_;
-class UartInitDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UartInit> _instance;
-} _UartInit_default_instance_;
-class UartWriteDataDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UartWriteData> _instance;
-} _UartWriteData_default_instance_;
-class UartInitDigitalInDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UartInitDigitalIn> _instance;
-} _UartInitDigitalIn_default_instance_;
-class UartInitDigitalOutDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UartInitDigitalOut> _instance;
-} _UartInitDigitalOut_default_instance_;
-class GpioWiringPiInitDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GpioWiringPiInit> _instance;
-} _GpioWiringPiInit_default_instance_;
-class GpioWiringPiInitDigitalInDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GpioWiringPiInitDigitalIn> _instance;
-} _GpioWiringPiInitDigitalIn_default_instance_;
-class GpioWiringPiInitDigitalOutDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<GpioWiringPiInitDigitalOut> _instance;
-} _GpioWiringPiInitDigitalOut_default_instance_;
-class DigitalOutSetDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DigitalOutSet> _instance;
-} _DigitalOutSet_default_instance_;
-class DigitalOutPulseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DigitalOutPulse> _instance;
-} _DigitalOutPulse_default_instance_;
-class StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StartDigitalOutLoop_DigitalOutputParameter> _instance;
-} _StartDigitalOutLoop_DigitalOutputParameter_default_instance_;
-class StartDigitalOutLoopDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StartDigitalOutLoop> _instance;
-} _StartDigitalOutLoop_default_instance_;
-class StopDigitalOutLoopDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StopDigitalOutLoop> _instance;
-} _StopDigitalOutLoop_default_instance_;
-class LabNetResetRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LabNetResetRequest> _instance;
-} _LabNetResetRequest_default_instance_;
-class LabNetIdRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<LabNetIdRequest> _instance;
-} _LabNetIdRequest_default_instance_;
-class InitSoundDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InitSound> _instance;
-} _InitSound_default_instance_;
-class InitSoundSignalDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<InitSoundSignal> _instance;
-} _InitSoundSignal_default_instance_;
+constexpr IoBoardInit::IoBoardInit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct IoBoardInitDefaultTypeInternal {
+  constexpr IoBoardInitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~IoBoardInitDefaultTypeInternal() {}
+  union {
+    IoBoardInit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT IoBoardInitDefaultTypeInternal _IoBoardInit_default_instance_;
+constexpr IoBoardInitDigitalIn::IoBoardInitDigitalIn(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pin_(0u)
+  , resistor_state_(0)
+
+  , is_inverted_(false){}
+struct IoBoardInitDigitalInDefaultTypeInternal {
+  constexpr IoBoardInitDigitalInDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~IoBoardInitDigitalInDefaultTypeInternal() {}
+  union {
+    IoBoardInitDigitalIn _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT IoBoardInitDigitalInDefaultTypeInternal _IoBoardInitDigitalIn_default_instance_;
+constexpr IoBoardInitDigitalOut::IoBoardInitDigitalOut(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pin_(0u)
+  , is_inverted_(false){}
+struct IoBoardInitDigitalOutDefaultTypeInternal {
+  constexpr IoBoardInitDigitalOutDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~IoBoardInitDigitalOutDefaultTypeInternal() {}
+  union {
+    IoBoardInitDigitalOut _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT IoBoardInitDigitalOutDefaultTypeInternal _IoBoardInitDigitalOut_default_instance_;
+constexpr RfidBoardInit::RfidBoardInit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : antenna_phase1_(0u)
+  , antenna_phase2_(0u)
+  , phase_duration_(0u)
+  , inverted_(false){}
+struct RfidBoardInitDefaultTypeInternal {
+  constexpr RfidBoardInitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RfidBoardInitDefaultTypeInternal() {}
+  union {
+    RfidBoardInit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RfidBoardInitDefaultTypeInternal _RfidBoardInit_default_instance_;
+constexpr RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : antenna_phase1_(0u)
+  , antenna_phase2_(0u)
+  , phase_duration_(0u){}
+struct RfidBoardSetPhaseMatrixDefaultTypeInternal {
+  constexpr RfidBoardSetPhaseMatrixDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RfidBoardSetPhaseMatrixDefaultTypeInternal() {}
+  union {
+    RfidBoardSetPhaseMatrix _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RfidBoardSetPhaseMatrixDefaultTypeInternal _RfidBoardSetPhaseMatrix_default_instance_;
+constexpr UartInit::UartInit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : port_(0)
+
+  , baud_(0u){}
+struct UartInitDefaultTypeInternal {
+  constexpr UartInitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UartInitDefaultTypeInternal() {}
+  union {
+    UartInit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UartInitDefaultTypeInternal _UartInit_default_instance_;
+constexpr UartWriteData::UartWriteData(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : data_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , port_(0)
+{}
+struct UartWriteDataDefaultTypeInternal {
+  constexpr UartWriteDataDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UartWriteDataDefaultTypeInternal() {}
+  union {
+    UartWriteData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
+constexpr UartInitDigitalIn::UartInitDigitalIn(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : port_(0)
+
+  , pin_(0u)
+  , is_inverted_(false){}
+struct UartInitDigitalInDefaultTypeInternal {
+  constexpr UartInitDigitalInDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UartInitDigitalInDefaultTypeInternal() {}
+  union {
+    UartInitDigitalIn _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UartInitDigitalInDefaultTypeInternal _UartInitDigitalIn_default_instance_;
+constexpr UartInitDigitalOut::UartInitDigitalOut(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : port_(0)
+
+  , pin_(0u)
+  , is_inverted_(false){}
+struct UartInitDigitalOutDefaultTypeInternal {
+  constexpr UartInitDigitalOutDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UartInitDigitalOutDefaultTypeInternal() {}
+  union {
+    UartInitDigitalOut _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UartInitDigitalOutDefaultTypeInternal _UartInitDigitalOut_default_instance_;
+constexpr GpioWiringPiInit::GpioWiringPiInit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct GpioWiringPiInitDefaultTypeInternal {
+  constexpr GpioWiringPiInitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~GpioWiringPiInitDefaultTypeInternal() {}
+  union {
+    GpioWiringPiInit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GpioWiringPiInitDefaultTypeInternal _GpioWiringPiInit_default_instance_;
+constexpr GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pin_(0u)
+  , resistor_state_(0)
+
+  , is_inverted_(false){}
+struct GpioWiringPiInitDigitalInDefaultTypeInternal {
+  constexpr GpioWiringPiInitDigitalInDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~GpioWiringPiInitDigitalInDefaultTypeInternal() {}
+  union {
+    GpioWiringPiInitDigitalIn _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GpioWiringPiInitDigitalInDefaultTypeInternal _GpioWiringPiInitDigitalIn_default_instance_;
+constexpr GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pin_(0u)
+  , is_inverted_(false){}
+struct GpioWiringPiInitDigitalOutDefaultTypeInternal {
+  constexpr GpioWiringPiInitDigitalOutDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~GpioWiringPiInitDigitalOutDefaultTypeInternal() {}
+  union {
+    GpioWiringPiInitDigitalOut _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GpioWiringPiInitDigitalOutDefaultTypeInternal _GpioWiringPiInitDigitalOut_default_instance_;
+constexpr DigitalOutSet::DigitalOutSet(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : id_(nullptr)
+  , state_(false){}
+struct DigitalOutSetDefaultTypeInternal {
+  constexpr DigitalOutSetDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DigitalOutSetDefaultTypeInternal() {}
+  union {
+    DigitalOutSet _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DigitalOutSetDefaultTypeInternal _DigitalOutSet_default_instance_;
+constexpr DigitalOutPulse::DigitalOutPulse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : id_(nullptr)
+  , high_duration_(0u)
+  , low_duration_(0u)
+  , pulses_(0u){}
+struct DigitalOutPulseDefaultTypeInternal {
+  constexpr DigitalOutPulseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DigitalOutPulseDefaultTypeInternal() {}
+  union {
+    DigitalOutPulse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DigitalOutPulseDefaultTypeInternal _DigitalOutPulse_default_instance_;
+constexpr StartDigitalOutLoop_DigitalOutputParameter::StartDigitalOutLoop_DigitalOutputParameter(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : id_(nullptr)
+  , offset_(0u)
+  , duration_(0u){}
+struct StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal {
+  constexpr StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal() {}
+  union {
+    StartDigitalOutLoop_DigitalOutputParameter _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal _StartDigitalOutLoop_DigitalOutputParameter_default_instance_;
+constexpr StartDigitalOutLoop::StartDigitalOutLoop(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : digital_outputs_()
+  , loop_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , loop_pause_(0u){}
+struct StartDigitalOutLoopDefaultTypeInternal {
+  constexpr StartDigitalOutLoopDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~StartDigitalOutLoopDefaultTypeInternal() {}
+  union {
+    StartDigitalOutLoop _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StartDigitalOutLoopDefaultTypeInternal _StartDigitalOutLoop_default_instance_;
+constexpr StopDigitalOutLoop::StopDigitalOutLoop(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : loop_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct StopDigitalOutLoopDefaultTypeInternal {
+  constexpr StopDigitalOutLoopDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~StopDigitalOutLoopDefaultTypeInternal() {}
+  union {
+    StopDigitalOutLoop _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT StopDigitalOutLoopDefaultTypeInternal _StopDigitalOutLoop_default_instance_;
+constexpr LabNetResetRequest::LabNetResetRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct LabNetResetRequestDefaultTypeInternal {
+  constexpr LabNetResetRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~LabNetResetRequestDefaultTypeInternal() {}
+  union {
+    LabNetResetRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LabNetResetRequestDefaultTypeInternal _LabNetResetRequest_default_instance_;
+constexpr LabNetIdRequest::LabNetIdRequest(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct LabNetIdRequestDefaultTypeInternal {
+  constexpr LabNetIdRequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~LabNetIdRequestDefaultTypeInternal() {}
+  union {
+    LabNetIdRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT LabNetIdRequestDefaultTypeInternal _LabNetIdRequest_default_instance_;
+constexpr InitSound::InitSound(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct InitSoundDefaultTypeInternal {
+  constexpr InitSoundDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~InitSoundDefaultTypeInternal() {}
+  union {
+    InitSound _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT InitSoundDefaultTypeInternal _InitSound_default_instance_;
+constexpr InitSoundSignal::InitSoundSignal(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : signal_type_(0)
+
+  , id_(0u)
+  , frequency_(0u)
+  , frequency_end_(0u)
+  , sweep_length_seconds_(0)
+  , volume_(0){}
+struct InitSoundSignalDefaultTypeInternal {
+  constexpr InitSoundSignalDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~InitSoundSignalDefaultTypeInternal() {}
+  union {
+    InitSoundSignal _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT InitSoundSignalDefaultTypeInternal _InitSoundSignal_default_instance_;
+constexpr ChiBioInit::ChiBioInit(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct ChiBioInitDefaultTypeInternal {
+  constexpr ChiBioInitDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~ChiBioInitDefaultTypeInternal() {}
+  union {
+    ChiBioInit _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ChiBioInitDefaultTypeInternal _ChiBioInit_default_instance_;
+constexpr MoveChiBioPump::MoveChiBioPump(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : pump_id_(0u)
+  , move_(0){}
+struct MoveChiBioPumpDefaultTypeInternal {
+  constexpr MoveChiBioPumpDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~MoveChiBioPumpDefaultTypeInternal() {}
+  union {
+    MoveChiBioPump _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MoveChiBioPumpDefaultTypeInternal _MoveChiBioPump_default_instance_;
 }  // namespace Client
 }  // namespace LabNetProt
-static void InitDefaultsscc_info_DigitalOutPulse_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_DigitalOutPulse_default_instance_;
-    new (ptr) ::LabNetProt::Client::DigitalOutPulse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DigitalOutPulse_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_DigitalOutPulse_LabNetClient_2eproto}, {
-      &scc_info_PinId_LabNet_2eproto.base,}};
-
-static void InitDefaultsscc_info_DigitalOutSet_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_DigitalOutSet_default_instance_;
-    new (ptr) ::LabNetProt::Client::DigitalOutSet();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_DigitalOutSet_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_DigitalOutSet_LabNetClient_2eproto}, {
-      &scc_info_PinId_LabNet_2eproto.base,}};
-
-static void InitDefaultsscc_info_GpioWiringPiInit_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_GpioWiringPiInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioWiringPiInit();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GpioWiringPiInit_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GpioWiringPiInit_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_GpioWiringPiInitDigitalIn_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_GpioWiringPiInitDigitalIn_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioWiringPiInitDigitalIn();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalIn_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GpioWiringPiInitDigitalIn_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_GpioWiringPiInitDigitalOut_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_GpioWiringPiInitDigitalOut_default_instance_;
-    new (ptr) ::LabNetProt::Client::GpioWiringPiInitDigitalOut();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GpioWiringPiInitDigitalOut_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GpioWiringPiInitDigitalOut_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_InitSound_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_InitSound_default_instance_;
-    new (ptr) ::LabNetProt::Client::InitSound();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InitSound_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_InitSound_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_InitSoundSignal_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_InitSoundSignal_default_instance_;
-    new (ptr) ::LabNetProt::Client::InitSoundSignal();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_InitSoundSignal_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_InitSoundSignal_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_IoBoardInit_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_IoBoardInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::IoBoardInit();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IoBoardInit_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IoBoardInit_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_IoBoardInitDigitalIn_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_IoBoardInitDigitalIn_default_instance_;
-    new (ptr) ::LabNetProt::Client::IoBoardInitDigitalIn();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IoBoardInitDigitalIn_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IoBoardInitDigitalIn_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_IoBoardInitDigitalOut_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_IoBoardInitDigitalOut_default_instance_;
-    new (ptr) ::LabNetProt::Client::IoBoardInitDigitalOut();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_IoBoardInitDigitalOut_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_IoBoardInitDigitalOut_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_LabNetIdRequest_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_LabNetIdRequest_default_instance_;
-    new (ptr) ::LabNetProt::Client::LabNetIdRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LabNetIdRequest_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_LabNetIdRequest_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_LabNetResetRequest_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_LabNetResetRequest_default_instance_;
-    new (ptr) ::LabNetProt::Client::LabNetResetRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_LabNetResetRequest_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_LabNetResetRequest_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_RfidBoardInit_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_RfidBoardInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::RfidBoardInit();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RfidBoardInit_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RfidBoardInit_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_RfidBoardSetPhaseMatrix_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_RfidBoardSetPhaseMatrix_default_instance_;
-    new (ptr) ::LabNetProt::Client::RfidBoardSetPhaseMatrix();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_RfidBoardSetPhaseMatrix_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_RfidBoardSetPhaseMatrix_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_StartDigitalOutLoop_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_StartDigitalOutLoop_default_instance_;
-    new (ptr) ::LabNetProt::Client::StartDigitalOutLoop();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StartDigitalOutLoop_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_StartDigitalOutLoop_LabNetClient_2eproto}, {
-      &scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto.base,}};
-
-static void InitDefaultsscc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_StartDigitalOutLoop_DigitalOutputParameter_default_instance_;
-    new (ptr) ::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto}, {
-      &scc_info_PinId_LabNet_2eproto.base,}};
-
-static void InitDefaultsscc_info_StopDigitalOutLoop_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_StopDigitalOutLoop_default_instance_;
-    new (ptr) ::LabNetProt::Client::StopDigitalOutLoop();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_StopDigitalOutLoop_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_StopDigitalOutLoop_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_UartInit_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_UartInit_default_instance_;
-    new (ptr) ::LabNetProt::Client::UartInit();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UartInit_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UartInit_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_UartInitDigitalIn_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_UartInitDigitalIn_default_instance_;
-    new (ptr) ::LabNetProt::Client::UartInitDigitalIn();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UartInitDigitalIn_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UartInitDigitalIn_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_UartInitDigitalOut_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_UartInitDigitalOut_default_instance_;
-    new (ptr) ::LabNetProt::Client::UartInitDigitalOut();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UartInitDigitalOut_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UartInitDigitalOut_LabNetClient_2eproto}, {}};
-
-static void InitDefaultsscc_info_UartWriteData_LabNetClient_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::Client::_UartWriteData_default_instance_;
-    new (ptr) ::LabNetProt::Client::UartWriteData();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UartWriteData_LabNetClient_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UartWriteData_LabNetClient_2eproto}, {}};
-
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_LabNetClient_2eproto[21];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_LabNetClient_2eproto[23];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_LabNetClient_2eproto[4];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_LabNetClient_2eproto = nullptr;
 
@@ -391,11 +338,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, resistor_state_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalIn, is_inverted_),
@@ -404,6 +353,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalOut, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::IoBoardInitDigitalOut, is_inverted_),
   ~0u,  // no _has_bits_
@@ -411,6 +361,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, antenna_phase1_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, antenna_phase2_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardInit, phase_duration_),
@@ -420,6 +371,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, antenna_phase1_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, antenna_phase2_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::RfidBoardSetPhaseMatrix, phase_duration_),
@@ -428,6 +380,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInit, port_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInit, baud_),
   ~0u,  // no _has_bits_
@@ -435,6 +388,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartWriteData, port_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartWriteData, data_),
   ~0u,  // no _has_bits_
@@ -442,6 +396,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalIn, port_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalIn, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalIn, is_inverted_),
@@ -450,6 +405,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalOut, port_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalOut, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::UartInitDigitalOut, is_inverted_),
@@ -458,11 +414,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, resistor_state_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalIn, is_inverted_),
@@ -471,6 +429,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalOut, pin_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::GpioWiringPiInitDigitalOut, is_inverted_),
   ~0u,  // no _has_bits_
@@ -478,6 +437,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::DigitalOutSet, id_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::DigitalOutSet, state_),
   ~0u,  // no _has_bits_
@@ -485,6 +445,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::DigitalOutPulse, id_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::DigitalOutPulse, high_duration_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::DigitalOutPulse, low_duration_),
@@ -494,6 +455,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter, id_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter, offset_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter, duration_),
@@ -502,6 +464,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop, loop_name_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop, loop_pause_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StartDigitalOutLoop, digital_outputs_),
@@ -510,56 +473,77 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNetClient_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::StopDigitalOutLoop, loop_name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::LabNetResetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::LabNetIdRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSound, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, signal_type_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, id_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, frequency_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, frequency_end_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, sweep_length_seconds_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::InitSoundSignal, volume_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::ChiBioInit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::MoveChiBioPump, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::MoveChiBioPump, pump_id_),
+  PROTOBUF_FIELD_OFFSET(::LabNetProt::Client::MoveChiBioPump, move_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
-  { 5, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalIn)},
-  { 13, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalOut)},
-  { 20, -1, sizeof(::LabNetProt::Client::RfidBoardInit)},
-  { 29, -1, sizeof(::LabNetProt::Client::RfidBoardSetPhaseMatrix)},
-  { 37, -1, sizeof(::LabNetProt::Client::UartInit)},
-  { 44, -1, sizeof(::LabNetProt::Client::UartWriteData)},
-  { 51, -1, sizeof(::LabNetProt::Client::UartInitDigitalIn)},
-  { 59, -1, sizeof(::LabNetProt::Client::UartInitDigitalOut)},
-  { 67, -1, sizeof(::LabNetProt::Client::GpioWiringPiInit)},
-  { 72, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalIn)},
-  { 80, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalOut)},
-  { 87, -1, sizeof(::LabNetProt::Client::DigitalOutSet)},
-  { 94, -1, sizeof(::LabNetProt::Client::DigitalOutPulse)},
-  { 103, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter)},
-  { 111, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop)},
-  { 119, -1, sizeof(::LabNetProt::Client::StopDigitalOutLoop)},
-  { 125, -1, sizeof(::LabNetProt::Client::LabNetResetRequest)},
-  { 130, -1, sizeof(::LabNetProt::Client::LabNetIdRequest)},
-  { 135, -1, sizeof(::LabNetProt::Client::InitSound)},
-  { 140, -1, sizeof(::LabNetProt::Client::InitSoundSignal)},
+  { 0, -1, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
+  { 6, -1, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalIn)},
+  { 15, -1, -1, sizeof(::LabNetProt::Client::IoBoardInitDigitalOut)},
+  { 23, -1, -1, sizeof(::LabNetProt::Client::RfidBoardInit)},
+  { 33, -1, -1, sizeof(::LabNetProt::Client::RfidBoardSetPhaseMatrix)},
+  { 42, -1, -1, sizeof(::LabNetProt::Client::UartInit)},
+  { 50, -1, -1, sizeof(::LabNetProt::Client::UartWriteData)},
+  { 58, -1, -1, sizeof(::LabNetProt::Client::UartInitDigitalIn)},
+  { 67, -1, -1, sizeof(::LabNetProt::Client::UartInitDigitalOut)},
+  { 76, -1, -1, sizeof(::LabNetProt::Client::GpioWiringPiInit)},
+  { 82, -1, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalIn)},
+  { 91, -1, -1, sizeof(::LabNetProt::Client::GpioWiringPiInitDigitalOut)},
+  { 99, -1, -1, sizeof(::LabNetProt::Client::DigitalOutSet)},
+  { 107, -1, -1, sizeof(::LabNetProt::Client::DigitalOutPulse)},
+  { 117, -1, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter)},
+  { 126, -1, -1, sizeof(::LabNetProt::Client::StartDigitalOutLoop)},
+  { 135, -1, -1, sizeof(::LabNetProt::Client::StopDigitalOutLoop)},
+  { 142, -1, -1, sizeof(::LabNetProt::Client::LabNetResetRequest)},
+  { 148, -1, -1, sizeof(::LabNetProt::Client::LabNetIdRequest)},
+  { 154, -1, -1, sizeof(::LabNetProt::Client::InitSound)},
+  { 160, -1, -1, sizeof(::LabNetProt::Client::InitSoundSignal)},
+  { 172, -1, -1, sizeof(::LabNetProt::Client::ChiBioInit)},
+  { 178, -1, -1, sizeof(::LabNetProt::Client::MoveChiBioPump)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -584,6 +568,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::LabNetProt::Client::_LabNetIdRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::LabNetProt::Client::_InitSound_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::LabNetProt::Client::_InitSoundSignal_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::LabNetProt::Client::_ChiBioInit_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::LabNetProt::Client::_MoveChiBioPump_default_instance_),
 };
 
 const char descriptor_table_protodef_LabNetClient_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -631,61 +617,44 @@ const char descriptor_table_protodef_LabNetClient_2eproto[] PROTOBUF_SECTION_VAR
   "\001(\0162\".LabNetProt.Client.SoundSignalType\022"
   "\n\n\002id\030\002 \001(\r\022\021\n\tfrequency\030\003 \001(\r\022\025\n\rfreque"
   "ncy_end\030\004 \001(\r\022\034\n\024sweep_length_seconds\030\005 "
-  "\001(\002\022\016\n\006volume\030\006 \001(\002*\226\004\n\021ClientMessageTyp"
-  "e\022\010\n\004NONE\020\000\022\025\n\021LABNET_ID_REQUEST\020\001\022\030\n\024LA"
-  "BNET_RESET_REQUEST\020\002\022\021\n\rIO_BOARD_INIT\020\003\022"
-  "\034\n\030IO_BOARD_INIT_DIGITAL_IN\020\004\022\035\n\031IO_BOAR"
-  "D_INIT_DIGITAL_OUT\020\005\022\023\n\017RFID_BOARD_INIT\020"
-  "\006\022\037\n\033RFID_BOARD_SET_PHASE_MATRIX\020\007\022\r\n\tUA"
-  "RT_INIT\020\010\022\023\n\017UART_WRITE_DATA\020\t\022\023\n\017DIGITA"
-  "L_OUT_SET\020\n\022\025\n\021DIGITAL_OUT_PULSE\020\013\022\032\n\026ST"
-  "ART_DIGITAL_OUT_LOOP\020\014\022\031\n\025STOP_DIGITAL_O"
-  "UT_LOOP\020\r\022\026\n\022GPIO_WIRINGPI_INIT\020\016\022!\n\035GPI"
-  "O_WIRINGPI_INIT_DIGITAL_IN\020\017\022\"\n\036GPIO_WIR"
-  "INGPI_INIT_DIGITAL_OUT\020\020\022\016\n\nINIT_SOUND\020\021"
-  "\022\025\n\021INIT_SOUND_SIGNAL\020\022\022\030\n\024UART_INIT_DIG"
-  "ITAL_IN\020\023\022\031\n\025UART_INIT_DIGITAL_OUT\020\024*\204\001\n"
-  "\017SoundSignalType\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUAR"
-  "E_WAVE\020\001\022\021\n\rTRIANGLE_WAVE\020\002\022\022\n\016SAW_TOOTH"
-  "_WAVE\020\003\022\017\n\013WHITE_NOISE\020\004\022\016\n\nPINK_NOISE\020\005"
-  "\022\t\n\005SWEEP\020\006b\006proto3"
+  "\001(\002\022\016\n\006volume\030\006 \001(\002\"\014\n\nChiBioInit\"/\n\016Mov"
+  "eChiBioPump\022\017\n\007pump_id\030\001 \001(\r\022\014\n\004move\030\002 \001"
+  "(\005*\277\004\n\021ClientMessageType\022\010\n\004NONE\020\000\022\025\n\021LA"
+  "BNET_ID_REQUEST\020\001\022\030\n\024LABNET_RESET_REQUES"
+  "T\020\002\022\021\n\rIO_BOARD_INIT\020\003\022\034\n\030IO_BOARD_INIT_"
+  "DIGITAL_IN\020\004\022\035\n\031IO_BOARD_INIT_DIGITAL_OU"
+  "T\020\005\022\023\n\017RFID_BOARD_INIT\020\006\022\037\n\033RFID_BOARD_S"
+  "ET_PHASE_MATRIX\020\007\022\r\n\tUART_INIT\020\010\022\023\n\017UART"
+  "_WRITE_DATA\020\t\022\023\n\017DIGITAL_OUT_SET\020\n\022\025\n\021DI"
+  "GITAL_OUT_PULSE\020\013\022\032\n\026START_DIGITAL_OUT_L"
+  "OOP\020\014\022\031\n\025STOP_DIGITAL_OUT_LOOP\020\r\022\026\n\022GPIO"
+  "_WIRINGPI_INIT\020\016\022!\n\035GPIO_WIRINGPI_INIT_D"
+  "IGITAL_IN\020\017\022\"\n\036GPIO_WIRINGPI_INIT_DIGITA"
+  "L_OUT\020\020\022\016\n\nINIT_SOUND\020\021\022\025\n\021INIT_SOUND_SI"
+  "GNAL\020\022\022\030\n\024UART_INIT_DIGITAL_IN\020\023\022\031\n\025UART"
+  "_INIT_DIGITAL_OUT\020\024\022\020\n\014CHI_BIO_INIT\020\025\022\025\n"
+  "\021MOVE_CHI_BIO_PUMP\020\026*\204\001\n\017SoundSignalType"
+  "\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUARE_WAVE\020\001\022\021\n\rTRIA"
+  "NGLE_WAVE\020\002\022\022\n\016SAW_TOOTH_WAVE\020\003\022\017\n\013WHITE"
+  "_NOISE\020\004\022\016\n\nPINK_NOISE\020\005\022\t\n\005SWEEP\020\006b\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_LabNetClient_2eproto_deps[1] = {
   &::descriptor_table_LabNet_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_LabNetClient_2eproto_sccs[21] = {
-  &scc_info_DigitalOutPulse_LabNetClient_2eproto.base,
-  &scc_info_DigitalOutSet_LabNetClient_2eproto.base,
-  &scc_info_GpioWiringPiInit_LabNetClient_2eproto.base,
-  &scc_info_GpioWiringPiInitDigitalIn_LabNetClient_2eproto.base,
-  &scc_info_GpioWiringPiInitDigitalOut_LabNetClient_2eproto.base,
-  &scc_info_InitSound_LabNetClient_2eproto.base,
-  &scc_info_InitSoundSignal_LabNetClient_2eproto.base,
-  &scc_info_IoBoardInit_LabNetClient_2eproto.base,
-  &scc_info_IoBoardInitDigitalIn_LabNetClient_2eproto.base,
-  &scc_info_IoBoardInitDigitalOut_LabNetClient_2eproto.base,
-  &scc_info_LabNetIdRequest_LabNetClient_2eproto.base,
-  &scc_info_LabNetResetRequest_LabNetClient_2eproto.base,
-  &scc_info_RfidBoardInit_LabNetClient_2eproto.base,
-  &scc_info_RfidBoardSetPhaseMatrix_LabNetClient_2eproto.base,
-  &scc_info_StartDigitalOutLoop_LabNetClient_2eproto.base,
-  &scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto.base,
-  &scc_info_StopDigitalOutLoop_LabNetClient_2eproto.base,
-  &scc_info_UartInit_LabNetClient_2eproto.base,
-  &scc_info_UartInitDigitalIn_LabNetClient_2eproto.base,
-  &scc_info_UartInitDigitalOut_LabNetClient_2eproto.base,
-  &scc_info_UartWriteData_LabNetClient_2eproto.base,
-};
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_LabNetClient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LabNetClient_2eproto = {
-  false, false, descriptor_table_protodef_LabNetClient_2eproto, "LabNetClient.proto", 2459,
-  &descriptor_table_LabNetClient_2eproto_once, descriptor_table_LabNetClient_2eproto_sccs, descriptor_table_LabNetClient_2eproto_deps, 21, 1,
+  false, false, 2563, descriptor_table_protodef_LabNetClient_2eproto, "LabNetClient.proto", 
+  &descriptor_table_LabNetClient_2eproto_once, descriptor_table_LabNetClient_2eproto_deps, 1, 23,
   schemas, file_default_instances, TableStruct_LabNetClient_2eproto::offsets,
-  file_level_metadata_LabNetClient_2eproto, 21, file_level_enum_descriptors_LabNetClient_2eproto, file_level_service_descriptors_LabNetClient_2eproto,
+  file_level_metadata_LabNetClient_2eproto, file_level_enum_descriptors_LabNetClient_2eproto, file_level_service_descriptors_LabNetClient_2eproto,
 };
+PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_LabNetClient_2eproto_getter() {
+  return &descriptor_table_LabNetClient_2eproto;
+}
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_LabNetClient_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_LabNetClient_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_LabNetClient_2eproto(&descriptor_table_LabNetClient_2eproto);
 namespace LabNetProt {
 namespace Client {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* IoBoardInitDigitalIn_Resistor_descriptor() {
@@ -761,6 +730,8 @@ bool ClientMessageType_IsValid(int value) {
     case 18:
     case 19:
     case 20:
+    case 21:
+    case 22:
       return true;
     default:
       return false;
@@ -793,161 +764,38 @@ class IoBoardInit::_Internal {
  public:
 };
 
-IoBoardInit::IoBoardInit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+IoBoardInit::IoBoardInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.IoBoardInit)
 }
 IoBoardInit::IoBoardInit(const IoBoardInit& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.IoBoardInit)
 }
 
-void IoBoardInit::SharedCtor() {
-}
-
-IoBoardInit::~IoBoardInit() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInit)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void IoBoardInit::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void IoBoardInit::ArenaDtor(void* object) {
-  IoBoardInit* _this = reinterpret_cast< IoBoardInit* >(object);
-  (void)_this;
-}
-void IoBoardInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void IoBoardInit::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const IoBoardInit& IoBoardInit::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IoBoardInit_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void IoBoardInit::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInit)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* IoBoardInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData IoBoardInit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*IoBoardInit::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* IoBoardInit::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.IoBoardInit)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.IoBoardInit)
-  return target;
-}
 
-size_t IoBoardInit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.IoBoardInit)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void IoBoardInit::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  const IoBoardInit* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IoBoardInit>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInit)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInit)
-    MergeFrom(*source);
-  }
-}
-
-void IoBoardInit::MergeFrom(const IoBoardInit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void IoBoardInit::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void IoBoardInit::CopyFrom(const IoBoardInit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.IoBoardInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool IoBoardInit::IsInitialized() const {
-  return true;
-}
-
-void IoBoardInit::InternalSwap(IoBoardInit* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata IoBoardInit::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[0]);
 }
-
 
 // ===================================================================
 
@@ -955,10 +803,13 @@ class IoBoardInitDigitalIn::_Internal {
  public:
 };
 
-IoBoardInitDigitalIn::IoBoardInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+IoBoardInitDigitalIn::IoBoardInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.IoBoardInitDigitalIn)
 }
 IoBoardInitDigitalIn::IoBoardInitDigitalIn(const IoBoardInitDigitalIn& from)
@@ -971,20 +822,21 @@ IoBoardInitDigitalIn::IoBoardInitDigitalIn(const IoBoardInitDigitalIn& from)
 }
 
 void IoBoardInitDigitalIn::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
 IoBoardInitDigitalIn::~IoBoardInitDigitalIn() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInitDigitalIn)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void IoBoardInitDigitalIn::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void IoBoardInitDigitalIn::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void IoBoardInitDigitalIn::ArenaDtor(void* object) {
@@ -996,11 +848,6 @@ void IoBoardInitDigitalIn::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void IoBoardInitDigitalIn::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const IoBoardInitDigitalIn& IoBoardInitDigitalIn::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IoBoardInitDigitalIn_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void IoBoardInitDigitalIn::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInitDigitalIn)
@@ -1019,14 +866,14 @@ const char* IoBoardInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBUF_NAM
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 pin = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
       case 2:
@@ -1034,34 +881,37 @@ const char* IoBoardInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_resistor_state(static_cast<::LabNetProt::Client::IoBoardInitDigitalIn_Resistor>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -1072,20 +922,20 @@ failure:
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_pin(), target);
   }
 
   // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
-  if (this->resistor_state() != 0) {
+  if (this->_internal_resistor_state() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_resistor_state(), target);
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_inverted(), target);
   }
@@ -1107,70 +957,53 @@ size_t IoBoardInitDigitalIn::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // .LabNetProt.Client.IoBoardInitDigitalIn.Resistor resistor_state = 2;
-  if (this->resistor_state() != 0) {
+  if (this->_internal_resistor_state() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_resistor_state());
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void IoBoardInitDigitalIn::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
-  GOOGLE_DCHECK_NE(&from, this);
-  const IoBoardInitDigitalIn* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IoBoardInitDigitalIn>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInitDigitalIn)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInitDigitalIn)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData IoBoardInitDigitalIn::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    IoBoardInitDigitalIn::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*IoBoardInitDigitalIn::GetClassData() const { return &_class_data_; }
+
+void IoBoardInitDigitalIn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<IoBoardInitDigitalIn *>(to)->MergeFrom(
+      static_cast<const IoBoardInitDigitalIn &>(from));
 }
+
 
 void IoBoardInitDigitalIn::MergeFrom(const IoBoardInitDigitalIn& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.resistor_state() != 0) {
+  if (from._internal_resistor_state() != 0) {
     _internal_set_resistor_state(from._internal_resistor_state());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void IoBoardInitDigitalIn::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInitDigitalIn)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void IoBoardInitDigitalIn::CopyFrom(const IoBoardInitDigitalIn& from) {
@@ -1186,7 +1019,7 @@ bool IoBoardInitDigitalIn::IsInitialized() const {
 
 void IoBoardInitDigitalIn::InternalSwap(IoBoardInitDigitalIn* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(IoBoardInitDigitalIn, is_inverted_)
       + sizeof(IoBoardInitDigitalIn::is_inverted_)
@@ -1196,9 +1029,10 @@ void IoBoardInitDigitalIn::InternalSwap(IoBoardInitDigitalIn* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata IoBoardInitDigitalIn::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[1]);
 }
-
 
 // ===================================================================
 
@@ -1206,10 +1040,13 @@ class IoBoardInitDigitalOut::_Internal {
  public:
 };
 
-IoBoardInitDigitalOut::IoBoardInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+IoBoardInitDigitalOut::IoBoardInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.IoBoardInitDigitalOut)
 }
 IoBoardInitDigitalOut::IoBoardInitDigitalOut(const IoBoardInitDigitalOut& from)
@@ -1222,20 +1059,21 @@ IoBoardInitDigitalOut::IoBoardInitDigitalOut(const IoBoardInitDigitalOut& from)
 }
 
 void IoBoardInitDigitalOut::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
 IoBoardInitDigitalOut::~IoBoardInitDigitalOut() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.IoBoardInitDigitalOut)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void IoBoardInitDigitalOut::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void IoBoardInitDigitalOut::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void IoBoardInitDigitalOut::ArenaDtor(void* object) {
@@ -1247,11 +1085,6 @@ void IoBoardInitDigitalOut::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void IoBoardInitDigitalOut::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const IoBoardInitDigitalOut& IoBoardInitDigitalOut::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_IoBoardInitDigitalOut_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void IoBoardInitDigitalOut::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.IoBoardInitDigitalOut)
@@ -1270,41 +1103,43 @@ const char* IoBoardInitDigitalOut::_InternalParse(const char* ptr, ::PROTOBUF_NA
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 pin = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -1315,13 +1150,13 @@ failure:
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_pin(), target);
   }
 
   // bool is_inverted = 2;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_inverted(), target);
   }
@@ -1343,61 +1178,44 @@ size_t IoBoardInitDigitalOut::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // bool is_inverted = 2;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void IoBoardInitDigitalOut::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
-  GOOGLE_DCHECK_NE(&from, this);
-  const IoBoardInitDigitalOut* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<IoBoardInitDigitalOut>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.IoBoardInitDigitalOut)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.IoBoardInitDigitalOut)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData IoBoardInitDigitalOut::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    IoBoardInitDigitalOut::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*IoBoardInitDigitalOut::GetClassData() const { return &_class_data_; }
+
+void IoBoardInitDigitalOut::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<IoBoardInitDigitalOut *>(to)->MergeFrom(
+      static_cast<const IoBoardInitDigitalOut &>(from));
 }
+
 
 void IoBoardInitDigitalOut::MergeFrom(const IoBoardInitDigitalOut& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void IoBoardInitDigitalOut::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.IoBoardInitDigitalOut)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void IoBoardInitDigitalOut::CopyFrom(const IoBoardInitDigitalOut& from) {
@@ -1413,7 +1231,7 @@ bool IoBoardInitDigitalOut::IsInitialized() const {
 
 void IoBoardInitDigitalOut::InternalSwap(IoBoardInitDigitalOut* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(IoBoardInitDigitalOut, is_inverted_)
       + sizeof(IoBoardInitDigitalOut::is_inverted_)
@@ -1423,9 +1241,10 @@ void IoBoardInitDigitalOut::InternalSwap(IoBoardInitDigitalOut* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata IoBoardInitDigitalOut::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[2]);
 }
-
 
 // ===================================================================
 
@@ -1433,10 +1252,13 @@ class RfidBoardInit::_Internal {
  public:
 };
 
-RfidBoardInit::RfidBoardInit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+RfidBoardInit::RfidBoardInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.RfidBoardInit)
 }
 RfidBoardInit::RfidBoardInit(const RfidBoardInit& from)
@@ -1449,20 +1271,21 @@ RfidBoardInit::RfidBoardInit(const RfidBoardInit& from)
 }
 
 void RfidBoardInit::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&antenna_phase1_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&inverted_) -
-      reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&antenna_phase1_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&inverted_) -
+    reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(inverted_));
 }
 
 RfidBoardInit::~RfidBoardInit() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidBoardInit)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RfidBoardInit::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void RfidBoardInit::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void RfidBoardInit::ArenaDtor(void* object) {
@@ -1474,11 +1297,6 @@ void RfidBoardInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void RfidBoardInit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RfidBoardInit& RfidBoardInit::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RfidBoardInit_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RfidBoardInit::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidBoardInit)
@@ -1497,55 +1315,59 @@ const char* RfidBoardInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 antenna_phase1 = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           antenna_phase1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 antenna_phase2 = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           antenna_phase2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 phase_duration = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           phase_duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool inverted = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -1556,25 +1378,25 @@ failure:
   (void) cached_has_bits;
 
   // uint32 antenna_phase1 = 1;
-  if (this->antenna_phase1() != 0) {
+  if (this->_internal_antenna_phase1() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_antenna_phase1(), target);
   }
 
   // uint32 antenna_phase2 = 2;
-  if (this->antenna_phase2() != 0) {
+  if (this->_internal_antenna_phase2() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_antenna_phase2(), target);
   }
 
   // uint32 phase_duration = 3;
-  if (this->phase_duration() != 0) {
+  if (this->_internal_phase_duration() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_phase_duration(), target);
   }
 
   // bool inverted = 4;
-  if (this->inverted() != 0) {
+  if (this->_internal_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_inverted(), target);
   }
@@ -1596,81 +1418,60 @@ size_t RfidBoardInit::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 antenna_phase1 = 1;
-  if (this->antenna_phase1() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_antenna_phase1());
+  if (this->_internal_antenna_phase1() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_antenna_phase1());
   }
 
   // uint32 antenna_phase2 = 2;
-  if (this->antenna_phase2() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_antenna_phase2());
+  if (this->_internal_antenna_phase2() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_antenna_phase2());
   }
 
   // uint32 phase_duration = 3;
-  if (this->phase_duration() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_phase_duration());
+  if (this->_internal_phase_duration() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_phase_duration());
   }
 
   // bool inverted = 4;
-  if (this->inverted() != 0) {
+  if (this->_internal_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RfidBoardInit::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidBoardInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RfidBoardInit* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RfidBoardInit>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidBoardInit)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidBoardInit)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RfidBoardInit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RfidBoardInit::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RfidBoardInit::GetClassData() const { return &_class_data_; }
+
+void RfidBoardInit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RfidBoardInit *>(to)->MergeFrom(
+      static_cast<const RfidBoardInit &>(from));
 }
+
 
 void RfidBoardInit::MergeFrom(const RfidBoardInit& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidBoardInit)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.antenna_phase1() != 0) {
+  if (from._internal_antenna_phase1() != 0) {
     _internal_set_antenna_phase1(from._internal_antenna_phase1());
   }
-  if (from.antenna_phase2() != 0) {
+  if (from._internal_antenna_phase2() != 0) {
     _internal_set_antenna_phase2(from._internal_antenna_phase2());
   }
-  if (from.phase_duration() != 0) {
+  if (from._internal_phase_duration() != 0) {
     _internal_set_phase_duration(from._internal_phase_duration());
   }
-  if (from.inverted() != 0) {
+  if (from._internal_inverted() != 0) {
     _internal_set_inverted(from._internal_inverted());
   }
-}
-
-void RfidBoardInit::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidBoardInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RfidBoardInit::CopyFrom(const RfidBoardInit& from) {
@@ -1686,7 +1487,7 @@ bool RfidBoardInit::IsInitialized() const {
 
 void RfidBoardInit::InternalSwap(RfidBoardInit* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RfidBoardInit, inverted_)
       + sizeof(RfidBoardInit::inverted_)
@@ -1696,9 +1497,10 @@ void RfidBoardInit::InternalSwap(RfidBoardInit* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RfidBoardInit::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[3]);
 }
-
 
 // ===================================================================
 
@@ -1706,10 +1508,13 @@ class RfidBoardSetPhaseMatrix::_Internal {
  public:
 };
 
-RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.RfidBoardSetPhaseMatrix)
 }
 RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(const RfidBoardSetPhaseMatrix& from)
@@ -1722,20 +1527,21 @@ RfidBoardSetPhaseMatrix::RfidBoardSetPhaseMatrix(const RfidBoardSetPhaseMatrix& 
 }
 
 void RfidBoardSetPhaseMatrix::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&antenna_phase1_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&phase_duration_) -
-      reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(phase_duration_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&antenna_phase1_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&phase_duration_) -
+    reinterpret_cast<char*>(&antenna_phase1_)) + sizeof(phase_duration_));
 }
 
 RfidBoardSetPhaseMatrix::~RfidBoardSetPhaseMatrix() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.RfidBoardSetPhaseMatrix)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RfidBoardSetPhaseMatrix::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void RfidBoardSetPhaseMatrix::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void RfidBoardSetPhaseMatrix::ArenaDtor(void* object) {
@@ -1747,11 +1553,6 @@ void RfidBoardSetPhaseMatrix::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*)
 void RfidBoardSetPhaseMatrix::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const RfidBoardSetPhaseMatrix& RfidBoardSetPhaseMatrix::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_RfidBoardSetPhaseMatrix_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void RfidBoardSetPhaseMatrix::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
@@ -1770,48 +1571,51 @@ const char* RfidBoardSetPhaseMatrix::_InternalParse(const char* ptr, ::PROTOBUF_
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 antenna_phase1 = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           antenna_phase1_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 antenna_phase2 = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           antenna_phase2_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 phase_duration = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           phase_duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -1822,19 +1626,19 @@ failure:
   (void) cached_has_bits;
 
   // uint32 antenna_phase1 = 1;
-  if (this->antenna_phase1() != 0) {
+  if (this->_internal_antenna_phase1() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_antenna_phase1(), target);
   }
 
   // uint32 antenna_phase2 = 2;
-  if (this->antenna_phase2() != 0) {
+  if (this->_internal_antenna_phase2() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_antenna_phase2(), target);
   }
 
   // uint32 phase_duration = 3;
-  if (this->phase_duration() != 0) {
+  if (this->_internal_phase_duration() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_phase_duration(), target);
   }
@@ -1856,73 +1660,52 @@ size_t RfidBoardSetPhaseMatrix::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 antenna_phase1 = 1;
-  if (this->antenna_phase1() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_antenna_phase1());
+  if (this->_internal_antenna_phase1() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_antenna_phase1());
   }
 
   // uint32 antenna_phase2 = 2;
-  if (this->antenna_phase2() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_antenna_phase2());
+  if (this->_internal_antenna_phase2() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_antenna_phase2());
   }
 
   // uint32 phase_duration = 3;
-  if (this->phase_duration() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_phase_duration());
+  if (this->_internal_phase_duration() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_phase_duration());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void RfidBoardSetPhaseMatrix::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
-  GOOGLE_DCHECK_NE(&from, this);
-  const RfidBoardSetPhaseMatrix* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RfidBoardSetPhaseMatrix>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.RfidBoardSetPhaseMatrix)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.RfidBoardSetPhaseMatrix)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData RfidBoardSetPhaseMatrix::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    RfidBoardSetPhaseMatrix::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*RfidBoardSetPhaseMatrix::GetClassData() const { return &_class_data_; }
+
+void RfidBoardSetPhaseMatrix::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<RfidBoardSetPhaseMatrix *>(to)->MergeFrom(
+      static_cast<const RfidBoardSetPhaseMatrix &>(from));
 }
+
 
 void RfidBoardSetPhaseMatrix::MergeFrom(const RfidBoardSetPhaseMatrix& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.antenna_phase1() != 0) {
+  if (from._internal_antenna_phase1() != 0) {
     _internal_set_antenna_phase1(from._internal_antenna_phase1());
   }
-  if (from.antenna_phase2() != 0) {
+  if (from._internal_antenna_phase2() != 0) {
     _internal_set_antenna_phase2(from._internal_antenna_phase2());
   }
-  if (from.phase_duration() != 0) {
+  if (from._internal_phase_duration() != 0) {
     _internal_set_phase_duration(from._internal_phase_duration());
   }
-}
-
-void RfidBoardSetPhaseMatrix::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.RfidBoardSetPhaseMatrix)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void RfidBoardSetPhaseMatrix::CopyFrom(const RfidBoardSetPhaseMatrix& from) {
@@ -1938,7 +1721,7 @@ bool RfidBoardSetPhaseMatrix::IsInitialized() const {
 
 void RfidBoardSetPhaseMatrix::InternalSwap(RfidBoardSetPhaseMatrix* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(RfidBoardSetPhaseMatrix, phase_duration_)
       + sizeof(RfidBoardSetPhaseMatrix::phase_duration_)
@@ -1948,9 +1731,10 @@ void RfidBoardSetPhaseMatrix::InternalSwap(RfidBoardSetPhaseMatrix* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RfidBoardSetPhaseMatrix::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[4]);
 }
-
 
 // ===================================================================
 
@@ -1958,10 +1742,13 @@ class UartInit::_Internal {
  public:
 };
 
-UartInit::UartInit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+UartInit::UartInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.UartInit)
 }
 UartInit::UartInit(const UartInit& from)
@@ -1974,20 +1761,21 @@ UartInit::UartInit(const UartInit& from)
 }
 
 void UartInit::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&baud_) -
-      reinterpret_cast<char*>(&port_)) + sizeof(baud_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&baud_) -
+    reinterpret_cast<char*>(&port_)) + sizeof(baud_));
 }
 
 UartInit::~UartInit() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.UartInit)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void UartInit::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void UartInit::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void UartInit::ArenaDtor(void* object) {
@@ -1999,11 +1787,6 @@ void UartInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void UartInit::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UartInit& UartInit::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UartInit_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void UartInit::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartInit)
@@ -2022,7 +1805,6 @@ const char* UartInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Uarts port = 1;
       case 1:
@@ -2030,34 +1812,37 @@ const char* UartInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_port(static_cast<::LabNetProt::Uarts>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 baud = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           baud_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -2068,14 +1853,14 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_port(), target);
   }
 
   // uint32 baud = 2;
-  if (this->baud() != 0) {
+  if (this->_internal_baud() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_baud(), target);
   }
@@ -2097,62 +1882,45 @@ size_t UartInit::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_port());
   }
 
   // uint32 baud = 2;
-  if (this->baud() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_baud());
+  if (this->_internal_baud() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_baud());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void UartInit::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UartInit* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UartInit>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartInit)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartInit)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UartInit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    UartInit::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UartInit::GetClassData() const { return &_class_data_; }
+
+void UartInit::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<UartInit *>(to)->MergeFrom(
+      static_cast<const UartInit &>(from));
 }
+
 
 void UartInit::MergeFrom(const UartInit& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartInit)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.port() != 0) {
+  if (from._internal_port() != 0) {
     _internal_set_port(from._internal_port());
   }
-  if (from.baud() != 0) {
+  if (from._internal_baud() != 0) {
     _internal_set_baud(from._internal_baud());
   }
-}
-
-void UartInit::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UartInit::CopyFrom(const UartInit& from) {
@@ -2168,7 +1936,7 @@ bool UartInit::IsInitialized() const {
 
 void UartInit::InternalSwap(UartInit* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UartInit, baud_)
       + sizeof(UartInit::baud_)
@@ -2178,9 +1946,10 @@ void UartInit::InternalSwap(UartInit* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UartInit::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[5]);
 }
-
 
 // ===================================================================
 
@@ -2188,10 +1957,13 @@ class UartWriteData::_Internal {
  public:
 };
 
-UartWriteData::UartWriteData(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+UartWriteData::UartWriteData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.UartWriteData)
 }
 UartWriteData::UartWriteData(const UartWriteData& from)
@@ -2200,26 +1972,26 @@ UartWriteData::UartWriteData(const UartWriteData& from)
   data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_data().empty()) {
     data_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_data(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   port_ = from.port_;
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.UartWriteData)
 }
 
 void UartWriteData::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UartWriteData_LabNetClient_2eproto.base);
-  data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  port_ = 0;
+data_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+port_ = 0;
 }
 
 UartWriteData::~UartWriteData() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.UartWriteData)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void UartWriteData::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void UartWriteData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   data_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -2232,11 +2004,6 @@ void UartWriteData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void UartWriteData::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UartWriteData& UartWriteData::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UartWriteData_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void UartWriteData::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartWriteData)
@@ -2254,7 +2021,6 @@ const char* UartWriteData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Uarts port = 1;
       case 1:
@@ -2262,7 +2028,8 @@ const char* UartWriteData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_port(static_cast<::LabNetProt::Uarts>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bytes data = 2;
       case 2:
@@ -2270,27 +2037,29 @@ const char* UartWriteData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           auto str = _internal_mutable_data();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -2301,14 +2070,14 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_port(), target);
   }
 
   // bytes data = 2;
-  if (this->data().size() > 0) {
+  if (!this->_internal_data().empty()) {
     target = stream->WriteBytesMaybeAliased(
         2, this->_internal_data(), target);
   }
@@ -2330,62 +2099,47 @@ size_t UartWriteData::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // bytes data = 2;
-  if (this->data().size() > 0) {
+  if (!this->_internal_data().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_data());
   }
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_port());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void UartWriteData::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartWriteData)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UartWriteData* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UartWriteData>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartWriteData)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartWriteData)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UartWriteData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    UartWriteData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UartWriteData::GetClassData() const { return &_class_data_; }
+
+void UartWriteData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<UartWriteData *>(to)->MergeFrom(
+      static_cast<const UartWriteData &>(from));
 }
+
 
 void UartWriteData::MergeFrom(const UartWriteData& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartWriteData)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.data().size() > 0) {
+  if (!from._internal_data().empty()) {
     _internal_set_data(from._internal_data());
   }
-  if (from.port() != 0) {
+  if (from._internal_port() != 0) {
     _internal_set_port(from._internal_port());
   }
-}
-
-void UartWriteData::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartWriteData)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UartWriteData::CopyFrom(const UartWriteData& from) {
@@ -2401,15 +2155,22 @@ bool UartWriteData::IsInitialized() const {
 
 void UartWriteData::InternalSwap(UartWriteData* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  data_.Swap(&other->data_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &data_, lhs_arena,
+      &other->data_, rhs_arena
+  );
   swap(port_, other->port_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UartWriteData::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[6]);
 }
-
 
 // ===================================================================
 
@@ -2417,10 +2178,13 @@ class UartInitDigitalIn::_Internal {
  public:
 };
 
-UartInitDigitalIn::UartInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+UartInitDigitalIn::UartInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.UartInitDigitalIn)
 }
 UartInitDigitalIn::UartInitDigitalIn(const UartInitDigitalIn& from)
@@ -2433,20 +2197,21 @@ UartInitDigitalIn::UartInitDigitalIn(const UartInitDigitalIn& from)
 }
 
 void UartInitDigitalIn::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&port_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&port_)) + sizeof(is_inverted_));
 }
 
 UartInitDigitalIn::~UartInitDigitalIn() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.UartInitDigitalIn)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void UartInitDigitalIn::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void UartInitDigitalIn::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void UartInitDigitalIn::ArenaDtor(void* object) {
@@ -2458,11 +2223,6 @@ void UartInitDigitalIn::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void UartInitDigitalIn::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UartInitDigitalIn& UartInitDigitalIn::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UartInitDigitalIn_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void UartInitDigitalIn::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartInitDigitalIn)
@@ -2481,7 +2241,6 @@ const char* UartInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Uarts port = 1;
       case 1:
@@ -2489,41 +2248,45 @@ const char* UartInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_port(static_cast<::LabNetProt::Uarts>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 pin = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -2534,20 +2297,20 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_port(), target);
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_pin(), target);
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_inverted(), target);
   }
@@ -2569,70 +2332,53 @@ size_t UartInitDigitalIn::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_port());
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void UartInitDigitalIn::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartInitDigitalIn)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UartInitDigitalIn* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UartInitDigitalIn>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartInitDigitalIn)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartInitDigitalIn)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UartInitDigitalIn::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    UartInitDigitalIn::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UartInitDigitalIn::GetClassData() const { return &_class_data_; }
+
+void UartInitDigitalIn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<UartInitDigitalIn *>(to)->MergeFrom(
+      static_cast<const UartInitDigitalIn &>(from));
 }
+
 
 void UartInitDigitalIn::MergeFrom(const UartInitDigitalIn& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartInitDigitalIn)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.port() != 0) {
+  if (from._internal_port() != 0) {
     _internal_set_port(from._internal_port());
   }
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void UartInitDigitalIn::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartInitDigitalIn)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UartInitDigitalIn::CopyFrom(const UartInitDigitalIn& from) {
@@ -2648,7 +2394,7 @@ bool UartInitDigitalIn::IsInitialized() const {
 
 void UartInitDigitalIn::InternalSwap(UartInitDigitalIn* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UartInitDigitalIn, is_inverted_)
       + sizeof(UartInitDigitalIn::is_inverted_)
@@ -2658,9 +2404,10 @@ void UartInitDigitalIn::InternalSwap(UartInitDigitalIn* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UartInitDigitalIn::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[7]);
 }
-
 
 // ===================================================================
 
@@ -2668,10 +2415,13 @@ class UartInitDigitalOut::_Internal {
  public:
 };
 
-UartInitDigitalOut::UartInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+UartInitDigitalOut::UartInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.UartInitDigitalOut)
 }
 UartInitDigitalOut::UartInitDigitalOut(const UartInitDigitalOut& from)
@@ -2684,20 +2434,21 @@ UartInitDigitalOut::UartInitDigitalOut(const UartInitDigitalOut& from)
 }
 
 void UartInitDigitalOut::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&port_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&port_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&port_)) + sizeof(is_inverted_));
 }
 
 UartInitDigitalOut::~UartInitDigitalOut() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.UartInitDigitalOut)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void UartInitDigitalOut::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void UartInitDigitalOut::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void UartInitDigitalOut::ArenaDtor(void* object) {
@@ -2709,11 +2460,6 @@ void UartInitDigitalOut::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void UartInitDigitalOut::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const UartInitDigitalOut& UartInitDigitalOut::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UartInitDigitalOut_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void UartInitDigitalOut::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartInitDigitalOut)
@@ -2732,7 +2478,6 @@ const char* UartInitDigitalOut::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Uarts port = 1;
       case 1:
@@ -2740,41 +2485,45 @@ const char* UartInitDigitalOut::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_port(static_cast<::LabNetProt::Uarts>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 pin = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -2785,20 +2534,20 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_port(), target);
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_pin(), target);
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_inverted(), target);
   }
@@ -2820,70 +2569,53 @@ size_t UartInitDigitalOut::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.Uarts port = 1;
-  if (this->port() != 0) {
+  if (this->_internal_port() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_port());
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void UartInitDigitalOut::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartInitDigitalOut)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UartInitDigitalOut* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UartInitDigitalOut>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartInitDigitalOut)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartInitDigitalOut)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UartInitDigitalOut::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    UartInitDigitalOut::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UartInitDigitalOut::GetClassData() const { return &_class_data_; }
+
+void UartInitDigitalOut::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<UartInitDigitalOut *>(to)->MergeFrom(
+      static_cast<const UartInitDigitalOut &>(from));
 }
+
 
 void UartInitDigitalOut::MergeFrom(const UartInitDigitalOut& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartInitDigitalOut)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.port() != 0) {
+  if (from._internal_port() != 0) {
     _internal_set_port(from._internal_port());
   }
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void UartInitDigitalOut::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartInitDigitalOut)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UartInitDigitalOut::CopyFrom(const UartInitDigitalOut& from) {
@@ -2899,7 +2631,7 @@ bool UartInitDigitalOut::IsInitialized() const {
 
 void UartInitDigitalOut::InternalSwap(UartInitDigitalOut* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(UartInitDigitalOut, is_inverted_)
       + sizeof(UartInitDigitalOut::is_inverted_)
@@ -2909,9 +2641,10 @@ void UartInitDigitalOut::InternalSwap(UartInitDigitalOut* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UartInitDigitalOut::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[8]);
 }
-
 
 // ===================================================================
 
@@ -2919,161 +2652,38 @@ class GpioWiringPiInit::_Internal {
  public:
 };
 
-GpioWiringPiInit::GpioWiringPiInit(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+GpioWiringPiInit::GpioWiringPiInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.GpioWiringPiInit)
 }
 GpioWiringPiInit::GpioWiringPiInit(const GpioWiringPiInit& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.GpioWiringPiInit)
 }
 
-void GpioWiringPiInit::SharedCtor() {
-}
-
-GpioWiringPiInit::~GpioWiringPiInit() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInit)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void GpioWiringPiInit::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void GpioWiringPiInit::ArenaDtor(void* object) {
-  GpioWiringPiInit* _this = reinterpret_cast< GpioWiringPiInit* >(object);
-  (void)_this;
-}
-void GpioWiringPiInit::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void GpioWiringPiInit::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const GpioWiringPiInit& GpioWiringPiInit::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GpioWiringPiInit_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void GpioWiringPiInit::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInit)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* GpioWiringPiInit::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GpioWiringPiInit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GpioWiringPiInit::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* GpioWiringPiInit::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.GpioWiringPiInit)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.GpioWiringPiInit)
-  return target;
-}
 
-size_t GpioWiringPiInit::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.GpioWiringPiInit)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void GpioWiringPiInit::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GpioWiringPiInit* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GpioWiringPiInit>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInit)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInit)
-    MergeFrom(*source);
-  }
-}
-
-void GpioWiringPiInit::MergeFrom(const GpioWiringPiInit& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInit)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void GpioWiringPiInit::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void GpioWiringPiInit::CopyFrom(const GpioWiringPiInit& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.GpioWiringPiInit)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool GpioWiringPiInit::IsInitialized() const {
-  return true;
-}
-
-void GpioWiringPiInit::InternalSwap(GpioWiringPiInit* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GpioWiringPiInit::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[9]);
 }
-
 
 // ===================================================================
 
@@ -3081,10 +2691,13 @@ class GpioWiringPiInitDigitalIn::_Internal {
  public:
 };
 
-GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.GpioWiringPiInitDigitalIn)
 }
 GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(const GpioWiringPiInitDigitalIn& from)
@@ -3097,20 +2710,21 @@ GpioWiringPiInitDigitalIn::GpioWiringPiInitDigitalIn(const GpioWiringPiInitDigit
 }
 
 void GpioWiringPiInitDigitalIn::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
 GpioWiringPiInitDigitalIn::~GpioWiringPiInitDigitalIn() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInitDigitalIn)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void GpioWiringPiInitDigitalIn::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void GpioWiringPiInitDigitalIn::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void GpioWiringPiInitDigitalIn::ArenaDtor(void* object) {
@@ -3122,11 +2736,6 @@ void GpioWiringPiInitDigitalIn::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena
 void GpioWiringPiInitDigitalIn::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const GpioWiringPiInitDigitalIn& GpioWiringPiInitDigitalIn::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GpioWiringPiInitDigitalIn_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void GpioWiringPiInitDigitalIn::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
@@ -3145,14 +2754,14 @@ const char* GpioWiringPiInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBU
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 pin = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
       case 2:
@@ -3160,34 +2769,37 @@ const char* GpioWiringPiInitDigitalIn::_InternalParse(const char* ptr, ::PROTOBU
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_resistor_state(static_cast<::LabNetProt::Client::GpioWiringPiInitDigitalIn_Resistor>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -3198,20 +2810,20 @@ failure:
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_pin(), target);
   }
 
   // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
-  if (this->resistor_state() != 0) {
+  if (this->_internal_resistor_state() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_resistor_state(), target);
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_inverted(), target);
   }
@@ -3233,70 +2845,53 @@ size_t GpioWiringPiInitDigitalIn::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // .LabNetProt.Client.GpioWiringPiInitDigitalIn.Resistor resistor_state = 2;
-  if (this->resistor_state() != 0) {
+  if (this->_internal_resistor_state() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_resistor_state());
   }
 
   // bool is_inverted = 3;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void GpioWiringPiInitDigitalIn::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GpioWiringPiInitDigitalIn* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GpioWiringPiInitDigitalIn>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInitDigitalIn)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInitDigitalIn)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GpioWiringPiInitDigitalIn::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    GpioWiringPiInitDigitalIn::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GpioWiringPiInitDigitalIn::GetClassData() const { return &_class_data_; }
+
+void GpioWiringPiInitDigitalIn::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<GpioWiringPiInitDigitalIn *>(to)->MergeFrom(
+      static_cast<const GpioWiringPiInitDigitalIn &>(from));
 }
+
 
 void GpioWiringPiInitDigitalIn::MergeFrom(const GpioWiringPiInitDigitalIn& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.resistor_state() != 0) {
+  if (from._internal_resistor_state() != 0) {
     _internal_set_resistor_state(from._internal_resistor_state());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void GpioWiringPiInitDigitalIn::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalIn)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GpioWiringPiInitDigitalIn::CopyFrom(const GpioWiringPiInitDigitalIn& from) {
@@ -3312,7 +2907,7 @@ bool GpioWiringPiInitDigitalIn::IsInitialized() const {
 
 void GpioWiringPiInitDigitalIn::InternalSwap(GpioWiringPiInitDigitalIn* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(GpioWiringPiInitDigitalIn, is_inverted_)
       + sizeof(GpioWiringPiInitDigitalIn::is_inverted_)
@@ -3322,9 +2917,10 @@ void GpioWiringPiInitDigitalIn::InternalSwap(GpioWiringPiInitDigitalIn* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GpioWiringPiInitDigitalIn::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[10]);
 }
-
 
 // ===================================================================
 
@@ -3332,10 +2928,13 @@ class GpioWiringPiInitDigitalOut::_Internal {
  public:
 };
 
-GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.GpioWiringPiInitDigitalOut)
 }
 GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(const GpioWiringPiInitDigitalOut& from)
@@ -3348,20 +2947,21 @@ GpioWiringPiInitDigitalOut::GpioWiringPiInitDigitalOut(const GpioWiringPiInitDig
 }
 
 void GpioWiringPiInitDigitalOut::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
-      reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&pin_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&pin_)) + sizeof(is_inverted_));
 }
 
 GpioWiringPiInitDigitalOut::~GpioWiringPiInitDigitalOut() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.GpioWiringPiInitDigitalOut)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void GpioWiringPiInitDigitalOut::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void GpioWiringPiInitDigitalOut::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void GpioWiringPiInitDigitalOut::ArenaDtor(void* object) {
@@ -3373,11 +2973,6 @@ void GpioWiringPiInitDigitalOut::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Aren
 void GpioWiringPiInitDigitalOut::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const GpioWiringPiInitDigitalOut& GpioWiringPiInitDigitalOut::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_GpioWiringPiInitDigitalOut_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void GpioWiringPiInitDigitalOut::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
@@ -3396,41 +2991,43 @@ const char* GpioWiringPiInitDigitalOut::_InternalParse(const char* ptr, ::PROTOB
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // uint32 pin = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool is_inverted = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           is_inverted_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -3441,13 +3038,13 @@ failure:
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_pin(), target);
   }
 
   // bool is_inverted = 2;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_inverted(), target);
   }
@@ -3469,61 +3066,44 @@ size_t GpioWiringPiInitDigitalOut::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // uint32 pin = 1;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
   // bool is_inverted = 2;
-  if (this->is_inverted() != 0) {
+  if (this->_internal_is_inverted() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void GpioWiringPiInitDigitalOut::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
-  GOOGLE_DCHECK_NE(&from, this);
-  const GpioWiringPiInitDigitalOut* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<GpioWiringPiInitDigitalOut>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.GpioWiringPiInitDigitalOut)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.GpioWiringPiInitDigitalOut)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GpioWiringPiInitDigitalOut::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    GpioWiringPiInitDigitalOut::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GpioWiringPiInitDigitalOut::GetClassData() const { return &_class_data_; }
+
+void GpioWiringPiInitDigitalOut::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<GpioWiringPiInitDigitalOut *>(to)->MergeFrom(
+      static_cast<const GpioWiringPiInitDigitalOut &>(from));
 }
+
 
 void GpioWiringPiInitDigitalOut::MergeFrom(const GpioWiringPiInitDigitalOut& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-  if (from.is_inverted() != 0) {
+  if (from._internal_is_inverted() != 0) {
     _internal_set_is_inverted(from._internal_is_inverted());
   }
-}
-
-void GpioWiringPiInitDigitalOut::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.GpioWiringPiInitDigitalOut)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void GpioWiringPiInitDigitalOut::CopyFrom(const GpioWiringPiInitDigitalOut& from) {
@@ -3539,7 +3119,7 @@ bool GpioWiringPiInitDigitalOut::IsInitialized() const {
 
 void GpioWiringPiInitDigitalOut::InternalSwap(GpioWiringPiInitDigitalOut* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(GpioWiringPiInitDigitalOut, is_inverted_)
       + sizeof(GpioWiringPiInitDigitalOut::is_inverted_)
@@ -3549,9 +3129,10 @@ void GpioWiringPiInitDigitalOut::InternalSwap(GpioWiringPiInitDigitalOut* other)
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GpioWiringPiInitDigitalOut::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[11]);
 }
-
 
 // ===================================================================
 
@@ -3565,15 +3146,18 @@ DigitalOutSet::_Internal::id(const DigitalOutSet* msg) {
   return *msg->id_;
 }
 void DigitalOutSet::clear_id() {
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
 }
-DigitalOutSet::DigitalOutSet(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+DigitalOutSet::DigitalOutSet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.DigitalOutSet)
 }
 DigitalOutSet::DigitalOutSet(const DigitalOutSet& from)
@@ -3589,21 +3173,21 @@ DigitalOutSet::DigitalOutSet(const DigitalOutSet& from)
 }
 
 void DigitalOutSet::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DigitalOutSet_LabNetClient_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&state_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(state_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&state_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(state_));
 }
 
 DigitalOutSet::~DigitalOutSet() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.DigitalOutSet)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void DigitalOutSet::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void DigitalOutSet::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete id_;
 }
 
@@ -3616,11 +3200,6 @@ void DigitalOutSet::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void DigitalOutSet::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DigitalOutSet& DigitalOutSet::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DigitalOutSet_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void DigitalOutSet::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.DigitalOutSet)
@@ -3628,7 +3207,7 @@ void DigitalOutSet::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
@@ -3641,41 +3220,43 @@ const char* DigitalOutSet::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.PinId id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_id(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // bool state = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -3686,7 +3267,7 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -3694,7 +3275,7 @@ failure:
   }
 
   // bool state = 2;
-  if (this->state() != 0) {
+  if (this->_internal_state() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_state(), target);
   }
@@ -3716,61 +3297,46 @@ size_t DigitalOutSet::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *id_);
   }
 
   // bool state = 2;
-  if (this->state() != 0) {
+  if (this->_internal_state() != 0) {
     total_size += 1 + 1;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void DigitalOutSet::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.DigitalOutSet)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DigitalOutSet* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DigitalOutSet>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.DigitalOutSet)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.DigitalOutSet)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DigitalOutSet::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DigitalOutSet::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DigitalOutSet::GetClassData() const { return &_class_data_; }
+
+void DigitalOutSet::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DigitalOutSet *>(to)->MergeFrom(
+      static_cast<const DigitalOutSet &>(from));
 }
+
 
 void DigitalOutSet::MergeFrom(const DigitalOutSet& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.DigitalOutSet)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_id()) {
+  if (from._internal_has_id()) {
     _internal_mutable_id()->::LabNetProt::PinId::MergeFrom(from._internal_id());
   }
-  if (from.state() != 0) {
+  if (from._internal_state() != 0) {
     _internal_set_state(from._internal_state());
   }
-}
-
-void DigitalOutSet::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.DigitalOutSet)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DigitalOutSet::CopyFrom(const DigitalOutSet& from) {
@@ -3786,7 +3352,7 @@ bool DigitalOutSet::IsInitialized() const {
 
 void DigitalOutSet::InternalSwap(DigitalOutSet* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(DigitalOutSet, state_)
       + sizeof(DigitalOutSet::state_)
@@ -3796,9 +3362,10 @@ void DigitalOutSet::InternalSwap(DigitalOutSet* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DigitalOutSet::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[12]);
 }
-
 
 // ===================================================================
 
@@ -3812,15 +3379,18 @@ DigitalOutPulse::_Internal::id(const DigitalOutPulse* msg) {
   return *msg->id_;
 }
 void DigitalOutPulse::clear_id() {
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
 }
-DigitalOutPulse::DigitalOutPulse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+DigitalOutPulse::DigitalOutPulse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.DigitalOutPulse)
 }
 DigitalOutPulse::DigitalOutPulse(const DigitalOutPulse& from)
@@ -3838,21 +3408,21 @@ DigitalOutPulse::DigitalOutPulse(const DigitalOutPulse& from)
 }
 
 void DigitalOutPulse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DigitalOutPulse_LabNetClient_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&pulses_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(pulses_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&pulses_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(pulses_));
 }
 
 DigitalOutPulse::~DigitalOutPulse() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.DigitalOutPulse)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void DigitalOutPulse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void DigitalOutPulse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete id_;
 }
 
@@ -3865,11 +3435,6 @@ void DigitalOutPulse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void DigitalOutPulse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DigitalOutPulse& DigitalOutPulse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DigitalOutPulse_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void DigitalOutPulse::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.DigitalOutPulse)
@@ -3877,7 +3442,7 @@ void DigitalOutPulse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
@@ -3892,55 +3457,59 @@ const char* DigitalOutPulse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.PinId id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_id(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 high_duration = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           high_duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 low_duration = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           low_duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 pulses = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           pulses_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -3951,7 +3520,7 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -3959,19 +3528,19 @@ failure:
   }
 
   // uint32 high_duration = 2;
-  if (this->high_duration() != 0) {
+  if (this->_internal_high_duration() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_high_duration(), target);
   }
 
   // uint32 low_duration = 3;
-  if (this->low_duration() != 0) {
+  if (this->_internal_low_duration() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_low_duration(), target);
   }
 
   // uint32 pulses = 4;
-  if (this->pulses() != 0) {
+  if (this->_internal_pulses() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_pulses(), target);
   }
@@ -3993,83 +3562,62 @@ size_t DigitalOutPulse::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *id_);
   }
 
   // uint32 high_duration = 2;
-  if (this->high_duration() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_high_duration());
+  if (this->_internal_high_duration() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_high_duration());
   }
 
   // uint32 low_duration = 3;
-  if (this->low_duration() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_low_duration());
+  if (this->_internal_low_duration() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_low_duration());
   }
 
   // uint32 pulses = 4;
-  if (this->pulses() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pulses());
+  if (this->_internal_pulses() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pulses());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void DigitalOutPulse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.DigitalOutPulse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const DigitalOutPulse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DigitalOutPulse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.DigitalOutPulse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.DigitalOutPulse)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DigitalOutPulse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DigitalOutPulse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DigitalOutPulse::GetClassData() const { return &_class_data_; }
+
+void DigitalOutPulse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DigitalOutPulse *>(to)->MergeFrom(
+      static_cast<const DigitalOutPulse &>(from));
 }
+
 
 void DigitalOutPulse::MergeFrom(const DigitalOutPulse& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.DigitalOutPulse)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_id()) {
+  if (from._internal_has_id()) {
     _internal_mutable_id()->::LabNetProt::PinId::MergeFrom(from._internal_id());
   }
-  if (from.high_duration() != 0) {
+  if (from._internal_high_duration() != 0) {
     _internal_set_high_duration(from._internal_high_duration());
   }
-  if (from.low_duration() != 0) {
+  if (from._internal_low_duration() != 0) {
     _internal_set_low_duration(from._internal_low_duration());
   }
-  if (from.pulses() != 0) {
+  if (from._internal_pulses() != 0) {
     _internal_set_pulses(from._internal_pulses());
   }
-}
-
-void DigitalOutPulse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.DigitalOutPulse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void DigitalOutPulse::CopyFrom(const DigitalOutPulse& from) {
@@ -4085,7 +3633,7 @@ bool DigitalOutPulse::IsInitialized() const {
 
 void DigitalOutPulse::InternalSwap(DigitalOutPulse* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(DigitalOutPulse, pulses_)
       + sizeof(DigitalOutPulse::pulses_)
@@ -4095,9 +3643,10 @@ void DigitalOutPulse::InternalSwap(DigitalOutPulse* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DigitalOutPulse::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[13]);
 }
-
 
 // ===================================================================
 
@@ -4111,15 +3660,18 @@ StartDigitalOutLoop_DigitalOutputParameter::_Internal::id(const StartDigitalOutL
   return *msg->id_;
 }
 void StartDigitalOutLoop_DigitalOutputParameter::clear_id() {
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
 }
-StartDigitalOutLoop_DigitalOutputParameter::StartDigitalOutLoop_DigitalOutputParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+StartDigitalOutLoop_DigitalOutputParameter::StartDigitalOutLoop_DigitalOutputParameter(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
 }
 StartDigitalOutLoop_DigitalOutputParameter::StartDigitalOutLoop_DigitalOutputParameter(const StartDigitalOutLoop_DigitalOutputParameter& from)
@@ -4137,21 +3689,21 @@ StartDigitalOutLoop_DigitalOutputParameter::StartDigitalOutLoop_DigitalOutputPar
 }
 
 void StartDigitalOutLoop_DigitalOutputParameter::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto.base);
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&duration_) -
-      reinterpret_cast<char*>(&id_)) + sizeof(duration_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&duration_) -
+    reinterpret_cast<char*>(&id_)) + sizeof(duration_));
 }
 
 StartDigitalOutLoop_DigitalOutputParameter::~StartDigitalOutLoop_DigitalOutputParameter() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void StartDigitalOutLoop_DigitalOutputParameter::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void StartDigitalOutLoop_DigitalOutputParameter::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete id_;
 }
 
@@ -4164,11 +3716,6 @@ void StartDigitalOutLoop_DigitalOutputParameter::RegisterArenaDtor(::PROTOBUF_NA
 void StartDigitalOutLoop_DigitalOutputParameter::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const StartDigitalOutLoop_DigitalOutputParameter& StartDigitalOutLoop_DigitalOutputParameter::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StartDigitalOutLoop_DigitalOutputParameter_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void StartDigitalOutLoop_DigitalOutputParameter::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
@@ -4176,7 +3723,7 @@ void StartDigitalOutLoop_DigitalOutputParameter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArena() == nullptr && id_ != nullptr) {
+  if (GetArenaForAllocation() == nullptr && id_ != nullptr) {
     delete id_;
   }
   id_ = nullptr;
@@ -4191,48 +3738,51 @@ const char* StartDigitalOutLoop_DigitalOutputParameter::_InternalParse(const cha
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.PinId id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_id(), ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 offset = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           offset_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 duration = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           duration_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -4243,7 +3793,7 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(
@@ -4251,13 +3801,13 @@ failure:
   }
 
   // uint32 offset = 2;
-  if (this->offset() != 0) {
+  if (this->_internal_offset() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_offset(), target);
   }
 
   // uint32 duration = 3;
-  if (this->duration() != 0) {
+  if (this->_internal_duration() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_duration(), target);
   }
@@ -4279,73 +3829,54 @@ size_t StartDigitalOutLoop_DigitalOutputParameter::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.PinId id = 1;
-  if (this->has_id()) {
+  if (this->_internal_has_id()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *id_);
   }
 
   // uint32 offset = 2;
-  if (this->offset() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_offset());
+  if (this->_internal_offset() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_offset());
   }
 
   // uint32 duration = 3;
-  if (this->duration() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_duration());
+  if (this->_internal_duration() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_duration());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void StartDigitalOutLoop_DigitalOutputParameter::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StartDigitalOutLoop_DigitalOutputParameter* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StartDigitalOutLoop_DigitalOutputParameter>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StartDigitalOutLoop_DigitalOutputParameter::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    StartDigitalOutLoop_DigitalOutputParameter::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StartDigitalOutLoop_DigitalOutputParameter::GetClassData() const { return &_class_data_; }
+
+void StartDigitalOutLoop_DigitalOutputParameter::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<StartDigitalOutLoop_DigitalOutputParameter *>(to)->MergeFrom(
+      static_cast<const StartDigitalOutLoop_DigitalOutputParameter &>(from));
 }
+
 
 void StartDigitalOutLoop_DigitalOutputParameter::MergeFrom(const StartDigitalOutLoop_DigitalOutputParameter& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.has_id()) {
+  if (from._internal_has_id()) {
     _internal_mutable_id()->::LabNetProt::PinId::MergeFrom(from._internal_id());
   }
-  if (from.offset() != 0) {
+  if (from._internal_offset() != 0) {
     _internal_set_offset(from._internal_offset());
   }
-  if (from.duration() != 0) {
+  if (from._internal_duration() != 0) {
     _internal_set_duration(from._internal_duration());
   }
-}
-
-void StartDigitalOutLoop_DigitalOutputParameter::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void StartDigitalOutLoop_DigitalOutputParameter::CopyFrom(const StartDigitalOutLoop_DigitalOutputParameter& from) {
@@ -4361,7 +3892,7 @@ bool StartDigitalOutLoop_DigitalOutputParameter::IsInitialized() const {
 
 void StartDigitalOutLoop_DigitalOutputParameter::InternalSwap(StartDigitalOutLoop_DigitalOutputParameter* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(StartDigitalOutLoop_DigitalOutputParameter, duration_)
       + sizeof(StartDigitalOutLoop_DigitalOutputParameter::duration_)
@@ -4371,9 +3902,10 @@ void StartDigitalOutLoop_DigitalOutputParameter::InternalSwap(StartDigitalOutLoo
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StartDigitalOutLoop_DigitalOutputParameter::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[14]);
 }
-
 
 // ===================================================================
 
@@ -4381,11 +3913,14 @@ class StartDigitalOutLoop::_Internal {
  public:
 };
 
-StartDigitalOutLoop::StartDigitalOutLoop(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+StartDigitalOutLoop::StartDigitalOutLoop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   digital_outputs_(arena) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.StartDigitalOutLoop)
 }
 StartDigitalOutLoop::StartDigitalOutLoop(const StartDigitalOutLoop& from)
@@ -4395,26 +3930,26 @@ StartDigitalOutLoop::StartDigitalOutLoop(const StartDigitalOutLoop& from)
   loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_loop_name().empty()) {
     loop_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_loop_name(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   loop_pause_ = from.loop_pause_;
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.StartDigitalOutLoop)
 }
 
 void StartDigitalOutLoop::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StartDigitalOutLoop_LabNetClient_2eproto.base);
-  loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  loop_pause_ = 0u;
+loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+loop_pause_ = 0u;
 }
 
 StartDigitalOutLoop::~StartDigitalOutLoop() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.StartDigitalOutLoop)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void StartDigitalOutLoop::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void StartDigitalOutLoop::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   loop_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -4427,11 +3962,6 @@ void StartDigitalOutLoop::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void StartDigitalOutLoop::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const StartDigitalOutLoop& StartDigitalOutLoop::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StartDigitalOutLoop_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void StartDigitalOutLoop::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.StartDigitalOutLoop)
@@ -4450,7 +3980,6 @@ const char* StartDigitalOutLoop::_InternalParse(const char* ptr, ::PROTOBUF_NAME
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // string loop_name = 1;
       case 1:
@@ -4459,14 +3988,16 @@ const char* StartDigitalOutLoop::_InternalParse(const char* ptr, ::PROTOBUF_NAME
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "LabNetProt.Client.StartDigitalOutLoop.loop_name"));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 loop_pause = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           loop_pause_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // repeated .LabNetProt.Client.StartDigitalOutLoop.DigitalOutputParameter digital_outputs = 3;
       case 3:
@@ -4478,27 +4009,29 @@ const char* StartDigitalOutLoop::_InternalParse(const char* ptr, ::PROTOBUF_NAME
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -4509,7 +4042,7 @@ failure:
   (void) cached_has_bits;
 
   // string loop_name = 1;
-  if (this->loop_name().size() > 0) {
+  if (!this->_internal_loop_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_loop_name().data(), static_cast<int>(this->_internal_loop_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4519,7 +4052,7 @@ failure:
   }
 
   // uint32 loop_pause = 2;
-  if (this->loop_pause() != 0) {
+  if (this->_internal_loop_pause() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_loop_pause(), target);
   }
@@ -4556,64 +4089,47 @@ size_t StartDigitalOutLoop::ByteSizeLong() const {
   }
 
   // string loop_name = 1;
-  if (this->loop_name().size() > 0) {
+  if (!this->_internal_loop_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_loop_name());
   }
 
   // uint32 loop_pause = 2;
-  if (this->loop_pause() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_loop_pause());
+  if (this->_internal_loop_pause() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_loop_pause());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void StartDigitalOutLoop::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.StartDigitalOutLoop)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StartDigitalOutLoop* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StartDigitalOutLoop>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.StartDigitalOutLoop)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.StartDigitalOutLoop)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StartDigitalOutLoop::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    StartDigitalOutLoop::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StartDigitalOutLoop::GetClassData() const { return &_class_data_; }
+
+void StartDigitalOutLoop::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<StartDigitalOutLoop *>(to)->MergeFrom(
+      static_cast<const StartDigitalOutLoop &>(from));
 }
+
 
 void StartDigitalOutLoop::MergeFrom(const StartDigitalOutLoop& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.StartDigitalOutLoop)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   digital_outputs_.MergeFrom(from.digital_outputs_);
-  if (from.loop_name().size() > 0) {
+  if (!from._internal_loop_name().empty()) {
     _internal_set_loop_name(from._internal_loop_name());
   }
-  if (from.loop_pause() != 0) {
+  if (from._internal_loop_pause() != 0) {
     _internal_set_loop_pause(from._internal_loop_pause());
   }
-}
-
-void StartDigitalOutLoop::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.StartDigitalOutLoop)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void StartDigitalOutLoop::CopyFrom(const StartDigitalOutLoop& from) {
@@ -4629,16 +4145,23 @@ bool StartDigitalOutLoop::IsInitialized() const {
 
 void StartDigitalOutLoop::InternalSwap(StartDigitalOutLoop* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   digital_outputs_.InternalSwap(&other->digital_outputs_);
-  loop_name_.Swap(&other->loop_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &loop_name_, lhs_arena,
+      &other->loop_name_, rhs_arena
+  );
   swap(loop_pause_, other->loop_pause_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StartDigitalOutLoop::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[15]);
 }
-
 
 // ===================================================================
 
@@ -4646,10 +4169,13 @@ class StopDigitalOutLoop::_Internal {
  public:
 };
 
-StopDigitalOutLoop::StopDigitalOutLoop(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+StopDigitalOutLoop::StopDigitalOutLoop(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.StopDigitalOutLoop)
 }
 StopDigitalOutLoop::StopDigitalOutLoop(const StopDigitalOutLoop& from)
@@ -4658,24 +4184,24 @@ StopDigitalOutLoop::StopDigitalOutLoop(const StopDigitalOutLoop& from)
   loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_loop_name().empty()) {
     loop_name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_loop_name(), 
-      GetArena());
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.StopDigitalOutLoop)
 }
 
 void StopDigitalOutLoop::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StopDigitalOutLoop_LabNetClient_2eproto.base);
-  loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+loop_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 StopDigitalOutLoop::~StopDigitalOutLoop() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.StopDigitalOutLoop)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void StopDigitalOutLoop::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void StopDigitalOutLoop::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   loop_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -4688,11 +4214,6 @@ void StopDigitalOutLoop::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void StopDigitalOutLoop::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const StopDigitalOutLoop& StopDigitalOutLoop::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StopDigitalOutLoop_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void StopDigitalOutLoop::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.StopDigitalOutLoop)
@@ -4709,7 +4230,6 @@ const char* StopDigitalOutLoop::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // string loop_name = 1;
       case 1:
@@ -4718,27 +4238,29 @@ const char* StopDigitalOutLoop::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "LabNetProt.Client.StopDigitalOutLoop.loop_name"));
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -4749,7 +4271,7 @@ failure:
   (void) cached_has_bits;
 
   // string loop_name = 1;
-  if (this->loop_name().size() > 0) {
+  if (!this->_internal_loop_name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_loop_name().data(), static_cast<int>(this->_internal_loop_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
@@ -4775,53 +4297,38 @@ size_t StopDigitalOutLoop::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // string loop_name = 1;
-  if (this->loop_name().size() > 0) {
+  if (!this->_internal_loop_name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_loop_name());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void StopDigitalOutLoop::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.StopDigitalOutLoop)
-  GOOGLE_DCHECK_NE(&from, this);
-  const StopDigitalOutLoop* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StopDigitalOutLoop>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.StopDigitalOutLoop)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.StopDigitalOutLoop)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData StopDigitalOutLoop::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    StopDigitalOutLoop::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*StopDigitalOutLoop::GetClassData() const { return &_class_data_; }
+
+void StopDigitalOutLoop::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<StopDigitalOutLoop *>(to)->MergeFrom(
+      static_cast<const StopDigitalOutLoop &>(from));
 }
+
 
 void StopDigitalOutLoop::MergeFrom(const StopDigitalOutLoop& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.StopDigitalOutLoop)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.loop_name().size() > 0) {
+  if (!from._internal_loop_name().empty()) {
     _internal_set_loop_name(from._internal_loop_name());
   }
-}
-
-void StopDigitalOutLoop::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.StopDigitalOutLoop)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void StopDigitalOutLoop::CopyFrom(const StopDigitalOutLoop& from) {
@@ -4837,14 +4344,21 @@ bool StopDigitalOutLoop::IsInitialized() const {
 
 void StopDigitalOutLoop::InternalSwap(StopDigitalOutLoop* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  loop_name_.Swap(&other->loop_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &loop_name_, lhs_arena,
+      &other->loop_name_, rhs_arena
+  );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata StopDigitalOutLoop::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[16]);
 }
-
 
 // ===================================================================
 
@@ -4852,161 +4366,38 @@ class LabNetResetRequest::_Internal {
  public:
 };
 
-LabNetResetRequest::LabNetResetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+LabNetResetRequest::LabNetResetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.LabNetResetRequest)
 }
 LabNetResetRequest::LabNetResetRequest(const LabNetResetRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.LabNetResetRequest)
 }
 
-void LabNetResetRequest::SharedCtor() {
-}
-
-LabNetResetRequest::~LabNetResetRequest() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.LabNetResetRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void LabNetResetRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void LabNetResetRequest::ArenaDtor(void* object) {
-  LabNetResetRequest* _this = reinterpret_cast< LabNetResetRequest* >(object);
-  (void)_this;
-}
-void LabNetResetRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void LabNetResetRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const LabNetResetRequest& LabNetResetRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LabNetResetRequest_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void LabNetResetRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.LabNetResetRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* LabNetResetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData LabNetResetRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*LabNetResetRequest::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LabNetResetRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.LabNetResetRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.LabNetResetRequest)
-  return target;
-}
 
-size_t LabNetResetRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.LabNetResetRequest)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void LabNetResetRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.LabNetResetRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const LabNetResetRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LabNetResetRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.LabNetResetRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.LabNetResetRequest)
-    MergeFrom(*source);
-  }
-}
-
-void LabNetResetRequest::MergeFrom(const LabNetResetRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.LabNetResetRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void LabNetResetRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.LabNetResetRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void LabNetResetRequest::CopyFrom(const LabNetResetRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.LabNetResetRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool LabNetResetRequest::IsInitialized() const {
-  return true;
-}
-
-void LabNetResetRequest::InternalSwap(LabNetResetRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata LabNetResetRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[17]);
 }
-
 
 // ===================================================================
 
@@ -5014,161 +4405,38 @@ class LabNetIdRequest::_Internal {
  public:
 };
 
-LabNetIdRequest::LabNetIdRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+LabNetIdRequest::LabNetIdRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.LabNetIdRequest)
 }
 LabNetIdRequest::LabNetIdRequest(const LabNetIdRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.LabNetIdRequest)
 }
 
-void LabNetIdRequest::SharedCtor() {
-}
-
-LabNetIdRequest::~LabNetIdRequest() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.LabNetIdRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void LabNetIdRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void LabNetIdRequest::ArenaDtor(void* object) {
-  LabNetIdRequest* _this = reinterpret_cast< LabNetIdRequest* >(object);
-  (void)_this;
-}
-void LabNetIdRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void LabNetIdRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const LabNetIdRequest& LabNetIdRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_LabNetIdRequest_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void LabNetIdRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.LabNetIdRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* LabNetIdRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData LabNetIdRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*LabNetIdRequest::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* LabNetIdRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.LabNetIdRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.LabNetIdRequest)
-  return target;
-}
 
-size_t LabNetIdRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.LabNetIdRequest)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void LabNetIdRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.LabNetIdRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const LabNetIdRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<LabNetIdRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.LabNetIdRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.LabNetIdRequest)
-    MergeFrom(*source);
-  }
-}
-
-void LabNetIdRequest::MergeFrom(const LabNetIdRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.LabNetIdRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void LabNetIdRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.LabNetIdRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void LabNetIdRequest::CopyFrom(const LabNetIdRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.LabNetIdRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool LabNetIdRequest::IsInitialized() const {
-  return true;
-}
-
-void LabNetIdRequest::InternalSwap(LabNetIdRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata LabNetIdRequest::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[18]);
 }
-
 
 // ===================================================================
 
@@ -5176,161 +4444,38 @@ class InitSound::_Internal {
  public:
 };
 
-InitSound::InitSound(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
+InitSound::InitSound(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.InitSound)
 }
 InitSound::InitSound(const InitSound& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.InitSound)
 }
 
-void InitSound::SharedCtor() {
-}
-
-InitSound::~InitSound() {
-  // @@protoc_insertion_point(destructor:LabNetProt.Client.InitSound)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void InitSound::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-}
-
-void InitSound::ArenaDtor(void* object) {
-  InitSound* _this = reinterpret_cast< InitSound* >(object);
-  (void)_this;
-}
-void InitSound::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void InitSound::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const InitSound& InitSound::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InitSound_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
 
 
-void InitSound::Clear() {
-// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.InitSound)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
 
-const char* InitSound::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InitSound::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InitSound::GetClassData() const { return &_class_data_; }
 
-::PROTOBUF_NAMESPACE_ID::uint8* InitSound::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.InitSound)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.InitSound)
-  return target;
-}
 
-size_t InitSound::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.InitSound)
-  size_t total_size = 0;
 
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
 
-void InitSound::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.InitSound)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InitSound* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InitSound>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.InitSound)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.InitSound)
-    MergeFrom(*source);
-  }
-}
-
-void InitSound::MergeFrom(const InitSound& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.InitSound)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-}
-
-void InitSound::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.InitSound)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void InitSound::CopyFrom(const InitSound& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.InitSound)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool InitSound::IsInitialized() const {
-  return true;
-}
-
-void InitSound::InternalSwap(InitSound* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InitSound::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[19]);
 }
-
 
 // ===================================================================
 
@@ -5338,10 +4483,13 @@ class InitSoundSignal::_Internal {
  public:
 };
 
-InitSoundSignal::InitSoundSignal(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+InitSoundSignal::InitSoundSignal(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.InitSoundSignal)
 }
 InitSoundSignal::InitSoundSignal(const InitSoundSignal& from)
@@ -5354,20 +4502,21 @@ InitSoundSignal::InitSoundSignal(const InitSoundSignal& from)
 }
 
 void InitSoundSignal::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&signal_type_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&volume_) -
-      reinterpret_cast<char*>(&signal_type_)) + sizeof(volume_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&signal_type_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&volume_) -
+    reinterpret_cast<char*>(&signal_type_)) + sizeof(volume_));
 }
 
 InitSoundSignal::~InitSoundSignal() {
   // @@protoc_insertion_point(destructor:LabNetProt.Client.InitSoundSignal)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void InitSoundSignal::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void InitSoundSignal::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void InitSoundSignal::ArenaDtor(void* object) {
@@ -5379,11 +4528,6 @@ void InitSoundSignal::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void InitSoundSignal::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const InitSoundSignal& InitSoundSignal::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_InitSoundSignal_LabNetClient_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void InitSoundSignal::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.Client.InitSoundSignal)
@@ -5402,7 +4546,6 @@ const char* InitSoundSignal::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Client.SoundSignalType signal_type = 1;
       case 1:
@@ -5410,62 +4553,69 @@ const char* InitSoundSignal::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_signal_type(static_cast<::LabNetProt::Client::SoundSignalType>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 frequency = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           frequency_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 frequency_end = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           frequency_end_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float sweep_length_seconds = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
           sweep_length_seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // float volume = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 53)) {
           volume_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -5476,38 +4626,38 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Client.SoundSignalType signal_type = 1;
-  if (this->signal_type() != 0) {
+  if (this->_internal_signal_type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_signal_type(), target);
   }
 
   // uint32 id = 2;
-  if (this->id() != 0) {
+  if (this->_internal_id() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_id(), target);
   }
 
   // uint32 frequency = 3;
-  if (this->frequency() != 0) {
+  if (this->_internal_frequency() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_frequency(), target);
   }
 
   // uint32 frequency_end = 4;
-  if (this->frequency_end() != 0) {
+  if (this->_internal_frequency_end() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_frequency_end(), target);
   }
 
   // float sweep_length_seconds = 5;
-  if (!(this->sweep_length_seconds() <= 0 && this->sweep_length_seconds() >= 0)) {
+  if (!(this->_internal_sweep_length_seconds() <= 0 && this->_internal_sweep_length_seconds() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_sweep_length_seconds(), target);
   }
 
   // float volume = 6;
-  if (!(this->volume() <= 0 && this->volume() >= 0)) {
+  if (!(this->_internal_volume() <= 0 && this->_internal_volume() >= 0)) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_volume(), target);
   }
@@ -5529,98 +4679,77 @@ size_t InitSoundSignal::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.Client.SoundSignalType signal_type = 1;
-  if (this->signal_type() != 0) {
+  if (this->_internal_signal_type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_signal_type());
   }
 
   // uint32 id = 2;
-  if (this->id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_id());
+  if (this->_internal_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_id());
   }
 
   // uint32 frequency = 3;
-  if (this->frequency() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_frequency());
+  if (this->_internal_frequency() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_frequency());
   }
 
   // uint32 frequency_end = 4;
-  if (this->frequency_end() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_frequency_end());
+  if (this->_internal_frequency_end() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_frequency_end());
   }
 
   // float sweep_length_seconds = 5;
-  if (!(this->sweep_length_seconds() <= 0 && this->sweep_length_seconds() >= 0)) {
+  if (!(this->_internal_sweep_length_seconds() <= 0 && this->_internal_sweep_length_seconds() >= 0)) {
     total_size += 1 + 4;
   }
 
   // float volume = 6;
-  if (!(this->volume() <= 0 && this->volume() >= 0)) {
+  if (!(this->_internal_volume() <= 0 && this->_internal_volume() >= 0)) {
     total_size += 1 + 4;
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void InitSoundSignal::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.InitSoundSignal)
-  GOOGLE_DCHECK_NE(&from, this);
-  const InitSoundSignal* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<InitSoundSignal>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.InitSoundSignal)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.InitSoundSignal)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData InitSoundSignal::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InitSoundSignal::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*InitSoundSignal::GetClassData() const { return &_class_data_; }
+
+void InitSoundSignal::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<InitSoundSignal *>(to)->MergeFrom(
+      static_cast<const InitSoundSignal &>(from));
 }
+
 
 void InitSoundSignal::MergeFrom(const InitSoundSignal& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.InitSoundSignal)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.signal_type() != 0) {
+  if (from._internal_signal_type() != 0) {
     _internal_set_signal_type(from._internal_signal_type());
   }
-  if (from.id() != 0) {
+  if (from._internal_id() != 0) {
     _internal_set_id(from._internal_id());
   }
-  if (from.frequency() != 0) {
+  if (from._internal_frequency() != 0) {
     _internal_set_frequency(from._internal_frequency());
   }
-  if (from.frequency_end() != 0) {
+  if (from._internal_frequency_end() != 0) {
     _internal_set_frequency_end(from._internal_frequency_end());
   }
-  if (!(from.sweep_length_seconds() <= 0 && from.sweep_length_seconds() >= 0)) {
+  if (!(from._internal_sweep_length_seconds() <= 0 && from._internal_sweep_length_seconds() >= 0)) {
     _internal_set_sweep_length_seconds(from._internal_sweep_length_seconds());
   }
-  if (!(from.volume() <= 0 && from.volume() >= 0)) {
+  if (!(from._internal_volume() <= 0 && from._internal_volume() >= 0)) {
     _internal_set_volume(from._internal_volume());
   }
-}
-
-void InitSoundSignal::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.InitSoundSignal)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void InitSoundSignal::CopyFrom(const InitSoundSignal& from) {
@@ -5636,7 +4765,7 @@ bool InitSoundSignal::IsInitialized() const {
 
 void InitSoundSignal::InternalSwap(InitSoundSignal* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(InitSoundSignal, volume_)
       + sizeof(InitSoundSignal::volume_)
@@ -5646,9 +4775,261 @@ void InitSoundSignal::InternalSwap(InitSoundSignal* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata InitSoundSignal::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[20]);
 }
 
+// ===================================================================
+
+class ChiBioInit::_Internal {
+ public:
+};
+
+ChiBioInit::ChiBioInit(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.ChiBioInit)
+}
+ChiBioInit::ChiBioInit(const ChiBioInit& from)
+  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.ChiBioInit)
+}
+
+
+
+
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ChiBioInit::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ChiBioInit::GetClassData() const { return &_class_data_; }
+
+
+
+
+
+
+
+::PROTOBUF_NAMESPACE_ID::Metadata ChiBioInit::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[21]);
+}
+
+// ===================================================================
+
+class MoveChiBioPump::_Internal {
+ public:
+};
+
+MoveChiBioPump::MoveChiBioPump(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:LabNetProt.Client.MoveChiBioPump)
+}
+MoveChiBioPump::MoveChiBioPump(const MoveChiBioPump& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&pump_id_, &from.pump_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&move_) -
+    reinterpret_cast<char*>(&pump_id_)) + sizeof(move_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.MoveChiBioPump)
+}
+
+void MoveChiBioPump::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&pump_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&move_) -
+    reinterpret_cast<char*>(&pump_id_)) + sizeof(move_));
+}
+
+MoveChiBioPump::~MoveChiBioPump() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.MoveChiBioPump)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void MoveChiBioPump::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void MoveChiBioPump::ArenaDtor(void* object) {
+  MoveChiBioPump* _this = reinterpret_cast< MoveChiBioPump* >(object);
+  (void)_this;
+}
+void MoveChiBioPump::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void MoveChiBioPump::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void MoveChiBioPump::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.MoveChiBioPump)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&pump_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&move_) -
+      reinterpret_cast<char*>(&pump_id_)) + sizeof(move_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* MoveChiBioPump::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 pump_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          pump_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 move = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          move_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* MoveChiBioPump::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.MoveChiBioPump)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 pump_id = 1;
+  if (this->_internal_pump_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_pump_id(), target);
+  }
+
+  // int32 move = 2;
+  if (this->_internal_move() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_move(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.MoveChiBioPump)
+  return target;
+}
+
+size_t MoveChiBioPump::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.MoveChiBioPump)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 pump_id = 1;
+  if (this->_internal_pump_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pump_id());
+  }
+
+  // int32 move = 2;
+  if (this->_internal_move() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_move());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MoveChiBioPump::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    MoveChiBioPump::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MoveChiBioPump::GetClassData() const { return &_class_data_; }
+
+void MoveChiBioPump::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<MoveChiBioPump *>(to)->MergeFrom(
+      static_cast<const MoveChiBioPump &>(from));
+}
+
+
+void MoveChiBioPump::MergeFrom(const MoveChiBioPump& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.MoveChiBioPump)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_pump_id() != 0) {
+    _internal_set_pump_id(from._internal_pump_id());
+  }
+  if (from._internal_move() != 0) {
+    _internal_set_move(from._internal_move());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void MoveChiBioPump::CopyFrom(const MoveChiBioPump& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.MoveChiBioPump)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool MoveChiBioPump::IsInitialized() const {
+  return true;
+}
+
+void MoveChiBioPump::InternalSwap(MoveChiBioPump* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(MoveChiBioPump, move_)
+      + sizeof(MoveChiBioPump::move_)
+      - PROTOBUF_FIELD_OFFSET(MoveChiBioPump, pump_id_)>(
+          reinterpret_cast<char*>(&pump_id_),
+          reinterpret_cast<char*>(&other->pump_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata MoveChiBioPump::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNetClient_2eproto_getter, &descriptor_table_LabNetClient_2eproto_once,
+      file_level_metadata_LabNetClient_2eproto[22]);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Client
@@ -5716,6 +5097,12 @@ template<> PROTOBUF_NOINLINE ::LabNetProt::Client::InitSound* Arena::CreateMaybe
 }
 template<> PROTOBUF_NOINLINE ::LabNetProt::Client::InitSoundSignal* Arena::CreateMaybeMessage< ::LabNetProt::Client::InitSoundSignal >(Arena* arena) {
   return Arena::CreateMessageInternal< ::LabNetProt::Client::InitSoundSignal >(arena);
+}
+template<> PROTOBUF_NOINLINE ::LabNetProt::Client::ChiBioInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::ChiBioInit >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::LabNetProt::Client::ChiBioInit >(arena);
+}
+template<> PROTOBUF_NOINLINE ::LabNetProt::Client::MoveChiBioPump* Arena::CreateMaybeMessage< ::LabNetProt::Client::MoveChiBioPump >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::LabNetProt::Client::MoveChiBioPump >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

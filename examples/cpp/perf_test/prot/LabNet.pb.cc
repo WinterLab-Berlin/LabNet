@@ -14,25 +14,24 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
+
+PROTOBUF_PRAGMA_INIT_SEG
 namespace LabNetProt {
-class PinIdDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<PinId> _instance;
-} _PinId_default_instance_;
+constexpr PinId::PinId(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : interface_(0)
+
+  , pin_(0u){}
+struct PinIdDefaultTypeInternal {
+  constexpr PinIdDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~PinIdDefaultTypeInternal() {}
+  union {
+    PinId _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PinIdDefaultTypeInternal _PinId_default_instance_;
 }  // namespace LabNetProt
-static void InitDefaultsscc_info_PinId_LabNet_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::LabNetProt::_PinId_default_instance_;
-    new (ptr) ::LabNetProt::PinId();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_PinId_LabNet_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_PinId_LabNet_2eproto}, {}};
-
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_LabNet_2eproto[1];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_LabNet_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_LabNet_2eproto = nullptr;
@@ -43,11 +42,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LabNet_2eproto::offsets[] PROT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::LabNetProt::PinId, interface_),
   PROTOBUF_FIELD_OFFSET(::LabNetProt::PinId, pin_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::LabNetProt::PinId)},
+  { 0, -1, -1, sizeof(::LabNetProt::PinId)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -57,32 +57,30 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_LabNet_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\014LabNet.proto\022\nLabNetProt\"\?\n\005PinId\022)\n\ti"
   "nterface\030\001 \001(\0162\026.LabNetProt.Interfaces\022\013"
-  "\n\003pin\030\002 \001(\r*\355\001\n\nInterfaces\022\022\n\016INTERFACE_"
+  "\n\003pin\030\002 \001(\r*\204\002\n\nInterfaces\022\022\n\016INTERFACE_"
   "NONE\020\000\022\026\n\022INTERFACE_IO_BOARD\020\001\022\030\n\024INTERF"
   "ACE_RFID_BOARD\020\002\022\033\n\027INTERFACE_GPIO_WIRIN"
-  "GPI\020\003\022\023\n\017INTERFACE_SOUND\020\004\022\023\n\017INTERFACE_"
-  "UART0\020d\022\023\n\017INTERFACE_UART1\020e\022\023\n\017INTERFAC"
-  "E_UART2\020f\022\023\n\017INTERFACE_UART3\020g\022\023\n\017INTERF"
-  "ACE_UART4\020h*f\n\005Uarts\022\r\n\tUART_NONE\020\000\022\016\n\nU"
-  "ART_PORT0\020d\022\016\n\nUART_PORT1\020e\022\016\n\nUART_PORT"
-  "2\020f\022\016\n\nUART_PORT3\020g\022\016\n\nUART_PORT4\020hb\006pro"
-  "to3"
+  "GPI\020\003\022\023\n\017INTERFACE_SOUND\020\004\022\025\n\021INTERFACE_"
+  "CHI_BIO\020\005\022\023\n\017INTERFACE_UART0\020d\022\023\n\017INTERF"
+  "ACE_UART1\020e\022\023\n\017INTERFACE_UART2\020f\022\023\n\017INTE"
+  "RFACE_UART3\020g\022\023\n\017INTERFACE_UART4\020h*f\n\005Ua"
+  "rts\022\r\n\tUART_NONE\020\000\022\016\n\nUART_PORT0\020d\022\016\n\nUA"
+  "RT_PORT1\020e\022\016\n\nUART_PORT2\020f\022\016\n\nUART_PORT3"
+  "\020g\022\016\n\nUART_PORT4\020hb\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_LabNet_2eproto_deps[1] = {
-};
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_LabNet_2eproto_sccs[1] = {
-  &scc_info_PinId_LabNet_2eproto.base,
-};
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_LabNet_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LabNet_2eproto = {
-  false, false, descriptor_table_protodef_LabNet_2eproto, "LabNet.proto", 443,
-  &descriptor_table_LabNet_2eproto_once, descriptor_table_LabNet_2eproto_sccs, descriptor_table_LabNet_2eproto_deps, 1, 0,
+  false, false, 466, descriptor_table_protodef_LabNet_2eproto, "LabNet.proto", 
+  &descriptor_table_LabNet_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_LabNet_2eproto::offsets,
-  file_level_metadata_LabNet_2eproto, 1, file_level_enum_descriptors_LabNet_2eproto, file_level_service_descriptors_LabNet_2eproto,
+  file_level_metadata_LabNet_2eproto, file_level_enum_descriptors_LabNet_2eproto, file_level_service_descriptors_LabNet_2eproto,
 };
+PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_LabNet_2eproto_getter() {
+  return &descriptor_table_LabNet_2eproto;
+}
 
 // Force running AddDescriptors() at dynamic initialization time.
-static bool dynamic_init_dummy_LabNet_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_LabNet_2eproto)), true);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_LabNet_2eproto(&descriptor_table_LabNet_2eproto);
 namespace LabNetProt {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* Interfaces_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_LabNet_2eproto);
@@ -95,6 +93,7 @@ bool Interfaces_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
     case 100:
     case 101:
     case 102:
@@ -131,10 +130,13 @@ class PinId::_Internal {
  public:
 };
 
-PinId::PinId(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+PinId::PinId(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor();
-  RegisterArenaDtor(arena);
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:LabNetProt.PinId)
 }
 PinId::PinId(const PinId& from)
@@ -147,20 +149,21 @@ PinId::PinId(const PinId& from)
 }
 
 void PinId::SharedCtor() {
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&interface_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&pin_) -
-      reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&interface_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&pin_) -
+    reinterpret_cast<char*>(&interface_)) + sizeof(pin_));
 }
 
 PinId::~PinId() {
   // @@protoc_insertion_point(destructor:LabNetProt.PinId)
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void PinId::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
+inline void PinId::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
 void PinId::ArenaDtor(void* object) {
@@ -172,11 +175,6 @@ void PinId::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void PinId::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const PinId& PinId::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_PinId_LabNet_2eproto.base);
-  return *internal_default_instance();
-}
-
 
 void PinId::Clear() {
 // @@protoc_insertion_point(message_clear_start:LabNetProt.PinId)
@@ -195,7 +193,6 @@ const char* PinId::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
     switch (tag >> 3) {
       // .LabNetProt.Interfaces interface = 1;
       case 1:
@@ -203,34 +200,37 @@ const char* PinId::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_interface(static_cast<::LabNetProt::Interfaces>(val));
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
       // uint32 pin = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           pin_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
-        } else goto handle_unusual;
+        } else
+          goto handle_unusual;
         continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
+      default:
+        goto handle_unusual;
     }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
   }  // while
-success:
+message_done:
   return ptr;
 failure:
   ptr = nullptr;
-  goto success;
+  goto message_done;
 #undef CHK_
 }
 
@@ -241,14 +241,14 @@ failure:
   (void) cached_has_bits;
 
   // .LabNetProt.Interfaces interface = 1;
-  if (this->interface() != 0) {
+  if (this->_internal_interface() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_interface(), target);
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
+  if (this->_internal_pin() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_pin(), target);
   }
@@ -270,62 +270,45 @@ size_t PinId::ByteSizeLong() const {
   (void) cached_has_bits;
 
   // .LabNetProt.Interfaces interface = 1;
-  if (this->interface() != 0) {
+  if (this->_internal_interface() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_interface());
   }
 
   // uint32 pin = 2;
-  if (this->pin() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_pin());
+  if (this->_internal_pin() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_pin());
   }
 
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
-void PinId::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.PinId)
-  GOOGLE_DCHECK_NE(&from, this);
-  const PinId* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<PinId>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.PinId)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.PinId)
-    MergeFrom(*source);
-  }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PinId::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    PinId::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PinId::GetClassData() const { return &_class_data_; }
+
+void PinId::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<PinId *>(to)->MergeFrom(
+      static_cast<const PinId &>(from));
 }
+
 
 void PinId::MergeFrom(const PinId& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.PinId)
   GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.interface() != 0) {
+  if (from._internal_interface() != 0) {
     _internal_set_interface(from._internal_interface());
   }
-  if (from.pin() != 0) {
+  if (from._internal_pin() != 0) {
     _internal_set_pin(from._internal_pin());
   }
-}
-
-void PinId::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.PinId)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void PinId::CopyFrom(const PinId& from) {
@@ -341,7 +324,7 @@ bool PinId::IsInitialized() const {
 
 void PinId::InternalSwap(PinId* other) {
   using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(PinId, pin_)
       + sizeof(PinId::pin_)
@@ -351,9 +334,10 @@ void PinId::InternalSwap(PinId* other) {
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PinId::GetMetadata() const {
-  return GetMetadataStatic();
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_LabNet_2eproto_getter, &descriptor_table_LabNet_2eproto_once,
+      file_level_metadata_LabNet_2eproto[0]);
 }
-
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace LabNetProt

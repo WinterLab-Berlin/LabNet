@@ -43,7 +43,7 @@ namespace PerfTest
 
         private void InitGpioState()
         {
-            IoBoardInit cwm = new IoBoardInit();
+            GpioWiringPiInit cwm = new GpioWiringPiInit();
             _client.Tell(cwm);
 
             Receive<InterfaceInitResult>(swm =>
@@ -61,7 +61,7 @@ namespace PerfTest
 
         private void InitDigitalOutState()
         {
-            IoBoardInitDigitalOut cwm = new IoBoardInitDigitalOut { Pin = 1, IsInverted = false };
+            GpioWiringPiInitDigitalOut cwm = new GpioWiringPiInitDigitalOut { Pin = 5, IsInverted = false };
             _client.Tell(cwm);
 
             Receive<DigitalOutInitResult>(swm =>
@@ -79,7 +79,7 @@ namespace PerfTest
 
         private void InitDigitalInState()
         {
-            IoBoardInitDigitalIn cwm = new IoBoardInitDigitalIn { Pin = 1, IsInverted = false, ResistorState = IoBoardInitDigitalIn.Types.Resistor.Off };
+            GpioWiringPiInitDigitalIn cwm = new GpioWiringPiInitDigitalIn { Pin = 23, IsInverted = false, ResistorState = GpioWiringPiInitDigitalIn.Types.Resistor.Off };
             _client.Tell(cwm);
 
             Receive<DigitalInState>(swm =>
@@ -92,8 +92,8 @@ namespace PerfTest
                 {
                     Id = new PinId
                     {
-                        Interface = Interfaces.InterfaceIoBoard,
-                        Pin = 1
+                        Interface = Interfaces.InterfaceGpioWiringpi,
+                        Pin = 5
                     },
                     State = _isOn
                 };
@@ -123,8 +123,8 @@ namespace PerfTest
                         {
                             Id = new PinId
                             {
-                                Interface = Interfaces.InterfaceIoBoard,
-                                Pin = 1
+                                Interface = Interfaces.InterfaceGpioWiringpi,
+                                Pin = 5
                             },
                             State = _isOn
                         };

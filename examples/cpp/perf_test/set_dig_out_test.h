@@ -97,7 +97,7 @@ private:
                     req_--;
                     if (req_ >= 0)
                     {
-                        std::cout << "\r" << req_;
+                        std::cout << "\r       \r" << req_;
 
                         if (mes->state())
                             client_->SendMessage(turn_off_, LabNetProt::Client::DIGITAL_OUT_SET);
