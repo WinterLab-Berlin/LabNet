@@ -21,8 +21,9 @@ public:
     double GetMin();
     double GetMax();
 
-private:
     std::unique_ptr<std::deque<double>> records_;
+
+private:
     double oldM_, newM_, oldS_, newS_;
     double min_, max_;
 };

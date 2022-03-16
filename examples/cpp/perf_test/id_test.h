@@ -14,13 +14,19 @@
 #include "prot/LabNetClient.pb.h"
 #include "prot/LabNetServer.pb.h"
 
+struct id_latencies
+{
+    std::shared_ptr<Stats> stats;
+};
+
 class id_test final : public so_5::agent_t
 {
 public:
-    id_test(context_t ctx, const so_5::mbox_t self_box, const so_5::mbox_t next_box, std::shared_ptr<Client> client, int32_t req)
+    id_test(context_t ctx, const so_5::mbox_t self_box, const so_5::mbox_t next_box, const so_5::mbox_t save_box, std::shared_ptr<Client> client, int32_t req)
         : so_5::agent_t(ctx)
         , self_box_(self_box)
         , next_box_(next_box)
+        , save_box_(save_box)
         , client_(client)
         , req_(req)
     {
@@ -37,7 +43,7 @@ private:
                     auto time = std::chrono::high_resolution_clock::now();
                     std::chrono::duration<double, std::milli> ms = time - start_time;
 
-                    stats.AddRecord(ms.count());
+                    stats->AddRecord(ms.count());
 
                     req_--;
                     if (req_ >= 0)
@@ -49,14 +55,18 @@ private:
                     else
                     {
                         std::cout << std::fixed << std::setprecision(2)
-                                  << "\rmean: " << stats.GetMean() << " std dev: " << stats.GetStandardDeviation() << " median: " << stats.GetPercentile(50)
-                                  << " p25: " << stats.GetPercentile(25) << " p75: " << stats.GetPercentile(75)
-                                  << " p2.5: " << stats.GetPercentile(2.5) << " p97.5: " << stats.GetPercentile(97.5) << std::endl;
+                                  << "\rmean: " << stats->GetMean() << " std dev: " << stats->GetStandardDeviation() << " median: " << stats->GetPercentile(50)
+                                  << " p25: " << stats->GetPercentile(25) << " p75: " << stats->GetPercentile(75)
+                                  << " p2.5: " << stats->GetPercentile(2.5) << " p97.5: " << stats->GetPercentile(97.5) << std::endl;
 
                         if (next_box_)
                         {
                             client_->SetRecvBox(next_box_);
                             so_5::send<start>(next_box_);
+
+                            std::shared_ptr<id_latencies> l = std::make_shared<id_latencies>();
+                            l->stats = std::move(stats);
+                            so_5::send<std::shared_ptr<id_latencies>>(save_box_, std::move(l));
                         }
                         else
                         {
@@ -76,15 +86,17 @@ private:
     void so_evt_start() override
     {
         id_mes_ = std::make_shared<LabNetProt::Client::LabNetIdRequest>();
+        stats = std::make_shared<Stats>();
     }
 
     so_5::state_t init_state_ { this, "init_state" };
     so_5::mbox_t self_box_;
     so_5::mbox_t next_box_;
+    so_5::mbox_t save_box_;
     std::shared_ptr<Client> client_;
     std::chrono::steady_clock::time_point start_time;
 
-    Stats stats;
+    std::shared_ptr<Stats> stats;
     int32_t req_;
     std::shared_ptr<LabNetProt::Client::LabNetIdRequest> id_mes_;
 };

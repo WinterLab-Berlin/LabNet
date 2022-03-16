@@ -4,6 +4,7 @@
 #include "id_test.h"
 #include "set_dig_out_test.h"
 #include "set_and_read_dig_out_test.h"
+#include "save_latencies.h"
 
 
 int main(int argc, char* argv[])
@@ -21,10 +22,10 @@ int main(int argc, char* argv[])
             second_test_box = coop.environment().create_mbox();
             third_test_box = coop.environment().create_mbox();
 
-
-            auto act1 = coop.make_agent<id_test>(first_test_box, second_test_box, client, 100000);
-            auto act2 = coop.make_agent<set_dig_out_test>(second_test_box, third_test_box, client, 100000);
-            auto act3 = coop.make_agent<set_and_read_dig_out_test>(third_test_box, nullptr, client, 100000);
+            auto save = coop.make_agent<save_latencies>();
+            auto act1 = coop.make_agent<id_test>(first_test_box, second_test_box, save->so_direct_mbox(), client, 100000);
+            auto act2 = coop.make_agent<set_dig_out_test>(second_test_box, third_test_box, save->so_direct_mbox(), client, 100000);
+            auto act3 = coop.make_agent<set_and_read_dig_out_test>(third_test_box, nullptr, save->so_direct_mbox(), client, 100000);
         });
 
     client->SetRecvBox(first_test_box);

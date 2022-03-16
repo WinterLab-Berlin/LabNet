@@ -2,13 +2,13 @@
 
 project ("perf_test")
 
-find_package(Boost 1.75.0 COMPONENTS system)
-find_package(sobjectizer CONFIG REQUIRED)
-find_package(protobuf CONFIG REQUIRED)
+find_package(Boost COMPONENTS system)
+find_package(sobjectizer REQUIRED)
+find_package(protobuf REQUIRED)
 
 add_executable(perf_test main.cpp client.h client.cpp shared_buffer.h stats.h stats.cpp
 	prot/LabNet.pb.h prot/LabNetClient.pb.h prot/LabNetServer.pb.h prot/LabNet.pb.cc prot/LabNetClient.pb.cc
-    prot/LabNetServer.pb.cc start_mes.h id_test.h set_dig_out_test.h set_and_read_dig_out_test.h)
+    prot/LabNetServer.pb.cc start_mes.h id_test.h set_dig_out_test.h set_and_read_dig_out_test.h "save_latencies.h")
 
 target_include_directories(perf_test PRIVATE ${Boost_INCLUDE_DIRS})
 

@@ -258,15 +258,17 @@ std::string SerialPortsManager::PortNameForId(int id)
             }
         }
 
-        char path[23] = "/sys/class/tty/ttyUSB ";
+        char path_1[23] = "/sys/class/tty/ttyUSB ";
+        char path_2[23] = "/sys/class/tty/ttyACM ";
         char buffer[1024];
         for (int i = 0; i < 4; i++)
         {
-            path[21] = i + '0';
+            path_1[21] = i + '0';
+            path_2[21] = i + '0';
             int portId = -1;
 
-            
-            int len = readlink(path, buffer, sizeof(buffer) - 1);
+            std::string portName("/dev/ttyUSB");
+            int len = readlink(path_1, buffer, sizeof(buffer) - 1);
             if (len > 0)
             {
                 if (raspi_type_ == 3)
@@ -301,10 +303,49 @@ std::string SerialPortsManager::PortNameForId(int id)
                     }
                 }
             }
+            else
+            {
+                len = readlink(path_2, buffer, sizeof(buffer) - 1);
+                portName = "/dev/ttyACM";
+
+                if (len > 0)
+                {
+                    if (raspi_type_ == 3)
+                    {
+                        if (len == 76)
+                        {
+                            if (buffer[59] == '3')
+                                portId = 3;
+                            else if (buffer[59] == '2')
+                                portId = 4;
+                        }
+                        else if (len == 86)
+                        {
+                            if (buffer[69] == '3')
+                                portId = 2;
+                            else if (buffer[69] == '2')
+                                portId = 1;
+                        }
+                    }
+                    else if (raspi_type_ < 3)
+                    {
+                        if (len == 76)
+                        {
+                            if (buffer[59] == '2')
+                                portId = 1;
+                            else if (buffer[59] == '3')
+                                portId = 2;
+                            else if (buffer[59] == '4')
+                                portId = 3;
+                            else if (buffer[59] == '5')
+                                portId = 4;
+                        }
+                    }
+                }
+            }
 
             if (portId == id)
             {
-                std::string portName("/dev/ttyUSB");
                 portName += ('0' + i);
 
                 return portName;
