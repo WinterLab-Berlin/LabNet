@@ -38,7 +38,7 @@ target_include_directories(LabNet PRIVATE ${BOOST_ASIO_INCLUDE_DIRS} ${BOOST_SIG
 target_include_directories(LabNet PRIVATE ../sobjectizer/dev)
 target_include_directories(LabNet PRIVATE log)
 
-target_link_libraries(LabNet atomic pthread boost_system wiringPi so.5.7.1 protobuf sfml-system sfml-audio)
+target_link_libraries(LabNet atomic pthread boost_system wiringPi so.5.7.0 protobuf sfml-system sfml-audio)
 
 add_compile_definitions(ELPP_THREAD_SAFE)
 add_compile_definitions(ELPP_NO_DEFAULT_LOG_FILE)
