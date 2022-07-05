@@ -40,7 +40,7 @@ namespace protobuf_LabNetClient_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[23];
+  static const ::google::protobuf::internal::ParseTable schema[24];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -49,6 +49,9 @@ void AddDescriptors();
 }  // namespace protobuf_LabNetClient_2eproto
 namespace LabNetProt {
 namespace Client {
+class BleUartInit;
+class BleUartInitDefaultTypeInternal;
+extern BleUartInitDefaultTypeInternal _BleUartInit_default_instance_;
 class ChiBioInit;
 class ChiBioInitDefaultTypeInternal;
 extern ChiBioInitDefaultTypeInternal _ChiBioInit_default_instance_;
@@ -122,6 +125,7 @@ extern UartWriteDataDefaultTypeInternal _UartWriteData_default_instance_;
 }  // namespace LabNetProt
 namespace google {
 namespace protobuf {
+template<> ::LabNetProt::Client::BleUartInit* Arena::CreateMaybeMessage<::LabNetProt::Client::BleUartInit>(Arena*);
 template<> ::LabNetProt::Client::ChiBioInit* Arena::CreateMaybeMessage<::LabNetProt::Client::ChiBioInit>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutPulse* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutPulse>(Arena*);
 template<> ::LabNetProt::Client::DigitalOutSet* Arena::CreateMaybeMessage<::LabNetProt::Client::DigitalOutSet>(Arena*);
@@ -218,12 +222,13 @@ enum ClientMessageType {
   UART_INIT_DIGITAL_OUT = 20,
   CHI_BIO_INIT = 21,
   MOVE_CHI_BIO_PUMP = 22,
+  BLE_UART_INIT = 23,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ClientMessageType_IsValid(int value);
 const ClientMessageType ClientMessageType_MIN = NONE;
-const ClientMessageType ClientMessageType_MAX = MOVE_CHI_BIO_PUMP;
+const ClientMessageType ClientMessageType_MAX = BLE_UART_INIT;
 const int ClientMessageType_ARRAYSIZE = ClientMessageType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientMessageType_descriptor();
@@ -2912,6 +2917,117 @@ class MoveChiBioPump : public ::google::protobuf::Message /* @@protoc_insertion_
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class BleUartInit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.BleUartInit) */ {
+ public:
+  BleUartInit();
+  virtual ~BleUartInit();
+
+  BleUartInit(const BleUartInit& from);
+
+  inline BleUartInit& operator=(const BleUartInit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BleUartInit(BleUartInit&& from) noexcept
+    : BleUartInit() {
+    *this = ::std::move(from);
+  }
+
+  inline BleUartInit& operator=(BleUartInit&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BleUartInit& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BleUartInit* internal_default_instance() {
+    return reinterpret_cast<const BleUartInit*>(
+               &_BleUartInit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  void Swap(BleUartInit* other);
+  friend void swap(BleUartInit& a, BleUartInit& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BleUartInit* New() const final {
+    return CreateMaybeMessage<BleUartInit>(NULL);
+  }
+
+  BleUartInit* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<BleUartInit>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const BleUartInit& from);
+  void MergeFrom(const BleUartInit& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BleUartInit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string device = 1;
+  void clear_device();
+  static const int kDeviceFieldNumber = 1;
+  const ::std::string& device() const;
+  void set_device(const ::std::string& value);
+  #if LANG_CXX11
+  void set_device(::std::string&& value);
+  #endif
+  void set_device(const char* value);
+  void set_device(const char* value, size_t size);
+  ::std::string* mutable_device();
+  ::std::string* release_device();
+  void set_allocated_device(::std::string* device);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.BleUartInit)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr device_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -3918,9 +4034,68 @@ inline void MoveChiBioPump::set_move(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:LabNetProt.Client.MoveChiBioPump.move)
 }
 
+// -------------------------------------------------------------------
+
+// BleUartInit
+
+// string device = 1;
+inline void BleUartInit::clear_device() {
+  device_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& BleUartInit::device() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.BleUartInit.device)
+  return device_.GetNoArena();
+}
+inline void BleUartInit::set_device(const ::std::string& value) {
+  
+  device_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.BleUartInit.device)
+}
+#if LANG_CXX11
+inline void BleUartInit::set_device(::std::string&& value) {
+  
+  device_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:LabNetProt.Client.BleUartInit.device)
+}
+#endif
+inline void BleUartInit::set_device(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  device_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:LabNetProt.Client.BleUartInit.device)
+}
+inline void BleUartInit::set_device(const char* value, size_t size) {
+  
+  device_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:LabNetProt.Client.BleUartInit.device)
+}
+inline ::std::string* BleUartInit::mutable_device() {
+  
+  // @@protoc_insertion_point(field_mutable:LabNetProt.Client.BleUartInit.device)
+  return device_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* BleUartInit::release_device() {
+  // @@protoc_insertion_point(field_release:LabNetProt.Client.BleUartInit.device)
+  
+  return device_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void BleUartInit::set_allocated_device(::std::string* device) {
+  if (device != NULL) {
+    
+  } else {
+    
+  }
+  device_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), device);
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.BleUartInit.device)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

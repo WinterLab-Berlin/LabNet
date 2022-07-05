@@ -10,6 +10,7 @@ namespace LabNet::interface
         GpioWiring = 3,
         Sound = 4,
         ChiBio = 5,
+        BleUart = 6,
         Uart0 = 100,
         Uart1 = 101,
         Uart2 = 102,

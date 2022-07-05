@@ -142,6 +142,11 @@ class MoveChiBioPumpDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<MoveChiBioPump>
       _instance;
 } _MoveChiBioPump_default_instance_;
+class BleUartInitDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<BleUartInit>
+      _instance;
+} _BleUartInit_default_instance_;
 }  // namespace Client
 }  // namespace LabNetProt
 namespace protobuf_LabNetClient_2eproto {
@@ -471,6 +476,20 @@ static void InitDefaultsMoveChiBioPump() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_MoveChiBioPump =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsMoveChiBioPump}, {}};
 
+static void InitDefaultsBleUartInit() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_BleUartInit_default_instance_;
+    new (ptr) ::LabNetProt::Client::BleUartInit();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::BleUartInit::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_BleUartInit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsBleUartInit}, {}};
+
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInitDigitalIn.base);
@@ -495,9 +514,10 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_InitSoundSignal.base);
   ::google::protobuf::internal::InitSCC(&scc_info_ChiBioInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MoveChiBioPump.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_BleUartInit.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[23];
+::google::protobuf::Metadata file_level_metadata[24];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -664,6 +684,12 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::MoveChiBioPump, pump_id_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::MoveChiBioPump, move_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::BleUartInit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::BleUartInit, device_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
@@ -689,6 +715,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 140, -1, sizeof(::LabNetProt::Client::InitSoundSignal)},
   { 151, -1, sizeof(::LabNetProt::Client::ChiBioInit)},
   { 156, -1, sizeof(::LabNetProt::Client::MoveChiBioPump)},
+  { 163, -1, sizeof(::LabNetProt::Client::BleUartInit)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -715,6 +742,7 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_InitSoundSignal_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_ChiBioInit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_MoveChiBioPump_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_BleUartInit_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -732,7 +760,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 23);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 24);
 }
 
 void AddDescriptorsImpl() {
@@ -784,28 +812,29 @@ void AddDescriptorsImpl() {
       "ncy_end\030\004 \001(\r\022\034\n\024sweep_length_seconds\030\005 "
       "\001(\002\022\016\n\006volume\030\006 \001(\002\"\014\n\nChiBioInit\"/\n\016Mov"
       "eChiBioPump\022\017\n\007pump_id\030\001 \001(\r\022\014\n\004move\030\002 \001"
-      "(\005*\277\004\n\021ClientMessageType\022\010\n\004NONE\020\000\022\025\n\021LA"
-      "BNET_ID_REQUEST\020\001\022\030\n\024LABNET_RESET_REQUES"
-      "T\020\002\022\021\n\rIO_BOARD_INIT\020\003\022\034\n\030IO_BOARD_INIT_"
-      "DIGITAL_IN\020\004\022\035\n\031IO_BOARD_INIT_DIGITAL_OU"
-      "T\020\005\022\023\n\017RFID_BOARD_INIT\020\006\022\037\n\033RFID_BOARD_S"
-      "ET_PHASE_MATRIX\020\007\022\r\n\tUART_INIT\020\010\022\023\n\017UART"
-      "_WRITE_DATA\020\t\022\023\n\017DIGITAL_OUT_SET\020\n\022\025\n\021DI"
-      "GITAL_OUT_PULSE\020\013\022\032\n\026START_DIGITAL_OUT_L"
-      "OOP\020\014\022\031\n\025STOP_DIGITAL_OUT_LOOP\020\r\022\026\n\022GPIO"
-      "_WIRINGPI_INIT\020\016\022!\n\035GPIO_WIRINGPI_INIT_D"
-      "IGITAL_IN\020\017\022\"\n\036GPIO_WIRINGPI_INIT_DIGITA"
-      "L_OUT\020\020\022\016\n\nINIT_SOUND\020\021\022\025\n\021INIT_SOUND_SI"
-      "GNAL\020\022\022\030\n\024UART_INIT_DIGITAL_IN\020\023\022\031\n\025UART"
-      "_INIT_DIGITAL_OUT\020\024\022\020\n\014CHI_BIO_INIT\020\025\022\025\n"
-      "\021MOVE_CHI_BIO_PUMP\020\026*\204\001\n\017SoundSignalType"
-      "\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUARE_WAVE\020\001\022\021\n\rTRIA"
-      "NGLE_WAVE\020\002\022\022\n\016SAW_TOOTH_WAVE\020\003\022\017\n\013WHITE"
-      "_NOISE\020\004\022\016\n\nPINK_NOISE\020\005\022\t\n\005SWEEP\020\006b\006pro"
-      "to3"
+      "(\005\"\035\n\013BleUartInit\022\016\n\006device\030\001 \001(\t*\322\004\n\021Cl"
+      "ientMessageType\022\010\n\004NONE\020\000\022\025\n\021LABNET_ID_R"
+      "EQUEST\020\001\022\030\n\024LABNET_RESET_REQUEST\020\002\022\021\n\rIO"
+      "_BOARD_INIT\020\003\022\034\n\030IO_BOARD_INIT_DIGITAL_I"
+      "N\020\004\022\035\n\031IO_BOARD_INIT_DIGITAL_OUT\020\005\022\023\n\017RF"
+      "ID_BOARD_INIT\020\006\022\037\n\033RFID_BOARD_SET_PHASE_"
+      "MATRIX\020\007\022\r\n\tUART_INIT\020\010\022\023\n\017UART_WRITE_DA"
+      "TA\020\t\022\023\n\017DIGITAL_OUT_SET\020\n\022\025\n\021DIGITAL_OUT"
+      "_PULSE\020\013\022\032\n\026START_DIGITAL_OUT_LOOP\020\014\022\031\n\025"
+      "STOP_DIGITAL_OUT_LOOP\020\r\022\026\n\022GPIO_WIRINGPI"
+      "_INIT\020\016\022!\n\035GPIO_WIRINGPI_INIT_DIGITAL_IN"
+      "\020\017\022\"\n\036GPIO_WIRINGPI_INIT_DIGITAL_OUT\020\020\022\016"
+      "\n\nINIT_SOUND\020\021\022\025\n\021INIT_SOUND_SIGNAL\020\022\022\030\n"
+      "\024UART_INIT_DIGITAL_IN\020\023\022\031\n\025UART_INIT_DIG"
+      "ITAL_OUT\020\024\022\020\n\014CHI_BIO_INIT\020\025\022\025\n\021MOVE_CHI"
+      "_BIO_PUMP\020\026\022\021\n\rBLE_UART_INIT\020\027*\204\001\n\017Sound"
+      "SignalType\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUARE_WAVE"
+      "\020\001\022\021\n\rTRIANGLE_WAVE\020\002\022\022\n\016SAW_TOOTH_WAVE\020"
+      "\003\022\017\n\013WHITE_NOISE\020\004\022\016\n\nPINK_NOISE\020\005\022\t\n\005SW"
+      "EEP\020\006b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2563);
+      descriptor, 2613);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClient.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
@@ -899,6 +928,7 @@ bool ClientMessageType_IsValid(int value) {
     case 20:
     case 21:
     case 22:
+    case 23:
       return true;
     default:
       return false;
@@ -7097,6 +7127,248 @@ void MoveChiBioPump::InternalSwap(MoveChiBioPump* other) {
 }
 
 
+// ===================================================================
+
+void BleUartInit::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int BleUartInit::kDeviceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+BleUartInit::BleUartInit()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_BleUartInit.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.BleUartInit)
+}
+BleUartInit::BleUartInit(const BleUartInit& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  device_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.device().size() > 0) {
+    device_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.device_);
+  }
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.BleUartInit)
+}
+
+void BleUartInit::SharedCtor() {
+  device_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+BleUartInit::~BleUartInit() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.BleUartInit)
+  SharedDtor();
+}
+
+void BleUartInit::SharedDtor() {
+  device_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void BleUartInit::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* BleUartInit::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const BleUartInit& BleUartInit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_BleUartInit.base);
+  return *internal_default_instance();
+}
+
+
+void BleUartInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.BleUartInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  device_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool BleUartInit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.BleUartInit)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string device = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_device()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->device().data(), static_cast<int>(this->device().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "LabNetProt.Client.BleUartInit.device"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.BleUartInit)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.BleUartInit)
+  return false;
+#undef DO_
+}
+
+void BleUartInit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.BleUartInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string device = 1;
+  if (this->device().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->device().data(), static_cast<int>(this->device().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "LabNetProt.Client.BleUartInit.device");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->device(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.BleUartInit)
+}
+
+::google::protobuf::uint8* BleUartInit::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.BleUartInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string device = 1;
+  if (this->device().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->device().data(), static_cast<int>(this->device().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "LabNetProt.Client.BleUartInit.device");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->device(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.BleUartInit)
+  return target;
+}
+
+size_t BleUartInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.BleUartInit)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string device = 1;
+  if (this->device().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->device());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BleUartInit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.BleUartInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BleUartInit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const BleUartInit>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.BleUartInit)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.BleUartInit)
+    MergeFrom(*source);
+  }
+}
+
+void BleUartInit::MergeFrom(const BleUartInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.BleUartInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.device().size() > 0) {
+
+    device_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.device_);
+  }
+}
+
+void BleUartInit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.BleUartInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BleUartInit::CopyFrom(const BleUartInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.BleUartInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BleUartInit::IsInitialized() const {
+  return true;
+}
+
+void BleUartInit::Swap(BleUartInit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void BleUartInit::InternalSwap(BleUartInit* other) {
+  using std::swap;
+  device_.Swap(&other->device_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata BleUartInit::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Client
 }  // namespace LabNetProt
@@ -7170,6 +7442,9 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::ChiBioInit* 
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::MoveChiBioPump* Arena::CreateMaybeMessage< ::LabNetProt::Client::MoveChiBioPump >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::MoveChiBioPump >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::BleUartInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::BleUartInit >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::BleUartInit >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

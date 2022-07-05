@@ -15,6 +15,7 @@
 #include "sound/signal_generator.h"
 #include "uart/serial_ports_manager.h"
 #include "chi_bio/chi_bio_main_actor.h"
+#include "ble_uart/ble_uart_main.h"
 
 namespace LabNet::interface
 {
@@ -31,6 +32,7 @@ namespace LabNet::interface
         reset_states_[3] = false;
         reset_states_[4] = false;
         reset_states_[5] = false;
+        reset_states_[6] = false;
     }
 
     void ManageInterfaces::so_define_agent()
@@ -52,6 +54,8 @@ namespace LabNet::interface
                         so_5::send<ContinueInterface>(sound_box_);
                     if (chi_bio_box_)
                         so_5::send<ContinueInterface>(chi_bio_box_);
+                    if (ble_uart_box_)
+                        so_5::send<ContinueInterface>(ble_uart_box_);
                 })
             .event(server_out_box_,
                 [this](const mhood_t<PauseInterface>& msg) {
@@ -67,6 +71,8 @@ namespace LabNet::interface
                         so_5::send<PauseInterface>(sound_box_);
                     if (chi_bio_box_)
                         so_5::send<PauseInterface>(chi_bio_box_);
+                    if (ble_uart_box_)
+                        so_5::send<PauseInterface>(ble_uart_box_);
                 })
             .event(self_mbox_,
                 [this](const mhood_t<LabNet::helper::ResetRequest>& msg) {
@@ -99,6 +105,11 @@ namespace LabNet::interface
                     {
                         reset_states_[5] = true;
                         so_environment().deregister_coop(chi_bio_coop_, so_5::dereg_reason::normal);
+                    }
+                    if (ble_uart_box_)
+                    {
+                        reset_states_[6] = true;
+                        so_environment().deregister_coop(ble_uart_coop_, so_5::dereg_reason::normal);
                     }
 
                     reset_response_box_ = msg->response_box;
@@ -169,6 +180,7 @@ namespace LabNet::interface
                         case Interfaces::Uart2:
                         case Interfaces::Uart3:
                         case Interfaces::Uart4:
+                        case Interfaces::BleUart:
                             break;
                         default:
                             break;
@@ -329,6 +341,17 @@ namespace LabNet::interface
                     {
                         so_5::send<std::shared_ptr<LabNetProt::Client::MoveChiBioPump>>(chi_bio_box_, msg);
                     }
+                })
+            .event(server_out_box_,
+                [this](std::shared_ptr<LabNetProt::Client::BleUartInit> msg) {
+                    if (!ble_uart_box_)
+                    {
+                        ble_uart_box_ = so_environment().create_mbox("ble_uart");
+                        auto ble_uart = so_environment().make_agent<ble_uart::BleUartMain>(ble_uart_box_, self_mbox_, server_in_box_, logger_);
+                        ble_uart_coop_ = so_environment().register_agent_as_coop(std::move(ble_uart));
+                    }
+
+                    so_5::send<ble_uart::InitBleUart>(ble_uart_box_, msg->device());
                 });
 
         reset_state_
@@ -364,6 +387,12 @@ namespace LabNet::interface
                         {
                             chi_bio_box_ = nullptr;
                             reset_states_[5] = false;
+                        }
+                        break;
+                        case Interfaces::BleUart:
+                        {
+                            ble_uart_box_ = nullptr;
+                            reset_states_[6] = false;
                         }
                         break;
                         case Interfaces::Uart0:

@@ -197,6 +197,9 @@ namespace LabNet::network
             case ClientMessageType::MOVE_CHI_BIO_PUMP:
                 ParseAndSendMessage<MoveChiBioPump>();
                 break;
+            case ClientMessageType::BLE_UART_INIT:
+                ParseAndSendMessage<BleUartInit>();
+                break;
             default:
                 break;
         }

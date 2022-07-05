@@ -159,6 +159,10 @@ void ServerActor::so_define_agent()
                 so_5::send<std::shared_ptr<LabNetProt::Client::MoveChiBioPump>>(server_out_box_, mes);
             })
         .event(server_in_box_,
+            [this](std::shared_ptr<LabNetProt::Client::BleUartInit> mes) {
+                so_5::send<std::shared_ptr<LabNetProt::Client::BleUartInit>>(server_out_box_, mes);
+            })
+        .event(server_in_box_,
             [this](std::shared_ptr<LabNetProt::Server::ChiBioPumpMoveResult> mes) {
                 connection_->SendMessage(mes, LabNetProt::Server::ServerMessageType::CHI_BIO_PUMP_MOVE_RESULT);
             })

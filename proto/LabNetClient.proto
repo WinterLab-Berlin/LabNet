@@ -26,6 +26,7 @@ enum ClientMessageType {
 	UART_INIT_DIGITAL_OUT = 20;
 	CHI_BIO_INIT = 21;
 	MOVE_CHI_BIO_PUMP = 22;
+    BLE_UART_INIT = 23;
 }
 
 // IO board messages
@@ -188,3 +189,9 @@ message MoveChiBioPump {
 	int32 move = 2;
 }
 // ChiBio
+
+// BLE uart 
+message BleUartInit {
+    string device = 1;
+}
+// BLE uart 

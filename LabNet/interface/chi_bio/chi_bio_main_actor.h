@@ -10,7 +10,7 @@ namespace LabNet::interface::chi_bio
 {
     struct InitChiBio
     {
-        const so_5::mbox_t mbox;
+        //const so_5::mbox_t mbox;
     };
 
     class ChiBioMainActor final : public so_5::agent_t

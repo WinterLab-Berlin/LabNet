@@ -32,13 +32,16 @@ add_executable(LabNet LabNet.cpp
                digital_out/pulse_helper.cpp digital_out/loop_helper.h digital_out/pin_id.h digital_out/loop_helper.cpp
                helper/reset_helper.h helper/reset_helper.cpp helper/reset_msg.h
                resources/resource.h resources/resource.cpp resources/resources_actor.h  resources/resources_actor.cpp
-               "interface/chi_bio/chi_bio_main_actor.h" "interface/chi_bio/chi_bio_main_actor.cpp")
+               "interface/chi_bio/chi_bio_main_actor.h" "interface/chi_bio/chi_bio_main_actor.cpp"
+               interface/ble_uart/ble_uart_main.h interface/ble_uart/ble_uart_main.cpp interface/ble_uart/connection.h interface/ble_uart/connection.cpp
+               interface/ble_uart/ble_uart_actor.h interface/ble_uart/ble_uart_actor.cpp) 
 
 target_include_directories(LabNet PRIVATE ${BOOST_ASIO_INCLUDE_DIRS} ${BOOST_SIGNALS2_INCLUDE_DIRS})
-target_include_directories(LabNet PRIVATE ../sobjectizer/dev)
+target_include_directories(LabNet PRIVATE ../vendor/sobjectizer/dev)
+target_include_directories(LabNet PRIVATE ../vendor/gattlib/include)
 target_include_directories(LabNet PRIVATE log)
 
-target_link_libraries(LabNet atomic pthread boost_system wiringPi so.5.7.0 protobuf sfml-system sfml-audio)
+target_link_libraries(LabNet atomic pthread boost_system wiringPi so.5.7.3 protobuf sfml-system sfml-audio gattlib)
 
 add_compile_definitions(ELPP_THREAD_SAFE)
 add_compile_definitions(ELPP_NO_DEFAULT_LOG_FILE)
