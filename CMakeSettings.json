@@ -20,7 +20,7 @@
       "remoteCopyBuildOutput": false,
       "remoteCopySourcesMethod": "rsync",
       "addressSanitizerRuntimeFlags": "detect_leaks=0",
-      "remotePreGenerateCommand": "export RASPBERRY_VERSION=2;export RASPBIAN_ROOTFS=$HOME/rpi/rootfs;export PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH"
+      "remotePreGenerateCommand": "export RASPBERRY_VERSION=2;export RASPBIAN_ROOTFS=$HOME/rpi/rootfs;export CROSS_COMPILE=/opt/cross-pi-gcc/bin/arm-linux-gnueabihf-;export SYSROOT=$HOME/rpi/rootfs;export PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH"
     },
     {
       "name": "Linux-GCC-Release",
@@ -42,7 +42,7 @@
       "remoteCopyBuildOutput": false,
       "remoteCopySourcesMethod": "rsync",
       "addressSanitizerRuntimeFlags": "detect_leaks=0",
-      "remotePreGenerateCommand": "export RASPBERRY_VERSION=2;export RASPBIAN_ROOTFS=$HOME/rpi/rootfs;export PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH"
+      "remotePreGenerateCommand": "export RASPBERRY_VERSION=2;export RASPBIAN_ROOTFS=$HOME/rpi/rootfs;export CROSS_COMPILE=/opt/cross-pi-gcc/bin/arm-linux-gnueabihf-;export SYSROOT=$HOME/rpi/rootfs;export PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH"
     }
   ]
 }

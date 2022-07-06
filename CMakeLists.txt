@@ -9,4 +9,6 @@ project ("LabNet")
 add_subdirectory("LabNet")
 
 add_subdirectory(vendor/sobjectizer/dev sobjectizer)
+
+set(GATTLIB_BUILD_DOCS OFF)
 add_subdirectory(vendor/gattlib gattlib)
