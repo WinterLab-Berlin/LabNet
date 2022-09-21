@@ -88,20 +88,20 @@ void AddDescriptorsImpl() {
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\014LabNet.proto\022\nLabNetProt\"\?\n\005PinId\022)\n\ti"
       "nterface\030\001 \001(\0162\026.LabNetProt.Interfaces\022\013"
-      "\n\003pin\030\002 \001(\r*\234\002\n\nInterfaces\022\022\n\016INTERFACE_"
+      "\n\003pin\030\002 \001(\r*\266\002\n\nInterfaces\022\022\n\016INTERFACE_"
       "NONE\020\000\022\026\n\022INTERFACE_IO_BOARD\020\001\022\030\n\024INTERF"
       "ACE_RFID_BOARD\020\002\022\033\n\027INTERFACE_GPIO_WIRIN"
       "GPI\020\003\022\023\n\017INTERFACE_SOUND\020\004\022\025\n\021INTERFACE_"
-      "CHI_BIO\020\005\022\026\n\022INTERFACE_BLE_UART\020\006\022\023\n\017INT"
-      "ERFACE_UART0\020d\022\023\n\017INTERFACE_UART1\020e\022\023\n\017I"
-      "NTERFACE_UART2\020f\022\023\n\017INTERFACE_UART3\020g\022\023\n"
-      "\017INTERFACE_UART4\020h*f\n\005Uarts\022\r\n\tUART_NONE"
-      "\020\000\022\016\n\nUART_PORT0\020d\022\016\n\nUART_PORT1\020e\022\016\n\nUA"
-      "RT_PORT2\020f\022\016\n\nUART_PORT3\020g\022\016\n\nUART_PORT4"
-      "\020hb\006proto3"
+      "CHI_BIO\020\005\022\026\n\022INTERFACE_BLE_UART\020\006\022\030\n\024INT"
+      "ERFACE_UART_BOARD\020\007\022\023\n\017INTERFACE_UART0\020d"
+      "\022\023\n\017INTERFACE_UART1\020e\022\023\n\017INTERFACE_UART2"
+      "\020f\022\023\n\017INTERFACE_UART3\020g\022\023\n\017INTERFACE_UAR"
+      "T4\020h*f\n\005Uarts\022\r\n\tUART_NONE\020\000\022\016\n\nUART_POR"
+      "T0\020d\022\016\n\nUART_PORT1\020e\022\016\n\nUART_PORT2\020f\022\016\n\n"
+      "UART_PORT3\020g\022\016\n\nUART_PORT4\020hb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 490);
+      descriptor, 516);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNet.proto", &protobuf_RegisterTypes);
 }
@@ -131,6 +131,7 @@ bool Interfaces_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+    case 7:
     case 100:
     case 101:
     case 102:

@@ -18,8 +18,8 @@ add_executable(LabNet LabNet.cpp
                interface/io_board/digital_input.h interface/io_board/digital_output.h interface/io_board/digital_input_state_reader.h
                interface/io_board/resource_request_helper.h interface/io_board/resource_request_helper.cpp
                interface/rfid_board/data_read_worker.h interface/rfid_board/max_14830.h
-               interface/rfid_board/max_14830_defs.h interface/rfid_board/max_device.h interface/rfid_board/spi.h interface/rfid_board/data_read_worker.cpp
-               interface/rfid_board/max_14830.cpp interface/rfid_board/max_device.cpp interface/rfid_board/spi.cpp interface/rfid_board/rfid_main_actor.cpp
+               interface/rfid_board/max_14830_defs.h interface/rfid_board/max_device.h interface/rfid_board/data_read_worker.cpp
+               interface/rfid_board/max_14830.cpp interface/rfid_board/max_device.cpp interface/rfid_board/spi.h interface/rfid_board/rfid_main_actor.cpp
                interface/rfid_board/rfid_main_actor.h 
                interface/gpio_wiring/gpio_manager.h interface/gpio_wiring/digital_input.h interface/gpio_wiring/digital_output.h interface/gpio_wiring/digital_input_state_reader.h
                interface/gpio_wiring/digital_input_state_reader.cpp interface/gpio_wiring/gpio_manager.cpp
@@ -34,7 +34,11 @@ add_executable(LabNet LabNet.cpp
                resources/resource.h resources/resource.cpp resources/resources_actor.h  resources/resources_actor.cpp
                "interface/chi_bio/chi_bio_main_actor.h" "interface/chi_bio/chi_bio_main_actor.cpp"
                interface/ble_uart/ble_uart_main.h interface/ble_uart/ble_uart_main.cpp interface/ble_uart/connection.h interface/ble_uart/connection.cpp
-               interface/ble_uart/ble_uart_actor.h interface/ble_uart/ble_uart_actor.cpp) 
+               interface/ble_uart/ble_uart_actor.h interface/ble_uart/ble_uart_actor.cpp
+               interface/uart_board/max_uart_board.h interface/uart_board/max_uart_board.cpp
+               interface/uart_board/uart_board_main_actor.h interface/uart_board/uart_board_main_actor.cpp
+               interface/uart_board/data_worker.h interface/uart_board/data_worker.cpp)
+                
 
 target_include_directories(LabNet PRIVATE ${BOOST_ASIO_INCLUDE_DIRS} ${BOOST_SIGNALS2_INCLUDE_DIRS})
 target_include_directories(LabNet PRIVATE ../vendor/sobjectizer/dev)

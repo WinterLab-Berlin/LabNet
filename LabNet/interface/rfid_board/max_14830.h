@@ -59,6 +59,10 @@
 
 #define TXFifoMAX 128
 
+// WiringPi notation
+#define MAXRESET 16 // reset pin
+#define MAXPOWER 28 // power supply pin
+
 extern uint8_t max_cs[8];
 extern uint8_t max_uart[4];
 
@@ -78,6 +82,7 @@ void max14830_resetUart(uint8_t cspin, uint8_t uart);
 void max14830_resetFifo(uint8_t cspin, uint8_t uart);
 void max14830_configureGPIO(uint8_t cspin, uint8_t uart);
 void max14830_setAntenna(uint8_t cspin, uint8_t uart, bool enable);
+void max14830_setGPIO(uint8_t cspin, uint8_t uart, uint8_t state);
 void max14830_setExtendedRegisterMap(uint8_t cspin, bool enable);
 void max14830_invertRXTXLogic(uint8_t cspin, uint8_t uart, bool enable);
 

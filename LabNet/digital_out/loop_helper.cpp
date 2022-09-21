@@ -18,6 +18,7 @@ namespace LabNet::digital_out
         , gpio_box_(ctx.environment().create_mbox("gpio"))
         , uart_box_(ctx.environment().create_mbox("uart"))
         , gpio_wiring_box_(ctx.environment().create_mbox("gpioWiring"))
+        , uart_board_box_(ctx.environment().create_mbox("uart_board"))
     {
     }
 
@@ -68,6 +69,11 @@ namespace LabNet::digital_out
                         par.id.interface = interface::Interfaces::Uart4;
                         so_5::send<interface::digital_messages::SetDigitalOut>(uart_box_, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
                     }
+                    else if (interface == LabNetProt::INTERFACE_UART_BOARD)
+                    {
+                        par.id.interface = interface::Interfaces::UartBoard;
+                        so_5::send<interface::digital_messages::SetDigitalOut>(uart_board_box_, par.id.interface, mes->digital_outputs()[i].id().pin(), false, so_direct_mbox());
+                    }
                     else
                     {
                         continue;
@@ -86,20 +92,23 @@ namespace LabNet::digital_out
             })
             .event([this](mhood_t<LabNetProt::Client::StopDigitalOutLoop> mes) {
                 so_5::send<LoopStopped>(report_box_, mes->loop_name());
-
+                this >>= stoped_state_;
                 so_deregister_agent_coop_normally();
             })
             .event([this](mhood_t<AbortLoopHelper> mes) {
+                this >>= stoped_state_;
                 so_deregister_agent_coop_normally();
             });
 
         running_state_
             .event([this](mhood_t<LabNetProt::Client::StopDigitalOutLoop> mes) {
                 so_5::send<LoopStopped>(report_box_, mes->loop_name());
+                this >>= stoped_state_;
 
                 so_deregister_agent_coop_normally();
             })
             .event([this](mhood_t<AbortLoopHelper> mes) {
+                this >>= stoped_state_;
                 so_deregister_agent_coop_normally();
             })
             .event([this](mhood_t<PauseLoopHelper> mes) {
@@ -160,6 +169,7 @@ namespace LabNet::digital_out
 
         pause_state_
             .event([this](mhood_t<AbortLoopHelper> mes) {
+                this >>= stoped_state_;
                 so_deregister_agent_coop_normally();
             })
             .event([this](mhood_t<ContinueLoopHelper> mes) {
@@ -188,6 +198,10 @@ namespace LabNet::digital_out
         {
             so_5::send<interface::digital_messages::SetDigitalOut>(uart_box_, id.interface, id.pin, true, so_direct_mbox());
         }
+        else if (id.interface == interface::Interfaces::UartBoard)
+        {
+            so_5::send<interface::digital_messages::SetDigitalOut>(uart_board_box_, id.interface, id.pin, true, so_direct_mbox());
+        }
     }
 
     void LoopHelper::TurnPinOff(PinId& id)
@@ -207,6 +221,10 @@ namespace LabNet::digital_out
             || id.interface == interface::Interfaces::Uart4)
         {
             so_5::send<interface::digital_messages::SetDigitalOut>(uart_box_, id.interface, id.pin, false, so_direct_mbox());
+        }
+        else if (id.interface == interface::Interfaces::UartBoard)
+        {
+            so_5::send<interface::digital_messages::SetDigitalOut>(uart_board_box_, id.interface, id.pin, false, so_direct_mbox());
         }
     }
 }

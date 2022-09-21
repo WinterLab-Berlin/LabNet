@@ -2,6 +2,7 @@ syntax = "proto3";
 package LabNetProt.Client;
 import "LabNet.proto";
 
+// enumeration with all possible client message types
 enum ClientMessageType {
 	NONE = 0;
 	LABNET_ID_REQUEST = 1;
@@ -27,12 +28,17 @@ enum ClientMessageType {
 	CHI_BIO_INIT = 21;
 	MOVE_CHI_BIO_PUMP = 22;
     BLE_UART_INIT = 23;
+    UART_BOARD_INIT = 24;
+    UART_BOARD_WRITE_DATA = 25;
 }
 
 // IO board messages
+
+// init IO board message. needs IO_BOARD_INIT
 message IoBoardInit {
 }
 
+// init a ditigital input on the IO board. needs IO_BOARD_INIT_DIGITAL_IN
 message IoBoardInitDigitalIn {
 	enum Resistor {
 		OFF = 0;
@@ -44,6 +50,7 @@ message IoBoardInitDigitalIn {
 	bool is_inverted = 3;
 }
 
+// init a ditigital output on the IO board. needs IO_BOARD_INIT_DIGITAL_OUT
 message IoBoardInitDigitalOut {
 	uint32 pin = 1;
 	bool is_inverted = 2;
@@ -195,3 +202,19 @@ message BleUartInit {
     string device = 1;
 }
 // BLE uart 
+
+// UART_BOARD
+// the same hardware like RFID_BOARD, but here it is possible to receive all bytes from UART and also send bytes.
+
+message UartBoardInit
+{
+    uint32 baud = 1;
+    bool is_inverted = 2;
+}
+
+message UartBoardWriteData {
+	uint32 port = 1;
+	bytes data = 2;
+}
+
+// UART_BOARD

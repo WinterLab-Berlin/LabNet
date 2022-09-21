@@ -8,9 +8,4 @@ namespace LabNet::digital_out
     {
         std::string loop_name;
     };
-
-    struct LoopStartFailed
-    {
-        std::string loop_name;
-    };
 }

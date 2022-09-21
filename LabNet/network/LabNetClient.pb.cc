@@ -147,6 +147,16 @@ class BleUartInitDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<BleUartInit>
       _instance;
 } _BleUartInit_default_instance_;
+class UartBoardInitDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UartBoardInit>
+      _instance;
+} _UartBoardInit_default_instance_;
+class UartBoardWriteDataDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<UartBoardWriteData>
+      _instance;
+} _UartBoardWriteData_default_instance_;
 }  // namespace Client
 }  // namespace LabNetProt
 namespace protobuf_LabNetClient_2eproto {
@@ -490,6 +500,34 @@ static void InitDefaultsBleUartInit() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_BleUartInit =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsBleUartInit}, {}};
 
+static void InitDefaultsUartBoardInit() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_UartBoardInit_default_instance_;
+    new (ptr) ::LabNetProt::Client::UartBoardInit();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::UartBoardInit::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_UartBoardInit =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUartBoardInit}, {}};
+
+static void InitDefaultsUartBoardWriteData() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::LabNetProt::Client::_UartBoardWriteData_default_instance_;
+    new (ptr) ::LabNetProt::Client::UartBoardWriteData();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::LabNetProt::Client::UartBoardWriteData::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_UartBoardWriteData =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsUartBoardWriteData}, {}};
+
 void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_IoBoardInitDigitalIn.base);
@@ -515,9 +553,11 @@ void InitDefaults() {
   ::google::protobuf::internal::InitSCC(&scc_info_ChiBioInit.base);
   ::google::protobuf::internal::InitSCC(&scc_info_MoveChiBioPump.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BleUartInit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UartBoardInit.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_UartBoardWriteData.base);
 }
 
-::google::protobuf::Metadata file_level_metadata[24];
+::google::protobuf::Metadata file_level_metadata[26];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -690,6 +730,20 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::BleUartInit, device_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardInit, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardInit, baud_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardInit, is_inverted_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardWriteData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardWriteData, port_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::LabNetProt::Client::UartBoardWriteData, data_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::LabNetProt::Client::IoBoardInit)},
@@ -716,6 +770,8 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 151, -1, sizeof(::LabNetProt::Client::ChiBioInit)},
   { 156, -1, sizeof(::LabNetProt::Client::MoveChiBioPump)},
   { 163, -1, sizeof(::LabNetProt::Client::BleUartInit)},
+  { 169, -1, sizeof(::LabNetProt::Client::UartBoardInit)},
+  { 176, -1, sizeof(::LabNetProt::Client::UartBoardWriteData)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -743,6 +799,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_ChiBioInit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_MoveChiBioPump_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_BleUartInit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_UartBoardInit_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::LabNetProt::Client::_UartBoardWriteData_default_instance_),
 };
 
 void protobuf_AssignDescriptors() {
@@ -760,7 +818,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 24);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 26);
 }
 
 void AddDescriptorsImpl() {
@@ -812,29 +870,33 @@ void AddDescriptorsImpl() {
       "ncy_end\030\004 \001(\r\022\034\n\024sweep_length_seconds\030\005 "
       "\001(\002\022\016\n\006volume\030\006 \001(\002\"\014\n\nChiBioInit\"/\n\016Mov"
       "eChiBioPump\022\017\n\007pump_id\030\001 \001(\r\022\014\n\004move\030\002 \001"
-      "(\005\"\035\n\013BleUartInit\022\016\n\006device\030\001 \001(\t*\322\004\n\021Cl"
-      "ientMessageType\022\010\n\004NONE\020\000\022\025\n\021LABNET_ID_R"
-      "EQUEST\020\001\022\030\n\024LABNET_RESET_REQUEST\020\002\022\021\n\rIO"
-      "_BOARD_INIT\020\003\022\034\n\030IO_BOARD_INIT_DIGITAL_I"
-      "N\020\004\022\035\n\031IO_BOARD_INIT_DIGITAL_OUT\020\005\022\023\n\017RF"
-      "ID_BOARD_INIT\020\006\022\037\n\033RFID_BOARD_SET_PHASE_"
-      "MATRIX\020\007\022\r\n\tUART_INIT\020\010\022\023\n\017UART_WRITE_DA"
-      "TA\020\t\022\023\n\017DIGITAL_OUT_SET\020\n\022\025\n\021DIGITAL_OUT"
-      "_PULSE\020\013\022\032\n\026START_DIGITAL_OUT_LOOP\020\014\022\031\n\025"
-      "STOP_DIGITAL_OUT_LOOP\020\r\022\026\n\022GPIO_WIRINGPI"
-      "_INIT\020\016\022!\n\035GPIO_WIRINGPI_INIT_DIGITAL_IN"
-      "\020\017\022\"\n\036GPIO_WIRINGPI_INIT_DIGITAL_OUT\020\020\022\016"
-      "\n\nINIT_SOUND\020\021\022\025\n\021INIT_SOUND_SIGNAL\020\022\022\030\n"
-      "\024UART_INIT_DIGITAL_IN\020\023\022\031\n\025UART_INIT_DIG"
-      "ITAL_OUT\020\024\022\020\n\014CHI_BIO_INIT\020\025\022\025\n\021MOVE_CHI"
-      "_BIO_PUMP\020\026\022\021\n\rBLE_UART_INIT\020\027*\204\001\n\017Sound"
-      "SignalType\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUARE_WAVE"
-      "\020\001\022\021\n\rTRIANGLE_WAVE\020\002\022\022\n\016SAW_TOOTH_WAVE\020"
-      "\003\022\017\n\013WHITE_NOISE\020\004\022\016\n\nPINK_NOISE\020\005\022\t\n\005SW"
-      "EEP\020\006b\006proto3"
+      "(\005\"\035\n\013BleUartInit\022\016\n\006device\030\001 \001(\t\"2\n\rUar"
+      "tBoardInit\022\014\n\004baud\030\001 \001(\r\022\023\n\013is_inverted\030"
+      "\002 \001(\010\"0\n\022UartBoardWriteData\022\014\n\004port\030\001 \001("
+      "\r\022\014\n\004data\030\002 \001(\014*\202\005\n\021ClientMessageType\022\010\n"
+      "\004NONE\020\000\022\025\n\021LABNET_ID_REQUEST\020\001\022\030\n\024LABNET"
+      "_RESET_REQUEST\020\002\022\021\n\rIO_BOARD_INIT\020\003\022\034\n\030I"
+      "O_BOARD_INIT_DIGITAL_IN\020\004\022\035\n\031IO_BOARD_IN"
+      "IT_DIGITAL_OUT\020\005\022\023\n\017RFID_BOARD_INIT\020\006\022\037\n"
+      "\033RFID_BOARD_SET_PHASE_MATRIX\020\007\022\r\n\tUART_I"
+      "NIT\020\010\022\023\n\017UART_WRITE_DATA\020\t\022\023\n\017DIGITAL_OU"
+      "T_SET\020\n\022\025\n\021DIGITAL_OUT_PULSE\020\013\022\032\n\026START_"
+      "DIGITAL_OUT_LOOP\020\014\022\031\n\025STOP_DIGITAL_OUT_L"
+      "OOP\020\r\022\026\n\022GPIO_WIRINGPI_INIT\020\016\022!\n\035GPIO_WI"
+      "RINGPI_INIT_DIGITAL_IN\020\017\022\"\n\036GPIO_WIRINGP"
+      "I_INIT_DIGITAL_OUT\020\020\022\016\n\nINIT_SOUND\020\021\022\025\n\021"
+      "INIT_SOUND_SIGNAL\020\022\022\030\n\024UART_INIT_DIGITAL"
+      "_IN\020\023\022\031\n\025UART_INIT_DIGITAL_OUT\020\024\022\020\n\014CHI_"
+      "BIO_INIT\020\025\022\025\n\021MOVE_CHI_BIO_PUMP\020\026\022\021\n\rBLE"
+      "_UART_INIT\020\027\022\023\n\017UART_BOARD_INIT\020\030\022\031\n\025UAR"
+      "T_BOARD_WRITE_DATA\020\031*\204\001\n\017SoundSignalType"
+      "\022\r\n\tSINE_WAVE\020\000\022\017\n\013SQUARE_WAVE\020\001\022\021\n\rTRIA"
+      "NGLE_WAVE\020\002\022\022\n\016SAW_TOOTH_WAVE\020\003\022\017\n\013WHITE"
+      "_NOISE\020\004\022\016\n\nPINK_NOISE\020\005\022\t\n\005SWEEP\020\006b\006pro"
+      "to3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2613);
+      descriptor, 2763);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "LabNetClient.proto", &protobuf_RegisterTypes);
   ::protobuf_LabNet_2eproto::AddDescriptors();
@@ -929,6 +991,8 @@ bool ClientMessageType_IsValid(int value) {
     case 21:
     case 22:
     case 23:
+    case 24:
+    case 25:
       return true;
     default:
       return false;
@@ -7369,6 +7433,538 @@ void BleUartInit::InternalSwap(BleUartInit* other) {
 }
 
 
+// ===================================================================
+
+void UartBoardInit::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UartBoardInit::kBaudFieldNumber;
+const int UartBoardInit::kIsInvertedFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UartBoardInit::UartBoardInit()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_UartBoardInit.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.UartBoardInit)
+}
+UartBoardInit::UartBoardInit(const UartBoardInit& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&baud_, &from.baud_,
+    static_cast<size_t>(reinterpret_cast<char*>(&is_inverted_) -
+    reinterpret_cast<char*>(&baud_)) + sizeof(is_inverted_));
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.UartBoardInit)
+}
+
+void UartBoardInit::SharedCtor() {
+  ::memset(&baud_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&baud_)) + sizeof(is_inverted_));
+}
+
+UartBoardInit::~UartBoardInit() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.UartBoardInit)
+  SharedDtor();
+}
+
+void UartBoardInit::SharedDtor() {
+}
+
+void UartBoardInit::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* UartBoardInit::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const UartBoardInit& UartBoardInit::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_UartBoardInit.base);
+  return *internal_default_instance();
+}
+
+
+void UartBoardInit::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartBoardInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&baud_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&is_inverted_) -
+      reinterpret_cast<char*>(&baud_)) + sizeof(is_inverted_));
+  _internal_metadata_.Clear();
+}
+
+bool UartBoardInit::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.UartBoardInit)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 baud = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &baud_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool is_inverted = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &is_inverted_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.UartBoardInit)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.UartBoardInit)
+  return false;
+#undef DO_
+}
+
+void UartBoardInit::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.UartBoardInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 baud = 1;
+  if (this->baud() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->baud(), output);
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->is_inverted(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.UartBoardInit)
+}
+
+::google::protobuf::uint8* UartBoardInit::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.UartBoardInit)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 baud = 1;
+  if (this->baud() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->baud(), target);
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->is_inverted(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.UartBoardInit)
+  return target;
+}
+
+size_t UartBoardInit::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.UartBoardInit)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // uint32 baud = 1;
+  if (this->baud() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->baud());
+  }
+
+  // bool is_inverted = 2;
+  if (this->is_inverted() != 0) {
+    total_size += 1 + 1;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UartBoardInit::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartBoardInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UartBoardInit* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UartBoardInit>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartBoardInit)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartBoardInit)
+    MergeFrom(*source);
+  }
+}
+
+void UartBoardInit::MergeFrom(const UartBoardInit& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartBoardInit)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.baud() != 0) {
+    set_baud(from.baud());
+  }
+  if (from.is_inverted() != 0) {
+    set_is_inverted(from.is_inverted());
+  }
+}
+
+void UartBoardInit::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartBoardInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UartBoardInit::CopyFrom(const UartBoardInit& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.UartBoardInit)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UartBoardInit::IsInitialized() const {
+  return true;
+}
+
+void UartBoardInit::Swap(UartBoardInit* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UartBoardInit::InternalSwap(UartBoardInit* other) {
+  using std::swap;
+  swap(baud_, other->baud_);
+  swap(is_inverted_, other->is_inverted_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata UartBoardInit::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void UartBoardWriteData::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int UartBoardWriteData::kPortFieldNumber;
+const int UartBoardWriteData::kDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+UartBoardWriteData::UartBoardWriteData()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  ::google::protobuf::internal::InitSCC(
+      &protobuf_LabNetClient_2eproto::scc_info_UartBoardWriteData.base);
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:LabNetProt.Client.UartBoardWriteData)
+}
+UartBoardWriteData::UartBoardWriteData(const UartBoardWriteData& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.data().size() > 0) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  port_ = from.port_;
+  // @@protoc_insertion_point(copy_constructor:LabNetProt.Client.UartBoardWriteData)
+}
+
+void UartBoardWriteData::SharedCtor() {
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
+}
+
+UartBoardWriteData::~UartBoardWriteData() {
+  // @@protoc_insertion_point(destructor:LabNetProt.Client.UartBoardWriteData)
+  SharedDtor();
+}
+
+void UartBoardWriteData::SharedDtor() {
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void UartBoardWriteData::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ::google::protobuf::Descriptor* UartBoardWriteData::descriptor() {
+  ::protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const UartBoardWriteData& UartBoardWriteData::default_instance() {
+  ::google::protobuf::internal::InitSCC(&protobuf_LabNetClient_2eproto::scc_info_UartBoardWriteData.base);
+  return *internal_default_instance();
+}
+
+
+void UartBoardWriteData::Clear() {
+// @@protoc_insertion_point(message_clear_start:LabNetProt.Client.UartBoardWriteData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  port_ = 0u;
+  _internal_metadata_.Clear();
+}
+
+bool UartBoardWriteData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:LabNetProt.Client.UartBoardWriteData)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // uint32 port = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &port_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bytes data = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:LabNetProt.Client.UartBoardWriteData)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:LabNetProt.Client.UartBoardWriteData)
+  return false;
+#undef DO_
+}
+
+void UartBoardWriteData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:LabNetProt.Client.UartBoardWriteData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->port(), output);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      2, this->data(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:LabNetProt.Client.UartBoardWriteData)
+}
+
+::google::protobuf::uint8* UartBoardWriteData::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:LabNetProt.Client.UartBoardWriteData)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->port(), target);
+  }
+
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        2, this->data(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:LabNetProt.Client.UartBoardWriteData)
+  return target;
+}
+
+size_t UartBoardWriteData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:LabNetProt.Client.UartBoardWriteData)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // bytes data = 2;
+  if (this->data().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::BytesSize(
+        this->data());
+  }
+
+  // uint32 port = 1;
+  if (this->port() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->port());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void UartBoardWriteData::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:LabNetProt.Client.UartBoardWriteData)
+  GOOGLE_DCHECK_NE(&from, this);
+  const UartBoardWriteData* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const UartBoardWriteData>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:LabNetProt.Client.UartBoardWriteData)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:LabNetProt.Client.UartBoardWriteData)
+    MergeFrom(*source);
+  }
+}
+
+void UartBoardWriteData::MergeFrom(const UartBoardWriteData& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:LabNetProt.Client.UartBoardWriteData)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.data().size() > 0) {
+
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  if (from.port() != 0) {
+    set_port(from.port());
+  }
+}
+
+void UartBoardWriteData::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:LabNetProt.Client.UartBoardWriteData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void UartBoardWriteData::CopyFrom(const UartBoardWriteData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:LabNetProt.Client.UartBoardWriteData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UartBoardWriteData::IsInitialized() const {
+  return true;
+}
+
+void UartBoardWriteData::Swap(UartBoardWriteData* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UartBoardWriteData::InternalSwap(UartBoardWriteData* other) {
+  using std::swap;
+  data_.Swap(&other->data_, &::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+    GetArenaNoVirtual());
+  swap(port_, other->port_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+}
+
+::google::protobuf::Metadata UartBoardWriteData::GetMetadata() const {
+  protobuf_LabNetClient_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_LabNetClient_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Client
 }  // namespace LabNetProt
@@ -7445,6 +8041,12 @@ template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::MoveChiBioPu
 }
 template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::BleUartInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::BleUartInit >(Arena* arena) {
   return Arena::CreateInternal< ::LabNetProt::Client::BleUartInit >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::UartBoardInit* Arena::CreateMaybeMessage< ::LabNetProt::Client::UartBoardInit >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::UartBoardInit >(arena);
+}
+template<> GOOGLE_PROTOBUF_ATTRIBUTE_NOINLINE ::LabNetProt::Client::UartBoardWriteData* Arena::CreateMaybeMessage< ::LabNetProt::Client::UartBoardWriteData >(Arena* arena) {
+  return Arena::CreateInternal< ::LabNetProt::Client::UartBoardWriteData >(arena);
 }
 }  // namespace protobuf
 }  // namespace google

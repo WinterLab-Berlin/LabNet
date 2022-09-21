@@ -40,7 +40,7 @@ namespace protobuf_LabNetClient_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[24];
+  static const ::google::protobuf::internal::ParseTable schema[26];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -109,6 +109,12 @@ extern StartDigitalOutLoop_DigitalOutputParameterDefaultTypeInternal _StartDigit
 class StopDigitalOutLoop;
 class StopDigitalOutLoopDefaultTypeInternal;
 extern StopDigitalOutLoopDefaultTypeInternal _StopDigitalOutLoop_default_instance_;
+class UartBoardInit;
+class UartBoardInitDefaultTypeInternal;
+extern UartBoardInitDefaultTypeInternal _UartBoardInit_default_instance_;
+class UartBoardWriteData;
+class UartBoardWriteDataDefaultTypeInternal;
+extern UartBoardWriteDataDefaultTypeInternal _UartBoardWriteData_default_instance_;
 class UartInit;
 class UartInitDefaultTypeInternal;
 extern UartInitDefaultTypeInternal _UartInit_default_instance_;
@@ -145,6 +151,8 @@ template<> ::LabNetProt::Client::RfidBoardSetPhaseMatrix* Arena::CreateMaybeMess
 template<> ::LabNetProt::Client::StartDigitalOutLoop* Arena::CreateMaybeMessage<::LabNetProt::Client::StartDigitalOutLoop>(Arena*);
 template<> ::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter* Arena::CreateMaybeMessage<::LabNetProt::Client::StartDigitalOutLoop_DigitalOutputParameter>(Arena*);
 template<> ::LabNetProt::Client::StopDigitalOutLoop* Arena::CreateMaybeMessage<::LabNetProt::Client::StopDigitalOutLoop>(Arena*);
+template<> ::LabNetProt::Client::UartBoardInit* Arena::CreateMaybeMessage<::LabNetProt::Client::UartBoardInit>(Arena*);
+template<> ::LabNetProt::Client::UartBoardWriteData* Arena::CreateMaybeMessage<::LabNetProt::Client::UartBoardWriteData>(Arena*);
 template<> ::LabNetProt::Client::UartInit* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInit>(Arena*);
 template<> ::LabNetProt::Client::UartInitDigitalIn* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInitDigitalIn>(Arena*);
 template<> ::LabNetProt::Client::UartInitDigitalOut* Arena::CreateMaybeMessage<::LabNetProt::Client::UartInitDigitalOut>(Arena*);
@@ -223,12 +231,14 @@ enum ClientMessageType {
   CHI_BIO_INIT = 21,
   MOVE_CHI_BIO_PUMP = 22,
   BLE_UART_INIT = 23,
+  UART_BOARD_INIT = 24,
+  UART_BOARD_WRITE_DATA = 25,
   ClientMessageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   ClientMessageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool ClientMessageType_IsValid(int value);
 const ClientMessageType ClientMessageType_MIN = NONE;
-const ClientMessageType ClientMessageType_MAX = BLE_UART_INIT;
+const ClientMessageType ClientMessageType_MAX = UART_BOARD_WRITE_DATA;
 const int ClientMessageType_ARRAYSIZE = ClientMessageType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ClientMessageType_descriptor();
@@ -3028,6 +3038,234 @@ class BleUartInit : public ::google::protobuf::Message /* @@protoc_insertion_poi
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class UartBoardInit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.UartBoardInit) */ {
+ public:
+  UartBoardInit();
+  virtual ~UartBoardInit();
+
+  UartBoardInit(const UartBoardInit& from);
+
+  inline UartBoardInit& operator=(const UartBoardInit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  UartBoardInit(UartBoardInit&& from) noexcept
+    : UartBoardInit() {
+    *this = ::std::move(from);
+  }
+
+  inline UartBoardInit& operator=(UartBoardInit&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UartBoardInit& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UartBoardInit* internal_default_instance() {
+    return reinterpret_cast<const UartBoardInit*>(
+               &_UartBoardInit_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    24;
+
+  void Swap(UartBoardInit* other);
+  friend void swap(UartBoardInit& a, UartBoardInit& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UartBoardInit* New() const final {
+    return CreateMaybeMessage<UartBoardInit>(NULL);
+  }
+
+  UartBoardInit* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<UartBoardInit>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const UartBoardInit& from);
+  void MergeFrom(const UartBoardInit& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UartBoardInit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // uint32 baud = 1;
+  void clear_baud();
+  static const int kBaudFieldNumber = 1;
+  ::google::protobuf::uint32 baud() const;
+  void set_baud(::google::protobuf::uint32 value);
+
+  // bool is_inverted = 2;
+  void clear_is_inverted();
+  static const int kIsInvertedFieldNumber = 2;
+  bool is_inverted() const;
+  void set_is_inverted(bool value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.UartBoardInit)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::uint32 baud_;
+  bool is_inverted_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class UartBoardWriteData : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:LabNetProt.Client.UartBoardWriteData) */ {
+ public:
+  UartBoardWriteData();
+  virtual ~UartBoardWriteData();
+
+  UartBoardWriteData(const UartBoardWriteData& from);
+
+  inline UartBoardWriteData& operator=(const UartBoardWriteData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  UartBoardWriteData(UartBoardWriteData&& from) noexcept
+    : UartBoardWriteData() {
+    *this = ::std::move(from);
+  }
+
+  inline UartBoardWriteData& operator=(UartBoardWriteData&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const UartBoardWriteData& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const UartBoardWriteData* internal_default_instance() {
+    return reinterpret_cast<const UartBoardWriteData*>(
+               &_UartBoardWriteData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    25;
+
+  void Swap(UartBoardWriteData* other);
+  friend void swap(UartBoardWriteData& a, UartBoardWriteData& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline UartBoardWriteData* New() const final {
+    return CreateMaybeMessage<UartBoardWriteData>(NULL);
+  }
+
+  UartBoardWriteData* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<UartBoardWriteData>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const UartBoardWriteData& from);
+  void MergeFrom(const UartBoardWriteData& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UartBoardWriteData* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes data = 2;
+  void clear_data();
+  static const int kDataFieldNumber = 2;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // uint32 port = 1;
+  void clear_port();
+  static const int kPortFieldNumber = 1;
+  ::google::protobuf::uint32 port() const;
+  void set_port(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:LabNetProt.Client.UartBoardWriteData)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::uint32 port_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_LabNetClient_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -4091,9 +4329,116 @@ inline void BleUartInit::set_allocated_device(::std::string* device) {
   // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.BleUartInit.device)
 }
 
+// -------------------------------------------------------------------
+
+// UartBoardInit
+
+// uint32 baud = 1;
+inline void UartBoardInit::clear_baud() {
+  baud_ = 0u;
+}
+inline ::google::protobuf::uint32 UartBoardInit::baud() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartBoardInit.baud)
+  return baud_;
+}
+inline void UartBoardInit::set_baud(::google::protobuf::uint32 value) {
+  
+  baud_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartBoardInit.baud)
+}
+
+// bool is_inverted = 2;
+inline void UartBoardInit::clear_is_inverted() {
+  is_inverted_ = false;
+}
+inline bool UartBoardInit::is_inverted() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartBoardInit.is_inverted)
+  return is_inverted_;
+}
+inline void UartBoardInit::set_is_inverted(bool value) {
+  
+  is_inverted_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartBoardInit.is_inverted)
+}
+
+// -------------------------------------------------------------------
+
+// UartBoardWriteData
+
+// uint32 port = 1;
+inline void UartBoardWriteData::clear_port() {
+  port_ = 0u;
+}
+inline ::google::protobuf::uint32 UartBoardWriteData::port() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartBoardWriteData.port)
+  return port_;
+}
+inline void UartBoardWriteData::set_port(::google::protobuf::uint32 value) {
+  
+  port_ = value;
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartBoardWriteData.port)
+}
+
+// bytes data = 2;
+inline void UartBoardWriteData::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& UartBoardWriteData::data() const {
+  // @@protoc_insertion_point(field_get:LabNetProt.Client.UartBoardWriteData.data)
+  return data_.GetNoArena();
+}
+inline void UartBoardWriteData::set_data(const ::std::string& value) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:LabNetProt.Client.UartBoardWriteData.data)
+}
+#if LANG_CXX11
+inline void UartBoardWriteData::set_data(::std::string&& value) {
+  
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:LabNetProt.Client.UartBoardWriteData.data)
+}
+#endif
+inline void UartBoardWriteData::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:LabNetProt.Client.UartBoardWriteData.data)
+}
+inline void UartBoardWriteData::set_data(const void* value, size_t size) {
+  
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:LabNetProt.Client.UartBoardWriteData.data)
+}
+inline ::std::string* UartBoardWriteData::mutable_data() {
+  
+  // @@protoc_insertion_point(field_mutable:LabNetProt.Client.UartBoardWriteData.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* UartBoardWriteData::release_data() {
+  // @@protoc_insertion_point(field_release:LabNetProt.Client.UartBoardWriteData.data)
+  
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void UartBoardWriteData::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    
+  } else {
+    
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:LabNetProt.Client.UartBoardWriteData.data)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

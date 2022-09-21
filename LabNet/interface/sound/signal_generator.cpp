@@ -79,9 +79,9 @@ void SignalGenerator::so_define_agent()
             [this](const mhood_t<digital_messages::SetDigitalOut>& msg) {
                 bool res;
                 if (msg->state)
-                    TurnSoundOn(msg->pin);
+                    res = TurnSoundOn(msg->pin);
                 else
-                    TurnSoundOff(msg->pin);
+                    res = TurnSoundOff(msg->pin);
 
                 if (res)
                 {

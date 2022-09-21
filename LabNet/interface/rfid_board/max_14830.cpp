@@ -183,11 +183,22 @@ void max14830_configureGPIO(uint8_t cspin, uint8_t uart)
 void max14830_setAntenna(uint8_t cspin, uint8_t uart, bool enable)
 {
     if (enable)
+    {
         // GPIODataReg GPIO 0-3 HIGH
-        max14830_write(max_cs[cspin], max14830_GPIODATA | max_uart[uart], (1 << GPO3Dat) | (1 << GPO2Dat) | (1 << GPO1Dat) | (1 << GPO0Dat));
+        //max14830_write(max_cs[cspin], max14830_GPIODATA | max_uart[uart], (1 << GPO3Dat) | (1 << GPO2Dat) | (1 << GPO1Dat) | (1 << GPO0Dat));
+        max14830_write(max_cs[cspin], max14830_GPIODATA | max_uart[uart], (1 << GPO3Dat));
+    }
     else
         // GPIODataReg GPIO 0-3 LOW
         max14830_write(max_cs[cspin], max14830_GPIODATA | max_uart[uart], 0);
+}
+
+/*
+ * (1 << GPO3Dat) | (1 << GPO2Dat) | (1 << GPO1Dat) | (1 << GPO0Dat)
+*/
+void max14830_setGPIO(uint8_t cspin, uint8_t uart, uint8_t state)
+{
+    max14830_write(max_cs[cspin], max14830_GPIODATA | max_uart[uart], state = (state & 0xF));
 }
 
 void max14830_invertRXTXLogic(uint8_t cspin, uint8_t uart, bool enable)

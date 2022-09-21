@@ -200,6 +200,12 @@ namespace LabNet::network
             case ClientMessageType::BLE_UART_INIT:
                 ParseAndSendMessage<BleUartInit>();
                 break;
+            case ClientMessageType::UART_BOARD_INIT:
+                ParseAndSendMessage<UartBoardInit>();
+                break;
+            case ClientMessageType::UART_BOARD_WRITE_DATA:
+                ParseAndSendMessage<UartBoardWriteData>();
+                break;
             default:
                 break;
         }

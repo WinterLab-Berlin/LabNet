@@ -16,6 +16,7 @@
 #include "uart/serial_ports_manager.h"
 #include "chi_bio/chi_bio_main_actor.h"
 #include "ble_uart/ble_uart_main.h"
+#include "uart_board/uart_board_main_actor.h"
 
 namespace LabNet::interface
 {
@@ -33,6 +34,7 @@ namespace LabNet::interface
         reset_states_[4] = false;
         reset_states_[5] = false;
         reset_states_[6] = false;
+        reset_states_[7] = false;
     }
 
     void ManageInterfaces::so_define_agent()
@@ -56,6 +58,8 @@ namespace LabNet::interface
                         so_5::send<ContinueInterface>(chi_bio_box_);
                     if (ble_uart_box_)
                         so_5::send<ContinueInterface>(ble_uart_box_);
+                    if (uart_board_box_)
+                        so_5::send<ContinueInterface>(uart_board_box_);
                 })
             .event(server_out_box_,
                 [this](const mhood_t<PauseInterface>& msg) {
@@ -73,6 +77,8 @@ namespace LabNet::interface
                         so_5::send<PauseInterface>(chi_bio_box_);
                     if (ble_uart_box_)
                         so_5::send<PauseInterface>(ble_uart_box_);
+                    if (uart_board_box_)
+                        so_5::send<PauseInterface>(uart_board_box_);
                 })
             .event(self_mbox_,
                 [this](const mhood_t<LabNet::helper::ResetRequest>& msg) {
@@ -111,7 +117,11 @@ namespace LabNet::interface
                         reset_states_[6] = true;
                         so_environment().deregister_coop(ble_uart_coop_, so_5::dereg_reason::normal);
                     }
-
+                    if (uart_board_box_)
+                    {
+                        reset_states_[7] = true;
+                        so_environment().deregister_coop(uart_board_coop_, so_5::dereg_reason::normal);
+                    }
                     reset_response_box_ = msg->response_box;
                     if (!is_reset_done())
                         this >>= reset_state_;
@@ -181,7 +191,23 @@ namespace LabNet::interface
                         case Interfaces::Uart3:
                         case Interfaces::Uart4:
                         case Interfaces::BleUart:
-                            break;
+                        {
+                            if (!msg->is_succeed)
+                            {
+                                so_environment().deregister_coop(ble_uart_coop_, so_5::dereg_reason::normal);
+                                ble_uart_box_ = nullptr;
+                            }
+                        }
+                        break;
+                        case Interfaces::UartBoard:
+                        {
+                            if (!msg->is_succeed)
+                            {
+                                so_environment().deregister_coop(uart_board_coop_, so_5::dereg_reason::normal);
+                                uart_board_box_ = nullptr;
+                            }
+                        }
+                        break;
                         default:
                             break;
                     }
@@ -352,6 +378,24 @@ namespace LabNet::interface
                     }
 
                     so_5::send<ble_uart::InitBleUart>(ble_uart_box_, msg->device());
+                })
+            .event(server_out_box_,
+                [this](std::shared_ptr<LabNetProt::Client::UartBoardInit> msg) {
+                    if (!uart_board_box_)
+                    {
+                        uart_board_box_ = so_environment().create_mbox("uart_board");
+                        auto uart_board = so_environment().make_agent<uart_board::UartBordMainActor>(uart_board_box_, self_mbox_, server_in_box_, logger_);
+                        uart_board_coop_ = so_environment().register_agent_as_coop(std::move(uart_board));
+                    }
+
+                    so_5::send<uart_board::InitUartBoard>(uart_board_box_, msg->baud(), msg->is_inverted());
+                })
+            .event(server_out_box_,
+                [this](std::shared_ptr<LabNetProt::Client::UartBoardWriteData> msg) {
+                    if (uart_board_box_)
+                    {
+                        so_5::send<std::shared_ptr<LabNetProt::Client::UartBoardWriteData>>(uart_board_box_, msg);
+                    }
                 });
 
         reset_state_
@@ -402,6 +446,12 @@ namespace LabNet::interface
                         case Interfaces::Uart4:
                         {
                             reset_states_[3] = false;
+                        }
+                        break;
+                        case Interfaces::UartBoard:
+                        {
+                            uart_board_box_ = nullptr;
+                            reset_states_[7] = false;
                         }
                         break;
                         default:

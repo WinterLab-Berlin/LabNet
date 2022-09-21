@@ -19,6 +19,7 @@ DigitalOutHelper::DigitalOutHelper(context_t ctx, log::Logger logger)
     , sound_box_(ctx.environment().create_mbox("sound"))
     , server_out_box_(ctx.env().create_mbox("server_out"))
     , server_in_box_(ctx.env().create_mbox("server_in"))
+    , uart_board_box_(ctx.env().create_mbox("uart_board"))
     , logger_(logger)
 {
 }
@@ -175,6 +176,19 @@ void DigitalOutHelper::so_define_agent()
                         so_5::send<interface::digital_messages::SetDigitalOut>(sound_box_, interface::Interfaces::Sound, msg->id().pin(), msg->state(), server_in_box_);
                     }
                 }
+                else if (interface == LabNetProt::INTERFACE_UART_BOARD)
+                {
+                    PinId id { interface::Interfaces::UartBoard, msg->id().pin() };
+
+                    if (pulse_helper_.count(id) > 0)
+                    {
+                        so_5::send<JustSwitch>(pulse_helper_[id], msg->state());
+                    }
+                    else
+                    {
+                        so_5::send<interface::digital_messages::SetDigitalOut>(uart_board_box_, interface::Interfaces::UartBoard, msg->id().pin(), msg->state(), server_in_box_);
+                    }
+                }
             })
         .event(server_out_box_,
             [this](std::shared_ptr<LabNetProt::Client::DigitalOutPulse> msg) {
@@ -247,6 +261,22 @@ void DigitalOutHelper::so_define_agent()
 
                     so_5::send<StartPulse>(pulse_helper_[id], msg->high_duration(), msg->low_duration(), msg->pulses());
                 }
+                else if (interface == LabNetProt::INTERFACE_UART_BOARD)
+                {
+                    PinId id { interface::Interfaces::UartBoard, msg->id().pin() };
+
+                    if (pulse_helper_.count(id) == 0)
+                    {
+                        auto coop = so_5::create_child_coop(*this);
+                        auto a = coop->make_agent<PulseHelper>(logger_, self_box_, server_in_box_, uart_board_box_, id.interface, id.pin);
+
+                        pulse_helper_[id] = a->so_direct_mbox();
+
+                        so_environment().register_coop(std::move(coop));
+                    }
+
+                    so_5::send<StartPulse>(pulse_helper_[id], msg->high_duration(), msg->low_duration(), msg->pulses());
+                }
             })
         .event(server_out_box_,
             [this](std::shared_ptr<LabNetProt::Client::StartDigitalOutLoop> msg) {
@@ -268,10 +298,18 @@ void DigitalOutHelper::so_define_agent()
                         so_environment().register_coop(std::move(coop));
 
                         so_5::send<LabNetProt::Client::StartDigitalOutLoop>(loop_helper_[loopName], *msg);
+
+                        std::shared_ptr<LabNetProt::Server::DigitalOutLoopStartResult> initRes = std::make_shared<LabNetProt::Server::DigitalOutLoopStartResult>();
+                        initRes->set_loop_name(msg->loop_name());
+                        initRes->set_is_succeed(true);
+                        so_5::send<std::shared_ptr<LabNetProt::Server::DigitalOutLoopStartResult>>(server_in_box_, initRes);
                     }
                     else
                     {
-                        so_5::send<LoopStartFailed>(server_in_box_, loopName);
+                        std::shared_ptr<LabNetProt::Server::DigitalOutLoopStartResult> initRes = std::make_shared<LabNetProt::Server::DigitalOutLoopStartResult>();
+                        initRes->set_loop_name(msg->loop_name());
+                        initRes->set_is_succeed(false);
+                        so_5::send<std::shared_ptr<LabNetProt::Server::DigitalOutLoopStartResult>>(server_in_box_, initRes);
                     }
                 }
             })

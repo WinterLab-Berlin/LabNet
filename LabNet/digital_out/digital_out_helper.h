@@ -29,6 +29,7 @@ namespace LabNet::digital_out
         const so_5::mbox_t uart_box_;
         const so_5::mbox_t gpio_wiring_box_;
         const so_5::mbox_t sound_box_;
+        const so_5::mbox_t uart_board_box_;
 
         std::map<std::string, so_5::mbox_t> loop_helper_;
         std::map<PinId, so_5::mbox_t> pulse_helper_;

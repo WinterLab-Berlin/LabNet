@@ -11,6 +11,7 @@ namespace LabNet::interface
         Sound = 4,
         ChiBio = 5,
         BleUart = 6,
+        UartBoard = 7,
         Uart0 = 100,
         Uart1 = 101,
         Uart2 = 102,

@@ -10,8 +10,6 @@
 #include <wiringPi.h>
 #include <wiringPiSPI.h>
 
-#define MAXRESET 16 // pin
-
 namespace LabNet::interface::rfid_board
 {
     MAXDevice::MAXDevice(log::Logger logger, so_5::mbox_t mbox)
@@ -106,8 +104,8 @@ namespace LabNet::interface::rfid_board
     {
         logger_->WriteInfoEntry("init max14830");
 
-        pinMode(28, OUTPUT); // set pin 28 to OUTPUT for power supply
-        digitalWrite(28, HIGH); // write HIGH to pin 28
+        pinMode(MAXPOWER, OUTPUT); // set pin 28 to OUTPUT for power supply
+        digitalWrite(MAXPOWER, HIGH); // write HIGH to pin 28
 
         // set up Raspberry Pi SPI in master mode, 24MHz, mode 0
         //err = wiringPiSPISetup(SPI1, 4000000L);

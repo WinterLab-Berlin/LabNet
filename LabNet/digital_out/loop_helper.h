@@ -43,6 +43,7 @@ namespace LabNet::digital_out
         so_5::state_t wait_state_ { this, "wait" };
         so_5::state_t running_state_ { this, "running" };
         so_5::state_t pause_state_ { this, "pause" };
+        so_5::state_t stoped_state_ { this, "stoped" };
 
         std::string loop_name_;
         log::Logger logger_;
@@ -51,6 +52,7 @@ namespace LabNet::digital_out
         so_5::mbox_t gpio_box_;
         so_5::mbox_t gpio_wiring_box_;
         so_5::mbox_t uart_box_;
+        so_5::mbox_t uart_board_box_;
 
         uint32_t loop_pause_;
         std::vector<DigitalOutputParameter> loop_;

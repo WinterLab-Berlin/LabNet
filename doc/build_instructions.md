@@ -10,7 +10,8 @@ On Raspberry Pi we need some packages.
 4. libboost-system-dev
 5. wiringpi
 6. libprotoc-dev
-7. gdbserver - only for debugging with Visual Studio 2019.
+7. libbluetooth-dev
+8. gdbserver - only for debugging with Visual Studio 2019.
 
 ## On RaspberryPi
 
