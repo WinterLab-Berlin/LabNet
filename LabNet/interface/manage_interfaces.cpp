@@ -2,8 +2,8 @@
 #include <memory>
 
 #include "../helper/reset_msg.h"
-#include "../network/LabNet.pb.h"
-#include "../network/LabNetClient.pb.h"
+#include <LabNet.pb.h>
+#include <LabNetClient.pb.h>
 #include "../network/server_messages.h"
 #include "digital_messages.h"
 #include "interface_messages.h"

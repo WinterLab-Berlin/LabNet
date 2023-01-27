@@ -6,6 +6,7 @@ cmake_minimum_required (VERSION 3.8)
 project ("LabNet")
 
 # Include sub-projects.
+add_subdirectory(proto)
 add_subdirectory("LabNet")
 
 add_subdirectory(vendor/sobjectizer/dev sobjectizer)

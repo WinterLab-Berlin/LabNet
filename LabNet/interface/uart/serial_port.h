@@ -5,7 +5,7 @@
 #include <future>
 #include <vector>
 #include <map>
-#include "../../network/LabNetClient.pb.h"
+#include <LabNetClient.pb.h>
 #include "digital_input.h"
 #include "digital_output.h"
 

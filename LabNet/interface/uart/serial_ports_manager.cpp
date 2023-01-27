@@ -1,6 +1,6 @@
 #include "serial_ports_manager.h"
-#include "../../network/LabNet.pb.h"
-#include "../../network/LabNetClient.pb.h"
+#include <LabNet.pb.h>
+#include <LabNetClient.pb.h>
 
 #include <fstream>
 #include <string>

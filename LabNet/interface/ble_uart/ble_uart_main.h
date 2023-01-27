@@ -6,7 +6,7 @@
 #include <logging_facility.h>
 #include <map>
 
-#include "../../network/LabNetClient.pb.h"
+#include <LabNetClient.pb.h>
 
 namespace LabNet::interface::ble_uart
 {

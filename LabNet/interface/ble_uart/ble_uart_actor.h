@@ -5,7 +5,7 @@
 #include <logging_facility.h>
 #include "connection.h"
 
-#include "../../network/LabNetClient.pb.h"
+#include <LabNetClient.pb.h>
 
 namespace LabNet::interface::ble_uart
 {

@@ -1,7 +1,7 @@
 #include "data_worker.h"
 #include <chrono>
 #include <so_5/all.hpp>
-#include "../../network/LabNetClient.pb.h"
+#include <LabNetClient.pb.h>
 
 using namespace LabNet::interface::uart_board;
 

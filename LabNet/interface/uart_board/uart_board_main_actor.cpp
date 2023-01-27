@@ -2,7 +2,7 @@
 #include "../resources/resources_actor.h"
 #include "../interface_messages.h"
 #include "../digital_messages.h"
-#include "../../network/LabNetClient.pb.h"
+#include <LabNetClient.pb.h>
 
 using namespace LabNet::interface::uart_board;
 

@@ -1,6 +1,6 @@
 #include "rfid_main_actor.h"
-#include "../../network/LabNet.pb.h"
-#include "../../network/LabNetClient.pb.h"
+#include <LabNet.pb.h>
+#include <LabNetClient.pb.h>
 #include "../interface_messages.h"
 #include "../resources/resources_actor.h"
 

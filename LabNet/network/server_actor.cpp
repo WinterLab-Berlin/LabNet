@@ -82,7 +82,7 @@ void ServerActor::so_define_agent()
                 std::shared_ptr<LabNetProt::Server::LabNetIdReply> reply = std::make_shared<LabNetProt::Server::LabNetIdReply>();
                 reply->set_id("LabNet");
                 reply->set_major_version(1);
-                reply->set_minor_version(0);
+                reply->set_minor_version(1);
 
                 connection_->SendMessage(reply, LabNetProt::Server::ServerMessageType::LABNET_ID_REPLY);
             })

@@ -9,8 +9,7 @@ find_path(BOOST_ASIO_INCLUDE_DIRS "boost/asio.hpp")
 add_executable(LabNet LabNet.cpp
                log/easylogging++.cc log/easylogging++.h log/logging_facility.h log/standard_output_logger.h log/easy_logger.h log/logger_factory.h               
                network/connection.cpp network/connection.h network/connection_manager.cpp network/connection_manager.h network/server.cpp network/server.h
-               network/LabNet.pb.h network/LabNetClient.pb.h network/LabNetServer.pb.h network/LabNet.pb.cc network/LabNetClient.pb.cc
-               network/LabNetServer.pb.cc network/protocol_all.h network/shared_buffer.h
+               network/protocol_all.h network/shared_buffer.h
                network/server_messages.h network/server_actor.h network/server_actor.cpp
                interface/uart/serial_port.cpp interface/uart/serial_port.h  interface/uart/serial_ports_manager.h
                interface/uart/serial_ports_manager.cpp interface/uart/private_messages.h interface/uart/digital_input.h interface/uart/digital_output.h 
@@ -45,7 +44,7 @@ target_include_directories(LabNet PRIVATE ../vendor/sobjectizer/dev)
 target_include_directories(LabNet PRIVATE ../vendor/gattlib/include)
 target_include_directories(LabNet PRIVATE log)
 
-target_link_libraries(LabNet PRIVATE so.5.7.3 gattlib atomic pthread boost_system wiringPi protobuf sfml-system sfml-audio)
+target_link_libraries(LabNet PRIVATE so.5.7.3 gattlib atomic pthread boost_system wiringPi protobuf sfml-system sfml-audio proto)
 
 add_compile_definitions(ELPP_THREAD_SAFE)
 add_compile_definitions(ELPP_NO_DEFAULT_LOG_FILE)

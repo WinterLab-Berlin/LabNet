@@ -6,8 +6,8 @@
 #include <math.h>
 #include <random>
 
-#include "../../network/LabNet.pb.h"
-#include "../../network/LabNetClient.pb.h"
+#include <LabNet.pb.h>
+#include <LabNetClient.pb.h>
 #include "../digital_messages.h"
 #include "../interface_messages.h"
 #include "signal_generator.h"

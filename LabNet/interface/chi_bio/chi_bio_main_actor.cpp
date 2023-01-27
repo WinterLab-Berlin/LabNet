@@ -1,7 +1,7 @@
 #include "chi_bio_main_actor.h"
-#include "../../network/LabNet.pb.h"
-#include "../../network/LabNetClient.pb.h"
-#include "../../network/LabNetServer.pb.h"
+#include <LabNet.pb.h>
+#include <LabNetClient.pb.h>
+#include <LabNetServer.pb.h>
 #include "../interface_messages.h"
 #include "../resources/resources_actor.h"
 #include <cmath>
