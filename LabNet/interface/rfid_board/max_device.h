@@ -6,7 +6,7 @@
 #include <so_5/mbox.hpp>
 #include <thread>
 #include <vector>
-#include <stdint-gcc.h>
+#include <cstdint>
 
 namespace LabNet::interface::rfid_board
 {

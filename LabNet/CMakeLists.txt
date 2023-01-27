@@ -45,7 +45,7 @@ target_include_directories(LabNet PRIVATE ../vendor/sobjectizer/dev)
 target_include_directories(LabNet PRIVATE ../vendor/gattlib/include)
 target_include_directories(LabNet PRIVATE log)
 
-target_link_libraries(LabNet atomic pthread boost_system wiringPi so.5.7.3 protobuf sfml-system sfml-audio gattlib)
+target_link_libraries(LabNet PRIVATE so.5.7.3 gattlib atomic pthread boost_system wiringPi protobuf sfml-system sfml-audio)
 
 add_compile_definitions(ELPP_THREAD_SAFE)
 add_compile_definitions(ELPP_NO_DEFAULT_LOG_FILE)

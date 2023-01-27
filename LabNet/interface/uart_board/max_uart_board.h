@@ -2,7 +2,7 @@
 
 #include <logging_facility.h>
 #include <so_5/mbox.hpp>
-#include <stdint-gcc.h>
+#include <cstdint>
 
 namespace LabNet::interface::uart_board
 {

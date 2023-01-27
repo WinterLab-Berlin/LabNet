@@ -2,6 +2,8 @@
 
 #include <memory>
 #include <string_view>
+#include <string>
+#include <stdexcept>
 
 namespace LabNet::log
 {
